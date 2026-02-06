@@ -187,9 +187,8 @@ const Index = () => {
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight">
                 <span className="block text-white">ЭЛЕКТРОТРАНСПОРТ</span>
                 <span className="block bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent italic animate-fade-in">
-                  ИЗ КИТАЯ
+                  ПОД КЛЮЧ
                 </span>
-                <span className="block text-white">ПОД КЛЮЧ</span>
               </h1>
               
               <p className="text-lg text-slate-300 leading-relaxed max-w-xl">

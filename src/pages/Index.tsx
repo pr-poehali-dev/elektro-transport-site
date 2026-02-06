@@ -158,23 +158,28 @@ const Index = () => {
 
       <section className="bg-gradient-to-br from-slate-950 via-slate-900 to-blue-950 text-white h-[calc(100vh-72px)] relative overflow-hidden flex items-center">
         <div className="absolute inset-0">
-          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px]"></div>
-          <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-[100px]"></div>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-500/5 rounded-full blur-[150px]"></div>
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjAyIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-40"></div>
-          <div className="absolute top-10 left-10 w-2 h-2 bg-primary/60 rounded-full animate-pulse"></div>
-          <div className="absolute top-20 right-32 w-1 h-1 bg-secondary/60 rounded-full animate-pulse" style={{ animationDelay: '0.3s' }}></div>
-          <div className="absolute bottom-32 left-40 w-1.5 h-1.5 bg-blue-400/60 rounded-full animate-pulse" style={{ animationDelay: '0.6s' }}></div>
-          <div className="absolute bottom-20 right-20 w-2 h-2 bg-primary/40 rounded-full animate-pulse" style={{ animationDelay: '0.9s' }}></div>
+          <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-primary/20 rounded-full blur-[150px] animate-pulse"></div>
+          <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-secondary/20 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-blue-500/10 rounded-full blur-[180px]"></div>
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjAzIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-50"></div>
+          <div className="absolute top-10 left-10 w-3 h-3 bg-primary/80 rounded-full animate-pulse shadow-[0_0_20px_rgba(239,68,68,0.6)]"></div>
+          <div className="absolute top-20 right-32 w-2 h-2 bg-secondary/80 rounded-full animate-pulse shadow-[0_0_15px_rgba(251,146,60,0.6)]" style={{ animationDelay: '0.3s' }}></div>
+          <div className="absolute bottom-32 left-40 w-2.5 h-2.5 bg-blue-400/80 rounded-full animate-pulse shadow-[0_0_18px_rgba(96,165,250,0.6)]" style={{ animationDelay: '0.6s' }}></div>
+          <div className="absolute bottom-20 right-20 w-3 h-3 bg-primary/60 rounded-full animate-pulse shadow-[0_0_20px_rgba(239,68,68,0.5)]" style={{ animationDelay: '0.9s' }}></div>
+          <div className="absolute top-1/3 left-1/4 w-1.5 h-1.5 bg-green-400/70 rounded-full animate-pulse shadow-[0_0_12px_rgba(74,222,128,0.5)]" style={{ animationDelay: '1.2s' }}></div>
+          <div className="absolute bottom-1/3 right-1/4 w-2 h-2 bg-purple-400/70 rounded-full animate-pulse shadow-[0_0_15px_rgba(192,132,252,0.5)]" style={{ animationDelay: '1.5s' }}></div>
         </div>
         
         <div className="container mx-auto px-4 relative z-10 w-full">
           <div className="grid md:grid-cols-3 gap-8 items-end">
-            <div className="hidden md:flex items-end justify-center relative animate-scale-in h-[500px]">
+            <div className="hidden md:flex items-end justify-center relative animate-scale-in h-[500px] group">
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[400px] h-[200px] bg-gradient-to-t from-primary/40 via-primary/20 to-transparent blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[350px] h-4 bg-primary/30 rounded-full blur-xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent opacity-50"></div>
               <img 
                 src="https://cdn.poehali.dev/files/070fcfaf-4ddd-4e8e-8dc2-94d7830a0d92.png" 
                 alt="Electric Scooter"
-                className="w-full max-w-lg h-auto object-contain object-bottom opacity-90 drop-shadow-2xl scale-110"
+                className="w-full max-w-lg h-auto object-contain object-bottom opacity-90 drop-shadow-[0_20px_80px_rgba(239,68,68,0.4)] scale-110 relative z-10 group-hover:drop-shadow-[0_20px_100px_rgba(239,68,68,0.6)] transition-all duration-500"
               />
             </div>
             
@@ -216,11 +221,14 @@ const Index = () => {
               </div>
             </div>
             
-            <div className="hidden md:flex items-end justify-center relative animate-scale-in h-[500px]">
+            <div className="hidden md:flex items-end justify-center relative animate-scale-in h-[500px] group">
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[350px] h-[180px] bg-gradient-to-t from-secondary/40 via-secondary/20 to-transparent blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[300px] h-4 bg-secondary/30 rounded-full blur-xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-secondary/10 to-transparent opacity-50"></div>
               <img 
                 src="https://cdn.poehali.dev/files/4a761b83-8f8b-4b15-b4c4-81f434d08483.png" 
                 alt="Electric Scooter"
-                className="w-full max-w-md h-auto object-contain object-bottom drop-shadow-2xl"
+                className="w-full max-w-md h-auto object-contain object-bottom drop-shadow-[0_20px_80px_rgba(251,146,60,0.4)] relative z-10 group-hover:drop-shadow-[0_20px_100px_rgba(251,146,60,0.6)] transition-all duration-500"
               />
             </div>
           </div>

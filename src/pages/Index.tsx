@@ -173,19 +173,21 @@ const Index = () => {
                 Подбор, проверка и доставка электротранспорта под Ваши критерии и бюджет. 
                 Без скрытых платежей с фиксированной ценой по договору
               </p>
-              <div className="flex gap-4">
+              <div className="flex flex-col sm:flex-row gap-4">
                 <Button
                   size="lg"
-                  className="bg-secondary hover:bg-secondary/90 text-white rounded-full px-8 shadow-lg hover:shadow-xl transition-all"
+                  className="relative overflow-hidden bg-gradient-to-br from-primary/30 to-primary/10 backdrop-blur-sm border border-primary/30 text-white hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-primary/50 rounded-2xl px-10 py-6 text-lg font-bold group"
                 >
-                  Перейти в каталог
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-primary/20 rounded-full blur-xl"></div>
+                  <span className="relative">Перейти в каталог</span>
                 </Button>
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-white text-white hover:bg-white hover:text-slate-900 rounded-full px-8"
+                  className="relative overflow-hidden bg-gradient-to-br from-secondary/30 to-secondary/10 backdrop-blur-sm border border-secondary/30 text-white hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-secondary/50 rounded-2xl px-10 py-6 text-lg font-bold group"
                 >
-                  Консультация эксперта
+                  <div className="absolute bottom-0 left-0 w-24 h-24 bg-secondary/20 rounded-full blur-xl"></div>
+                  <span className="relative">Консультация эксперта</span>
                 </Button>
               </div>
             </div>

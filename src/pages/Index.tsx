@@ -169,16 +169,16 @@ const Index = () => {
         </div>
         
         <div className="container mx-auto px-4 relative z-10 w-full">
-          <div className="grid md:grid-cols-3 gap-8 items-center">
-            <div className="hidden md:flex items-center justify-center relative animate-scale-in">
+          <div className="grid md:grid-cols-3 gap-8 items-end">
+            <div className="hidden md:flex items-end justify-center relative animate-scale-in h-[500px]">
               <img 
                 src="https://cdn.poehali.dev/files/070fcfaf-4ddd-4e8e-8dc2-94d7830a0d92.png" 
                 alt="Electric Scooter"
-                className="w-full max-w-lg h-auto object-contain opacity-90 drop-shadow-2xl scale-110"
+                className="w-full max-w-lg h-auto object-contain object-bottom opacity-90 drop-shadow-2xl scale-110"
               />
             </div>
             
-            <div className="space-y-6 animate-fade-in flex flex-col items-center text-center">
+            <div className="space-y-6 animate-fade-in flex flex-col items-center text-center self-center">
               <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 rounded-full px-4 py-1.5 backdrop-blur-sm">
                 <div className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse"></div>
                 <span className="text-xs font-medium uppercase tracking-widest text-primary">Премиум качество</span>
@@ -236,11 +236,11 @@ const Index = () => {
               </div>
             </div>
             
-            <div className="hidden md:flex items-center justify-center relative animate-scale-in">
+            <div className="hidden md:flex items-end justify-center relative animate-scale-in h-[500px]">
               <img 
                 src="https://cdn.poehali.dev/files/4a761b83-8f8b-4b15-b4c4-81f434d08483.png" 
                 alt="Electric Scooter"
-                className="w-full max-w-md h-auto object-contain"
+                className="w-full max-w-md h-auto object-contain object-bottom"
               />
             </div>
           </div>

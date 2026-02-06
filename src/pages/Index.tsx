@@ -171,10 +171,12 @@ const Index = () => {
         <div className="container mx-auto px-4 relative z-10 w-full">
           <div className="grid md:grid-cols-3 gap-8 items-end">
             <div className="hidden md:flex items-end justify-center relative animate-scale-in h-[500px]">
+              <div className="absolute inset-0 bg-gradient-radial from-primary/30 via-primary/10 to-transparent blur-3xl opacity-60"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"></div>
               <img 
                 src="https://cdn.poehali.dev/files/070fcfaf-4ddd-4e8e-8dc2-94d7830a0d92.png" 
                 alt="Electric Scooter"
-                className="w-full max-w-lg h-auto object-contain object-bottom opacity-90 drop-shadow-2xl scale-110"
+                className="w-full max-w-lg h-auto object-contain object-bottom opacity-90 drop-shadow-[0_0_60px_rgba(239,68,68,0.4)] scale-110 relative z-10"
               />
             </div>
             
@@ -184,7 +186,7 @@ const Index = () => {
                 <span className="text-xs font-medium uppercase tracking-widest text-primary">Премиум качество</span>
               </div>
               
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight">
+              <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.1] tracking-tight">
                 <span className="block text-white">ЭЛЕКТРОТРАНСПОРТ</span>
                 <span className="block bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent italic animate-fade-in">
                   ПОД КЛЮЧ
@@ -217,11 +219,47 @@ const Index = () => {
             </div>
             
             <div className="hidden md:flex items-end justify-center relative animate-scale-in h-[500px]">
+              <div className="absolute inset-0 bg-gradient-radial from-secondary/30 via-secondary/10 to-transparent blur-3xl opacity-60"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-secondary/20 to-transparent"></div>
               <img 
                 src="https://cdn.poehali.dev/files/4a761b83-8f8b-4b15-b4c4-81f434d08483.png" 
                 alt="Electric Scooter"
-                className="w-full max-w-md h-auto object-contain object-bottom"
+                className="w-full max-w-md h-auto object-contain object-bottom drop-shadow-[0_0_60px_rgba(251,146,60,0.4)] relative z-10"
               />
+            </div>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-12">
+            <div className="relative group overflow-hidden rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 backdrop-blur-sm border border-primary/20 p-8 hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-primary/30 flex flex-col justify-center items-center">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 rounded-full blur-2xl"></div>
+              <div className="relative">
+                <div className="text-5xl font-bold text-primary mb-2 italic">30%</div>
+                <div className="text-xs text-slate-300 uppercase tracking-wider">Экономия</div>
+              </div>
+            </div>
+            
+            <div className="relative group overflow-hidden rounded-2xl bg-gradient-to-br from-secondary/20 to-secondary/5 backdrop-blur-sm border border-secondary/20 p-8 hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-secondary/30 flex flex-col justify-center items-center">
+              <div className="absolute bottom-0 left-0 w-32 h-32 bg-secondary/20 rounded-full blur-2xl"></div>
+              <div className="relative">
+                <div className="text-5xl font-bold text-secondary mb-2 italic">30</div>
+                <div className="text-xs text-slate-300 uppercase tracking-wider">Дней доставка</div>
+              </div>
+            </div>
+            
+            <div className="relative group overflow-hidden rounded-2xl bg-gradient-to-br from-green-500/20 to-green-500/5 backdrop-blur-sm border border-green-500/20 p-8 hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-green-500/30 flex flex-col justify-center items-center">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-green-500/20 rounded-full blur-2xl"></div>
+              <div className="relative">
+                <div className="text-5xl font-bold text-green-400 mb-2 italic">24/7</div>
+                <div className="text-xs text-slate-300 uppercase tracking-wider">Поддержка</div>
+              </div>
+            </div>
+            
+            <div className="relative group overflow-hidden rounded-2xl bg-gradient-to-br from-orange-500/20 to-orange-500/5 backdrop-blur-sm border border-orange-500/20 p-8 hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-orange-500/30 flex flex-col justify-center items-center">
+              <div className="absolute bottom-0 left-0 w-32 h-32 bg-orange-500/20 rounded-full blur-2xl"></div>
+              <div className="relative">
+                <div className="text-5xl font-bold text-orange-400 mb-2 italic">14</div>
+                <div className="text-xs text-slate-300 uppercase tracking-wider">Лет на рынке</div>
+              </div>
             </div>
           </div>
         </div>

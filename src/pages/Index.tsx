@@ -237,7 +237,7 @@ const Index = () => {
               <div className="absolute top-10 right-10 w-32 h-32 border-4 border-primary/30 rounded-full"></div>
               <div className="absolute bottom-10 left-10 w-24 h-24 border-4 border-secondary/30 rounded-full"></div>
               <img
-                src="https://cdn.poehali.dev/projects/795ac98f-803c-4050-937a-9e9c042d136c/files/8f436506-c352-469c-881d-5967653cc341.jpg"
+                src="https://cdn.poehali.dev/files/e2684227-a546-4d7a-8cc1-80ab2113d2a3.png"
                 alt="Electric Scooter"
                 className="relative w-full max-w-2xl ml-auto drop-shadow-2xl hover:scale-105 transition-transform duration-500"
               />

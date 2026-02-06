@@ -193,6 +193,14 @@ const Index = () => {
             
             <div className="hidden md:flex items-center justify-center relative animate-scale-in">
               <div className="relative w-full max-w-lg h-96">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full flex items-center justify-center">
+                  <img 
+                    src="https://cdn.poehali.dev/files/b5a9d4a9-50a3-488f-8e6b-9ac7a20404ac.png" 
+                    alt="Electric Scooter"
+                    className="w-[120%] h-auto object-contain opacity-20 drop-shadow-2xl"
+                  />
+                </div>
+                
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-primary/20 rounded-full blur-3xl animate-pulse"></div>
                 
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 border-2 border-primary/30 rounded-full animate-[spin_20s_linear_infinite]"></div>

@@ -164,14 +164,9 @@ const Index = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="animate-fade-in">
-              <div className="inline-block mb-4">
-                <Badge className="bg-primary text-white text-sm px-4 py-1 rounded-full">
-                  ЭКСКЛЮЗИВНЫЙ ИМПОРТ
-                </Badge>
-              </div>
               <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
                 ЭЛЕКТРОТРАНСПОРТ<br />
-                <span className="text-primary">НОВОГО ПОКОЛЕНИЯ</span><br />
+                <span className="text-primary italic">ИЗ КИТАЯ</span><br />
                 ПОД КЛЮЧ
               </h1>
               <p className="text-lg text-slate-300 mb-8 max-w-xl">

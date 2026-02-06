@@ -183,7 +183,6 @@ const Index = () => {
                 </Button>
                 <Button
                   size="lg"
-                  variant="outline"
                   className="relative overflow-hidden bg-gradient-to-br from-secondary/30 to-secondary/10 backdrop-blur-sm border border-secondary/30 text-white hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-secondary/50 rounded-2xl px-10 py-6 text-lg font-bold group"
                 >
                   <div className="absolute bottom-0 left-0 w-24 h-24 bg-secondary/20 rounded-full blur-xl"></div>

@@ -174,7 +174,7 @@ const Index = () => {
               <img 
                 src="https://cdn.poehali.dev/files/070fcfaf-4ddd-4e8e-8dc2-94d7830a0d92.png" 
                 alt="Electric Scooter"
-                className="w-full max-w-md h-auto object-contain opacity-90 drop-shadow-2xl"
+                className="w-full max-w-lg h-auto object-contain opacity-90 drop-shadow-2xl scale-110"
               />
             </div>
             
@@ -237,22 +237,11 @@ const Index = () => {
             </div>
             
             <div className="hidden md:flex items-center justify-center relative animate-scale-in">
-              <div className="relative w-full h-full flex items-center justify-center">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <img 
-                    src="https://cdn.poehali.dev/files/4a761b83-8f8b-4b15-b4c4-81f434d08483.png" 
-                    alt="Electric Scooter Background"
-                    className="w-[120%] max-w-none h-auto object-contain opacity-20 drop-shadow-2xl"
-                  />
-                </div>
-                
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-primary/20 rounded-full blur-[80px] animate-pulse"></div>
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] h-[250px] bg-secondary/10 rounded-full blur-[60px] animate-pulse" style={{ animationDelay: '0.5s' }}></div>
-                
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] border border-primary/20 rounded-full animate-[spin_30s_linear_infinite]"></div>
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[230px] h-[230px] border border-secondary/20 rounded-full animate-[spin_20s_linear_infinite_reverse]"></div>
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[160px] h-[160px] border border-primary/10 rounded-full animate-[spin_25s_linear_infinite]"></div>
-              </div>
+              <img 
+                src="https://cdn.poehali.dev/files/4a761b83-8f8b-4b15-b4c4-81f434d08483.png" 
+                alt="Electric Scooter"
+                className="w-full max-w-md h-auto object-contain"
+              />
             </div>
           </div>
         </div>

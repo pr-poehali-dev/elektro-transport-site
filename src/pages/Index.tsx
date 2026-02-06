@@ -215,25 +215,6 @@ const Index = () => {
                   Консультация эксперта
                 </Button>
               </div>
-              
-              <div className="grid grid-cols-4 gap-6 pt-6">
-                <div className="space-y-1">
-                  <div className="text-3xl font-bold text-primary italic">30%</div>
-                  <div className="text-xs text-slate-400 uppercase tracking-wider">Экономия</div>
-                </div>
-                <div className="space-y-1">
-                  <div className="text-3xl font-bold text-secondary italic">30</div>
-                  <div className="text-xs text-slate-400 uppercase tracking-wider">Дней доставка</div>
-                </div>
-                <div className="space-y-1">
-                  <div className="text-3xl font-bold text-green-400 italic">24/7</div>
-                  <div className="text-xs text-slate-400 uppercase tracking-wider">Поддержка</div>
-                </div>
-                <div className="space-y-1">
-                  <div className="text-3xl font-bold text-orange-400 italic">14</div>
-                  <div className="text-xs text-slate-400 uppercase tracking-wider">Лет на рынке</div>
-                </div>
-              </div>
             </div>
             
             <div className="hidden md:flex items-end justify-center relative animate-scale-in h-[500px]">

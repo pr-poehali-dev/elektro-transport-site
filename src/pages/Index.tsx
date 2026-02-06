@@ -195,7 +195,7 @@ const Index = () => {
               <div className="relative w-full max-w-lg h-96">
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full flex items-center justify-center">
                   <img 
-                    src="https://cdn.poehali.dev/files/b5a9d4a9-50a3-488f-8e6b-9ac7a20404ac.png" 
+                    src="https://cdn.poehali.dev/files/4a761b83-8f8b-4b15-b4c4-81f434d08483.png" 
                     alt="Electric Scooter"
                     className="w-[120%] h-auto object-contain opacity-20 drop-shadow-2xl"
                   />

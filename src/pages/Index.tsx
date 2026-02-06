@@ -194,13 +194,6 @@ const Index = () => {
                 </Button>
               </div>
             </div>
-            <div className="hidden md:block animate-scale-in">
-              <img
-                src="https://cdn.poehali.dev/projects/795ac98f-803c-4050-937a-9e9c042d136c/files/726f93d2-7124-40c0-a336-d7135051fdf2.jpg"
-                alt="Electric Transport"
-                className="w-full max-w-2xl ml-auto drop-shadow-2xl"
-              />
-            </div>
           </div>
         </div>
       </section>

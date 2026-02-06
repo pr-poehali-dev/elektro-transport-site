@@ -171,7 +171,7 @@ const Index = () => {
         </div>
         
         <div className="container mx-auto px-4 relative z-10 w-full">
-          <div className="grid md:grid-cols-3 gap-8 items-end">
+          <div className="grid md:grid-cols-3 gap-8 items-center">
             <div className="hidden md:flex items-end justify-center relative animate-scale-in h-[500px]">
               <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[300px] h-3 bg-primary/40 rounded-full blur-lg"></div>
               <img 
@@ -184,12 +184,7 @@ const Index = () => {
               />
             </div>
             
-            <div className="space-y-6 animate-fade-in flex flex-col items-center text-center self-center">
-              <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 rounded-full px-4 py-1.5 backdrop-blur-sm">
-                <div className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse"></div>
-                <span className="text-xs font-medium uppercase tracking-widest text-primary">Премиум качество</span>
-              </div>
-              
+            <div className="space-y-6 animate-fade-in flex flex-col items-center text-center self-start pt-8">
               <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.1] tracking-tight">
                 <span className="block text-white">ЭЛЕКТРОТРАНСПОРТ</span>
                 <span className="block bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent italic animate-fade-in">

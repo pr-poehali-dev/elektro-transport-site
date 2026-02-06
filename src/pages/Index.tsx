@@ -159,106 +159,50 @@ const Index = () => {
         </div>
       </header>
 
-      <section className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-blue-950 text-white">
-        <div className="absolute inset-0">
-          <div className="absolute top-0 -right-40 w-96 h-96 bg-primary/20 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 -left-40 w-96 h-96 bg-secondary/20 rounded-full blur-3xl"></div>
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjAzIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-40"></div>
-        </div>
-        
-        <div className="container mx-auto px-4 py-20 md:py-32 relative z-10">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <div className="space-y-8 animate-fade-in">
-              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2">
-                <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
-                <span className="text-sm font-medium tracking-wide">ЭКСКЛЮЗИВНЫЙ ИМПОРТ</span>
+      <section className="bg-gradient-to-r from-slate-900 to-blue-950 text-white py-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjA1IiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-30"></div>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="animate-fade-in">
+              <div className="inline-block mb-4">
+                <Badge className="bg-primary text-white text-sm px-4 py-1 rounded-full">
+                  ЭКСКЛЮЗИВНЫЙ ИМПОРТ
+                </Badge>
               </div>
-              
-              <h1 className="text-6xl md:text-7xl font-bold leading-tight">
-                <span className="block">ЭЛЕКТРО</span>
-                <span className="block bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent animate-fade-in">
-                  ТРАНСПОРТ
-                </span>
-                <span className="block text-5xl md:text-6xl mt-2">НОВОГО ПОКОЛЕНИЯ</span>
+              <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                ЭЛЕКТРОТРАНСПОРТ<br />
+                <span className="text-primary">НОВОГО ПОКОЛЕНИЯ</span><br />
+                ПОД КЛЮЧ
               </h1>
-              
-              <div className="space-y-4">
-                <p className="text-xl text-slate-300 max-w-xl leading-relaxed">
-                  Подбор, проверка и доставка электротранспорта под Ваши критерии и бюджет
-                </p>
-                <div className="flex items-center gap-3 text-slate-400">
-                  <Icon name="Check" size={20} className="text-primary" />
-                  <span>Без скрытых платежей</span>
-                </div>
-                <div className="flex items-center gap-3 text-slate-400">
-                  <Icon name="Check" size={20} className="text-primary" />
-                  <span>Фиксированная цена по договору</span>
-                </div>
-              </div>
-              
-              <div className="flex flex-wrap gap-4 pt-4">
+              <p className="text-lg text-slate-300 mb-8 max-w-xl">
+                Подбор, проверка и доставка электротранспорта под Ваши критерии и бюджет. 
+                Без скрытых платежей с фиксированной ценой по договору
+              </p>
+              <div className="flex gap-4">
                 <Button
                   size="lg"
-                  className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white rounded-full px-10 shadow-2xl hover:shadow-primary/50 transition-all hover:scale-105 group"
+                  className="bg-secondary hover:bg-secondary/90 text-white rounded-full px-8 shadow-lg hover:shadow-xl transition-all"
                 >
-                  <span>Перейти в каталог</span>
-                  <Icon name="ArrowRight" size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
+                  Перейти в каталог
                 </Button>
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-2 border-white/30 bg-white/5 backdrop-blur-sm text-white hover:bg-white hover:text-slate-900 rounded-full px-10 transition-all hover:scale-105"
+                  className="border-white text-white hover:bg-white hover:text-slate-900 rounded-full px-8"
                 >
-                  <Icon name="MessageCircle" size={18} className="mr-2" />
-                  Консультация
+                  Консультация эксперта
                 </Button>
               </div>
-              
-              <div className="flex items-center gap-8 pt-8 border-t border-white/10">
-                <div>
-                  <div className="text-3xl font-bold text-white">500+</div>
-                  <div className="text-sm text-slate-400">Довольных клиентов</div>
-                </div>
-                <div className="w-px h-12 bg-white/10"></div>
-                <div>
-                  <div className="text-3xl font-bold text-white">14</div>
-                  <div className="text-sm text-slate-400">Лет на рынке</div>
-                </div>
-                <div className="w-px h-12 bg-white/10"></div>
-                <div>
-                  <div className="text-3xl font-bold text-white">30%</div>
-                  <div className="text-sm text-slate-400">Экономия</div>
-                </div>
-              </div>
             </div>
-            
-            <div className="relative hidden md:block animate-scale-in">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-secondary/30 rounded-full blur-3xl scale-75"></div>
-              <div className="absolute top-10 right-10 w-32 h-32 border-4 border-primary/30 rounded-full"></div>
-              <div className="absolute bottom-10 left-10 w-24 h-24 border-4 border-secondary/30 rounded-full"></div>
+            <div className="hidden md:block animate-scale-in">
               <img
-                src="https://cdn.poehali.dev/files/e2684227-a546-4d7a-8cc1-80ab2113d2a3.png"
-                alt="Electric Scooter"
-                className="relative w-full max-w-2xl ml-auto drop-shadow-2xl hover:scale-105 transition-transform duration-500"
+                src="https://cdn.poehali.dev/projects/795ac98f-803c-4050-937a-9e9c042d136c/files/726f93d2-7124-40c0-a336-d7135051fdf2.jpg"
+                alt="Electric Transport"
+                className="w-full max-w-2xl ml-auto drop-shadow-2xl"
               />
-              <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-6 py-3 shadow-2xl">
-                <div className="flex items-center gap-4">
-                  <div className="flex items-center gap-2">
-                    <Icon name="Zap" size={18} className="text-primary" />
-                    <span className="text-sm font-medium">60 км/ч</span>
-                  </div>
-                  <div className="w-px h-6 bg-white/20"></div>
-                  <div className="flex items-center gap-2">
-                    <Icon name="Battery" size={18} className="text-secondary" />
-                    <span className="text-sm font-medium">100 км</span>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
-        
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-50 to-transparent"></div>
       </section>
 
       <section className="py-12 bg-white">

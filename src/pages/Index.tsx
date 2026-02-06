@@ -172,14 +172,15 @@ const Index = () => {
         
         <div className="container mx-auto px-4 relative z-10 w-full">
           <div className="grid md:grid-cols-3 gap-8 items-end">
-            <div className="hidden md:flex items-end justify-center relative animate-scale-in h-[500px] group">
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[400px] h-[200px] bg-gradient-to-t from-primary/40 via-primary/20 to-transparent blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[350px] h-4 bg-primary/30 rounded-full blur-xl"></div>
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent opacity-50"></div>
+            <div className="hidden md:flex items-end justify-center relative animate-scale-in h-[500px]">
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[300px] h-3 bg-primary/40 rounded-full blur-lg"></div>
               <img 
                 src="https://cdn.poehali.dev/files/070fcfaf-4ddd-4e8e-8dc2-94d7830a0d92.png" 
                 alt="Electric Scooter"
-                className="w-full max-w-lg h-auto object-contain object-bottom opacity-90 drop-shadow-[0_20px_80px_rgba(239,68,68,0.4)] scale-110 relative z-10 group-hover:drop-shadow-[0_20px_100px_rgba(239,68,68,0.6)] transition-all duration-500"
+                className="w-full max-w-lg h-auto object-contain object-bottom opacity-90 scale-110 relative z-10"
+                style={{
+                  filter: 'drop-shadow(0 0 40px rgba(239, 68, 68, 0.5)) drop-shadow(0 0 20px rgba(239, 68, 68, 0.3)) drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5))'
+                }}
               />
             </div>
             
@@ -221,14 +222,15 @@ const Index = () => {
               </div>
             </div>
             
-            <div className="hidden md:flex items-end justify-center relative animate-scale-in h-[500px] group">
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[350px] h-[180px] bg-gradient-to-t from-secondary/40 via-secondary/20 to-transparent blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[300px] h-4 bg-secondary/30 rounded-full blur-xl"></div>
-              <div className="absolute inset-0 bg-gradient-to-t from-secondary/10 to-transparent opacity-50"></div>
+            <div className="hidden md:flex items-end justify-center relative animate-scale-in h-[500px]">
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[250px] h-3 bg-secondary/40 rounded-full blur-lg"></div>
               <img 
                 src="https://cdn.poehali.dev/files/4a761b83-8f8b-4b15-b4c4-81f434d08483.png" 
                 alt="Electric Scooter"
-                className="w-full max-w-md h-auto object-contain object-bottom drop-shadow-[0_20px_80px_rgba(251,146,60,0.4)] relative z-10 group-hover:drop-shadow-[0_20px_100px_rgba(251,146,60,0.6)] transition-all duration-500"
+                className="w-full max-w-md h-auto object-contain object-bottom relative z-10"
+                style={{
+                  filter: 'drop-shadow(0 0 40px rgba(251, 146, 60, 0.5)) drop-shadow(0 0 20px rgba(251, 146, 60, 0.3)) drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5))'
+                }}
               />
             </div>
           </div>

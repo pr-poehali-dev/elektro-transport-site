@@ -169,8 +169,16 @@ const Index = () => {
         </div>
         
         <div className="container mx-auto px-4 relative z-10 w-full">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6 animate-fade-in">
+          <div className="grid md:grid-cols-3 gap-8 items-center">
+            <div className="hidden md:flex items-center justify-center relative animate-scale-in">
+              <img 
+                src="https://cdn.poehali.dev/files/aa1c4b12-d667-4b81-853e-6804a31613bf.png" 
+                alt="Electric Scooter"
+                className="w-full max-w-md h-auto object-contain opacity-90 drop-shadow-2xl"
+              />
+            </div>
+            
+            <div className="space-y-6 animate-fade-in flex flex-col items-center text-center">
               <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 rounded-full px-4 py-1.5 backdrop-blur-sm">
                 <div className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse"></div>
                 <span className="text-xs font-medium uppercase tracking-widest text-primary">Премиум качество</span>
@@ -188,7 +196,7 @@ const Index = () => {
                 Подбор, проверка и доставка электротранспорта под Ваши критерии и бюджет
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-3">
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Button
                   size="lg"
                   className="relative overflow-hidden bg-gradient-to-br from-primary/30 to-primary/10 backdrop-blur-sm border border-primary/30 text-white hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-primary/50 rounded-2xl px-8 py-5 text-base font-bold group"
@@ -233,17 +241,17 @@ const Index = () => {
                 <div className="absolute inset-0 flex items-center justify-center">
                   <img 
                     src="https://cdn.poehali.dev/files/4a761b83-8f8b-4b15-b4c4-81f434d08483.png" 
-                    alt="Electric Scooter"
-                    className="w-[180%] max-w-none h-auto object-contain opacity-30 drop-shadow-2xl"
+                    alt="Electric Scooter Background"
+                    className="w-[120%] max-w-none h-auto object-contain opacity-20 drop-shadow-2xl"
                   />
                 </div>
                 
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[80px] animate-pulse"></div>
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-secondary/10 rounded-full blur-[60px] animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-primary/20 rounded-full blur-[80px] animate-pulse"></div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] h-[250px] bg-secondary/10 rounded-full blur-[60px] animate-pulse" style={{ animationDelay: '0.5s' }}></div>
                 
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] border border-primary/20 rounded-full animate-[spin_30s_linear_infinite]"></div>
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] border border-secondary/20 rounded-full animate-[spin_20s_linear_infinite_reverse]"></div>
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] h-[250px] border border-primary/10 rounded-full animate-[spin_25s_linear_infinite]"></div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] border border-primary/20 rounded-full animate-[spin_30s_linear_infinite]"></div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[230px] h-[230px] border border-secondary/20 rounded-full animate-[spin_20s_linear_infinite_reverse]"></div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[160px] h-[160px] border border-primary/10 rounded-full animate-[spin_25s_linear_infinite]"></div>
               </div>
             </div>
           </div>

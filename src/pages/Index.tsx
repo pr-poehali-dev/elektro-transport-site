@@ -250,24 +250,40 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="py-12 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div className="text-center p-6 rounded-xl hover:bg-slate-50 transition-colors">
-              <div className="text-4xl font-bold text-primary mb-2">30%</div>
-              <div className="text-sm text-muted-foreground">Экономия</div>
+      <section className="py-16 bg-gradient-to-b from-slate-900 to-slate-800 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjAzIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-40"></div>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div className="relative group overflow-hidden rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 backdrop-blur-sm border border-primary/20 p-8 hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-primary/30 aspect-video flex flex-col justify-center items-center">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 rounded-full blur-2xl"></div>
+              <div className="relative">
+                <div className="text-6xl font-bold text-primary mb-3 italic">30%</div>
+                <div className="text-sm text-slate-300 uppercase tracking-wider">Экономия</div>
+              </div>
             </div>
-            <div className="text-center p-6 rounded-xl hover:bg-slate-50 transition-colors">
-              <div className="text-4xl font-bold text-secondary mb-2">30</div>
-              <div className="text-sm text-muted-foreground">Дней доставка</div>
+            
+            <div className="relative group overflow-hidden rounded-2xl bg-gradient-to-br from-secondary/20 to-secondary/5 backdrop-blur-sm border border-secondary/20 p-8 hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-secondary/30 aspect-video flex flex-col justify-center items-center">
+              <div className="absolute bottom-0 left-0 w-32 h-32 bg-secondary/20 rounded-full blur-2xl"></div>
+              <div className="relative">
+                <div className="text-6xl font-bold text-secondary mb-3 italic">30</div>
+                <div className="text-sm text-slate-300 uppercase tracking-wider">Дней доставка</div>
+              </div>
             </div>
-            <div className="text-center p-6 rounded-xl hover:bg-slate-50 transition-colors">
-              <div className="text-4xl font-bold text-green-500 mb-2">24/7</div>
-              <div className="text-sm text-muted-foreground">Поддержка</div>
+            
+            <div className="relative group overflow-hidden rounded-2xl bg-gradient-to-br from-green-500/20 to-green-500/5 backdrop-blur-sm border border-green-500/20 p-8 hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-green-500/30 aspect-video flex flex-col justify-center items-center">
+              <div className="absolute top-0 left-0 w-32 h-32 bg-green-500/20 rounded-full blur-2xl"></div>
+              <div className="relative">
+                <div className="text-6xl font-bold text-green-400 mb-3 italic">24/7</div>
+                <div className="text-sm text-slate-300 uppercase tracking-wider">Поддержка</div>
+              </div>
             </div>
-            <div className="text-center p-6 rounded-xl hover:bg-slate-50 transition-colors">
-              <div className="text-4xl font-bold text-orange-500 mb-2">14</div>
-              <div className="text-sm text-muted-foreground">Лет на рынке</div>
+            
+            <div className="relative group overflow-hidden rounded-2xl bg-gradient-to-br from-orange-500/20 to-orange-500/5 backdrop-blur-sm border border-orange-500/20 p-8 hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-orange-500/30 aspect-video flex flex-col justify-center items-center">
+              <div className="absolute bottom-0 right-0 w-32 h-32 bg-orange-500/20 rounded-full blur-2xl"></div>
+              <div className="relative">
+                <div className="text-6xl font-bold text-orange-400 mb-3 italic">14</div>
+                <div className="text-sm text-slate-300 uppercase tracking-wider">Лет на рынке</div>
+              </div>
             </div>
           </div>
         </div>

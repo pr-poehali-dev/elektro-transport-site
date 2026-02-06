@@ -172,7 +172,7 @@ const Index = () => {
           <div className="grid md:grid-cols-3 gap-8 items-center">
             <div className="hidden md:flex items-center justify-center relative animate-scale-in">
               <img 
-                src="https://cdn.poehali.dev/files/267a2a52-bfa8-4c3e-af03-8fb2b4eff688.png" 
+                src="https://cdn.poehali.dev/files/070fcfaf-4ddd-4e8e-8dc2-94d7830a0d92.png" 
                 alt="Electric Scooter"
                 className="w-full max-w-md h-auto object-contain opacity-90 drop-shadow-2xl"
               />

@@ -156,51 +156,123 @@ const Index = () => {
         </div>
       </header>
 
-      <section className="bg-gradient-to-r from-slate-900 to-blue-950 text-white py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjA1IiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-30"></div>
+      <section className="bg-gradient-to-br from-slate-950 via-slate-900 to-blue-950 text-white py-24 md:py-32 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px]"></div>
+          <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-[100px]"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-500/5 rounded-full blur-[150px]"></div>
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjAyIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-40"></div>
+          <div className="absolute top-10 left-10 w-2 h-2 bg-primary/60 rounded-full animate-pulse"></div>
+          <div className="absolute top-20 right-32 w-1 h-1 bg-secondary/60 rounded-full animate-pulse" style={{ animationDelay: '0.3s' }}></div>
+          <div className="absolute bottom-32 left-40 w-1.5 h-1.5 bg-blue-400/60 rounded-full animate-pulse" style={{ animationDelay: '0.6s' }}></div>
+          <div className="absolute bottom-20 right-20 w-2 h-2 bg-primary/40 rounded-full animate-pulse" style={{ animationDelay: '0.9s' }}></div>
+        </div>
+        
         <div className="container mx-auto px-4 relative z-10">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="animate-fade-in">
-              <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-                ЭЛЕКТРОТРАНСПОРТ<br />
-                <span className="text-primary italic">ИЗ КИТАЯ</span><br />
-                ПОД КЛЮЧ
+          <div className="grid md:grid-cols-2 gap-16 items-center min-h-[600px]">
+            <div className="space-y-8 animate-fade-in">
+              <div className="space-y-2">
+                <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 rounded-full px-4 py-2 backdrop-blur-sm">
+                  <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+                  <span className="text-sm font-medium uppercase tracking-widest text-primary">Премиум качество</span>
+                </div>
+              </div>
+              
+              <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.1] tracking-tight">
+                <span className="block text-white">ЭЛЕКТРО</span>
+                <span className="block text-white">ТРАНСПОРТ</span>
+                <span className="block bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent italic animate-fade-in">
+                  ИЗ КИТАЯ
+                </span>
+                <span className="block text-white mt-2">ПОД КЛЮЧ</span>
               </h1>
-              <p className="text-lg text-slate-300 mb-8 max-w-xl">
-                Подбор, проверка и доставка электротранспорта под Ваши критерии и бюджет. 
-                Без скрытых платежей с фиксированной ценой по договору
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
+              
+              <div className="space-y-6 max-w-xl">
+                <p className="text-xl text-slate-300 leading-relaxed">
+                  Подбор, проверка и доставка электротранспорта под Ваши критерии и бюджет
+                </p>
+                <div className="grid grid-cols-2 gap-4 pt-4">
+                  <div className="flex items-start gap-3">
+                    <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0 mt-1">
+                      <Icon name="Check" size={14} className="text-primary" />
+                    </div>
+                    <div className="text-sm text-slate-300">Фиксированная цена по договору</div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0 mt-1">
+                      <Icon name="Check" size={14} className="text-primary" />
+                    </div>
+                    <div className="text-sm text-slate-300">Без скрытых платежей</div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-6 h-6 rounded-full bg-secondary/20 flex items-center justify-center flex-shrink-0 mt-1">
+                      <Icon name="Shield" size={14} className="text-secondary" />
+                    </div>
+                    <div className="text-sm text-slate-300">Официальная гарантия</div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-6 h-6 rounded-full bg-secondary/20 flex items-center justify-center flex-shrink-0 mt-1">
+                      <Icon name="Truck" size={14} className="text-secondary" />
+                    </div>
+                    <div className="text-sm text-slate-300">Доставка за 30 дней</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <Button
                   size="lg"
                   className="relative overflow-hidden bg-gradient-to-br from-primary/30 to-primary/10 backdrop-blur-sm border border-primary/30 text-white hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-primary/50 rounded-2xl px-10 py-6 text-lg font-bold group"
                 >
                   <div className="absolute top-0 right-0 w-24 h-24 bg-primary/20 rounded-full blur-xl"></div>
-                  <span className="relative">Перейти в каталог</span>
+                  <span className="relative flex items-center gap-2">
+                    Перейти в каталог
+                    <Icon name="ArrowRight" size={20} className="group-hover:translate-x-1 transition-transform" />
+                  </span>
                 </Button>
                 <Button
                   size="lg"
-                  className="bg-[#0EA5E9] hover:bg-[#0EA5E9]/90 text-white hover:scale-105 transition-all duration-300 shadow-2xl rounded-2xl px-10 py-6 text-lg font-bold"
+                  className="bg-[#0EA5E9] hover:bg-[#0EA5E9]/90 text-white hover:scale-105 transition-all duration-300 shadow-2xl rounded-2xl px-10 py-6 text-lg font-bold flex items-center gap-2"
                 >
+                  <Icon name="MessageCircle" size={20} />
                   Консультация эксперта
                 </Button>
+              </div>
+              
+              <div className="flex items-center gap-8 pt-8 border-t border-white/10">
+                <div className="space-y-1">
+                  <div className="text-4xl font-bold text-white">500+</div>
+                  <div className="text-xs text-slate-400 uppercase tracking-wider">Клиентов</div>
+                </div>
+                <div className="w-px h-12 bg-white/10"></div>
+                <div className="space-y-1">
+                  <div className="text-4xl font-bold text-white">14</div>
+                  <div className="text-xs text-slate-400 uppercase tracking-wider">Лет опыта</div>
+                </div>
+                <div className="w-px h-12 bg-white/10"></div>
+                <div className="space-y-1">
+                  <div className="text-4xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">30%</div>
+                  <div className="text-xs text-slate-400 uppercase tracking-wider">Экономия</div>
+                </div>
               </div>
             </div>
             
             <div className="hidden md:flex items-center justify-center relative animate-scale-in">
-              <div className="relative w-full max-w-lg h-96">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full flex items-center justify-center">
+              <div className="relative w-full h-[600px] flex items-center justify-center">
+                <div className="absolute inset-0 flex items-center justify-center">
                   <img 
                     src="https://cdn.poehali.dev/files/4a761b83-8f8b-4b15-b4c4-81f434d08483.png" 
                     alt="Electric Scooter"
-                    className="w-[120%] h-auto object-contain opacity-20 drop-shadow-2xl"
+                    className="w-[160%] max-w-none h-auto object-contain opacity-25 drop-shadow-2xl"
                   />
                 </div>
                 
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-primary/20 rounded-full blur-3xl animate-pulse"></div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[80px] animate-pulse"></div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-secondary/10 rounded-full blur-[60px] animate-pulse" style={{ animationDelay: '0.5s' }}></div>
                 
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 border-2 border-primary/30 rounded-full animate-[spin_20s_linear_infinite]"></div>
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-52 h-52 border-2 border-secondary/30 rounded-full animate-[spin_15s_linear_infinite_reverse]"></div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] border border-primary/20 rounded-full animate-[spin_30s_linear_infinite]"></div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] border border-secondary/20 rounded-full animate-[spin_20s_linear_infinite_reverse]"></div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] h-[250px] border border-primary/10 rounded-full animate-[spin_25s_linear_infinite]"></div>
                 
                 <div className="absolute top-8 left-1/2 -translate-x-1/2 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-6 py-4 shadow-xl animate-fade-in" style={{ animationDelay: '0.2s' }}>
                   <div className="flex items-center gap-3">

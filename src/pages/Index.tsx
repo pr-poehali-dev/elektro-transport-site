@@ -171,12 +171,10 @@ const Index = () => {
         <div className="container mx-auto px-4 relative z-10 w-full">
           <div className="grid md:grid-cols-3 gap-8 items-end">
             <div className="hidden md:flex items-end justify-center relative animate-scale-in h-[500px]">
-              <div className="absolute inset-0 bg-gradient-radial from-primary/30 via-primary/10 to-transparent blur-3xl opacity-60"></div>
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"></div>
               <img 
                 src="https://cdn.poehali.dev/files/070fcfaf-4ddd-4e8e-8dc2-94d7830a0d92.png" 
                 alt="Electric Scooter"
-                className="w-full max-w-lg h-auto object-contain object-bottom opacity-90 drop-shadow-[0_0_60px_rgba(239,68,68,0.4)] scale-110 relative z-10"
+                className="w-full max-w-lg h-auto object-contain object-bottom opacity-90 drop-shadow-2xl scale-110"
               />
             </div>
             
@@ -219,12 +217,10 @@ const Index = () => {
             </div>
             
             <div className="hidden md:flex items-end justify-center relative animate-scale-in h-[500px]">
-              <div className="absolute inset-0 bg-gradient-radial from-secondary/30 via-secondary/10 to-transparent blur-3xl opacity-60"></div>
-              <div className="absolute inset-0 bg-gradient-to-t from-secondary/20 to-transparent"></div>
               <img 
                 src="https://cdn.poehali.dev/files/4a761b83-8f8b-4b15-b4c4-81f434d08483.png" 
                 alt="Electric Scooter"
-                className="w-full max-w-md h-auto object-contain object-bottom drop-shadow-[0_0_60px_rgba(251,146,60,0.4)] relative z-10"
+                className="w-full max-w-md h-auto object-contain object-bottom drop-shadow-2xl"
               />
             </div>
           </div>

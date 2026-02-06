@@ -249,10 +249,6 @@ const Index = () => {
                     </div>
                   </div>
                 </div>
-                
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center shadow-2xl animate-pulse">
-                  <Icon name="Zap" size={48} className="text-white" />
-                </div>
               </div>
             </div>
           </div>

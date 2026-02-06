@@ -194,6 +194,67 @@ const Index = () => {
                 </Button>
               </div>
             </div>
+            
+            <div className="hidden md:flex items-center justify-center relative animate-scale-in">
+              <div className="relative w-full max-w-lg h-96">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-primary/20 rounded-full blur-3xl animate-pulse"></div>
+                
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 border-2 border-primary/30 rounded-full animate-[spin_20s_linear_infinite]"></div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-52 h-52 border-2 border-secondary/30 rounded-full animate-[spin_15s_linear_infinite_reverse]"></div>
+                
+                <div className="absolute top-8 left-1/2 -translate-x-1/2 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-6 py-4 shadow-xl animate-fade-in" style={{ animationDelay: '0.2s' }}>
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center">
+                      <Icon name="Gauge" size={24} className="text-primary" />
+                    </div>
+                    <div>
+                      <div className="text-2xl font-bold">60 км/ч</div>
+                      <div className="text-xs text-slate-400">Макс. скорость</div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="absolute top-1/2 right-0 -translate-y-1/2 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-6 py-4 shadow-xl animate-fade-in" style={{ animationDelay: '0.4s' }}>
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 bg-secondary/20 rounded-full flex items-center justify-center">
+                      <Icon name="Battery" size={24} className="text-secondary" />
+                    </div>
+                    <div>
+                      <div className="text-2xl font-bold">100 км</div>
+                      <div className="text-xs text-slate-400">Запас хода</div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="absolute bottom-8 left-1/2 -translate-x-1/2 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-6 py-4 shadow-xl animate-fade-in" style={{ animationDelay: '0.6s' }}>
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center">
+                      <Icon name="Zap" size={24} className="text-green-400" />
+                    </div>
+                    <div>
+                      <div className="text-2xl font-bold">3000 Вт</div>
+                      <div className="text-xs text-slate-400">Мощность</div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="absolute top-1/2 left-0 -translate-y-1/2 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-6 py-4 shadow-xl animate-fade-in" style={{ animationDelay: '0.8s' }}>
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 bg-orange-500/20 rounded-full flex items-center justify-center">
+                      <Icon name="Weight" size={24} className="text-orange-400" />
+                    </div>
+                    <div>
+                      <div className="text-2xl font-bold">72 кг</div>
+                      <div className="text-xs text-slate-400">Вес</div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center shadow-2xl animate-pulse">
+                  <Icon name="Zap" size={48} className="text-white" />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

@@ -180,12 +180,12 @@ const Index = () => {
           
           <div className="flex flex-col items-center gap-12 pt-32">
             <div className="grid md:grid-cols-3 gap-8 items-center w-full">
-              <div className="hidden md:flex items-end justify-center relative animate-scale-in h-[500px]">
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[300px] h-3 bg-primary/40 rounded-full blur-lg"></div>
+              <div className="hidden md:flex items-end justify-center relative animate-scale-in h-[600px]">
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[400px] h-3 bg-primary/40 rounded-full blur-lg"></div>
                 <img 
                   src="https://cdn.poehali.dev/files/070fcfaf-4ddd-4e8e-8dc2-94d7830a0d92.png" 
                   alt="Electric Scooter"
-                  className="w-full max-w-lg h-auto object-contain object-bottom opacity-90 scale-110 relative z-10"
+                  className="w-full max-w-2xl h-auto object-contain object-bottom opacity-90 scale-125 relative z-10"
                   style={{
                     filter: 'drop-shadow(0 0 40px rgba(239, 68, 68, 0.5)) drop-shadow(0 0 20px rgba(239, 68, 68, 0.3)) drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5))'
                   }}
@@ -218,12 +218,12 @@ const Index = () => {
                 </div>
               </div>
             
-            <div className="hidden md:flex items-end justify-center relative animate-scale-in h-[500px]">
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[250px] h-3 bg-secondary/40 rounded-full blur-lg"></div>
+            <div className="hidden md:flex items-end justify-center relative animate-scale-in h-[600px]">
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[350px] h-3 bg-secondary/40 rounded-full blur-lg"></div>
               <img 
                 src="https://cdn.poehali.dev/files/4a761b83-8f8b-4b15-b4c4-81f434d08483.png" 
                 alt="Electric Scooter"
-                className="w-full max-w-md h-auto object-contain object-bottom relative z-10"
+                className="w-full max-w-xl h-auto object-contain object-bottom relative z-10 scale-110"
                 style={{
                   filter: 'drop-shadow(0 0 40px rgba(251, 146, 60, 0.5)) drop-shadow(0 0 20px rgba(251, 146, 60, 0.3)) drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5))'
                 }}

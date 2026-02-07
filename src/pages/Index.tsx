@@ -228,9 +228,8 @@ const Index = () => {
                 }}
               />
             </div>
-          </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-12">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-12">
             <div className="relative group overflow-hidden rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 backdrop-blur-sm border border-primary/20 p-8 hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-primary/30 flex flex-col justify-center items-center">
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 rounded-full blur-2xl"></div>
               <div className="relative">
@@ -261,6 +260,7 @@ const Index = () => {
                 <div className="text-5xl font-bold text-orange-400 mb-2 italic">14</div>
                 <div className="text-xs text-slate-300 uppercase tracking-wider">Лет на рынке</div>
               </div>
+            </div>
             </div>
           </div>
         </div>

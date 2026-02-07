@@ -192,27 +192,27 @@ const Index = () => {
                 />
               </div>
               
-              <div className="space-y-6 animate-fade-in flex flex-col items-center text-center self-start pt-8">
-                <p className="text-lg text-slate-300 leading-relaxed max-w-xl">
+              <div className="space-y-8 animate-fade-in flex flex-col items-center text-center self-start pt-24">
+                <p className="text-xl text-slate-300 leading-relaxed max-w-xl">
                   Современно. Экологично. Экономично. Комфортно.
                 </p>
                 
-                <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <div className="flex flex-col gap-4 justify-center w-full max-w-md">
                   <Button
                     size="lg"
-                    className="relative overflow-hidden bg-gradient-to-br from-primary/30 to-primary/10 backdrop-blur-sm border border-primary/30 text-white hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-primary/50 rounded-2xl px-8 py-5 text-base font-bold group"
+                    className="relative overflow-hidden bg-gradient-to-br from-primary/30 to-primary/10 backdrop-blur-sm border border-primary/30 text-white hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-primary/50 rounded-2xl px-10 py-7 text-lg font-bold group w-full"
                   >
                     <div className="absolute top-0 right-0 w-24 h-24 bg-primary/20 rounded-full blur-xl"></div>
-                    <span className="relative flex items-center gap-2">
+                    <span className="relative flex items-center justify-center gap-3">
                       Перейти в каталог
-                      <Icon name="ArrowRight" size={18} className="group-hover:translate-x-1 transition-transform" />
+                      <Icon name="ArrowRight" size={20} className="group-hover:translate-x-1 transition-transform" />
                     </span>
                   </Button>
                   <Button
                     size="lg"
-                    className="bg-[#0EA5E9] hover:bg-[#0EA5E9]/90 text-white hover:scale-105 transition-all duration-300 shadow-2xl rounded-2xl px-8 py-5 text-base font-bold flex items-center gap-2"
+                    className="bg-[#0EA5E9] hover:bg-[#0EA5E9]/90 text-white hover:scale-105 transition-all duration-300 shadow-2xl rounded-2xl px-10 py-7 text-lg font-bold flex items-center justify-center gap-3 w-full"
                   >
-                    <Icon name="MessageCircle" size={18} />
+                    <Icon name="MessageCircle" size={20} />
                     Консультация эксперта
                   </Button>
                 </div>

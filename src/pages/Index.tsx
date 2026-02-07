@@ -181,57 +181,57 @@ const Index = () => {
         <div className="container mx-auto px-4 relative z-10 w-full">
           
           <div className="flex flex-col items-center gap-12 pt-32">
-            <div className="grid md:grid-cols-2 gap-12 items-end w-full max-w-5xl mx-auto">
-              <div className="flex items-end justify-center relative animate-scale-in group">
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[250px] h-2 bg-blue-500/40 rounded-full blur-lg group-hover:w-[300px] transition-all duration-500"></div>
+            <div className="grid md:grid-cols-3 gap-8 items-center w-full">
+              <div className="hidden md:flex items-end justify-center relative animate-scale-in h-[600px]">
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[400px] h-3 bg-primary/40 rounded-full blur-lg"></div>
                 <img 
-                  src="https://cdn.poehali.dev/files/36f13baa-6fee-4f2c-89c4-94d789bfda32.png" 
-                  alt="Electric ATV"
-                  className="w-full h-auto object-contain relative z-10 hover:scale-110 transition-transform duration-500"
-                  style={{
-                    filter: 'drop-shadow(0 10px 30px rgba(59, 130, 246, 0.4)) drop-shadow(0 0 20px rgba(59, 130, 246, 0.2))'
-                  }}
-                />
-              </div>
-              
-              <div className="flex items-end justify-center relative animate-scale-in group" style={{ animationDelay: '0.15s' }}>
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[250px] h-2 bg-primary/40 rounded-full blur-lg group-hover:w-[300px] transition-all duration-500"></div>
-                <img 
-                  src="https://cdn.poehali.dev/files/26aabfed-1ab2-4231-965b-7ab4d5c7bdef.png" 
+                  src="https://cdn.poehali.dev/files/53ce0509-2d93-4749-816a-882e5de06982.png" 
                   alt="Electric Scooter"
-                  className="w-full h-auto object-contain relative z-10 hover:scale-110 transition-transform duration-500"
+                  className="w-full max-w-2xl h-auto object-contain object-bottom opacity-90 scale-125 relative z-10"
                   style={{
-                    filter: 'drop-shadow(0 10px 30px rgba(239, 68, 68, 0.4)) drop-shadow(0 0 20px rgba(239, 68, 68, 0.2))'
+                    filter: 'drop-shadow(0 0 40px rgba(239, 68, 68, 0.5)) drop-shadow(0 0 20px rgba(239, 68, 68, 0.3)) drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5))'
                   }}
                 />
               </div>
-            </div>
-            
-            <div className="space-y-8 animate-fade-in flex flex-col items-center text-center mt-16">
-              <p className="text-2xl md:text-3xl text-slate-300 leading-relaxed max-w-2xl">
-                Современно. Экологично. Экономично. Комфортно.
-              </p>
               
-              <div className="flex flex-col sm:flex-row gap-4 justify-center w-full max-w-2xl">
-                <Button
-                  size="lg"
-                  className="relative overflow-hidden bg-gradient-to-br from-primary/30 to-primary/10 backdrop-blur-sm border border-primary/30 text-white hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-primary/50 rounded-2xl px-10 py-7 text-lg font-bold group"
-                >
-                  <div className="absolute top-0 right-0 w-24 h-24 bg-primary/20 rounded-full blur-xl"></div>
-                  <span className="relative flex items-center justify-center gap-3">
-                    Перейти в каталог
-                    <Icon name="ArrowRight" size={20} className="group-hover:translate-x-1 transition-transform" />
-                  </span>
-                </Button>
-                <Button
-                  size="lg"
-                  className="bg-[#0EA5E9] hover:bg-[#0EA5E9]/90 text-white hover:scale-105 transition-all duration-300 shadow-2xl rounded-2xl px-10 py-7 text-lg font-bold flex items-center justify-center gap-3"
-                >
-                  <Icon name="MessageCircle" size={20} />
-                  Консультация эксперта
-                </Button>
+              <div className="space-y-8 animate-fade-in flex flex-col items-center text-center self-center">
+                <p className="text-2xl md:text-3xl text-slate-300 leading-relaxed max-w-2xl">
+                  Современно. Экологично. Экономично. Комфортно.
+                </p>
+                
+                <div className="flex flex-col gap-4 justify-center w-full max-w-md">
+                  <Button
+                    size="lg"
+                    className="relative overflow-hidden bg-gradient-to-br from-primary/30 to-primary/10 backdrop-blur-sm border border-primary/30 text-white hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-primary/50 rounded-2xl px-10 py-7 text-lg font-bold group w-full"
+                  >
+                    <div className="absolute top-0 right-0 w-24 h-24 bg-primary/20 rounded-full blur-xl"></div>
+                    <span className="relative flex items-center justify-center gap-3">
+                      Перейти в каталог
+                      <Icon name="ArrowRight" size={20} className="group-hover:translate-x-1 transition-transform" />
+                    </span>
+                  </Button>
+                  <Button
+                    size="lg"
+                    className="bg-[#0EA5E9] hover:bg-[#0EA5E9]/90 text-white hover:scale-105 transition-all duration-300 shadow-2xl rounded-2xl px-10 py-7 text-lg font-bold flex items-center justify-center gap-3 w-full"
+                  >
+                    <Icon name="MessageCircle" size={20} />
+                    Консультация эксперта
+                  </Button>
+                </div>
               </div>
+            
+            <div className="hidden md:flex items-end justify-center relative animate-scale-in h-[600px]">
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[350px] h-3 bg-secondary/40 rounded-full blur-lg"></div>
+              <img 
+                src="https://cdn.poehali.dev/files/533639d0-2996-4a61-a043-a7be0789c56f.png" 
+                alt="Electric Scooter"
+                className="w-full max-w-xl h-auto object-contain object-bottom relative z-10 scale-110"
+                style={{
+                  filter: 'drop-shadow(0 0 40px rgba(251, 146, 60, 0.5)) drop-shadow(0 0 20px rgba(251, 146, 60, 0.3)) drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5))'
+                }}
+              />
             </div>
+          </div>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-12 mb-12">
@@ -301,7 +301,7 @@ const Index = () => {
                 onClick={() => setSelectedCategory(cat.name)}
                 className={selectedCategory === cat.name ? "bg-primary text-white rounded-full whitespace-nowrap" : "rounded-full whitespace-nowrap"}
               >
-                <Icon name={cat.icon} size={18} className="mr-2" />
+                <Icon name={cat.icon as any} size={18} className="mr-2" />
                 {cat.name}
               </Button>
             ))}

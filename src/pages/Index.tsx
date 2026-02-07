@@ -156,7 +156,7 @@ const Index = () => {
         </div>
       </header>
 
-      <section className="bg-gradient-to-br from-slate-950 via-slate-900 to-blue-950 text-white min-h-[calc(100vh-72px)] relative flex items-center py-12">
+      <section className="bg-gradient-to-br from-slate-950 via-slate-900 to-blue-950 text-white h-[calc(100vh-72px)] relative flex items-center overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-primary/20 rounded-full blur-[150px] animate-pulse"></div>
           <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-secondary/20 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '1s' }}></div>
@@ -170,8 +170,8 @@ const Index = () => {
           <div className="absolute bottom-1/3 right-1/4 w-2 h-2 bg-purple-400/70 rounded-full animate-pulse shadow-[0_0_15px_rgba(192,132,252,0.5)]" style={{ animationDelay: '1.5s' }}></div>
         </div>
         
-        <div className="absolute top-12 left-0 right-0 z-[60] pointer-events-none">
-          <h1 className="text-[clamp(2rem,7vw,10rem)] font-bold leading-[1.1] tracking-tight text-center animate-fade-in">
+        <div className="absolute top-4 left-0 right-0 z-[60] pointer-events-none">
+          <h1 className="text-[clamp(1.5rem,5vw,6rem)] font-bold leading-[1.1] tracking-tight text-center animate-fade-in">
             <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
               НА ПОЛНОМ ЗАРЯДЕ
             </span>
@@ -180,14 +180,14 @@ const Index = () => {
 
         <div className="container mx-auto px-4 relative z-10 w-full">
           
-          <div className="flex flex-col items-center gap-12 pt-32">
-            <div className="grid md:grid-cols-2 gap-12 items-end w-full max-w-5xl mx-auto">
+          <div className="flex flex-col items-center gap-6 pt-20">
+            <div className="grid md:grid-cols-2 gap-8 items-end w-full max-w-4xl mx-auto">
               <div className="flex items-end justify-center relative animate-scale-in group">
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[250px] h-2 bg-blue-500/40 rounded-full blur-lg group-hover:w-[300px] transition-all duration-500"></div>
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[200px] h-2 bg-blue-500/40 rounded-full blur-lg group-hover:w-[250px] transition-all duration-500"></div>
                 <img 
                   src="https://cdn.poehali.dev/files/36f13baa-6fee-4f2c-89c4-94d789bfda32.png" 
                   alt="Electric ATV"
-                  className="w-full h-auto object-contain relative z-10 hover:scale-110 transition-transform duration-500"
+                  className="w-full max-h-[35vh] h-auto object-contain relative z-10 hover:scale-110 transition-transform duration-500"
                   style={{
                     filter: 'drop-shadow(0 10px 30px rgba(59, 130, 246, 0.4)) drop-shadow(0 0 20px rgba(59, 130, 246, 0.2))'
                   }}
@@ -195,11 +195,11 @@ const Index = () => {
               </div>
               
               <div className="flex items-end justify-center relative animate-scale-in group" style={{ animationDelay: '0.15s' }}>
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[250px] h-2 bg-primary/40 rounded-full blur-lg group-hover:w-[300px] transition-all duration-500"></div>
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[200px] h-2 bg-primary/40 rounded-full blur-lg group-hover:w-[250px] transition-all duration-500"></div>
                 <img 
                   src="https://cdn.poehali.dev/files/26aabfed-1ab2-4231-965b-7ab4d5c7bdef.png" 
                   alt="Electric Scooter"
-                  className="w-full h-auto object-contain relative z-10 hover:scale-110 transition-transform duration-500"
+                  className="w-full max-h-[35vh] h-auto object-contain relative z-10 hover:scale-110 transition-transform duration-500"
                   style={{
                     filter: 'drop-shadow(0 10px 30px rgba(239, 68, 68, 0.4)) drop-shadow(0 0 20px rgba(239, 68, 68, 0.2))'
                   }}
@@ -207,15 +207,15 @@ const Index = () => {
               </div>
             </div>
             
-            <div className="space-y-8 animate-fade-in flex flex-col items-center text-center mt-16">
-              <p className="text-2xl md:text-3xl text-slate-300 leading-relaxed max-w-2xl">
+            <div className="space-y-4 animate-fade-in flex flex-col items-center text-center">
+              <p className="text-lg md:text-2xl text-slate-300 leading-relaxed max-w-2xl">
                 Современно. Экологично. Экономично. Комфортно.
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4 justify-center w-full max-w-2xl">
+              <div className="flex flex-col sm:flex-row gap-3 justify-center w-full max-w-2xl">
                 <Button
                   size="lg"
-                  className="relative overflow-hidden bg-gradient-to-br from-primary/30 to-primary/10 backdrop-blur-sm border border-primary/30 text-white hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-primary/50 rounded-2xl px-10 py-7 text-lg font-bold group"
+                  className="relative overflow-hidden bg-gradient-to-br from-primary/30 to-primary/10 backdrop-blur-sm border border-primary/30 text-white hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-primary/50 rounded-2xl px-8 py-5 text-base font-bold group"
                 >
                   <div className="absolute top-0 right-0 w-24 h-24 bg-primary/20 rounded-full blur-xl"></div>
                   <span className="relative flex items-center justify-center gap-3">
@@ -225,7 +225,7 @@ const Index = () => {
                 </Button>
                 <Button
                   size="lg"
-                  className="bg-[#0EA5E9] hover:bg-[#0EA5E9]/90 text-white hover:scale-105 transition-all duration-300 shadow-2xl rounded-2xl px-10 py-7 text-lg font-bold flex items-center justify-center gap-3"
+                  className="bg-[#0EA5E9] hover:bg-[#0EA5E9]/90 text-white hover:scale-105 transition-all duration-300 shadow-2xl rounded-2xl px-8 py-5 text-base font-bold flex items-center justify-center gap-3"
                 >
                   <Icon name="MessageCircle" size={20} />
                   Консультация эксперта

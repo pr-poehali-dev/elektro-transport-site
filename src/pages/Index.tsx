@@ -185,7 +185,7 @@ const Index = () => {
               <div className="hidden md:flex items-end justify-center relative animate-scale-in h-[600px]">
                 <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[400px] h-3 bg-primary/40 rounded-full blur-lg"></div>
                 <img 
-                  src="https://cdn.poehali.dev/files/070fcfaf-4ddd-4e8e-8dc2-94d7830a0d92.png" 
+                  src="https://cdn.poehali.dev/files/53ce0509-2d93-4749-816a-882e5de06982.png" 
                   alt="Electric Scooter"
                   className="w-full max-w-2xl h-auto object-contain object-bottom opacity-90 scale-125 relative z-10"
                   style={{
@@ -223,7 +223,7 @@ const Index = () => {
             <div className="hidden md:flex items-end justify-center relative animate-scale-in h-[600px]">
               <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[350px] h-3 bg-secondary/40 rounded-full blur-lg"></div>
               <img 
-                src="https://cdn.poehali.dev/files/4a761b83-8f8b-4b15-b4c4-81f434d08483.png" 
+                src="https://cdn.poehali.dev/files/533639d0-2996-4a61-a043-a7be0789c56f.png" 
                 alt="Electric Scooter"
                 className="w-full max-w-xl h-auto object-contain object-bottom relative z-10 scale-110"
                 style={{

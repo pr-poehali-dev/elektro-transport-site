@@ -229,6 +229,7 @@ const Index = () => {
               />
             </div>
           </div>
+          </div>
           
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-12">
             <div className="relative group overflow-hidden rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 backdrop-blur-sm border border-primary/20 p-8 hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-primary/30 flex flex-col justify-center items-center">

@@ -171,13 +171,13 @@ const Index = () => {
         </div>
         
         <div className="container mx-auto px-4 relative z-10 w-full">
-          <div className="flex flex-col items-center gap-12">
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.1] tracking-tight italic relative z-20 animate-fade-in whitespace-nowrap mt-20">
-              <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
-                НА ПОЛНОМ ЗАРЯДЕ
-              </span>
-            </h1>
-            
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.1] tracking-tight italic absolute top-12 left-1/2 -translate-x-1/2 z-50 animate-fade-in whitespace-nowrap">
+            <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
+              НА ПОЛНОМ ЗАРЯДЕ
+            </span>
+          </h1>
+          
+          <div className="flex flex-col items-center gap-12 pt-32">
             <div className="grid md:grid-cols-3 gap-8 items-center w-full">
               <div className="hidden md:flex items-end justify-center relative animate-scale-in h-[500px]">
                 <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[300px] h-3 bg-primary/40 rounded-full blur-lg"></div>

@@ -181,30 +181,16 @@ const Index = () => {
         <div className="container mx-auto px-4 relative z-10 w-full">
           
           <div className="flex flex-col items-center gap-6 pt-20">
-            <div className="grid md:grid-cols-2 gap-8 items-end w-full max-w-4xl mx-auto">
-              <div className="flex items-end justify-center relative animate-scale-in group">
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[200px] h-2 bg-blue-500/40 rounded-full blur-lg group-hover:w-[250px] transition-all duration-500"></div>
-                <img 
-                  src="https://cdn.poehali.dev/files/36f13baa-6fee-4f2c-89c4-94d789bfda32.png" 
-                  alt="Electric ATV"
-                  className="w-full max-h-[35vh] h-auto object-contain relative z-10 hover:scale-110 transition-transform duration-500"
-                  style={{
-                    filter: 'drop-shadow(0 10px 30px rgba(59, 130, 246, 0.4)) drop-shadow(0 0 20px rgba(59, 130, 246, 0.2))'
-                  }}
-                />
-              </div>
-              
-              <div className="flex items-end justify-center relative animate-scale-in group" style={{ animationDelay: '0.15s' }}>
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[200px] h-2 bg-primary/40 rounded-full blur-lg group-hover:w-[250px] transition-all duration-500"></div>
-                <img 
-                  src="https://cdn.poehali.dev/files/26aabfed-1ab2-4231-965b-7ab4d5c7bdef.png" 
-                  alt="Electric Scooter"
-                  className="w-full max-h-[35vh] h-auto object-contain relative z-10 hover:scale-110 transition-transform duration-500"
-                  style={{
-                    filter: 'drop-shadow(0 10px 30px rgba(239, 68, 68, 0.4)) drop-shadow(0 0 20px rgba(239, 68, 68, 0.2))'
-                  }}
-                />
-              </div>
+            <div className="flex items-end justify-center relative animate-scale-in group w-full max-w-md mx-auto">
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[250px] h-2 bg-blue-500/40 rounded-full blur-lg group-hover:w-[300px] transition-all duration-500"></div>
+              <img 
+                src="https://cdn.poehali.dev/files/231ed1a4-834d-4339-8e40-48c278c5662e.png" 
+                alt="Electric Bike"
+                className="w-full max-h-[40vh] h-auto object-contain relative z-10 hover:scale-110 transition-transform duration-500"
+                style={{
+                  filter: 'drop-shadow(0 10px 30px rgba(59, 130, 246, 0.5)) drop-shadow(0 0 25px rgba(59, 130, 246, 0.3))'
+                }}
+              />
             </div>
             
             <div className="space-y-4 animate-fade-in flex flex-col items-center text-center">

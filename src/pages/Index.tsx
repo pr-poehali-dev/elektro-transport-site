@@ -156,8 +156,8 @@ const Index = () => {
         </div>
       </header>
 
-      <section className="bg-gradient-to-br from-slate-950 via-slate-900 to-blue-950 text-white h-[calc(100vh-72px)] relative overflow-hidden flex items-center">
-        <div className="absolute inset-0">
+      <section className="bg-gradient-to-br from-slate-950 via-slate-900 to-blue-950 text-white h-[calc(100vh-72px)] relative flex items-center">
+        <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-primary/20 rounded-full blur-[150px] animate-pulse"></div>
           <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-secondary/20 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '1s' }}></div>
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-blue-500/10 rounded-full blur-[180px]"></div>
@@ -170,12 +170,13 @@ const Index = () => {
           <div className="absolute bottom-1/3 right-1/4 w-2 h-2 bg-purple-400/70 rounded-full animate-pulse shadow-[0_0_15px_rgba(192,132,252,0.5)]" style={{ animationDelay: '1.5s' }}></div>
         </div>
         
+        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.1] tracking-tight italic absolute top-12 left-1/2 -translate-x-1/2 z-50 animate-fade-in whitespace-nowrap px-4">
+          <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
+            НА ПОЛНОМ ЗАРЯДЕ
+          </span>
+        </h1>
+        
         <div className="container mx-auto px-4 relative z-10 w-full">
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.1] tracking-tight italic absolute top-12 left-1/2 -translate-x-1/2 z-50 animate-fade-in whitespace-nowrap">
-            <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
-              НА ПОЛНОМ ЗАРЯДЕ
-            </span>
-          </h1>
           
           <div className="flex flex-col items-center gap-12 pt-32">
             <div className="grid md:grid-cols-3 gap-8 items-center w-full">

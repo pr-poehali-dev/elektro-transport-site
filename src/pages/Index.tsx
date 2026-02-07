@@ -192,31 +192,30 @@ const Index = () => {
               </div>
               
               <div className="space-y-6 animate-fade-in flex flex-col items-center text-center self-start pt-8">
-              
-              <p className="text-lg text-slate-300 leading-relaxed max-w-xl">
-                Современно. Экологично. Экономично. Комфортно.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <Button
-                  size="lg"
-                  className="relative overflow-hidden bg-gradient-to-br from-primary/30 to-primary/10 backdrop-blur-sm border border-primary/30 text-white hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-primary/50 rounded-2xl px-8 py-5 text-base font-bold group"
-                >
-                  <div className="absolute top-0 right-0 w-24 h-24 bg-primary/20 rounded-full blur-xl"></div>
-                  <span className="relative flex items-center gap-2">
-                    Перейти в каталог
-                    <Icon name="ArrowRight" size={18} className="group-hover:translate-x-1 transition-transform" />
-                  </span>
-                </Button>
-                <Button
-                  size="lg"
-                  className="bg-[#0EA5E9] hover:bg-[#0EA5E9]/90 text-white hover:scale-105 transition-all duration-300 shadow-2xl rounded-2xl px-8 py-5 text-base font-bold flex items-center gap-2"
-                >
-                  <Icon name="MessageCircle" size={18} />
-                  Консультация эксперта
-                </Button>
+                <p className="text-lg text-slate-300 leading-relaxed max-w-xl">
+                  Современно. Экологично. Экономично. Комфортно.
+                </p>
+                
+                <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                  <Button
+                    size="lg"
+                    className="relative overflow-hidden bg-gradient-to-br from-primary/30 to-primary/10 backdrop-blur-sm border border-primary/30 text-white hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-primary/50 rounded-2xl px-8 py-5 text-base font-bold group"
+                  >
+                    <div className="absolute top-0 right-0 w-24 h-24 bg-primary/20 rounded-full blur-xl"></div>
+                    <span className="relative flex items-center gap-2">
+                      Перейти в каталог
+                      <Icon name="ArrowRight" size={18} className="group-hover:translate-x-1 transition-transform" />
+                    </span>
+                  </Button>
+                  <Button
+                    size="lg"
+                    className="bg-[#0EA5E9] hover:bg-[#0EA5E9]/90 text-white hover:scale-105 transition-all duration-300 shadow-2xl rounded-2xl px-8 py-5 text-base font-bold flex items-center gap-2"
+                  >
+                    <Icon name="MessageCircle" size={18} />
+                    Консультация эксперта
+                  </Button>
+                </div>
               </div>
-            </div>
             
             <div className="hidden md:flex items-end justify-center relative animate-scale-in h-[500px]">
               <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[250px] h-3 bg-secondary/40 rounded-full blur-lg"></div>

@@ -181,7 +181,7 @@ const Index = () => {
         <div className="container mx-auto px-4 relative z-10 w-full">
           
           <div className="flex flex-col items-center gap-12 pt-32">
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-end w-full max-w-7xl mx-auto">
+            <div className="grid md:grid-cols-3 gap-8 items-end w-full max-w-6xl mx-auto">
               <div className="flex items-end justify-center relative animate-scale-in group">
                 <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[200px] h-2 bg-blue-500/40 rounded-full blur-lg group-hover:w-[250px] transition-all duration-500"></div>
                 <img 
@@ -205,20 +205,8 @@ const Index = () => {
                   }}
                 />
               </div>
-
-              <div className="flex items-end justify-center relative animate-scale-in group" style={{ animationDelay: '0.3s' }}>
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[200px] h-2 bg-secondary/40 rounded-full blur-lg group-hover:w-[250px] transition-all duration-500"></div>
-                <img 
-                  src="https://cdn.poehali.dev/files/c0d4aece-61f4-4741-8511-3f17739b9601.png" 
-                  alt="Electric Scooter Red"
-                  className="w-full h-auto object-contain relative z-10 hover:scale-110 transition-transform duration-500"
-                  style={{
-                    filter: 'drop-shadow(0 10px 30px rgba(251, 146, 60, 0.4)) drop-shadow(0 0 20px rgba(251, 146, 60, 0.2))'
-                  }}
-                />
-              </div>
             
-              <div className="flex items-end justify-center relative animate-scale-in group" style={{ animationDelay: '0.45s' }}>
+              <div className="flex items-end justify-center relative animate-scale-in group" style={{ animationDelay: '0.3s' }}>
                 <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[200px] h-2 bg-purple-500/40 rounded-full blur-lg group-hover:w-[250px] transition-all duration-500"></div>
                 <img 
                   src="https://cdn.poehali.dev/files/96aa71d6-a280-4236-8659-4d77804b9da6.png" 

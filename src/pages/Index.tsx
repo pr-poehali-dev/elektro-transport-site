@@ -211,7 +211,7 @@ const Index = () => {
                 <img 
                   src="https://cdn.poehali.dev/files/26aabfed-1ab2-4231-965b-7ab4d5c7bdef.png" 
                   alt="Electric Scooter"
-                  className="w-full max-h-[30vh] h-auto object-contain relative z-10 hover:scale-110 transition-transform duration-500"
+                  className="w-full max-h-[30vh] h-auto object-contain relative z-10 hover:scale-110 transition-transform duration-500 scale-125"
                   style={{
                     filter: 'drop-shadow(0 10px 30px rgba(239, 68, 68, 0.4)) drop-shadow(0 0 20px rgba(239, 68, 68, 0.2))'
                   }}
@@ -223,7 +223,7 @@ const Index = () => {
                 <img 
                   src="https://cdn.poehali.dev/files/e54177e7-864c-4336-bc68-5fe1edbd86f6.png" 
                   alt="Electric Scooter Beige"
-                  className="w-full max-h-[30vh] h-auto object-contain relative z-10 hover:scale-110 transition-transform duration-500"
+                  className="w-full max-h-[30vh] h-auto object-contain relative z-10 hover:scale-110 transition-transform duration-500 scale-150"
                   style={{
                     filter: 'drop-shadow(0 10px 30px rgba(251, 146, 60, 0.4)) drop-shadow(0 0 20px rgba(251, 146, 60, 0.2))'
                   }}

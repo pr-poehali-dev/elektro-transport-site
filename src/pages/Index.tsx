@@ -185,10 +185,9 @@ const Index = () => {
             </div>
             
             <div className="space-y-6 animate-fade-in flex flex-col items-center text-center self-start pt-8">
-              <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.1] tracking-tight">
-                <span className="block text-white">НА ПОЛНОМ</span>
-                <span className="block bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent italic animate-fade-in">
-                  ЗАРЯДЕ
+              <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.1] tracking-tight italic">
+                <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent animate-fade-in">
+                  НА ПОЛНОМ ЗАРЯДЕ
                 </span>
               </h1>
               

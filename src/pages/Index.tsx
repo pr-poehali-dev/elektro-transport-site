@@ -170,8 +170,8 @@ const Index = () => {
           <div className="absolute bottom-1/3 right-1/4 w-2 h-2 bg-purple-400/70 rounded-full animate-pulse shadow-[0_0_15px_rgba(192,132,252,0.5)]" style={{ animationDelay: '1.5s' }}></div>
         </div>
         
-        <h1 className="text-[12vw] md:text-[10vw] lg:text-[9vw] font-bold leading-[1.1] tracking-tight italic absolute top-12 left-1/2 -translate-x-1/2 z-50 animate-fade-in whitespace-nowrap px-8">
-          <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent" style={{ paddingRight: '0.5em' }}>
+        <h1 className="text-[8vw] md:text-[7vw] lg:text-[6vw] font-bold leading-[1.1] tracking-tight italic absolute top-12 left-5 right-5 text-center z-50 animate-fade-in">
+          <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
             НА ПОЛНОМ ЗАРЯДЕ
           </span>
         </h1>
@@ -192,8 +192,8 @@ const Index = () => {
                 />
               </div>
               
-              <div className="space-y-8 animate-fade-in flex flex-col items-center text-center self-start pt-24">
-                <p className="text-xl text-slate-300 leading-relaxed max-w-xl">
+              <div className="space-y-8 animate-fade-in flex flex-col items-center text-center self-center">
+                <p className="text-2xl md:text-3xl text-slate-300 leading-relaxed max-w-2xl">
                   Современно. Экологично. Экономично. Комфортно.
                 </p>
                 

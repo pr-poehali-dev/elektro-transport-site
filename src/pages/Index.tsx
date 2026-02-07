@@ -156,7 +156,7 @@ const Index = () => {
         </div>
       </header>
 
-      <section className="bg-gradient-to-br from-slate-950 via-slate-900 to-blue-950 text-white h-[calc(100vh-72px)] relative flex items-center">
+      <section className="bg-gradient-to-br from-slate-950 via-slate-900 to-blue-950 text-white min-h-[calc(100vh-72px)] relative flex items-center py-12">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-primary/20 rounded-full blur-[150px] animate-pulse"></div>
           <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-secondary/20 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '1s' }}></div>
@@ -234,7 +234,7 @@ const Index = () => {
           </div>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-12">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-12 mb-12">
             <div className="relative group overflow-hidden rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 backdrop-blur-sm border border-primary/20 p-8 hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-primary/30 flex flex-col justify-center items-center">
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 rounded-full blur-2xl"></div>
               <div className="relative">

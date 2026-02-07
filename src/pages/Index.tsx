@@ -171,7 +171,7 @@ const Index = () => {
         </div>
         
         <div className="absolute top-12 left-0 right-0 z-[60] pointer-events-none">
-          <h1 className="text-[clamp(2rem,7vw,10rem)] font-bold leading-[1.1] tracking-tight italic text-center animate-fade-in">
+          <h1 className="text-[clamp(2rem,7vw,10rem)] font-bold leading-[1.1] tracking-tight text-center animate-fade-in">
             <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
               НА ПОЛНОМ ЗАРЯДЕ
             </span>

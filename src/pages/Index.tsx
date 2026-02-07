@@ -180,41 +180,52 @@ const Index = () => {
 
         <div className="container mx-auto px-4 relative z-10 w-full">
           
-          <div className="flex flex-col items-center gap-8 pt-20">
-            {/* Главный ряд из 3 крупных моделей */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-end w-full max-w-6xl mx-auto">
+          <div className="flex flex-col items-center gap-6 pt-20">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 items-end w-full max-w-6xl mx-auto">
               <div className="flex items-end justify-center relative animate-scale-in group">
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[200px] h-2 bg-green-500/40 rounded-full blur-xl group-hover:w-[250px] transition-all duration-500"></div>
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[150px] h-2 bg-purple-500/40 rounded-full blur-lg group-hover:w-[200px] transition-all duration-500"></div>
                 <img 
-                  src="https://cdn.poehali.dev/files/ea950cd3-cd7e-46c6-9afc-4f122ddbf2dc.png" 
-                  alt="Military Bike"
+                  src="https://cdn.poehali.dev/files/b8881807-d273-44af-b7e1-6b32377493e2.png" 
+                  alt="Electric Tricycle"
                   className="w-full max-h-[30vh] h-auto object-contain relative z-10 hover:scale-110 transition-transform duration-500"
                   style={{
-                    filter: 'drop-shadow(0 10px 30px rgba(34, 197, 94, 0.5)) drop-shadow(0 0 20px rgba(34, 197, 94, 0.3))'
+                    filter: 'drop-shadow(0 10px 30px rgba(168, 85, 247, 0.4)) drop-shadow(0 0 20px rgba(168, 85, 247, 0.2))'
                   }}
                 />
               </div>
               
               <div className="flex items-end justify-center relative animate-scale-in group" style={{ animationDelay: '0.1s' }}>
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[200px] h-2 bg-primary/40 rounded-full blur-xl group-hover:w-[250px] transition-all duration-500"></div>
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[150px] h-2 bg-blue-500/40 rounded-full blur-lg group-hover:w-[200px] transition-all duration-500"></div>
                 <img 
-                  src="https://cdn.poehali.dev/files/e2b2f44d-6cfa-4ee8-9fb1-13342586b939.png" 
-                  alt="Red Scooter"
+                  src="https://cdn.poehali.dev/files/36f13baa-6fee-4f2c-89c4-94d789bfda32.png" 
+                  alt="Electric ATV"
                   className="w-full max-h-[30vh] h-auto object-contain relative z-10 hover:scale-110 transition-transform duration-500"
                   style={{
-                    filter: 'drop-shadow(0 10px 30px rgba(239, 68, 68, 0.5)) drop-shadow(0 0 20px rgba(239, 68, 68, 0.3))'
+                    filter: 'drop-shadow(0 10px 30px rgba(59, 130, 246, 0.4)) drop-shadow(0 0 20px rgba(59, 130, 246, 0.2))'
                   }}
                 />
               </div>
               
               <div className="flex items-end justify-center relative animate-scale-in group" style={{ animationDelay: '0.2s' }}>
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[200px] h-2 bg-blue-500/40 rounded-full blur-xl group-hover:w-[250px] transition-all duration-500"></div>
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[150px] h-2 bg-primary/40 rounded-full blur-lg group-hover:w-[200px] transition-all duration-500"></div>
                 <img 
-                  src="https://cdn.poehali.dev/files/e812229f-5b9c-400d-bb3b-a179867bed07.png" 
-                  alt="Blue Moto"
+                  src="https://cdn.poehali.dev/files/26aabfed-1ab2-4231-965b-7ab4d5c7bdef.png" 
+                  alt="Electric Scooter"
                   className="w-full max-h-[30vh] h-auto object-contain relative z-10 hover:scale-110 transition-transform duration-500"
                   style={{
-                    filter: 'drop-shadow(0 10px 30px rgba(59, 130, 246, 0.5)) drop-shadow(0 0 20px rgba(59, 130, 246, 0.3))'
+                    filter: 'drop-shadow(0 10px 30px rgba(239, 68, 68, 0.4)) drop-shadow(0 0 20px rgba(239, 68, 68, 0.2))'
+                  }}
+                />
+              </div>
+              
+              <div className="flex items-end justify-center relative animate-scale-in group" style={{ animationDelay: '0.3s' }}>
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[150px] h-2 bg-secondary/40 rounded-full blur-lg group-hover:w-[200px] transition-all duration-500"></div>
+                <img 
+                  src="https://cdn.poehali.dev/files/e54177e7-864c-4336-bc68-5fe1edbd86f6.png" 
+                  alt="Electric Scooter Beige"
+                  className="w-full max-h-[30vh] h-auto object-contain relative z-10 hover:scale-110 transition-transform duration-500"
+                  style={{
+                    filter: 'drop-shadow(0 10px 30px rgba(251, 146, 60, 0.4)) drop-shadow(0 0 20px rgba(251, 146, 60, 0.2))'
                   }}
                 />
               </div>

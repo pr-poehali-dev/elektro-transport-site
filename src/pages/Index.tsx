@@ -180,90 +180,41 @@ const Index = () => {
 
         <div className="container mx-auto px-4 relative z-10 w-full">
           
-          <div className="flex flex-col items-center gap-4 pt-16">
-            {/* Центральная модель - военный байк */}
-            <div className="flex items-end justify-center relative animate-scale-in group w-full max-w-md mx-auto">
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[280px] h-3 bg-green-500/50 rounded-full blur-xl group-hover:w-[320px] transition-all duration-500"></div>
-              <img 
-                src="https://cdn.poehali.dev/files/ea950cd3-cd7e-46c6-9afc-4f122ddbf2dc.png" 
-                alt="Electric Military Bike"
-                className="w-full max-h-[38vh] h-auto object-contain relative z-10 hover:scale-110 transition-transform duration-500"
-                style={{
-                  filter: 'drop-shadow(0 15px 40px rgba(34, 197, 94, 0.6)) drop-shadow(0 0 30px rgba(34, 197, 94, 0.4))'
-                }}
-              />
-            </div>
-            
-            {/* Ряд из 6 моделей */}
-            <div className="grid grid-cols-3 md:grid-cols-6 gap-3 items-end w-full max-w-7xl mx-auto">
-              <div className="flex items-end justify-center relative animate-scale-in group" style={{ animationDelay: '0.1s' }}>
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[120px] h-1.5 bg-primary/40 rounded-full blur-lg group-hover:w-[150px] transition-all duration-500"></div>
+          <div className="flex flex-col items-center gap-8 pt-20">
+            {/* Главный ряд из 3 крупных моделей */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-end w-full max-w-6xl mx-auto">
+              <div className="flex items-end justify-center relative animate-scale-in group">
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[200px] h-2 bg-green-500/40 rounded-full blur-xl group-hover:w-[250px] transition-all duration-500"></div>
                 <img 
-                  src="https://cdn.poehali.dev/files/e2b2f44d-6cfa-4ee8-9fb1-13342586b939.png" 
-                  alt="Red Scooter"
-                  className="w-full max-h-[18vh] h-auto object-contain relative z-10 hover:scale-110 transition-transform duration-500"
+                  src="https://cdn.poehali.dev/files/ea950cd3-cd7e-46c6-9afc-4f122ddbf2dc.png" 
+                  alt="Military Bike"
+                  className="w-full max-h-[30vh] h-auto object-contain relative z-10 hover:scale-110 transition-transform duration-500"
                   style={{
-                    filter: 'drop-shadow(0 8px 20px rgba(239, 68, 68, 0.4)) drop-shadow(0 0 15px rgba(239, 68, 68, 0.2))'
+                    filter: 'drop-shadow(0 10px 30px rgba(34, 197, 94, 0.5)) drop-shadow(0 0 20px rgba(34, 197, 94, 0.3))'
                   }}
                 />
               </div>
               
-              <div className="flex items-end justify-center relative animate-scale-in group" style={{ animationDelay: '0.15s' }}>
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[120px] h-1.5 bg-blue-500/40 rounded-full blur-lg group-hover:w-[150px] transition-all duration-500"></div>
+              <div className="flex items-end justify-center relative animate-scale-in group" style={{ animationDelay: '0.1s' }}>
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[200px] h-2 bg-primary/40 rounded-full blur-xl group-hover:w-[250px] transition-all duration-500"></div>
                 <img 
-                  src="https://cdn.poehali.dev/files/e812229f-5b9c-400d-bb3b-a179867bed07.png" 
-                  alt="Blue Moto"
-                  className="w-full max-h-[18vh] h-auto object-contain relative z-10 hover:scale-110 transition-transform duration-500"
+                  src="https://cdn.poehali.dev/files/e2b2f44d-6cfa-4ee8-9fb1-13342586b939.png" 
+                  alt="Red Scooter"
+                  className="w-full max-h-[30vh] h-auto object-contain relative z-10 hover:scale-110 transition-transform duration-500"
                   style={{
-                    filter: 'drop-shadow(0 8px 20px rgba(59, 130, 246, 0.4)) drop-shadow(0 0 15px rgba(59, 130, 246, 0.2))'
+                    filter: 'drop-shadow(0 10px 30px rgba(239, 68, 68, 0.5)) drop-shadow(0 0 20px rgba(239, 68, 68, 0.3))'
                   }}
                 />
               </div>
               
               <div className="flex items-end justify-center relative animate-scale-in group" style={{ animationDelay: '0.2s' }}>
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[120px] h-1.5 bg-blue-600/40 rounded-full blur-lg group-hover:w-[150px] transition-all duration-500"></div>
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[200px] h-2 bg-blue-500/40 rounded-full blur-xl group-hover:w-[250px] transition-all duration-500"></div>
                 <img 
-                  src="https://cdn.poehali.dev/files/c8a6a37f-0937-401a-b8b7-bcb79eb89edf.png" 
-                  alt="UK Scooter"
-                  className="w-full max-h-[18vh] h-auto object-contain relative z-10 hover:scale-110 transition-transform duration-500"
+                  src="https://cdn.poehali.dev/files/e812229f-5b9c-400d-bb3b-a179867bed07.png" 
+                  alt="Blue Moto"
+                  className="w-full max-h-[30vh] h-auto object-contain relative z-10 hover:scale-110 transition-transform duration-500"
                   style={{
-                    filter: 'drop-shadow(0 8px 20px rgba(37, 99, 235, 0.4)) drop-shadow(0 0 15px rgba(37, 99, 235, 0.2))'
-                  }}
-                />
-              </div>
-              
-              <div className="flex items-end justify-center relative animate-scale-in group" style={{ animationDelay: '0.25s' }}>
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[120px] h-1.5 bg-slate-500/40 rounded-full blur-lg group-hover:w-[150px] transition-all duration-500"></div>
-                <img 
-                  src="https://cdn.poehali.dev/files/ecd88e31-ce59-4eb7-9794-57c1cda256ab.png" 
-                  alt="Tricycle"
-                  className="w-full max-h-[18vh] h-auto object-contain relative z-10 hover:scale-110 transition-transform duration-500"
-                  style={{
-                    filter: 'drop-shadow(0 8px 20px rgba(100, 116, 139, 0.4)) drop-shadow(0 0 15px rgba(100, 116, 139, 0.2))'
-                  }}
-                />
-              </div>
-              
-              <div className="flex items-end justify-center relative animate-scale-in group" style={{ animationDelay: '0.3s' }}>
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[120px] h-1.5 bg-orange-400/40 rounded-full blur-lg group-hover:w-[150px] transition-all duration-500"></div>
-                <img 
-                  src="https://cdn.poehali.dev/files/a2c7e70d-eb09-4511-9fa5-fbc5c6ed3f00.png" 
-                  alt="Beige Scooter"
-                  className="w-full max-h-[18vh] h-auto object-contain relative z-10 hover:scale-110 transition-transform duration-500"
-                  style={{
-                    filter: 'drop-shadow(0 8px 20px rgba(251, 146, 60, 0.4)) drop-shadow(0 0 15px rgba(251, 146, 60, 0.2))'
-                  }}
-                />
-              </div>
-              
-              <div className="flex items-end justify-center relative animate-scale-in group" style={{ animationDelay: '0.35s' }}>
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[120px] h-1.5 bg-slate-600/40 rounded-full blur-lg group-hover:w-[150px] transition-all duration-500"></div>
-                <img 
-                  src="https://cdn.poehali.dev/files/8fd4aa4a-9f79-43fa-9f5e-6976ad8d8550.png" 
-                  alt="ATV Quad"
-                  className="w-full max-h-[18vh] h-auto object-contain relative z-10 hover:scale-110 transition-transform duration-500"
-                  style={{
-                    filter: 'drop-shadow(0 8px 20px rgba(71, 85, 105, 0.4)) drop-shadow(0 0 15px rgba(71, 85, 105, 0.2))'
+                    filter: 'drop-shadow(0 10px 30px rgba(59, 130, 246, 0.5)) drop-shadow(0 0 20px rgba(59, 130, 246, 0.3))'
                   }}
                 />
               </div>

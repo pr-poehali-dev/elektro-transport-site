@@ -170,11 +170,13 @@ const Index = () => {
           <div className="absolute bottom-1/3 right-1/4 w-2 h-2 bg-purple-400/70 rounded-full animate-pulse shadow-[0_0_15px_rgba(192,132,252,0.5)]" style={{ animationDelay: '1.5s' }}></div>
         </div>
         
-        <h1 className="text-[8vw] md:text-[7vw] lg:text-[6vw] font-bold leading-[1.1] tracking-tight italic absolute top-12 left-5 right-5 text-center z-50 animate-fade-in">
-          <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
-            НА ПОЛНОМ ЗАРЯДЕ
-          </span>
-        </h1>
+        <div className="absolute top-12 left-0 right-0 z-50 px-5">
+          <h1 className="text-[clamp(2rem,8vw,12rem)] font-bold leading-[1.1] tracking-tight italic text-center animate-fade-in">
+            <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
+              НА ПОЛНОМ ЗАРЯДЕ
+            </span>
+          </h1>
+        </div>
         
         <div className="container mx-auto px-4 relative z-10 w-full">
           

@@ -186,14 +186,14 @@ const Index = () => {
             
             <div className="space-y-6 animate-fade-in flex flex-col items-center text-center self-start pt-8">
               <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.1] tracking-tight">
-                <span className="block text-white">ЭЛЕКТРОТРАНСПОРТ</span>
+                <span className="block text-white">НА ПОЛНОМ</span>
                 <span className="block bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent italic animate-fade-in">
-                  ПОД КЛЮЧ
+                  ЗАРЯДЕ
                 </span>
               </h1>
               
               <p className="text-lg text-slate-300 leading-relaxed max-w-xl">
-                Подбор, проверка и доставка электротранспорта под Ваши критерии и бюджет
+                Современно. Экологично. Экономично. Комфортно.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-3 justify-center">

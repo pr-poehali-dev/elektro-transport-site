@@ -171,25 +171,27 @@ const Index = () => {
         </div>
         
         <div className="container mx-auto px-4 relative z-10 w-full">
-          <div className="grid md:grid-cols-3 gap-8 items-center">
-            <div className="hidden md:flex items-end justify-center relative animate-scale-in h-[500px]">
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[300px] h-3 bg-primary/40 rounded-full blur-lg"></div>
-              <img 
-                src="https://cdn.poehali.dev/files/070fcfaf-4ddd-4e8e-8dc2-94d7830a0d92.png" 
-                alt="Electric Scooter"
-                className="w-full max-w-lg h-auto object-contain object-bottom opacity-90 scale-110 relative z-10"
-                style={{
-                  filter: 'drop-shadow(0 0 40px rgba(239, 68, 68, 0.5)) drop-shadow(0 0 20px rgba(239, 68, 68, 0.3)) drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5))'
-                }}
-              />
-            </div>
+          <div className="flex flex-col items-center gap-12">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.1] tracking-tight italic relative z-20 animate-fade-in whitespace-nowrap">
+              <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
+                НА ПОЛНОМ ЗАРЯДЕ
+              </span>
+            </h1>
             
-            <div className="space-y-6 animate-fade-in flex flex-col items-center text-center self-start pt-8">
-              <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.1] tracking-tight italic">
-                <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent animate-fade-in">
-                  НА ПОЛНОМ ЗАРЯДЕ
-                </span>
-              </h1>
+            <div className="grid md:grid-cols-3 gap-8 items-center w-full">
+              <div className="hidden md:flex items-end justify-center relative animate-scale-in h-[500px]">
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[300px] h-3 bg-primary/40 rounded-full blur-lg"></div>
+                <img 
+                  src="https://cdn.poehali.dev/files/070fcfaf-4ddd-4e8e-8dc2-94d7830a0d92.png" 
+                  alt="Electric Scooter"
+                  className="w-full max-w-lg h-auto object-contain object-bottom opacity-90 scale-110 relative z-10"
+                  style={{
+                    filter: 'drop-shadow(0 0 40px rgba(239, 68, 68, 0.5)) drop-shadow(0 0 20px rgba(239, 68, 68, 0.3)) drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5))'
+                  }}
+                />
+              </div>
+              
+              <div className="space-y-6 animate-fade-in flex flex-col items-center text-center self-start pt-8">
               
               <p className="text-lg text-slate-300 leading-relaxed max-w-xl">
                 Современно. Экологично. Экономично. Комфортно.

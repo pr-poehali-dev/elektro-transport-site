@@ -181,8 +181,8 @@ const Index = () => {
         <div className="container mx-auto px-4 relative z-10 w-full">
           
           <div className="flex flex-col items-center gap-4 pt-16">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-end w-full h-[60vh] px-4 max-w-7xl mx-auto">
-              <div className="flex items-end justify-center relative animate-scale-in group scale-125">
+            <div className="relative w-full h-[60vh] px-4 max-w-full mx-auto flex items-end justify-between">
+              <div className="flex items-end justify-start relative animate-scale-in group scale-125 w-[35%]">
                 <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[200px] h-2 bg-purple-500/40 rounded-full blur-lg group-hover:w-[250px] transition-all duration-500"></div>
                 <img 
                   src="https://cdn.poehali.dev/files/b8881807-d273-44af-b7e1-6b32377493e2.png" 
@@ -194,33 +194,33 @@ const Index = () => {
                 />
               </div>
               
-              <div className="flex flex-col items-center justify-center gap-4 animate-fade-in h-full pb-8">
-                <p className="text-base md:text-xl text-slate-300 leading-relaxed text-center">
+              <div className="flex flex-col items-center justify-center gap-6 animate-fade-in h-full pb-8 absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 z-20">
+                <p className="text-xl md:text-2xl text-slate-300 leading-relaxed text-center whitespace-nowrap">
                   Современно. Экологично. Экономично. Комфортно.
                 </p>
                 
-                <div className="flex flex-col gap-3 w-full">
+                <div className="flex flex-col gap-4 w-full min-w-[320px]">
                   <Button
                     size="lg"
-                    className="relative overflow-hidden bg-gradient-to-br from-primary/30 to-primary/10 backdrop-blur-sm border border-primary/30 text-white hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-primary/50 rounded-2xl px-6 py-4 text-sm font-bold group"
+                    className="relative overflow-hidden bg-gradient-to-br from-primary/30 to-primary/10 backdrop-blur-sm border border-primary/30 text-white hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-primary/50 rounded-2xl px-10 py-6 text-lg font-bold group"
                   >
                     <div className="absolute top-0 right-0 w-24 h-24 bg-primary/20 rounded-full blur-xl"></div>
                     <span className="relative flex items-center justify-center gap-3">
                       Перейти в каталог
-                      <Icon name="ArrowRight" size={20} className="group-hover:translate-x-1 transition-transform" />
+                      <Icon name="ArrowRight" size={24} className="group-hover:translate-x-1 transition-transform" />
                     </span>
                   </Button>
                   <Button
                     size="lg"
-                    className="bg-[#0EA5E9] hover:bg-[#0EA5E9]/90 text-white hover:scale-105 transition-all duration-300 shadow-2xl rounded-2xl px-6 py-4 text-sm font-bold flex items-center justify-center gap-3"
+                    className="bg-[#0EA5E9] hover:bg-[#0EA5E9]/90 text-white hover:scale-105 transition-all duration-300 shadow-2xl rounded-2xl px-10 py-6 text-lg font-bold flex items-center justify-center gap-3"
                   >
-                    <Icon name="MessageCircle" size={20} />
+                    <Icon name="MessageCircle" size={24} />
                     Консультация эксперта
                   </Button>
                 </div>
               </div>
               
-              <div className="flex items-end justify-center relative animate-scale-in group scale-125" style={{ animationDelay: '0.2s' }}>
+              <div className="flex items-end justify-end relative animate-scale-in group scale-125 w-[35%]" style={{ animationDelay: '0.2s' }}>
                 <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[200px] h-2 bg-primary/40 rounded-full blur-lg group-hover:w-[250px] transition-all duration-500"></div>
                 <img 
                   src="https://cdn.poehali.dev/files/26aabfed-1ab2-4231-965b-7ab4d5c7bdef.png" 

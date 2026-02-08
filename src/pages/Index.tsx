@@ -181,9 +181,9 @@ const Index = () => {
         <div className="container mx-auto px-4 relative z-10 w-full">
           
           <div className="flex flex-col items-center gap-4 pt-16">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-end w-full h-[50vh] px-4 max-w-6xl mx-auto">
-              <div className="flex items-end justify-center relative animate-scale-in group">
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[150px] h-2 bg-purple-500/40 rounded-full blur-lg group-hover:w-[200px] transition-all duration-500"></div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-end w-full h-[60vh] px-4 max-w-7xl mx-auto">
+              <div className="flex items-end justify-center relative animate-scale-in group scale-125">
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[200px] h-2 bg-purple-500/40 rounded-full blur-lg group-hover:w-[250px] transition-all duration-500"></div>
                 <img 
                   src="https://cdn.poehali.dev/files/b8881807-d273-44af-b7e1-6b32377493e2.png" 
                   alt="Electric Tricycle"
@@ -220,8 +220,8 @@ const Index = () => {
                 </div>
               </div>
               
-              <div className="flex items-end justify-center relative animate-scale-in group" style={{ animationDelay: '0.2s' }}>
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[150px] h-2 bg-primary/40 rounded-full blur-lg group-hover:w-[200px] transition-all duration-500"></div>
+              <div className="flex items-end justify-center relative animate-scale-in group scale-125" style={{ animationDelay: '0.2s' }}>
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[200px] h-2 bg-primary/40 rounded-full blur-lg group-hover:w-[250px] transition-all duration-500"></div>
                 <img 
                   src="https://cdn.poehali.dev/files/26aabfed-1ab2-4231-965b-7ab4d5c7bdef.png" 
                   alt="Electric Scooter"

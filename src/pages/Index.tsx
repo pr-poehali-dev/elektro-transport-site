@@ -219,13 +219,13 @@ const Index = () => {
               </div>
               
               <div className="flex items-end justify-center relative animate-scale-in group" style={{ animationDelay: '0.3s' }}>
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[150px] h-2 bg-secondary/40 rounded-full blur-lg group-hover:w-[200px] transition-all duration-500"></div>
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[150px] h-2 bg-primary/40 rounded-full blur-lg group-hover:w-[200px] transition-all duration-500"></div>
                 <img 
-                  src="https://cdn.poehali.dev/files/e54177e7-864c-4336-bc68-5fe1edbd86f6.png" 
-                  alt="Electric Scooter Beige"
-                  className="w-full max-h-[30vh] h-auto object-contain relative z-10 hover:scale-110 transition-transform duration-500 scale-150"
+                  src="https://cdn.poehali.dev/files/0ea67718-7264-400a-8a71-59cbd3983707.png" 
+                  alt="Electric Delivery Scooter"
+                  className="w-full max-h-[30vh] h-auto object-contain relative z-10 hover:scale-110 transition-transform duration-500"
                   style={{
-                    filter: 'drop-shadow(0 10px 30px rgba(251, 146, 60, 0.4)) drop-shadow(0 0 20px rgba(251, 146, 60, 0.2))'
+                    filter: 'drop-shadow(0 10px 30px rgba(239, 68, 68, 0.4)) drop-shadow(0 0 20px rgba(239, 68, 68, 0.2))'
                   }}
                 />
               </div>

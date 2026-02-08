@@ -200,18 +200,12 @@ const Index = () => {
         </div>
       </header>
 
-      <section className="bg-gradient-to-br from-slate-950 via-slate-900 to-blue-950 text-white h-[calc(100vh-72px)] relative flex items-center overflow-hidden">
+      <section className="bg-gradient-to-br from-white via-slate-50 to-blue-50 h-[calc(100vh-72px)] relative flex items-center overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-primary/20 rounded-full blur-[150px] animate-pulse"></div>
-          <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-secondary/20 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '1s' }}></div>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-blue-500/10 rounded-full blur-[180px]"></div>
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjAzIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-50"></div>
-          <div className="absolute top-10 left-10 w-3 h-3 bg-primary/80 rounded-full animate-pulse shadow-[0_0_20px_rgba(239,68,68,0.6)]"></div>
-          <div className="absolute top-20 right-32 w-2 h-2 bg-secondary/80 rounded-full animate-pulse shadow-[0_0_15px_rgba(251,146,60,0.6)]" style={{ animationDelay: '0.3s' }}></div>
-          <div className="absolute bottom-32 left-40 w-2.5 h-2.5 bg-blue-400/80 rounded-full animate-pulse shadow-[0_0_18px_rgba(96,165,250,0.6)]" style={{ animationDelay: '0.6s' }}></div>
-          <div className="absolute bottom-20 right-20 w-3 h-3 bg-primary/60 rounded-full animate-pulse shadow-[0_0_20px_rgba(239,68,68,0.5)]" style={{ animationDelay: '0.9s' }}></div>
-          <div className="absolute top-1/3 left-1/4 w-1.5 h-1.5 bg-green-400/70 rounded-full animate-pulse shadow-[0_0_12px_rgba(74,222,128,0.5)]" style={{ animationDelay: '1.2s' }}></div>
-          <div className="absolute bottom-1/3 right-1/4 w-2 h-2 bg-purple-400/70 rounded-full animate-pulse shadow-[0_0_15px_rgba(192,132,252,0.5)]" style={{ animationDelay: '1.5s' }}></div>
+          <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-primary/10 rounded-full blur-[150px]"></div>
+          <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-secondary/10 rounded-full blur-[120px]"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-blue-500/5 rounded-full blur-[180px]"></div>
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLW9wYWNpdHk9IjAuMDIiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-50"></div>
         </div>
         
         <div className="absolute top-4 left-0 right-0 z-[60] pointer-events-none px-4">
@@ -227,28 +221,27 @@ const Index = () => {
           <div className="flex flex-col items-center gap-4 pt-16">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-end w-full h-[60vh] px-4 max-w-7xl mx-auto">
               <div className="flex items-end justify-center relative animate-scale-in group scale-125">
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[200px] h-2 bg-purple-500/40 rounded-full blur-lg group-hover:w-[250px] transition-all duration-500"></div>
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[200px] h-2 bg-purple-500/30 rounded-full blur-lg group-hover:w-[250px] transition-all duration-500"></div>
                 <img 
                   src="https://cdn.poehali.dev/files/b8881807-d273-44af-b7e1-6b32377493e2.png" 
                   alt="Electric Tricycle"
                   className="w-full h-full object-contain relative z-10 hover:scale-110 transition-transform duration-500"
                   style={{
-                    filter: 'drop-shadow(0 10px 30px rgba(168, 85, 247, 0.4)) drop-shadow(0 0 20px rgba(168, 85, 247, 0.2))'
+                    filter: 'drop-shadow(0 10px 30px rgba(168, 85, 247, 0.3)) drop-shadow(0 0 20px rgba(168, 85, 247, 0.15))'
                   }}
                 />
               </div>
               
               <div className="flex flex-col items-center justify-center gap-4 animate-fade-in h-full pb-8">
-                <p className="text-base md:text-xl text-slate-300 leading-relaxed text-center">
+                <p className="text-base md:text-xl text-slate-700 leading-relaxed text-center">
                   Современно. Экологично. Экономично. Комфортно.
                 </p>
                 
                 <div className="flex flex-col gap-3 w-full">
                   <Button
                     size="lg"
-                    className="relative overflow-hidden bg-gradient-to-br from-primary/30 to-primary/10 backdrop-blur-sm border border-primary/30 text-white hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-primary/50 rounded-2xl px-6 py-4 text-sm font-bold group"
+                    className="relative overflow-hidden bg-primary hover:bg-primary/90 text-white hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl rounded-2xl px-6 py-4 text-sm font-bold group"
                   >
-                    <div className="absolute top-0 right-0 w-24 h-24 bg-primary/20 rounded-full blur-xl"></div>
                     <span className="relative flex items-center justify-center gap-3">
                       Перейти в каталог
                       <Icon name="ArrowRight" size={20} className="group-hover:translate-x-1 transition-transform" />
@@ -256,7 +249,7 @@ const Index = () => {
                   </Button>
                   <Button
                     size="lg"
-                    className="bg-[#0EA5E9] hover:bg-[#0EA5E9]/90 text-white hover:scale-105 transition-all duration-300 shadow-2xl rounded-2xl px-6 py-4 text-sm font-bold flex items-center justify-center gap-3"
+                    className="bg-secondary hover:bg-secondary/90 text-white hover:scale-105 transition-all duration-300 shadow-lg rounded-2xl px-6 py-4 text-sm font-bold flex items-center justify-center gap-3"
                   >
                     <Icon name="MessageCircle" size={20} />
                     Консультация эксперта
@@ -265,13 +258,13 @@ const Index = () => {
               </div>
               
               <div className="flex items-end justify-center relative animate-scale-in group scale-125" style={{ animationDelay: '0.2s' }}>
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[200px] h-2 bg-primary/40 rounded-full blur-lg group-hover:w-[250px] transition-all duration-500"></div>
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[200px] h-2 bg-primary/30 rounded-full blur-lg group-hover:w-[250px] transition-all duration-500"></div>
                 <img 
                   src="https://cdn.poehali.dev/files/26aabfed-1ab2-4231-965b-7ab4d5c7bdef.png" 
                   alt="Electric Scooter"
                   className="w-full h-full object-contain relative z-10 hover:scale-110 transition-transform duration-500"
                   style={{
-                    filter: 'drop-shadow(0 10px 30px rgba(239, 68, 68, 0.4)) drop-shadow(0 0 20px rgba(239, 68, 68, 0.2))'
+                    filter: 'drop-shadow(0 10px 30px rgba(239, 68, 68, 0.3)) drop-shadow(0 0 20px rgba(239, 68, 68, 0.15))'
                   }}
                 />
               </div>
@@ -279,35 +272,35 @@ const Index = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-12 mb-12">
-            <div className="relative group overflow-hidden rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 backdrop-blur-sm border border-primary/20 p-8 hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-primary/30 flex flex-col justify-center items-center">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 rounded-full blur-2xl"></div>
+            <div className="relative group overflow-hidden rounded-2xl bg-white border border-slate-200 p-8 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl flex flex-col justify-center items-center">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-2xl"></div>
               <div className="relative">
                 <div className="text-5xl font-bold text-primary mb-2 italic">30%</div>
-                <div className="text-xs text-slate-300 uppercase tracking-wider">Экономия</div>
+                <div className="text-xs text-slate-600 uppercase tracking-wider">Экономия</div>
               </div>
             </div>
             
-            <div className="relative group overflow-hidden rounded-2xl bg-gradient-to-br from-secondary/20 to-secondary/5 backdrop-blur-sm border border-secondary/20 p-8 hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-secondary/30 flex flex-col justify-center items-center">
-              <div className="absolute bottom-0 left-0 w-32 h-32 bg-secondary/20 rounded-full blur-2xl"></div>
+            <div className="relative group overflow-hidden rounded-2xl bg-white border border-slate-200 p-8 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl flex flex-col justify-center items-center">
+              <div className="absolute bottom-0 left-0 w-32 h-32 bg-secondary/10 rounded-full blur-2xl"></div>
               <div className="relative">
                 <div className="text-5xl font-bold text-secondary mb-2 italic">30</div>
-                <div className="text-xs text-slate-300 uppercase tracking-wider">Дней доставка</div>
+                <div className="text-xs text-slate-600 uppercase tracking-wider">Дней доставка</div>
               </div>
             </div>
             
-            <div className="relative group overflow-hidden rounded-2xl bg-gradient-to-br from-green-500/20 to-green-500/5 backdrop-blur-sm border border-green-500/20 p-8 hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-green-500/30 flex flex-col justify-center items-center">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-green-500/20 rounded-full blur-2xl"></div>
+            <div className="relative group overflow-hidden rounded-2xl bg-white border border-slate-200 p-8 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl flex flex-col justify-center items-center">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-green-500/10 rounded-full blur-2xl"></div>
               <div className="relative">
-                <div className="text-5xl font-bold text-green-400 mb-2 italic">24/7</div>
-                <div className="text-xs text-slate-300 uppercase tracking-wider">Поддержка</div>
+                <div className="text-5xl font-bold text-green-500 mb-2 italic">24/7</div>
+                <div className="text-xs text-slate-600 uppercase tracking-wider">Поддержка</div>
               </div>
             </div>
             
-            <div className="relative group overflow-hidden rounded-2xl bg-gradient-to-br from-orange-500/20 to-orange-500/5 backdrop-blur-sm border border-orange-500/20 p-8 hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-orange-500/30 flex flex-col justify-center items-center">
-              <div className="absolute bottom-0 left-0 w-32 h-32 bg-orange-500/20 rounded-full blur-2xl"></div>
+            <div className="relative group overflow-hidden rounded-2xl bg-white border border-slate-200 p-8 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl flex flex-col justify-center items-center">
+              <div className="absolute bottom-0 left-0 w-32 h-32 bg-orange-500/10 rounded-full blur-2xl"></div>
               <div className="relative">
-                <div className="text-5xl font-bold text-orange-400 mb-2 italic">14</div>
-                <div className="text-xs text-slate-300 uppercase tracking-wider">Лет на рынке</div>
+                <div className="text-5xl font-bold text-orange-500 mb-2 italic">14</div>
+                <div className="text-xs text-slate-600 uppercase tracking-wider">Лет на рынке</div>
               </div>
             </div>
           </div>

@@ -180,14 +180,14 @@ const Index = () => {
 
         <div className="container mx-auto px-4 relative z-10 w-full">
           
-          <div className="flex flex-col items-center gap-6 pt-20">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 items-end w-full max-w-6xl mx-auto">
+          <div className="flex flex-col items-center gap-4 pt-16">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 items-end w-full h-[50vh] px-4">
               <div className="flex items-end justify-center relative animate-scale-in group">
                 <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[150px] h-2 bg-purple-500/40 rounded-full blur-lg group-hover:w-[200px] transition-all duration-500"></div>
                 <img 
                   src="https://cdn.poehali.dev/files/b8881807-d273-44af-b7e1-6b32377493e2.png" 
                   alt="Electric Tricycle"
-                  className="w-full max-h-[30vh] h-auto object-contain relative z-10 hover:scale-110 transition-transform duration-500"
+                  className="w-full h-full object-contain relative z-10 hover:scale-110 transition-transform duration-500"
                   style={{
                     filter: 'drop-shadow(0 10px 30px rgba(168, 85, 247, 0.4)) drop-shadow(0 0 20px rgba(168, 85, 247, 0.2))'
                   }}
@@ -199,7 +199,7 @@ const Index = () => {
                 <img 
                   src="https://cdn.poehali.dev/files/36f13baa-6fee-4f2c-89c4-94d789bfda32.png" 
                   alt="Electric ATV"
-                  className="w-full max-h-[30vh] h-auto object-contain relative z-10 hover:scale-110 transition-transform duration-500"
+                  className="w-full h-full object-contain relative z-10 hover:scale-110 transition-transform duration-500"
                   style={{
                     filter: 'drop-shadow(0 10px 30px rgba(59, 130, 246, 0.4)) drop-shadow(0 0 20px rgba(59, 130, 246, 0.2))'
                   }}
@@ -211,7 +211,7 @@ const Index = () => {
                 <img 
                   src="https://cdn.poehali.dev/files/26aabfed-1ab2-4231-965b-7ab4d5c7bdef.png" 
                   alt="Electric Scooter"
-                  className="w-full max-h-[30vh] h-auto object-contain relative z-10 hover:scale-110 transition-transform duration-500"
+                  className="w-full h-full object-contain relative z-10 hover:scale-110 transition-transform duration-500"
                   style={{
                     filter: 'drop-shadow(0 10px 30px rgba(239, 68, 68, 0.4)) drop-shadow(0 0 20px rgba(239, 68, 68, 0.2))'
                   }}
@@ -223,7 +223,7 @@ const Index = () => {
                 <img 
                   src="https://cdn.poehali.dev/files/0ea67718-7264-400a-8a71-59cbd3983707.png" 
                   alt="Electric Delivery Scooter"
-                  className="w-full max-h-[30vh] h-auto object-contain relative z-10 hover:scale-110 transition-transform duration-500"
+                  className="w-full h-full object-contain relative z-10 hover:scale-110 transition-transform duration-500"
                   style={{
                     filter: 'drop-shadow(0 10px 30px rgba(239, 68, 68, 0.4)) drop-shadow(0 0 20px rgba(239, 68, 68, 0.2))'
                   }}
@@ -231,15 +231,15 @@ const Index = () => {
               </div>
             </div>
             
-            <div className="space-y-4 animate-fade-in flex flex-col items-center text-center">
-              <p className="text-lg md:text-2xl text-slate-300 leading-relaxed max-w-2xl">
+            <div className="space-y-3 animate-fade-in flex flex-col items-center text-center mt-2">
+              <p className="text-base md:text-xl text-slate-300 leading-relaxed max-w-2xl">
                 Современно. Экологично. Экономично. Комфортно.
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-3 justify-center w-full max-w-2xl">
+              <div className="flex flex-col sm:flex-row gap-2 justify-center w-full max-w-2xl">
                 <Button
                   size="lg"
-                  className="relative overflow-hidden bg-gradient-to-br from-primary/30 to-primary/10 backdrop-blur-sm border border-primary/30 text-white hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-primary/50 rounded-2xl px-8 py-5 text-base font-bold group"
+                  className="relative overflow-hidden bg-gradient-to-br from-primary/30 to-primary/10 backdrop-blur-sm border border-primary/30 text-white hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-primary/50 rounded-2xl px-6 py-4 text-sm font-bold group"
                 >
                   <div className="absolute top-0 right-0 w-24 h-24 bg-primary/20 rounded-full blur-xl"></div>
                   <span className="relative flex items-center justify-center gap-3">
@@ -249,7 +249,7 @@ const Index = () => {
                 </Button>
                 <Button
                   size="lg"
-                  className="bg-[#0EA5E9] hover:bg-[#0EA5E9]/90 text-white hover:scale-105 transition-all duration-300 shadow-2xl rounded-2xl px-8 py-5 text-base font-bold flex items-center justify-center gap-3"
+                  className="bg-[#0EA5E9] hover:bg-[#0EA5E9]/90 text-white hover:scale-105 transition-all duration-300 shadow-2xl rounded-2xl px-6 py-4 text-sm font-bold flex items-center justify-center gap-3"
                 >
                   <Icon name="MessageCircle" size={20} />
                   Консультация эксперта

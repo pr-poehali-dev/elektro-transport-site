@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Icon from "@/components/ui/icon";
@@ -59,8 +59,10 @@ const products: Product[] = [
 
 const ProductDetail = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const product = products.find(p => p.id === Number(id));
   const [selectedImage, setSelectedImage] = useState(0);
+  const [searchQuery, setSearchQuery] = useState("");
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -87,24 +89,62 @@ const ProductDetail = () => {
     setFormData({ name: "", phone: "", comment: "" });
   };
 
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      navigate(`/?search=${encodeURIComponent(searchQuery)}`);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       {/* Header */}
       <header className="bg-white shadow-sm sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2">
-            <span className="text-2xl font-bold text-foreground">ELECTRO MOTORS</span>
-          </Link>
-          <nav className="hidden md:flex items-center gap-6">
-            <Link to="/" className="text-muted-foreground hover:text-foreground transition-colors">Главная</Link>
-            <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">О нас</a>
-            <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Доставка</a>
-            <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Гарантия</a>
-          </nav>
-          <Button className="bg-secondary hover:bg-secondary/90 text-white rounded-full px-6">
-            <Icon name="Phone" size={18} className="mr-2" />
-            +7 (495) 123-45-67
-          </Button>
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex items-center justify-between gap-4">
+            <Link to="/" className="flex items-center gap-2">
+              <span className="text-2xl font-bold text-foreground">ELECTRO MOTORS</span>
+            </Link>
+            
+            <form onSubmit={handleSearch} className="hidden md:flex flex-1 max-w-xl mx-8">
+              <div className="relative w-full">
+                <Icon name="Search" size={20} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
+                <Input
+                  type="text"
+                  placeholder="Поиск товаров..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="pl-10 rounded-full"
+                />
+              </div>
+            </form>
+
+            <nav className="hidden lg:flex items-center gap-6">
+              <Link to="/" className="text-muted-foreground hover:text-foreground transition-colors">Главная</Link>
+              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">О нас</a>
+              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Доставка</a>
+              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Гарантия</a>
+            </nav>
+            
+            <Button className="bg-secondary hover:bg-secondary/90 text-white rounded-full px-4 md:px-6">
+              <Icon name="Phone" size={18} className="md:mr-2" />
+              <span className="hidden md:inline">+7 (495) 123-45-67</span>
+            </Button>
+          </div>
+          
+          {/* Mobile Search */}
+          <form onSubmit={handleSearch} className="md:hidden mt-3">
+            <div className="relative w-full">
+              <Icon name="Search" size={20} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
+              <Input
+                type="text"
+                placeholder="Поиск товаров..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="pl-10 rounded-full"
+              />
+            </div>
+          </form>
         </div>
       </header>
 

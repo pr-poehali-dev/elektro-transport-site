@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import Icon from "@/components/ui/icon";
 import { Badge } from "@/components/ui/badge";
 import { Checkbox } from "@/components/ui/checkbox";
+import { Input } from "@/components/ui/input";
 
 interface Product {
   id: number;
@@ -151,6 +152,7 @@ const Index = () => {
   const [powerRange, setPowerRange] = useState<[number, number]>([0, 3000]);
   const [deliveryDays, setDeliveryDays] = useState(30);
   const [onlyInStock, setOnlyInStock] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const brands = ["Xiaomi", "Ninebot", "Yadea", "Sunra", "Eltreco"];
 
@@ -160,6 +162,9 @@ const Index = () => {
     if (p.power < powerRange[0] || p.power > powerRange[1]) return false;
     if (p.deliveryDays > deliveryDays) return false;
     if (onlyInStock && !p.inStock) return false;
+    if (searchQuery && !p.name.toLowerCase().includes(searchQuery.toLowerCase()) && 
+        !p.category.toLowerCase().includes(searchQuery.toLowerCase()) &&
+        !p.brand.toLowerCase().includes(searchQuery.toLowerCase())) return false;
     return true;
   });
 
@@ -180,23 +185,54 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       <header className="bg-white shadow-sm sticky top-0 z-[100]">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <span className="text-2xl font-bold text-foreground">ELECTRO MOTORS</span>
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex items-center justify-between gap-4">
+            <div className="flex items-center gap-2">
+              <span className="text-2xl font-bold text-foreground">ELECTRO MOTORS</span>
+            </div>
+            
+            <div className="hidden md:flex flex-1 max-w-xl mx-8">
+              <div className="relative w-full">
+                <Icon name="Search" size={20} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
+                <Input
+                  type="text"
+                  placeholder="Поиск товаров..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="pl-10 rounded-full"
+                />
+              </div>
+            </div>
+
+            <nav className="hidden lg:flex items-center gap-6">
+              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">О нас</a>
+              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Доставка</a>
+              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Гарантия</a>
+            </nav>
+            
+            <div className="flex items-center gap-2">
+              <Button variant="ghost" size="icon" className="hidden md:flex">
+                <Icon name="Heart" size={20} />
+              </Button>
+              <Button className="bg-secondary hover:bg-secondary/90 text-white rounded-full px-4 md:px-6">
+                <Icon name="Phone" size={18} className="md:mr-2" />
+                <span className="hidden md:inline">+7 (495) 123-45-67</span>
+              </Button>
+            </div>
           </div>
-          <nav className="hidden md:flex items-center gap-6">
-            <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">О нас</a>
-            <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Доставка</a>
-            <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Гарантия</a>
-          </nav>
-          <div className="flex items-center gap-4">
-            <Button variant="ghost" size="icon">
-              <Icon name="Heart" size={20} />
-            </Button>
-            <Button className="bg-secondary hover:bg-secondary/90 text-white rounded-full px-6">
-              <Icon name="Phone" size={18} className="mr-2" />
-              +7 (495) 123-45-67
-            </Button>
+          
+          {/* Mobile Search */}
+          <div className="md:hidden mt-3">
+            <div className="relative w-full">
+              <Icon name="Search" size={20} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
+              <Input
+                type="text"
+                placeholder="Поиск товаров..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="pl-10 rounded-full"
+              />
+            </div>
           </div>
         </div>
       </header>

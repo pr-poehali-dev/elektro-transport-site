@@ -223,7 +223,7 @@ const Index = () => {
                 <img 
                   src="https://cdn.poehali.dev/files/0ea67718-7264-400a-8a71-59cbd3983707.png" 
                   alt="Electric Delivery Scooter"
-                  className="w-full h-full object-contain relative z-10 hover:scale-110 transition-transform duration-500"
+                  className="w-full h-full object-contain relative z-10 hover:scale-110 transition-transform duration-500 scale-110"
                   style={{
                     filter: 'drop-shadow(0 10px 30px rgba(239, 68, 68, 0.4)) drop-shadow(0 0 20px rgba(239, 68, 68, 0.2))'
                   }}

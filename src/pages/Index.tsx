@@ -181,7 +181,7 @@ const Index = () => {
         <div className="container mx-auto px-4 relative z-10 w-full">
           
           <div className="flex flex-col items-center gap-4 pt-16">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-end w-full h-[50vh] px-4 max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-end w-full h-[50vh] px-4 max-w-6xl mx-auto">
               <div className="flex items-end justify-center relative animate-scale-in group">
                 <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[150px] h-2 bg-purple-500/40 rounded-full blur-lg group-hover:w-[200px] transition-all duration-500"></div>
                 <img 
@@ -194,6 +194,32 @@ const Index = () => {
                 />
               </div>
               
+              <div className="flex flex-col items-center justify-center gap-4 animate-fade-in h-full pb-8">
+                <p className="text-base md:text-xl text-slate-300 leading-relaxed text-center">
+                  Современно. Экологично. Экономично. Комфортно.
+                </p>
+                
+                <div className="flex flex-col gap-3 w-full">
+                  <Button
+                    size="lg"
+                    className="relative overflow-hidden bg-gradient-to-br from-primary/30 to-primary/10 backdrop-blur-sm border border-primary/30 text-white hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-primary/50 rounded-2xl px-6 py-4 text-sm font-bold group"
+                  >
+                    <div className="absolute top-0 right-0 w-24 h-24 bg-primary/20 rounded-full blur-xl"></div>
+                    <span className="relative flex items-center justify-center gap-3">
+                      Перейти в каталог
+                      <Icon name="ArrowRight" size={20} className="group-hover:translate-x-1 transition-transform" />
+                    </span>
+                  </Button>
+                  <Button
+                    size="lg"
+                    className="bg-[#0EA5E9] hover:bg-[#0EA5E9]/90 text-white hover:scale-105 transition-all duration-300 shadow-2xl rounded-2xl px-6 py-4 text-sm font-bold flex items-center justify-center gap-3"
+                  >
+                    <Icon name="MessageCircle" size={20} />
+                    Консультация эксперта
+                  </Button>
+                </div>
+              </div>
+              
               <div className="flex items-end justify-center relative animate-scale-in group" style={{ animationDelay: '0.2s' }}>
                 <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[150px] h-2 bg-primary/40 rounded-full blur-lg group-hover:w-[200px] transition-all duration-500"></div>
                 <img 
@@ -204,32 +230,6 @@ const Index = () => {
                     filter: 'drop-shadow(0 10px 30px rgba(239, 68, 68, 0.4)) drop-shadow(0 0 20px rgba(239, 68, 68, 0.2))'
                   }}
                 />
-              </div>
-            </div>
-            
-            <div className="space-y-3 animate-fade-in flex flex-col items-center text-center mt-2">
-              <p className="text-base md:text-xl text-slate-300 leading-relaxed max-w-2xl">
-                Современно. Экологично. Экономично. Комфортно.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-2 justify-center w-full max-w-2xl">
-                <Button
-                  size="lg"
-                  className="relative overflow-hidden bg-gradient-to-br from-primary/30 to-primary/10 backdrop-blur-sm border border-primary/30 text-white hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-primary/50 rounded-2xl px-6 py-4 text-sm font-bold group"
-                >
-                  <div className="absolute top-0 right-0 w-24 h-24 bg-primary/20 rounded-full blur-xl"></div>
-                  <span className="relative flex items-center justify-center gap-3">
-                    Перейти в каталог
-                    <Icon name="ArrowRight" size={20} className="group-hover:translate-x-1 transition-transform" />
-                  </span>
-                </Button>
-                <Button
-                  size="lg"
-                  className="bg-[#0EA5E9] hover:bg-[#0EA5E9]/90 text-white hover:scale-105 transition-all duration-300 shadow-2xl rounded-2xl px-6 py-4 text-sm font-bold flex items-center justify-center gap-3"
-                >
-                  <Icon name="MessageCircle" size={20} />
-                  Консультация эксперта
-                </Button>
               </div>
             </div>
           </div>

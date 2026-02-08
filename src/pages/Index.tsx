@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Icon from "@/components/ui/icon";
@@ -529,28 +530,32 @@ const Index = () => {
             {filteredProducts.map((product) => (
               <Card key={product.id} className="group hover:shadow-xl transition-all duration-300 animate-fade-in overflow-hidden">
                 <CardContent className="p-0">
-                  <div className="relative bg-gradient-to-br from-slate-100 to-slate-200 p-8">
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="w-full h-48 object-contain group-hover:scale-110 transition-transform duration-300"
-                    />
-                    <div className="absolute top-4 right-4 flex flex-col gap-2">
-                      <div className="flex items-center gap-2">
-                        <Checkbox
-                          checked={compareList.includes(product.id)}
-                          onCheckedChange={() => toggleCompare(product.id)}
-                          className="bg-white"
-                        />
-                        <span className="text-xs bg-white px-2 py-1 rounded">Сравнить</span>
+                  <Link to={`/product/${product.id}`}>
+                    <div className="relative bg-gradient-to-br from-slate-100 to-slate-200 p-8 cursor-pointer">
+                      <img
+                        src={product.image}
+                        alt={product.name}
+                        className="w-full h-48 object-contain group-hover:scale-110 transition-transform duration-300"
+                      />
+                      <div className="absolute top-4 right-4 flex flex-col gap-2" onClick={(e) => e.preventDefault()}>
+                        <div className="flex items-center gap-2">
+                          <Checkbox
+                            checked={compareList.includes(product.id)}
+                            onCheckedChange={() => toggleCompare(product.id)}
+                            className="bg-white"
+                          />
+                          <span className="text-xs bg-white px-2 py-1 rounded">Сравнить</span>
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </Link>
                   <div className="p-6">
                     <Badge variant="secondary" className="mb-2 text-xs">
                       {product.category}
                     </Badge>
-                    <h3 className="font-bold text-lg mb-2">{product.name}</h3>
+                    <Link to={`/product/${product.id}`}>
+                      <h3 className="font-bold text-lg mb-2 hover:text-primary transition-colors cursor-pointer">{product.name}</h3>
+                    </Link>
                     <div className="grid grid-cols-2 gap-2 text-xs text-muted-foreground mb-4">
                       <div className="flex items-center gap-1">
                         <Icon name="Gauge" size={14} />
@@ -575,9 +580,11 @@ const Index = () => {
                           {product.price.toLocaleString('ru-RU')} ₽
                         </div>
                       </div>
-                      <Button size="sm" className="bg-secondary hover:bg-secondary/90 text-white rounded-full">
-                        Купить
-                      </Button>
+                      <Link to={`/product/${product.id}`}>
+                        <Button size="sm" className="bg-secondary hover:bg-secondary/90 text-white rounded-full">
+                          Купить
+                        </Button>
+                      </Link>
                     </div>
                   </div>
                 </CardContent>

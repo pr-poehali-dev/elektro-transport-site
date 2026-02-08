@@ -333,6 +333,29 @@ const Index = () => {
                     Фильтры
                   </h3>
 
+                  {/* Categories */}
+                  <div className="mb-6">
+                    <h4 className="font-semibold mb-3 text-sm">Категория</h4>
+                    <div className="space-y-2">
+                      <label className="flex items-center gap-2 cursor-pointer">
+                        <Checkbox
+                          checked={selectedCategory === null}
+                          onCheckedChange={() => setSelectedCategory(null)}
+                        />
+                        <span className="text-sm">Все категории</span>
+                      </label>
+                      {categories.map((cat) => (
+                        <label key={cat.name} className="flex items-center gap-2 cursor-pointer">
+                          <Checkbox
+                            checked={selectedCategory === cat.name}
+                            onCheckedChange={() => setSelectedCategory(selectedCategory === cat.name ? null : cat.name)}
+                          />
+                          <span className="text-sm">{cat.name}</span>
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+
                   {/* Brands */}
                   <div className="mb-6">
                     <h4 className="font-semibold mb-3 text-sm">Марка</h4>
@@ -380,29 +403,6 @@ const Index = () => {
                             onCheckedChange={() => toggleDelivery(delivery)}
                           />
                           <span className="text-sm">{delivery}</span>
-                        </label>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Categories */}
-                  <div className="mb-6">
-                    <h4 className="font-semibold mb-3 text-sm">Категория</h4>
-                    <div className="space-y-2">
-                      <label className="flex items-center gap-2 cursor-pointer">
-                        <Checkbox
-                          checked={selectedCategory === null}
-                          onCheckedChange={() => setSelectedCategory(null)}
-                        />
-                        <span className="text-sm">Все категории</span>
-                      </label>
-                      {categories.map((cat) => (
-                        <label key={cat.name} className="flex items-center gap-2 cursor-pointer">
-                          <Checkbox
-                            checked={selectedCategory === cat.name}
-                            onCheckedChange={() => setSelectedCategory(selectedCategory === cat.name ? null : cat.name)}
-                          />
-                          <span className="text-sm">{cat.name}</span>
                         </label>
                       ))}
                     </div>

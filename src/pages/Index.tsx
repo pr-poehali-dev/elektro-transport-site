@@ -157,32 +157,17 @@ const Index = () => {
       </header>
 
       <section className="bg-gradient-to-br from-slate-950 via-slate-900 to-blue-950 text-white h-[calc(100vh-72px)] relative flex items-center overflow-hidden">
-        {/* Фоновая сетка из фото */}
-        <div className="absolute inset-0 overflow-hidden opacity-15">
-          <div className="grid grid-cols-4 grid-rows-3 w-full h-full">
-            <img src="https://cdn.poehali.dev/files/b8881807-d273-44af-b7e1-6b32377493e2.png" className="w-full h-full object-cover opacity-60" alt="" />
-            <img src="https://cdn.poehali.dev/files/36f13baa-6fee-4f2c-89c4-94d789bfda32.png" className="w-full h-full object-cover opacity-40" alt="" />
-            <img src="https://cdn.poehali.dev/files/26aabfed-1ab2-4231-965b-7ab4d5c7bdef.png" className="w-full h-full object-cover opacity-60" alt="" />
-            <img src="https://cdn.poehali.dev/files/0ea67718-7264-400a-8a71-59cbd3983707.png" className="w-full h-full object-cover opacity-40" alt="" />
-            <img src="https://cdn.poehali.dev/files/26aabfed-1ab2-4231-965b-7ab4d5c7bdef.png" className="w-full h-full object-cover opacity-30" alt="" />
-            <img src="https://cdn.poehali.dev/files/b8881807-d273-44af-b7e1-6b32377493e2.png" className="w-full h-full object-cover opacity-50" alt="" />
-            <img src="https://cdn.poehali.dev/files/0ea67718-7264-400a-8a71-59cbd3983707.png" className="w-full h-full object-cover opacity-30" alt="" />
-            <img src="https://cdn.poehali.dev/files/36f13baa-6fee-4f2c-89c4-94d789bfda32.png" className="w-full h-full object-cover opacity-60" alt="" />
-            <img src="https://cdn.poehali.dev/files/0ea67718-7264-400a-8a71-59cbd3983707.png" className="w-full h-full object-cover opacity-50" alt="" />
-            <img src="https://cdn.poehali.dev/files/26aabfed-1ab2-4231-965b-7ab4d5c7bdef.png" className="w-full h-full object-cover opacity-40" alt="" />
-            <img src="https://cdn.poehali.dev/files/36f13baa-6fee-4f2c-89c4-94d789bfda32.png" className="w-full h-full object-cover opacity-30" alt="" />
-            <img src="https://cdn.poehali.dev/files/b8881807-d273-44af-b7e1-6b32377493e2.png" className="w-full h-full object-cover opacity-60" alt="" />
-          </div>
-        </div>
-        
-        {/* Градиентный оверлей */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-950/95 via-slate-900/90 to-blue-950/95"></div>
-        
-        {/* Световые эффекты */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-primary/15 rounded-full blur-[150px] animate-pulse"></div>
-          <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-secondary/15 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-primary/20 rounded-full blur-[150px] animate-pulse"></div>
+          <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-secondary/20 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '1s' }}></div>
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-blue-500/10 rounded-full blur-[180px]"></div>
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjAzIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-50"></div>
+          <div className="absolute top-10 left-10 w-3 h-3 bg-primary/80 rounded-full animate-pulse shadow-[0_0_20px_rgba(239,68,68,0.6)]"></div>
+          <div className="absolute top-20 right-32 w-2 h-2 bg-secondary/80 rounded-full animate-pulse shadow-[0_0_15px_rgba(251,146,60,0.6)]" style={{ animationDelay: '0.3s' }}></div>
+          <div className="absolute bottom-32 left-40 w-2.5 h-2.5 bg-blue-400/80 rounded-full animate-pulse shadow-[0_0_18px_rgba(96,165,250,0.6)]" style={{ animationDelay: '0.6s' }}></div>
+          <div className="absolute bottom-20 right-20 w-3 h-3 bg-primary/60 rounded-full animate-pulse shadow-[0_0_20px_rgba(239,68,68,0.5)]" style={{ animationDelay: '0.9s' }}></div>
+          <div className="absolute top-1/3 left-1/4 w-1.5 h-1.5 bg-green-400/70 rounded-full animate-pulse shadow-[0_0_12px_rgba(74,222,128,0.5)]" style={{ animationDelay: '1.2s' }}></div>
+          <div className="absolute bottom-1/3 right-1/4 w-2 h-2 bg-purple-400/70 rounded-full animate-pulse shadow-[0_0_15px_rgba(192,132,252,0.5)]" style={{ animationDelay: '1.5s' }}></div>
         </div>
         
         <div className="absolute top-4 left-0 right-0 z-[60] pointer-events-none">

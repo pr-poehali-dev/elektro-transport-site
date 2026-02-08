@@ -385,6 +385,29 @@ const Index = () => {
                     </div>
                   </div>
 
+                  {/* Categories */}
+                  <div className="mb-6">
+                    <h4 className="font-semibold mb-3 text-sm">Категория</h4>
+                    <div className="space-y-2">
+                      <label className="flex items-center gap-2 cursor-pointer">
+                        <Checkbox
+                          checked={selectedCategory === null}
+                          onCheckedChange={() => setSelectedCategory(null)}
+                        />
+                        <span className="text-sm">Все категории</span>
+                      </label>
+                      {categories.map((cat) => (
+                        <label key={cat.name} className="flex items-center gap-2 cursor-pointer">
+                          <Checkbox
+                            checked={selectedCategory === cat.name}
+                            onCheckedChange={() => setSelectedCategory(selectedCategory === cat.name ? null : cat.name)}
+                          />
+                          <span className="text-sm">{cat.name}</span>
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+
                   {/* In Stock */}
                   <div className="mb-4">
                     <label className="flex items-center gap-2 cursor-pointer">
@@ -401,6 +424,7 @@ const Index = () => {
                     variant="outline"
                     className="w-full"
                     onClick={() => {
+                      setSelectedCategory(null);
                       setSelectedBrands([]);
                       setPowerRange([0, 3000]);
                       setSelectedDelivery([]);
@@ -427,28 +451,6 @@ const Index = () => {
                 Сравнить ({compareList.length})
               </Button>
             )}
-          </div>
-
-          <div className="flex gap-4 mb-8 overflow-x-auto pb-4">
-            <Button
-              variant={selectedCategory === null ? "default" : "outline"}
-              onClick={() => setSelectedCategory(null)}
-              className={selectedCategory === null ? "bg-primary text-white rounded-full" : "rounded-full"}
-            >
-              <Icon name="Grid3x3" size={18} className="mr-2" />
-              Все категории
-            </Button>
-            {categories.map((cat) => (
-              <Button
-                key={cat.name}
-                variant={selectedCategory === cat.name ? "default" : "outline"}
-                onClick={() => setSelectedCategory(cat.name)}
-                className={selectedCategory === cat.name ? "bg-primary text-white rounded-full whitespace-nowrap" : "rounded-full whitespace-nowrap"}
-              >
-                <Icon name={cat.icon} size={18} className="mr-2" />
-                {cat.name}
-              </Button>
-            ))}
           </div>
 
           {showCompare && compareProducts.length > 0 && (

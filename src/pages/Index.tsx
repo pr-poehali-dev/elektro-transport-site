@@ -16,7 +16,7 @@ interface Product {
   weight: number;
   power: number;
   brand: string;
-  delivery: string;
+  deliveryDays: number;
   inStock: boolean;
 }
 
@@ -46,7 +46,7 @@ const products: Product[] = [
     weight: 19,
     power: 500,
     brand: "Ninebot",
-    delivery: "14 дней",
+    deliveryDays: 14,
     inStock: true
   },
   {
@@ -60,7 +60,7 @@ const products: Product[] = [
     weight: 85,
     power: 3000,
     brand: "Yadea",
-    delivery: "30 дней",
+    deliveryDays: 30,
     inStock: false
   },
   {
@@ -74,7 +74,7 @@ const products: Product[] = [
     weight: 72,
     power: 2000,
     brand: "Sunra",
-    delivery: "21 дней",
+    deliveryDays: 21,
     inStock: true
   },
   {
@@ -88,7 +88,7 @@ const products: Product[] = [
     weight: 95,
     power: 1500,
     brand: "Eltreco",
-    delivery: "14 дней",
+    deliveryDays: 14,
     inStock: true
   },
   {
@@ -102,7 +102,7 @@ const products: Product[] = [
     weight: 88,
     power: 1000,
     brand: "Xiaomi",
-    delivery: "7 дней",
+    deliveryDays: 7,
     inStock: true
   },
   {
@@ -116,7 +116,7 @@ const products: Product[] = [
     weight: 14,
     power: 350,
     brand: "Ninebot",
-    delivery: "3 дня",
+    deliveryDays: 3,
     inStock: true
   },
   {
@@ -130,7 +130,7 @@ const products: Product[] = [
     weight: 18,
     power: 500,
     brand: "Yadea",
-    delivery: "7 дней",
+    deliveryDays: 7,
     inStock: false
   }
 ];
@@ -148,17 +148,16 @@ const Index = () => {
   const [showCompare, setShowCompare] = useState(false);
   const [selectedBrands, setSelectedBrands] = useState<string[]>([]);
   const [powerRange, setPowerRange] = useState<[number, number]>([0, 3000]);
-  const [selectedDelivery, setSelectedDelivery] = useState<string[]>([]);
+  const [deliveryDays, setDeliveryDays] = useState(30);
   const [onlyInStock, setOnlyInStock] = useState(false);
 
   const brands = ["Xiaomi", "Ninebot", "Yadea", "Sunra", "Eltreco"];
-  const deliveryOptions = ["3 дня", "7 дней", "14 дней", "21 дней", "30 дней"];
 
   const filteredProducts = products.filter((p) => {
     if (selectedCategory && p.category !== selectedCategory) return false;
     if (selectedBrands.length > 0 && !selectedBrands.includes(p.brand)) return false;
     if (p.power < powerRange[0] || p.power > powerRange[1]) return false;
-    if (selectedDelivery.length > 0 && !selectedDelivery.includes(p.delivery)) return false;
+    if (p.deliveryDays > deliveryDays) return false;
     if (onlyInStock && !p.inStock) return false;
     return true;
   });
@@ -166,12 +165,6 @@ const Index = () => {
   const toggleBrand = (brand: string) => {
     setSelectedBrands((prev) =>
       prev.includes(brand) ? prev.filter((b) => b !== brand) : [...prev, brand]
-    );
-  };
-
-  const toggleDelivery = (delivery: string) => {
-    setSelectedDelivery((prev) =>
-      prev.includes(delivery) ? prev.filter((d) => d !== delivery) : [...prev, delivery]
     );
   };
 
@@ -394,17 +387,24 @@ const Index = () => {
 
                   {/* Delivery */}
                   <div className="mb-6">
-                    <h4 className="font-semibold mb-3 text-sm">Срок доставки</h4>
+                    <h4 className="font-semibold mb-3 text-sm">Срок доставки (до {deliveryDays} дней)</h4>
                     <div className="space-y-2">
-                      {deliveryOptions.map((delivery) => (
-                        <label key={delivery} className="flex items-center gap-2 cursor-pointer">
-                          <Checkbox
-                            checked={selectedDelivery.includes(delivery)}
-                            onCheckedChange={() => toggleDelivery(delivery)}
-                          />
-                          <span className="text-sm">{delivery}</span>
-                        </label>
-                      ))}
+                      <input
+                        type="range"
+                        min="3"
+                        max="30"
+                        step="1"
+                        value={deliveryDays}
+                        onChange={(e) => setDeliveryDays(parseInt(e.target.value))}
+                        className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-primary"
+                        style={{
+                          accentColor: 'hsl(var(--primary))'
+                        }}
+                      />
+                      <div className="flex justify-between text-xs text-muted-foreground">
+                        <span>3 дня</span>
+                        <span>30 дней</span>
+                      </div>
                     </div>
                   </div>
 
@@ -427,7 +427,7 @@ const Index = () => {
                       setSelectedCategory(null);
                       setSelectedBrands([]);
                       setPowerRange([0, 3000]);
-                      setSelectedDelivery([]);
+                      setDeliveryDays(30);
                       setOnlyInStock(false);
                     }}
                   >

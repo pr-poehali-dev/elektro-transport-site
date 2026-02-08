@@ -15,6 +15,9 @@ interface Product {
   range: number;
   weight: number;
   power: number;
+  brand: string;
+  delivery: string;
+  inStock: boolean;
 }
 
 const products: Product[] = [
@@ -27,7 +30,10 @@ const products: Product[] = [
     maxSpeed: 45,
     range: 80,
     weight: 22,
-    power: 750
+    power: 750,
+    brand: "Xiaomi",
+    delivery: "7 дней",
+    inStock: true
   },
   {
     id: 2,
@@ -38,7 +44,10 @@ const products: Product[] = [
     maxSpeed: 35,
     range: 60,
     weight: 19,
-    power: 500
+    power: 500,
+    brand: "Ninebot",
+    delivery: "14 дней",
+    inStock: true
   },
   {
     id: 3,
@@ -49,7 +58,10 @@ const products: Product[] = [
     maxSpeed: 60,
     range: 100,
     weight: 85,
-    power: 3000
+    power: 3000,
+    brand: "Yadea",
+    delivery: "30 дней",
+    inStock: false
   },
   {
     id: 4,
@@ -60,7 +72,10 @@ const products: Product[] = [
     maxSpeed: 50,
     range: 80,
     weight: 72,
-    power: 2000
+    power: 2000,
+    brand: "Sunra",
+    delivery: "21 дней",
+    inStock: true
   },
   {
     id: 5,
@@ -71,7 +86,10 @@ const products: Product[] = [
     maxSpeed: 40,
     range: 90,
     weight: 95,
-    power: 1500
+    power: 1500,
+    brand: "Eltreco",
+    delivery: "14 дней",
+    inStock: true
   },
   {
     id: 6,
@@ -82,7 +100,10 @@ const products: Product[] = [
     maxSpeed: 30,
     range: 70,
     weight: 88,
-    power: 1000
+    power: 1000,
+    brand: "Xiaomi",
+    delivery: "7 дней",
+    inStock: true
   },
   {
     id: 7,
@@ -93,7 +114,10 @@ const products: Product[] = [
     maxSpeed: 30,
     range: 40,
     weight: 14,
-    power: 350
+    power: 350,
+    brand: "Ninebot",
+    delivery: "3 дня",
+    inStock: true
   },
   {
     id: 8,
@@ -104,7 +128,10 @@ const products: Product[] = [
     maxSpeed: 40,
     range: 60,
     weight: 18,
-    power: 500
+    power: 500,
+    brand: "Yadea",
+    delivery: "7 дней",
+    inStock: false
   }
 ];
 
@@ -119,10 +146,34 @@ const Index = () => {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [compareList, setCompareList] = useState<number[]>([]);
   const [showCompare, setShowCompare] = useState(false);
+  const [selectedBrands, setSelectedBrands] = useState<string[]>([]);
+  const [powerRange, setPowerRange] = useState<[number, number]>([0, 3000]);
+  const [selectedDelivery, setSelectedDelivery] = useState<string[]>([]);
+  const [onlyInStock, setOnlyInStock] = useState(false);
 
-  const filteredProducts = selectedCategory
-    ? products.filter((p) => p.category === selectedCategory)
-    : products;
+  const brands = ["Xiaomi", "Ninebot", "Yadea", "Sunra", "Eltreco"];
+  const deliveryOptions = ["3 дня", "7 дней", "14 дней", "21 дней", "30 дней"];
+
+  const filteredProducts = products.filter((p) => {
+    if (selectedCategory && p.category !== selectedCategory) return false;
+    if (selectedBrands.length > 0 && !selectedBrands.includes(p.brand)) return false;
+    if (p.power < powerRange[0] || p.power > powerRange[1]) return false;
+    if (selectedDelivery.length > 0 && !selectedDelivery.includes(p.delivery)) return false;
+    if (onlyInStock && !p.inStock) return false;
+    return true;
+  });
+
+  const toggleBrand = (brand: string) => {
+    setSelectedBrands((prev) =>
+      prev.includes(brand) ? prev.filter((b) => b !== brand) : [...prev, brand]
+    );
+  };
+
+  const toggleDelivery = (delivery: string) => {
+    setSelectedDelivery((prev) =>
+      prev.includes(delivery) ? prev.filter((d) => d !== delivery) : [...prev, delivery]
+    );
+  };
 
   const toggleCompare = (id: number) => {
     setCompareList((prev) =>
@@ -272,6 +323,99 @@ const Index = () => {
 
       <section className="py-16">
         <div className="container mx-auto px-4">
+          <div className="flex gap-8">
+            {/* Filters Sidebar */}
+            <aside className="w-64 flex-shrink-0">
+              <Card className="sticky top-20">
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
+                    <Icon name="SlidersHorizontal" size={20} />
+                    Фильтры
+                  </h3>
+
+                  {/* Brands */}
+                  <div className="mb-6">
+                    <h4 className="font-semibold mb-3 text-sm">Марка</h4>
+                    <div className="space-y-2">
+                      {brands.map((brand) => (
+                        <label key={brand} className="flex items-center gap-2 cursor-pointer">
+                          <Checkbox
+                            checked={selectedBrands.includes(brand)}
+                            onCheckedChange={() => toggleBrand(brand)}
+                          />
+                          <span className="text-sm">{brand}</span>
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Power */}
+                  <div className="mb-6">
+                    <h4 className="font-semibold mb-3 text-sm">Мощность (Вт)</h4>
+                    <div className="space-y-2">
+                      <div className="flex justify-between text-xs text-muted-foreground">
+                        <span>{powerRange[0]}</span>
+                        <span>{powerRange[1]}</span>
+                      </div>
+                      <input
+                        type="range"
+                        min="0"
+                        max="3000"
+                        step="100"
+                        value={powerRange[1]}
+                        onChange={(e) => setPowerRange([0, parseInt(e.target.value)])}
+                        className="w-full"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Delivery */}
+                  <div className="mb-6">
+                    <h4 className="font-semibold mb-3 text-sm">Срок доставки</h4>
+                    <div className="space-y-2">
+                      {deliveryOptions.map((delivery) => (
+                        <label key={delivery} className="flex items-center gap-2 cursor-pointer">
+                          <Checkbox
+                            checked={selectedDelivery.includes(delivery)}
+                            onCheckedChange={() => toggleDelivery(delivery)}
+                          />
+                          <span className="text-sm">{delivery}</span>
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* In Stock */}
+                  <div className="mb-4">
+                    <label className="flex items-center gap-2 cursor-pointer">
+                      <Checkbox
+                        checked={onlyInStock}
+                        onCheckedChange={(checked) => setOnlyInStock(checked === true)}
+                      />
+                      <span className="text-sm font-semibold">Есть в наличии</span>
+                    </label>
+                  </div>
+
+                  {/* Reset Button */}
+                  <Button
+                    variant="outline"
+                    className="w-full"
+                    onClick={() => {
+                      setSelectedBrands([]);
+                      setPowerRange([0, 3000]);
+                      setSelectedDelivery([]);
+                      setOnlyInStock(false);
+                    }}
+                  >
+                    <Icon name="RotateCcw" size={16} className="mr-2" />
+                    Сбросить фильтры
+                  </Button>
+                </CardContent>
+              </Card>
+            </aside>
+
+            {/* Products Section */}
+            <div className="flex-1">
           <div className="flex items-center justify-between mb-8">
             <h2 className="text-4xl font-bold">Каталог</h2>
             {compareList.length > 0 && (
@@ -386,7 +530,7 @@ const Index = () => {
             </Card>
           )}
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredProducts.map((product) => (
               <Card key={product.id} className="group hover:shadow-xl transition-all duration-300 animate-fade-in overflow-hidden">
                 <CardContent className="p-0">
@@ -444,6 +588,8 @@ const Index = () => {
                 </CardContent>
               </Card>
             ))}
+          </div>
+            </div>
           </div>
         </div>
       </section>

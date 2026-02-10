@@ -288,16 +288,16 @@ const ProductDetail = () => {
                 </div>
 
                 <Button
-                  className="w-full bg-secondary hover:bg-secondary/90 text-white rounded-xl py-6 text-lg font-bold mb-3"
+                  className="w-full bg-primary hover:bg-primary/90 text-white rounded-xl py-6 text-lg font-bold mb-3"
                   onClick={() => document.getElementById('order-form')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   Связаться
                 </Button>
 
                 <Button
-                  className="w-full bg-white hover:bg-slate-100 text-slate-900 rounded-xl py-4 font-semibold"
+                  className="w-full bg-blue-500 hover:bg-blue-600 text-white rounded-xl py-4 font-semibold"
                 >
-                  <Icon name="MessageCircle" size={18} className="mr-2" />
+                  <Icon name="Send" size={18} className="mr-2" />
                   Telegram
                 </Button>
 

@@ -221,24 +221,10 @@ const Index = () => {
               <Button variant="ghost" size="icon" className="hidden md:flex">
                 <Icon name="Heart" size={20} />
               </Button>
-              <Button className="bg-secondary hover:bg-secondary/90 text-white rounded-full px-4 md:px-6">
-                <Icon name="Phone" size={18} className="md:mr-2" />
-                <span className="hidden md:inline">+7 (495) 123-45-67</span>
+              <Button size="icon" className="md:w-auto bg-secondary hover:bg-secondary/90 text-white rounded-full md:px-6">
+                <Icon name="Phone" size={18} />
+                <span className="hidden md:inline md:ml-2">+7 (495) 123-45-67</span>
               </Button>
-            </div>
-          </div>
-          
-          {/* Mobile Search */}
-          <div className="md:hidden mt-3">
-            <div className="relative w-full">
-              <Icon name="Search" size={20} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
-              <Input
-                type="text"
-                placeholder="Поиск товаров..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10 rounded-full"
-              />
             </div>
           </div>
         </div>

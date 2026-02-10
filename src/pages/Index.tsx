@@ -560,11 +560,11 @@ const Index = () => {
               <Card key={product.id} className="group hover:shadow-xl transition-all duration-300 animate-fade-in overflow-hidden">
                 <CardContent className="p-0">
                   <Link to={`/product/${product.id}`}>
-                    <div className="relative bg-gradient-to-br from-slate-100 to-slate-200 p-8 cursor-pointer">
+                    <div className="relative bg-gradient-to-br from-slate-100 to-slate-200 cursor-pointer aspect-square flex items-center justify-center">
                       <img
                         src={product.image}
                         alt={product.name}
-                        className="w-full h-48 object-contain group-hover:scale-110 transition-transform duration-300"
+                        className="w-full h-full object-contain p-4 group-hover:scale-110 transition-transform duration-300"
                       />
                       <div className="absolute top-4 right-4 flex flex-col gap-2" onClick={(e) => e.preventDefault()}>
                         <div className="flex items-center gap-2">

@@ -188,28 +188,29 @@ const ProductDetail = () => {
               </CardContent>
             </Card>
 
-            {/* Description */}
-            <Card>
-              <CardContent className="p-4">
-                <h2 className="text-xl font-bold mb-3">Описание</h2>
-                <p className="text-sm text-muted-foreground leading-relaxed">{product.description}</p>
-              </CardContent>
-            </Card>
+            {/* Description & Specs in 2 columns */}
+            <div className="grid md:grid-cols-2 gap-4">
+              <Card>
+                <CardContent className="p-4">
+                  <h2 className="text-xl font-bold mb-3">Описание</h2>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{product.description}</p>
+                </CardContent>
+              </Card>
 
-            {/* Specs */}
-            <Card>
-              <CardContent className="p-4">
-                <h2 className="text-xl font-bold mb-3">Характеристики</h2>
-                <div className="space-y-2">
-                  {product.specs.map((spec, idx) => (
-                    <div key={idx} className="flex justify-between py-2 border-b last:border-0 text-sm">
-                      <span className="text-muted-foreground">{spec.label}</span>
-                      <span className="font-semibold">{spec.value}</span>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+              <Card>
+                <CardContent className="p-4">
+                  <h2 className="text-xl font-bold mb-3">Характеристики</h2>
+                  <div className="space-y-2">
+                    {product.specs.map((spec, idx) => (
+                      <div key={idx} className="flex justify-between py-2 border-b last:border-0 text-sm">
+                        <span className="text-muted-foreground">{spec.label}</span>
+                        <span className="font-semibold">{spec.value}</span>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
 
             {/* Video Review */}
             {product.youtubeUrl && (

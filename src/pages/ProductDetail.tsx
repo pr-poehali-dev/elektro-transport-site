@@ -99,7 +99,7 @@ const ProductDetail = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 overflow-x-hidden">
       {/* Header */}
-      <header className="bg-white shadow-sm sticky top-0 z-50">
+      <header className="bg-white shadow-sm md:sticky md:top-0 z-50">
         <div className="container mx-auto px-1 md:px-4 py-2 md:py-4">
           <div className="flex items-center justify-between gap-4">
             <Link to="/" className="flex items-center gap-2">

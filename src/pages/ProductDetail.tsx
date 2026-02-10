@@ -157,11 +157,13 @@ const ProductDetail = () => {
             <div className="grid md:grid-cols-2 gap-3">
               <Card className="overflow-hidden">
                 <CardContent className="p-3">
-                  <img
-                    src={product.images[selectedImage]}
-                    alt={product.name}
-                    className="w-full h-[400px] object-contain bg-gradient-to-br from-slate-100 to-slate-200 rounded-lg"
-                  />
+                  <div className="aspect-square w-full bg-gradient-to-br from-slate-100 to-slate-200 rounded-lg flex items-center justify-center">
+                    <img
+                      src={product.images[selectedImage]}
+                      alt={product.name}
+                      className="w-full h-full object-contain p-4"
+                    />
+                  </div>
                   <div className="grid grid-cols-6 gap-2 mt-3">
                     {product.images.map((img, idx) => (
                       <button

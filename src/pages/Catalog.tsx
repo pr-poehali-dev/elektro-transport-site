@@ -1,0 +1,654 @@
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import Icon from "@/components/ui/icon";
+import { Badge } from "@/components/ui/badge";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Input } from "@/components/ui/input";
+
+interface Product {
+  id: number;
+  name: string;
+  category: string;
+  price: number;
+  image: string;
+  maxSpeed: number;
+  range: number;
+  weight: number;
+  power: number;
+  brand: string;
+  deliveryDays: number;
+  inStock: boolean;
+}
+
+const products: Product[] = [
+  {
+    id: 1,
+    name: "E-Bike Pro 3000",
+    category: "Электровелосипеды",
+    price: 89900,
+    image: "https://cdn.poehali.dev/projects/795ac98f-803c-4050-937a-9e9c042d136c/files/468bb9c8-33c9-4cac-b03e-f99275a9ba64.jpg",
+    maxSpeed: 45,
+    range: 80,
+    weight: 22,
+    power: 750,
+    brand: "Xiaomi",
+    deliveryDays: 7,
+    inStock: true
+  },
+  {
+    id: 2,
+    name: "Urban Cruiser X",
+    category: "Электровелосипеды",
+    price: 65900,
+    image: "https://cdn.poehali.dev/projects/795ac98f-803c-4050-937a-9e9c042d136c/files/468bb9c8-33c9-4cac-b03e-f99275a9ba64.jpg",
+    maxSpeed: 35,
+    range: 60,
+    weight: 19,
+    power: 500,
+    brand: "Ninebot",
+    deliveryDays: 14,
+    inStock: true
+  },
+  {
+    id: 3,
+    name: "Smart Scooter Z1",
+    category: "Электроскутеры",
+    price: 149900,
+    image: "https://cdn.poehali.dev/projects/795ac98f-803c-4050-937a-9e9c042d136c/files/726f93d2-7124-40c0-a336-d7135051fdf2.jpg",
+    maxSpeed: 60,
+    range: 100,
+    weight: 85,
+    power: 3000,
+    brand: "Yadea",
+    deliveryDays: 30,
+    inStock: false
+  },
+  {
+    id: 4,
+    name: "City Scooter Pro",
+    category: "Электроскутеры",
+    price: 119900,
+    image: "https://cdn.poehali.dev/projects/795ac98f-803c-4050-937a-9e9c042d136c/files/726f93d2-7124-40c0-a336-d7135051fdf2.jpg",
+    maxSpeed: 50,
+    range: 80,
+    weight: 72,
+    power: 2000,
+    brand: "Sunra",
+    deliveryDays: 21,
+    inStock: true
+  },
+  {
+    id: 5,
+    name: "Cargo Trike Max",
+    category: "Электротрициклы",
+    price: 179900,
+    image: "https://cdn.poehali.dev/projects/795ac98f-803c-4050-937a-9e9c042d136c/files/8928e07e-6b0a-4bdc-a4af-dcf6583abb8b.jpg",
+    maxSpeed: 40,
+    range: 90,
+    weight: 95,
+    power: 1500,
+    brand: "Eltreco",
+    deliveryDays: 14,
+    inStock: true
+  },
+  {
+    id: 6,
+    name: "Family Trike Comfort",
+    category: "Электротрициклы",
+    price: 139900,
+    image: "https://cdn.poehali.dev/projects/795ac98f-803c-4050-937a-9e9c042d136c/files/8928e07e-6b0a-4bdc-a4af-dcf6583abb8b.jpg",
+    maxSpeed: 30,
+    range: 70,
+    weight: 88,
+    power: 1000,
+    brand: "Xiaomi",
+    deliveryDays: 7,
+    inStock: true
+  },
+  {
+    id: 7,
+    name: "Urban Kick S",
+    category: "Электросамокаты",
+    price: 45900,
+    image: "https://cdn.poehali.dev/projects/795ac98f-803c-4050-937a-9e9c042d136c/files/726f93d2-7124-40c0-a336-d7135051fdf2.jpg",
+    maxSpeed: 30,
+    range: 40,
+    weight: 14,
+    power: 350,
+    brand: "Ninebot",
+    deliveryDays: 3,
+    inStock: true
+  },
+  {
+    id: 8,
+    name: "Pro Kick Max",
+    category: "Электросамокаты",
+    price: 69900,
+    image: "https://cdn.poehali.dev/projects/795ac98f-803c-4050-937a-9e9c042d136c/files/726f93d2-7124-40c0-a336-d7135051fdf2.jpg",
+    maxSpeed: 40,
+    range: 60,
+    weight: 18,
+    power: 500,
+    brand: "Yadea",
+    deliveryDays: 7,
+    inStock: false
+  }
+];
+
+const categories = [
+  { name: "Электровелосипеды", icon: "Bike" },
+  { name: "Электроскутеры", icon: "Bike" },
+  { name: "Электротрициклы", icon: "Bike" },
+  { name: "Электросамокаты", icon: "Bike" }
+];
+
+const Catalog = () => {
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [compareList, setCompareList] = useState<number[]>([]);
+  const [showCompare, setShowCompare] = useState(false);
+  const [selectedBrands, setSelectedBrands] = useState<string[]>([]);
+  const [powerRange, setPowerRange] = useState<[number, number]>([0, 3000]);
+  const [deliveryDays, setDeliveryDays] = useState(30);
+  const [onlyInStock, setOnlyInStock] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [showFilters, setShowFilters] = useState(false);
+
+  useEffect(() => {
+    const handleOpenFilters = () => setShowFilters(true);
+    window.addEventListener('openFilters', handleOpenFilters);
+    return () => window.removeEventListener('openFilters', handleOpenFilters);
+  }, []);
+
+  const brands = ["Xiaomi", "Ninebot", "Yadea", "Sunra", "Eltreco"];
+
+  const filteredProducts = products.filter((p) => {
+    if (selectedCategory && p.category !== selectedCategory) return false;
+    if (selectedBrands.length > 0 && !selectedBrands.includes(p.brand)) return false;
+    if (p.power < powerRange[0] || p.power > powerRange[1]) return false;
+    if (p.deliveryDays > deliveryDays) return false;
+    if (onlyInStock && !p.inStock) return false;
+    if (searchQuery && !p.name.toLowerCase().includes(searchQuery.toLowerCase()) && 
+        !p.category.toLowerCase().includes(searchQuery.toLowerCase()) &&
+        !p.brand.toLowerCase().includes(searchQuery.toLowerCase())) return false;
+    return true;
+  });
+
+  const toggleBrand = (brand: string) => {
+    setSelectedBrands((prev) =>
+      prev.includes(brand) ? prev.filter((b) => b !== brand) : [...prev, brand]
+    );
+  };
+
+  const toggleCompare = (id: number) => {
+    setCompareList((prev) =>
+      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
+    );
+  };
+
+  const compareProducts = products.filter((p) => compareList.includes(p.id));
+
+  const resetFilters = () => {
+    setSelectedCategory(null);
+    setSelectedBrands([]);
+    setPowerRange([0, 3000]);
+    setDeliveryDays(30);
+    setOnlyInStock(false);
+  };
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+      <header className="bg-white shadow-sm sticky top-0 z-[100]">
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex items-center justify-between gap-4">
+            <Link to="/" className="flex items-center gap-2">
+              <span className="text-2xl font-bold text-foreground">ELECTRO MOTORS</span>
+            </Link>
+            
+            <div className="hidden md:flex flex-1 max-w-xl mx-8">
+              <div className="relative w-full">
+                <Icon name="Search" size={20} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
+                <Input
+                  type="text"
+                  placeholder="Поиск товаров..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="pl-10 rounded-full"
+                />
+              </div>
+            </div>
+
+            <nav className="hidden lg:flex items-center gap-6">
+              <Link to="/" className="text-muted-foreground hover:text-foreground transition-colors">Главная</Link>
+              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">О нас</a>
+              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Доставка</a>
+              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Гарантия</a>
+            </nav>
+            
+            <div className="flex items-center gap-2">
+              <Button variant="ghost" size="icon" className="hidden md:flex">
+                <Icon name="Heart" size={20} />
+              </Button>
+              <Button size="icon" className="md:w-auto bg-secondary hover:bg-secondary/90 text-white rounded-full md:px-6">
+                <Icon name="Phone" size={18} />
+                <span className="hidden md:inline md:ml-2">+7 (495) 123-45-67</span>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section className="py-8 md:py-16 mb-16 md:mb-0">
+        <div className="w-full max-w-full mx-auto px-1 md:px-4">
+          <div className="grid lg:grid-cols-[300px_1fr] gap-1 md:gap-6 w-full max-w-full">
+            <aside className="hidden lg:block flex-shrink-0 lg:sticky lg:top-20 h-fit">
+              <Card>
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
+                    <Icon name="SlidersHorizontal" size={20} />
+                    Фильтры
+                  </h3>
+
+                  <div className="mb-6">
+                    <h4 className="font-semibold mb-3 text-sm">Категория</h4>
+                    <div className="space-y-2">
+                      <label className="flex items-center gap-2 cursor-pointer">
+                        <Checkbox
+                          checked={selectedCategory === null}
+                          onCheckedChange={() => setSelectedCategory(null)}
+                        />
+                        <span className="text-sm">Все категории</span>
+                      </label>
+                      {categories.map((cat) => (
+                        <label key={cat.name} className="flex items-center gap-2 cursor-pointer">
+                          <Checkbox
+                            checked={selectedCategory === cat.name}
+                            onCheckedChange={() => setSelectedCategory(selectedCategory === cat.name ? null : cat.name)}
+                          />
+                          <span className="text-sm">{cat.name}</span>
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="mb-6">
+                    <h4 className="font-semibold mb-3 text-sm">Марка</h4>
+                    <div className="space-y-2">
+                      {brands.map((brand) => (
+                        <label key={brand} className="flex items-center gap-2 cursor-pointer">
+                          <Checkbox
+                            checked={selectedBrands.includes(brand)}
+                            onCheckedChange={() => toggleBrand(brand)}
+                          />
+                          <span className="text-sm">{brand}</span>
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="mb-6">
+                    <h4 className="font-semibold mb-3 text-sm">Мощность (Вт)</h4>
+                    <div className="space-y-2">
+                      <div className="flex justify-between text-xs text-muted-foreground">
+                        <span>{powerRange[0]}</span>
+                        <span>{powerRange[1]}</span>
+                      </div>
+                      <input
+                        type="range"
+                        min="0"
+                        max="3000"
+                        step="100"
+                        value={powerRange[1]}
+                        onChange={(e) => setPowerRange([0, parseInt(e.target.value)])}
+                        className="w-full"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="mb-6">
+                    <h4 className="font-semibold mb-3 text-sm">Срок доставки (до {deliveryDays} дней)</h4>
+                    <div className="space-y-2">
+                      <input
+                        type="range"
+                        min="3"
+                        max="30"
+                        step="1"
+                        value={deliveryDays}
+                        onChange={(e) => setDeliveryDays(parseInt(e.target.value))}
+                        className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-primary"
+                        style={{
+                          accentColor: 'hsl(var(--primary))'
+                        }}
+                      />
+                      <div className="flex justify-between text-xs text-muted-foreground">
+                        <span>3 дня</span>
+                        <span>30 дней</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mb-4">
+                    <label className="flex items-center gap-2 cursor-pointer">
+                      <Checkbox
+                        checked={onlyInStock}
+                        onCheckedChange={(checked) => setOnlyInStock(checked === true)}
+                      />
+                      <span className="text-sm font-semibold">Есть в наличии</span>
+                    </label>
+                  </div>
+
+                  <Button
+                    variant="outline"
+                    className="w-full"
+                    onClick={resetFilters}
+                  >
+                    <Icon name="RotateCcw" size={16} className="mr-2" />
+                    Сбросить фильтры
+                  </Button>
+                </CardContent>
+              </Card>
+            </aside>
+
+            <div className="flex-1 w-full">
+              <div className="flex items-center justify-between mb-4 md:mb-8 px-2 md:px-0">
+                <h2 className="text-2xl md:text-4xl font-bold">Каталог</h2>
+                {compareList.length > 0 && (
+                  <Button
+                    onClick={() => setShowCompare(!showCompare)}
+                    className="bg-primary hover:bg-primary/90 text-white rounded-full"
+                  >
+                    <Icon name="GitCompare" size={18} className="mr-2" />
+                    Сравнить ({compareList.length})
+                  </Button>
+                )}
+              </div>
+
+              {showCompare && compareProducts.length > 0 && (
+                <Card className="mb-8 shadow-lg animate-fade-in">
+                  <CardContent className="p-6">
+                    <div className="flex items-center justify-between mb-4">
+                      <h3 className="text-2xl font-bold">Сравнение моделей</h3>
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={() => {
+                          setShowCompare(false);
+                          setCompareList([]);
+                        }}
+                      >
+                        <Icon name="X" size={18} />
+                      </Button>
+                    </div>
+                    <div className="overflow-x-auto">
+                      <table className="w-full">
+                        <thead>
+                          <tr className="border-b">
+                            <th className="text-left p-4 font-semibold">Характеристика</th>
+                            {compareProducts.map((product) => (
+                              <th key={product.id} className="text-center p-4">
+                                <div className="flex flex-col items-center gap-2">
+                                  <img src={product.image} alt={product.name} className="w-24 h-24 object-contain" />
+                                  <div className="font-semibold text-sm">{product.name}</div>
+                                </div>
+                              </th>
+                            ))}
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr className="border-b hover:bg-slate-50">
+                            <td className="p-4 font-medium">Цена</td>
+                            {compareProducts.map((product) => (
+                              <td key={product.id} className="text-center p-4 font-bold text-primary">
+                                {product.price.toLocaleString('ru-RU')} ₽
+                              </td>
+                            ))}
+                          </tr>
+                          <tr className="border-b hover:bg-slate-50">
+                            <td className="p-4 font-medium">Макс. скорость</td>
+                            {compareProducts.map((product) => (
+                              <td key={product.id} className="text-center p-4">
+                                {product.maxSpeed} км/ч
+                              </td>
+                            ))}
+                          </tr>
+                          <tr className="border-b hover:bg-slate-50">
+                            <td className="p-4 font-medium">Запас хода</td>
+                            {compareProducts.map((product) => (
+                              <td key={product.id} className="text-center p-4">
+                                {product.range} км
+                              </td>
+                            ))}
+                          </tr>
+                          <tr className="border-b hover:bg-slate-50">
+                            <td className="p-4 font-medium">Вес</td>
+                            {compareProducts.map((product) => (
+                              <td key={product.id} className="text-center p-4">
+                                {product.weight} кг
+                              </td>
+                            ))}
+                          </tr>
+                          <tr className="border-b hover:bg-slate-50">
+                            <td className="p-4 font-medium">Мощность</td>
+                            {compareProducts.map((product) => (
+                              <td key={product.id} className="text-center p-4">
+                                {product.power} Вт
+                              </td>
+                            ))}
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </CardContent>
+                </Card>
+              )}
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6 px-1 md:px-0">
+                {filteredProducts.map((product) => (
+                  <Card key={product.id} className="group hover:shadow-xl transition-all duration-300 animate-fade-in overflow-hidden">
+                    <CardContent className="p-0">
+                      <Link to={`/product/${product.id}`}>
+                        <div className="relative bg-gradient-to-br from-slate-100 to-slate-200 cursor-pointer aspect-square flex items-center justify-center">
+                          <img
+                            src={product.image}
+                            alt={product.name}
+                            className="w-full h-full object-contain p-4 group-hover:scale-110 transition-transform duration-300"
+                          />
+                          <div className="absolute top-4 right-4 flex flex-col gap-2" onClick={(e) => e.preventDefault()}>
+                            <div className="flex items-center gap-2">
+                              <Checkbox
+                                checked={compareList.includes(product.id)}
+                                onCheckedChange={() => toggleCompare(product.id)}
+                                className="bg-white"
+                              />
+                              <span className="text-xs bg-white px-2 py-1 rounded">Сравнить</span>
+                            </div>
+                          </div>
+                        </div>
+                      </Link>
+                      <div className="p-6">
+                        <Badge variant="secondary" className="mb-2 text-xs">
+                          {product.category}
+                        </Badge>
+                        <Link to={`/product/${product.id}`}>
+                          <h3 className="font-bold text-lg mb-2 hover:text-primary transition-colors cursor-pointer">{product.name}</h3>
+                        </Link>
+                        <div className="grid grid-cols-2 gap-2 text-xs text-muted-foreground mb-4">
+                          <div className="flex items-center gap-1">
+                            <Icon name="Gauge" size={14} />
+                            <span>{product.maxSpeed} км/ч</span>
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <Icon name="Battery" size={14} />
+                            <span>{product.range} км</span>
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <Icon name="Weight" size={14} />
+                            <span>{product.weight} кг</span>
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <Icon name="Zap" size={14} />
+                            <span>{product.power} Вт</span>
+                          </div>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <div>
+                            <div className="text-2xl font-bold text-primary">
+                              {product.price.toLocaleString('ru-RU')} ₽
+                            </div>
+                          </div>
+                          <Link to={`/product/${product.id}`}>
+                            <Button size="sm" className="bg-secondary hover:bg-secondary/90 text-white rounded-full">
+                              Купить
+                            </Button>
+                          </Link>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer className="bg-slate-900 text-white py-12 mt-20">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-4 gap-8">
+            <div>
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+                  <Icon name="Zap" className="text-white" size={24} />
+                </div>
+                <span className="text-xl font-bold">ELECTRO MOTORS</span>
+              </div>
+              <p className="text-slate-400 text-sm">
+                Эксклюзивный импорт электротранспорта нового поколения
+              </p>
+            </div>
+            <div>
+              <h4 className="font-bold mb-4">Компания</h4>
+              <ul className="space-y-2 text-sm text-slate-400">
+                <li><a href="#" className="hover:text-white transition-colors">О нас</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Доставка</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Гарантия</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-bold mb-4">Категории</h4>
+              <ul className="space-y-2 text-sm text-slate-400">
+                {categories.map((cat) => (
+                  <li key={cat.name}>
+                    <a href="#" className="hover:text-white transition-colors">{cat.name}</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-bold mb-4">Контакты</h4>
+              <div className="space-y-2 text-sm text-slate-400">
+                <p>+7 (495) 123-45-67</p>
+                <p>info@electromotors.ru</p>
+                <p>Москва, ул. Примерная, 1</p>
+              </div>
+            </div>
+          </div>
+          <div className="border-t border-slate-800 mt-8 pt-8 text-center text-sm text-slate-400">
+            © 2024 ELECTRO MOTORS. Все права защищены.
+          </div>
+        </div>
+      </footer>
+
+      {showFilters && (
+        <div className="md:hidden fixed inset-0 bg-black/50 z-50" onClick={() => setShowFilters(false)}>
+          <div className="absolute bottom-0 left-0 right-0 bg-white rounded-t-2xl p-6 max-h-[80vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+            <div className="flex justify-between items-center mb-4">
+              <h3 className="text-lg font-bold flex items-center gap-2">
+                <Icon name="SlidersHorizontal" size={20} />
+                Фильтры
+              </h3>
+              <Button variant="ghost" size="sm" onClick={() => setShowFilters(false)}>
+                <Icon name="X" size={20} />
+              </Button>
+            </div>
+
+            <div className="mb-6">
+              <h4 className="font-semibold mb-3 text-sm">Категория</h4>
+              <div className="space-y-2">
+                {categories.map((cat) => (
+                  <button
+                    key={cat.name}
+                    onClick={() => setSelectedCategory(selectedCategory === cat.name ? null : cat.name)}
+                    className={`w-full flex items-center gap-3 p-3 rounded-lg transition-all ${
+                      selectedCategory === cat.name
+                        ? 'bg-primary text-white'
+                        : 'bg-slate-100 hover:bg-slate-200'
+                    }`}
+                  >
+                    <Icon name="Bike" size={18} />
+                    <span className="text-sm">{cat.name}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="mb-6">
+              <h4 className="font-semibold mb-3 text-sm">Бренд</h4>
+              <div className="space-y-2">
+                {brands.map((brand) => (
+                  <label key={brand} className="flex items-center gap-2 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={selectedBrands.includes(brand)}
+                      onChange={(e) => {
+                        if (e.target.checked) {
+                          setSelectedBrands([...selectedBrands, brand]);
+                        } else {
+                          setSelectedBrands(selectedBrands.filter((b) => b !== brand));
+                        }
+                      }}
+                      className="rounded"
+                    />
+                    <span className="text-sm">{brand}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+
+            <div className="mb-6">
+              <label className="flex items-center gap-2 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={onlyInStock}
+                  onChange={(e) => setOnlyInStock(e.target.checked)}
+                  className="rounded"
+                />
+                <span className="text-sm font-semibold">Есть в наличии</span>
+              </label>
+            </div>
+
+            <div className="flex gap-2">
+              <Button
+                variant="outline"
+                className="flex-1"
+                onClick={resetFilters}
+              >
+                <Icon name="RotateCcw" size={16} className="mr-2" />
+                Сбросить
+              </Button>
+              <Button
+                className="flex-1 bg-primary"
+                onClick={() => setShowFilters(false)}
+              >
+                Применить
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default Catalog;

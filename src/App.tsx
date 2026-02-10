@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import MobileBottomNav from "@/components/MobileBottomNav";
 import Index from "./pages/Index";
+import Catalog from "./pages/Catalog";
 import ProductDetail from "./pages/ProductDetail";
 import NotFound from "./pages/NotFound";
 
@@ -18,11 +19,12 @@ const AppContent = () => {
     <>
       <Routes>
         <Route path="/" element={<Index />} />
+        <Route path="/catalog" element={<Catalog />} />
         <Route path="/product/:id" element={<ProductDetail />} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<NotFound />} />
       </Routes>
-      <MobileBottomNav onFilterClick={location.pathname === '/' ? () => {
+      <MobileBottomNav onFilterClick={location.pathname === '/catalog' ? () => {
         const event = new CustomEvent('openFilters');
         window.dispatchEvent(event);
       } : undefined} />

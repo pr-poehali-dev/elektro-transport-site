@@ -33,17 +33,8 @@ const MobileBottomNav = ({ onFilterClick }: MobileBottomNavProps) => {
   };
 
   const handleCatalogClick = () => {
-    const catalog = document.getElementById('catalog');
-    if (catalog) {
-      catalog.scrollIntoView({ behavior: 'smooth' });
-      setShowMenu(false);
-    } else {
-      navigate('/');
-      setTimeout(() => {
-        document.getElementById('catalog')?.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
-      setShowMenu(false);
-    }
+    navigate('/catalog');
+    setShowMenu(false);
   };
 
   return (
@@ -109,7 +100,7 @@ const MobileBottomNav = ({ onFilterClick }: MobileBottomNavProps) => {
 
       {/* Mobile Bottom Navigation */}
       <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 z-40 pb-safe">
-        <div className="grid grid-cols-5 h-16">
+        <div className={`grid ${onFilterClick ? 'grid-cols-5' : 'grid-cols-4'} h-16`}>
           <Link to="/" className="flex flex-col items-center justify-center gap-1 text-muted-foreground hover:text-foreground">
             <Icon name="Home" size={24} />
             <span className="text-xs">Главная</span>

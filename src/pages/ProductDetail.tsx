@@ -132,19 +132,15 @@ const ProductDetail = () => {
             </Button>
           </div>
           
-          {/* Mobile Search */}
-          <form onSubmit={handleSearch} className="md:hidden mt-3">
-            <div className="relative w-full">
-              <Icon name="Search" size={20} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
-              <Input
-                type="text"
-                placeholder="Поиск товаров..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10 rounded-full"
-              />
-            </div>
-          </form>
+          {/* Mobile Order Button */}
+          <div className="md:hidden mt-2">
+            <Button 
+              onClick={() => document.getElementById('order-form')?.scrollIntoView({ behavior: 'smooth' })}
+              className="w-full bg-primary hover:bg-primary/90 text-white rounded-xl py-2 text-sm font-semibold"
+            >
+              Оформить заказ
+            </Button>
+          </div>
         </div>
       </header>
 

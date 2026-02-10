@@ -200,6 +200,27 @@ const ProductDetail = () => {
                 </CardContent>
               </Card>
             </div>
+
+            {/* Video Review */}
+            {product.youtubeUrl && (
+              <Card>
+                <CardContent className="p-3">
+                  <h2 className="text-base font-bold mb-2">Видео-обзор</h2>
+                  <div className="aspect-video">
+                    <iframe
+                      width="100%"
+                      height="100%"
+                      src={product.youtubeUrl}
+                      title="YouTube video player"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="rounded-lg"
+                    ></iframe>
+                  </div>
+                </CardContent>
+              </Card>
+            )}
           </div>
 
           {/* Right Sidebar - Info & Order */}

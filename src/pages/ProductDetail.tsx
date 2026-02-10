@@ -273,13 +273,6 @@ const ProductDetail = () => {
                 </div>
 
                 <Button
-                  className="w-full bg-primary hover:bg-primary/90 text-white rounded-xl py-4 text-base font-bold mb-2"
-                  onClick={() => document.getElementById('order-form')?.scrollIntoView({ behavior: 'smooth' })}
-                >
-                  Оформить заказ
-                </Button>
-
-                <Button
                   className="w-full bg-blue-500 hover:bg-blue-600 text-white rounded-xl py-3 font-semibold mb-3"
                 >
                   <Icon name="Send" size={16} className="mr-2" />

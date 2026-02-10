@@ -263,11 +263,6 @@ const ProductDetail = () => {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2 text-sm mb-4">
-                  <Icon name="Truck" size={16} />
-                  <span>Доставка ~ {product.deliveryDays} дней</span>
-                </div>
-
                 {/* Quick Specs Grid */}
                 <div className="grid grid-cols-2 gap-3 mb-4">
                   <div className="bg-slate-800 rounded-lg p-3">
@@ -292,20 +287,28 @@ const ProductDetail = () => {
                   className="w-full bg-primary hover:bg-primary/90 text-white rounded-xl py-6 text-lg font-bold mb-3"
                   onClick={() => document.getElementById('order-form')?.scrollIntoView({ behavior: 'smooth' })}
                 >
-                  Связаться
+                  Оформить заказ
                 </Button>
 
                 <Button
-                  className="w-full bg-blue-500 hover:bg-blue-600 text-white rounded-xl py-4 font-semibold"
+                  className="w-full bg-blue-500 hover:bg-blue-600 text-white rounded-xl py-4 font-semibold mb-4"
                 >
                   <Icon name="Send" size={18} className="mr-2" />
                   Telegram
                 </Button>
 
-                <div className="mt-4 pt-4 border-t border-slate-700">
-                  <div className="flex items-center gap-2 text-sm mb-2">
+                <div className="pt-4 border-t border-slate-700 space-y-2">
+                  <div className="flex items-center gap-2 text-sm">
+                    <Icon name="Truck" size={16} className="text-blue-400" />
+                    <span>Доставка ~ {product.deliveryDays} дней</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm">
                     <Icon name="Shield" size={16} className="text-green-400" />
                     <span>Гарантия сроков доставки</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm">
+                    <Icon name="CreditCard" size={16} className="text-yellow-400" />
+                    <span>Оплата при получении</span>
                   </div>
                 </div>
               </CardContent>

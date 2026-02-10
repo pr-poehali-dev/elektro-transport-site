@@ -295,19 +295,10 @@ const ProductDetail = () => {
                 </Button>
 
                 <Button
-                  variant="outline"
-                  className="w-full border-slate-700 hover:bg-slate-800 text-white rounded-xl py-3"
+                  className="w-full bg-white hover:bg-slate-100 text-slate-900 rounded-xl py-4 font-semibold"
                 >
                   <Icon name="MessageCircle" size={18} className="mr-2" />
                   Telegram
-                </Button>
-
-                <Button
-                  variant="outline"
-                  className="w-full mt-2 border-slate-700 hover:bg-slate-800 text-white rounded-xl py-3"
-                >
-                  <Icon name="Calculator" size={18} className="mr-2" />
-                  Рассчитать
                 </Button>
 
                 <div className="mt-4 pt-4 border-t border-slate-700">

@@ -230,94 +230,107 @@ const Index = () => {
         </div>
       </header>
 
-      <section className="relative min-h-[calc(100vh-72px)] md:h-[calc(100vh-72px)] flex items-center overflow-hidden bg-slate-950">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-950 to-black"></div>
+      <section className="bg-gradient-to-br from-white via-slate-50 to-blue-50 min-h-[calc(100vh-72px)] md:h-[calc(100vh-72px)] relative flex items-center overflow-hidden py-8 md:py-0">
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-primary/10 rounded-full blur-[150px]"></div>
+          <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-secondary/10 rounded-full blur-[120px]"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-blue-500/5 rounded-full blur-[180px]"></div>
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLW9wYWNpdHk9IjAuMDIiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-50"></div>
+        </div>
         
-        <div className="absolute inset-0 overflow-hidden opacity-30">
-          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary rounded-full blur-[200px]"></div>
-          <div className="absolute bottom-0 left-0 w-[700px] h-[700px] bg-secondary rounded-full blur-[180px]"></div>
-          <div className="absolute top-1/2 left-1/3 w-[600px] h-[600px] bg-purple-500 rounded-full blur-[150px]"></div>
+        <div className="absolute top-4 left-0 right-0 z-[60] pointer-events-none px-4">
+          <h1 className="text-[clamp(2rem,8vw,10rem)] font-bold leading-[1.1] tracking-tight text-center animate-fade-in">
+            <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
+              НА ПОЛНОМ ЗАРЯДЕ
+            </span>
+          </h1>
         </div>
 
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLW9wYWNpdHk9IjAuMDMiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-40"></div>
-
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center min-h-[calc(100vh-72px)] py-12">
-            <div className="flex flex-col gap-6 text-white">
-              <div className="space-y-4">
-                <h1 className="text-5xl md:text-7xl font-black leading-tight tracking-tight">
-                  <span className="block text-white">МОЩЬ.</span>
-                  <span className="block bg-gradient-to-r from-primary via-purple-500 to-secondary bg-clip-text text-transparent">СКОРОСТЬ.</span>
-                  <span className="block text-white">СВОБОДА.</span>
-                </h1>
-                <p className="text-lg md:text-xl text-slate-300 max-w-lg">
-                  Почувствуй адреналин на электротранспорте нового поколения
+        <div className="container mx-auto px-4 relative z-10 w-full">
+          
+          <div className="flex flex-col items-center gap-4 pt-16">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-end w-full min-h-[50vh] md:h-[60vh] px-2 md:px-4 max-w-7xl mx-auto">
+              <div className="hidden md:flex items-end justify-center relative animate-scale-in group scale-125">
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[200px] h-2 bg-purple-500/30 rounded-full blur-lg group-hover:w-[250px] transition-all duration-500"></div>
+                <img 
+                  src="https://cdn.poehali.dev/files/b8881807-d273-44af-b7e1-6b32377493e2.png" 
+                  alt="Electric Tricycle"
+                  className="w-full h-full object-contain relative z-10 hover:scale-110 transition-transform duration-500"
+                  style={{
+                    filter: 'drop-shadow(0 10px 30px rgba(168, 85, 247, 0.3)) drop-shadow(0 0 20px rgba(168, 85, 247, 0.15))'
+                  }}
+                />
+              </div>
+              
+              <div className="flex flex-col items-center justify-center gap-3 md:gap-4 animate-fade-in h-full pb-4 md:pb-8">
+                <p className="text-sm md:text-xl text-slate-700 leading-relaxed text-center px-4">
+                  Современно. Экологично. Экономично. Комфортно.
                 </p>
+                
+                <div className="flex flex-col gap-2 md:gap-3 w-full px-4">
+                  <Button
+                    size="lg"
+                    className="relative overflow-hidden bg-primary hover:bg-primary/90 text-white hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl rounded-2xl px-6 py-4 text-sm font-bold group"
+                  >
+                    <span className="relative flex items-center justify-center gap-3">
+                      Перейти в каталог
+                      <Icon name="ArrowRight" size={20} className="group-hover:translate-x-1 transition-transform" />
+                    </span>
+                  </Button>
+                  <Button
+                    size="lg"
+                    className="bg-secondary hover:bg-secondary/90 text-white hover:scale-105 transition-all duration-300 shadow-lg rounded-2xl px-6 py-4 text-sm font-bold flex items-center justify-center gap-3"
+                  >
+                    <Icon name="MessageCircle" size={20} />
+                    Консультация эксперта
+                  </Button>
+                </div>
               </div>
-
-              <div className="flex flex-col sm:flex-row gap-4 mt-4">
-                <Button
-                  size="lg"
-                  className="bg-primary hover:bg-primary/90 text-white text-lg font-bold px-8 py-6 rounded-xl shadow-2xl shadow-primary/50 hover:shadow-primary/70 transition-all duration-300"
-                >
-                  <Icon name="Zap" size={24} className="mr-2" />
-                  Смотреть каталог
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-2 border-white text-white hover:bg-white hover:text-slate-950 text-lg font-bold px-8 py-6 rounded-xl transition-all duration-300"
-                >
-                  <Icon name="Play" size={24} className="mr-2" />
-                  Видео-обзор
-                </Button>
-              </div>
-
-              <div className="grid grid-cols-3 gap-4 mt-8 pt-8 border-t border-slate-700">
-                <div>
-                  <div className="text-4xl font-black text-primary">60+</div>
-                  <div className="text-sm text-slate-400">км/ч макс</div>
-                </div>
-                <div>
-                  <div className="text-4xl font-black text-secondary">100+</div>
-                  <div className="text-sm text-slate-400">км на заряде</div>
-                </div>
-                <div>
-                  <div className="text-4xl font-black text-purple-500">3000</div>
-                  <div className="text-sm text-slate-400">Вт мощность</div>
-                </div>
+              
+              <div className="flex items-end justify-center relative animate-scale-in group scale-125" style={{ animationDelay: '0.2s' }}>
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[200px] h-2 bg-primary/30 rounded-full blur-lg group-hover:w-[250px] transition-all duration-500"></div>
+                <img 
+                  src="https://cdn.poehali.dev/files/26aabfed-1ab2-4231-965b-7ab4d5c7bdef.png" 
+                  alt="Electric Scooter"
+                  className="w-full h-full object-contain relative z-10 hover:scale-110 transition-transform duration-500"
+                  style={{
+                    filter: 'drop-shadow(0 10px 30px rgba(239, 68, 68, 0.3)) drop-shadow(0 0 20px rgba(239, 68, 68, 0.15))'
+                  }}
+                />
               </div>
             </div>
-
-            <div className="relative h-[400px] md:h-[600px]">
-              <div className="absolute left-0 top-0 w-full h-1/3 animate-fade-in">
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-500/30 to-transparent rounded-full blur-3xl"></div>
-                <img 
-                  src="https://cdn.poehali.dev/projects/795ac98f-803c-4050-937a-9e9c042d136c/files/dbd44dd0-32dc-49b5-8c83-eab1ec1850a3.jpg" 
-                  alt="Electric Motorcycle"
-                  className="w-full h-full object-contain relative z-10 hover:scale-110 transition-transform duration-700"
-                  style={{ filter: 'drop-shadow(0 0 40px rgba(168, 85, 247, 0.6))' }}
-                />
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 mt-8 md:mt-12 mb-8 md:mb-12 px-2 md:px-0">
+            <div className="relative group overflow-hidden rounded-2xl bg-white border border-slate-200 p-8 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl flex flex-col justify-center items-center">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-2xl"></div>
+              <div className="relative">
+                <div className="text-5xl font-bold text-primary mb-2 italic">30%</div>
+                <div className="text-xs text-slate-600 uppercase tracking-wider">Экономия</div>
               </div>
-
-              <div className="absolute left-1/4 top-1/3 w-3/4 h-1/3 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-transparent rounded-full blur-3xl"></div>
-                <img 
-                  src="https://cdn.poehali.dev/projects/795ac98f-803c-4050-937a-9e9c042d136c/files/f0872ab5-a0d7-4dbd-8cf9-4417717e5f31.jpg" 
-                  alt="Sport Scooter"
-                  className="w-full h-full object-contain relative z-10 hover:scale-110 transition-transform duration-700"
-                  style={{ filter: 'drop-shadow(0 0 40px rgba(239, 68, 68, 0.6))' }}
-                />
+            </div>
+            
+            <div className="relative group overflow-hidden rounded-2xl bg-white border border-slate-200 p-8 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl flex flex-col justify-center items-center">
+              <div className="absolute bottom-0 left-0 w-32 h-32 bg-secondary/10 rounded-full blur-2xl"></div>
+              <div className="relative">
+                <div className="text-5xl font-bold text-secondary mb-2 italic">30</div>
+                <div className="text-xs text-slate-600 uppercase tracking-wider">Дней доставка</div>
               </div>
-
-              <div className="absolute right-0 bottom-0 w-3/4 h-1/3 animate-fade-in" style={{ animationDelay: '0.4s' }}>
-                <div className="absolute inset-0 bg-gradient-to-r from-secondary/30 to-transparent rounded-full blur-3xl"></div>
-                <img 
-                  src="https://cdn.poehali.dev/projects/795ac98f-803c-4050-937a-9e9c042d136c/files/b60fae4c-d162-46d8-9d08-9b92e414c647.jpg" 
-                  alt="Future Bike"
-                  className="w-full h-full object-contain relative z-10 hover:scale-110 transition-transform duration-700"
-                  style={{ filter: 'drop-shadow(0 0 40px rgba(14, 165, 233, 0.6))' }}
-                />
+            </div>
+            
+            <div className="relative group overflow-hidden rounded-2xl bg-white border border-slate-200 p-8 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl flex flex-col justify-center items-center">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-green-500/10 rounded-full blur-2xl"></div>
+              <div className="relative">
+                <div className="text-5xl font-bold text-green-500 mb-2 italic">24/7</div>
+                <div className="text-xs text-slate-600 uppercase tracking-wider">Поддержка</div>
+              </div>
+            </div>
+            
+            <div className="relative group overflow-hidden rounded-2xl bg-white border border-slate-200 p-8 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl flex flex-col justify-center items-center">
+              <div className="absolute bottom-0 left-0 w-32 h-32 bg-orange-500/10 rounded-full blur-2xl"></div>
+              <div className="relative">
+                <div className="text-5xl font-bold text-orange-500 mb-2 italic">14</div>
+                <div className="text-xs text-slate-600 uppercase tracking-wider">Лет на рынке</div>
               </div>
             </div>
           </div>

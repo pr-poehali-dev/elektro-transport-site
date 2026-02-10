@@ -365,39 +365,6 @@ const ProductDetail = () => {
                 </form>
               </CardContent>
             </Card>
-
-            {/* Info Cards */}
-            <div className="space-y-2">
-              <Card>
-                <CardContent className="p-3 flex items-start gap-3">
-                  <Icon name="Truck" size={18} className="text-primary mt-1" />
-                  <div>
-                    <div className="font-semibold text-sm">Доставка</div>
-                    <p className="text-xs text-muted-foreground">Бесплатная доставка по Москве</p>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardContent className="p-3 flex items-start gap-3">
-                  <Icon name="Shield" size={18} className="text-primary mt-1" />
-                  <div>
-                    <div className="font-semibold text-sm">Гарантия</div>
-                    <p className="text-xs text-muted-foreground">Официальная гарантия 12 месяцев</p>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardContent className="p-3 flex items-start gap-3">
-                  <Icon name="CreditCard" size={18} className="text-primary mt-1" />
-                  <div>
-                    <div className="font-semibold text-sm">Оплата</div>
-                    <p className="text-xs text-muted-foreground">Наличными, картой или в рассрочку</p>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
           </div>
         </div>
 

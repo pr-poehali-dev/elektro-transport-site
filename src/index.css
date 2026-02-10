@@ -97,19 +97,19 @@
     @apply border-border;
   }
 
+  *::-webkit-scrollbar {
+    display: none;
+  }
+
+  * {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
   body {
     @apply bg-background text-foreground;
     font-family: "Roboto", sans-serif;
     overflow-y: auto;
-  }
-
-  body::-webkit-scrollbar {
-    display: none;
-  }
-
-  body {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
   }
 
   h1,

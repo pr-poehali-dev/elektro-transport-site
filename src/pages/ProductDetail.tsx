@@ -160,159 +160,49 @@ const ProductDetail = () => {
       </div>
 
       {/* Product Content */}
-      <div className="container mx-auto px-4 py-8">
-        <div className="grid md:grid-cols-2 gap-8 mb-12">
-          {/* Images */}
-          <div className="space-y-4">
+      <div className="container mx-auto px-4 py-4">
+        <div className="grid lg:grid-cols-[1fr_400px] gap-6">
+          {/* Left Column - Images + Description */}
+          <div className="space-y-6">
+            {/* Images */}
             <Card className="overflow-hidden">
-              <CardContent className="p-0">
+              <CardContent className="p-4">
                 <img
                   src={product.images[selectedImage]}
                   alt={product.name}
-                  className="w-full h-[500px] object-contain bg-gradient-to-br from-slate-100 to-slate-200"
+                  className="w-full h-[400px] object-contain bg-gradient-to-br from-slate-100 to-slate-200 rounded-lg"
                 />
-              </CardContent>
-            </Card>
-            <div className="grid grid-cols-4 gap-2">
-              {product.images.map((img, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setSelectedImage(idx)}
-                  className={`border-2 rounded-lg overflow-hidden transition-all ${
-                    selectedImage === idx ? "border-primary" : "border-slate-200"
-                  }`}
-                >
-                  <img src={img} alt={`${product.name} ${idx + 1}`} className="w-full h-20 object-contain bg-slate-100" />
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Info & Order Form */}
-          <div className="space-y-6">
-            <div>
-              <Badge variant="secondary" className="mb-2">{product.category}</Badge>
-              <h1 className="text-4xl font-bold mb-2">{product.name}</h1>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
-                <span>Бренд: <strong>{product.brand}</strong></span>
-                <span>•</span>
-                {product.inStock ? (
-                  <span className="text-green-600 flex items-center gap-1">
-                    <Icon name="Check" size={16} />
-                    В наличии
-                  </span>
-                ) : (
-                  <span className="text-orange-600">Под заказ</span>
-                )}
-              </div>
-              <div className="text-4xl font-bold text-primary mb-4">
-                {product.price.toLocaleString('ru-RU')} ₽
-              </div>
-            </div>
-
-            {/* Quick Specs */}
-            <Card>
-              <CardContent className="p-4">
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="flex items-center gap-2">
-                    <Icon name="Gauge" size={20} className="text-primary" />
-                    <div>
-                      <div className="text-xs text-muted-foreground">Скорость</div>
-                      <div className="font-semibold">{product.maxSpeed} км/ч</div>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Icon name="Battery" size={20} className="text-primary" />
-                    <div>
-                      <div className="text-xs text-muted-foreground">Запас хода</div>
-                      <div className="font-semibold">{product.range} км</div>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Icon name="Zap" size={20} className="text-primary" />
-                    <div>
-                      <div className="text-xs text-muted-foreground">Мощность</div>
-                      <div className="font-semibold">{product.power} Вт</div>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Icon name="Truck" size={20} className="text-primary" />
-                    <div>
-                      <div className="text-xs text-muted-foreground">Доставка</div>
-                      <div className="font-semibold">{product.deliveryDays} дней</div>
-                    </div>
-                  </div>
+                <div className="grid grid-cols-6 gap-2 mt-4">
+                  {product.images.map((img, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setSelectedImage(idx)}
+                      className={`border-2 rounded-lg overflow-hidden transition-all ${
+                        selectedImage === idx ? "border-primary" : "border-slate-200"
+                      }`}
+                    >
+                      <img src={img} alt={`${product.name} ${idx + 1}`} className="w-full h-16 object-contain bg-slate-100" />
+                    </button>
+                  ))}
                 </div>
               </CardContent>
             </Card>
 
-            {/* Order Form */}
+            {/* Description */}
             <Card>
-              <CardContent className="p-6">
-                <h3 className="text-xl font-bold mb-4">Заказать товар</h3>
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div>
-                    <Label htmlFor="name">Имя *</Label>
-                    <Input
-                      id="name"
-                      value={formData.name}
-                      onChange={(e) => setFormData({...formData, name: e.target.value})}
-                      required
-                      placeholder="Введите ваше имя"
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="phone">Телефон *</Label>
-                    <Input
-                      id="phone"
-                      type="tel"
-                      value={formData.phone}
-                      onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                      required
-                      placeholder="+7 (___) ___-__-__"
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="comment">Комментарий</Label>
-                    <Textarea
-                      id="comment"
-                      value={formData.comment}
-                      onChange={(e) => setFormData({...formData, comment: e.target.value})}
-                      placeholder="Дополнительная информация"
-                      rows={3}
-                    />
-                  </div>
-                  <Button
-                    type="submit"
-                    className="w-full bg-primary hover:bg-primary/90 text-white rounded-xl py-6 text-lg font-bold"
-                  >
-                    {product.inStock ? "Оформить заказ" : "Предзаказ"}
-                  </Button>
-                  <p className="text-xs text-muted-foreground text-center">
-                    Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
-                  </p>
-                </form>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-
-        {/* Description */}
-        <div className="grid md:grid-cols-3 gap-8 mb-12">
-          <div className="md:col-span-2 space-y-8">
-            <Card>
-              <CardContent className="p-6">
-                <h2 className="text-2xl font-bold mb-4">Описание</h2>
-                <p className="text-muted-foreground leading-relaxed">{product.description}</p>
+              <CardContent className="p-4">
+                <h2 className="text-xl font-bold mb-3">Описание</h2>
+                <p className="text-sm text-muted-foreground leading-relaxed">{product.description}</p>
               </CardContent>
             </Card>
 
+            {/* Specs */}
             <Card>
-              <CardContent className="p-6">
-                <h2 className="text-2xl font-bold mb-4">Характеристики</h2>
-                <div className="space-y-3">
+              <CardContent className="p-4">
+                <h2 className="text-xl font-bold mb-3">Характеристики</h2>
+                <div className="space-y-2">
                   {product.specs.map((spec, idx) => (
-                    <div key={idx} className="flex justify-between py-2 border-b last:border-0">
+                    <div key={idx} className="flex justify-between py-2 border-b last:border-0 text-sm">
                       <span className="text-muted-foreground">{spec.label}</span>
                       <span className="font-semibold">{spec.value}</span>
                     </div>
@@ -324,8 +214,8 @@ const ProductDetail = () => {
             {/* Video Review */}
             {product.youtubeUrl && (
               <Card>
-                <CardContent className="p-6">
-                  <h2 className="text-2xl font-bold mb-4">Видео-обзор</h2>
+                <CardContent className="p-4">
+                  <h2 className="text-xl font-bold mb-3">Видео-обзор</h2>
                   <div className="aspect-video">
                     <iframe
                       width="100%"
@@ -343,45 +233,180 @@ const ProductDetail = () => {
             )}
           </div>
 
-          {/* Sidebar */}
-          <div className="space-y-6">
-            <Card>
+          {/* Right Sidebar - Info & Order */}
+          <div className="lg:sticky lg:top-20 space-y-4 h-fit">
+            <Card className="bg-slate-900 text-white">
               <CardContent className="p-6">
-                <h3 className="font-bold mb-4 flex items-center gap-2">
-                  <Icon name="Truck" size={20} />
-                  Доставка
-                </h3>
-                <p className="text-sm text-muted-foreground">
-                  Бесплатная доставка по Москве в течение {product.deliveryDays} дней
-                </p>
+                <Badge variant="secondary" className="mb-2">{product.category}</Badge>
+                <h1 className="text-2xl font-bold mb-2">{product.name}</h1>
+                <div className="flex items-center gap-2 text-sm mb-4">
+                  <span>Бренд: <strong>{product.brand}</strong></span>
+                  <span>•</span>
+                  {product.inStock ? (
+                    <span className="text-green-400 flex items-center gap-1">
+                      <Icon name="Check" size={16} />
+                      В наличии
+                    </span>
+                  ) : (
+                    <span className="text-orange-400">Под заказ</span>
+                  )}
+                </div>
+                
+                <div className="border-t border-slate-700 pt-4 mb-4">
+                  <div className="text-sm text-slate-400 mb-1">Цена под ключ</div>
+                  <div className="text-3xl font-bold mb-2">
+                    {product.price.toLocaleString('ru-RU')} ₽
+                  </div>
+                  <div className="text-sm text-secondary">
+                    В кредит от {Math.round(product.price / 60).toLocaleString('ru-RU')} ₽/мес
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-2 text-sm mb-4">
+                  <Icon name="Truck" size={16} />
+                  <span>Доставка ~ {product.deliveryDays} дней</span>
+                </div>
+
+                {/* Quick Specs Grid */}
+                <div className="grid grid-cols-2 gap-3 mb-4">
+                  <div className="bg-slate-800 rounded-lg p-3">
+                    <div className="text-xs text-slate-400 mb-1">Скорость</div>
+                    <div className="font-semibold">{product.maxSpeed} км/ч</div>
+                  </div>
+                  <div className="bg-slate-800 rounded-lg p-3">
+                    <div className="text-xs text-slate-400 mb-1">Запас хода</div>
+                    <div className="font-semibold">{product.range} км</div>
+                  </div>
+                  <div className="bg-slate-800 rounded-lg p-3">
+                    <div className="text-xs text-slate-400 mb-1">Мощность</div>
+                    <div className="font-semibold">{product.power} Вт</div>
+                  </div>
+                  <div className="bg-slate-800 rounded-lg p-3">
+                    <div className="text-xs text-slate-400 mb-1">Вес</div>
+                    <div className="font-semibold">{product.weight} кг</div>
+                  </div>
+                </div>
+
+                <Button
+                  className="w-full bg-secondary hover:bg-secondary/90 text-white rounded-xl py-6 text-lg font-bold mb-3"
+                  onClick={() => document.getElementById('order-form')?.scrollIntoView({ behavior: 'smooth' })}
+                >
+                  Связаться
+                </Button>
+
+                <Button
+                  variant="outline"
+                  className="w-full border-slate-700 hover:bg-slate-800 text-white rounded-xl py-3"
+                >
+                  <Icon name="MessageCircle" size={18} className="mr-2" />
+                  Telegram
+                </Button>
+
+                <Button
+                  variant="outline"
+                  className="w-full mt-2 border-slate-700 hover:bg-slate-800 text-white rounded-xl py-3"
+                >
+                  <Icon name="Calculator" size={18} className="mr-2" />
+                  Рассчитать
+                </Button>
+
+                <div className="mt-4 pt-4 border-t border-slate-700">
+                  <div className="flex items-center gap-2 text-sm mb-2">
+                    <Icon name="Shield" size={16} className="text-green-400" />
+                    <span>Гарантия сроков доставки</span>
+                  </div>
+                </div>
               </CardContent>
             </Card>
 
-            <Card>
-              <CardContent className="p-6">
-                <h3 className="font-bold mb-4 flex items-center gap-2">
-                  <Icon name="Shield" size={20} />
-                  Гарантия
-                </h3>
-                <p className="text-sm text-muted-foreground">
-                  Официальная гарантия производителя 12 месяцев
-                </p>
+            {/* Order Form */}
+            <Card id="order-form">
+              <CardContent className="p-4">
+                <h3 className="text-lg font-bold mb-3">Заказать товар</h3>
+                <form onSubmit={handleSubmit} className="space-y-3">
+                  <div>
+                    <Label htmlFor="name" className="text-xs">Имя *</Label>
+                    <Input
+                      id="name"
+                      value={formData.name}
+                      onChange={(e) => setFormData({...formData, name: e.target.value})}
+                      required
+                      placeholder="Введите ваше имя"
+                      className="mt-1"
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor="phone" className="text-xs">Телефон *</Label>
+                    <Input
+                      id="phone"
+                      type="tel"
+                      value={formData.phone}
+                      onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                      required
+                      placeholder="+7 (___) ___-__-__"
+                      className="mt-1"
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor="comment" className="text-xs">Комментарий</Label>
+                    <Textarea
+                      id="comment"
+                      value={formData.comment}
+                      onChange={(e) => setFormData({...formData, comment: e.target.value})}
+                      placeholder="Дополнительная информация"
+                      rows={2}
+                      className="mt-1"
+                    />
+                  </div>
+                  <Button
+                    type="submit"
+                    className="w-full bg-primary hover:bg-primary/90 text-white rounded-xl py-5 text-base font-bold"
+                  >
+                    {product.inStock ? "Оформить заказ" : "Предзаказ"}
+                  </Button>
+                  <p className="text-xs text-muted-foreground text-center">
+                    Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
+                  </p>
+                </form>
               </CardContent>
             </Card>
 
-            <Card>
-              <CardContent className="p-6">
-                <h3 className="font-bold mb-4 flex items-center gap-2">
-                  <Icon name="CreditCard" size={20} />
-                  Оплата
-                </h3>
-                <p className="text-sm text-muted-foreground">
-                  Наличными курьеру, картой онлайн или в рассрочку
-                </p>
-              </CardContent>
-            </Card>
+            {/* Info Cards */}
+            <div className="space-y-2">
+              <Card>
+                <CardContent className="p-3 flex items-start gap-3">
+                  <Icon name="Truck" size={18} className="text-primary mt-1" />
+                  <div>
+                    <div className="font-semibold text-sm">Доставка</div>
+                    <p className="text-xs text-muted-foreground">Бесплатная доставка по Москве</p>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardContent className="p-3 flex items-start gap-3">
+                  <Icon name="Shield" size={18} className="text-primary mt-1" />
+                  <div>
+                    <div className="font-semibold text-sm">Гарантия</div>
+                    <p className="text-xs text-muted-foreground">Официальная гарантия 12 месяцев</p>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardContent className="p-3 flex items-start gap-3">
+                  <Icon name="CreditCard" size={18} className="text-primary mt-1" />
+                  <div>
+                    <div className="font-semibold text-sm">Оплата</div>
+                    <p className="text-xs text-muted-foreground">Наличными, картой или в рассрочку</p>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </div>
+
+
       </div>
 
       {/* Footer */}

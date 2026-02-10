@@ -97,10 +97,10 @@ const ProductDetail = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 overflow-x-hidden">
       {/* Header */}
       <header className="bg-white shadow-sm sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4">
+        <div className="container mx-auto px-2 md:px-4 py-4">
           <div className="flex items-center justify-between gap-4">
             <Link to="/" className="flex items-center gap-2">
               <span className="text-2xl font-bold text-foreground">ELECTRO MOTORS</span>
@@ -149,12 +149,12 @@ const ProductDetail = () => {
       </header>
 
       {/* Product Content */}
-      <div className="container mx-auto px-2 md:px-4 py-2">
-        <div className="grid lg:grid-cols-[1fr_400px] gap-6">
+      <div className="container mx-auto px-0 md:px-4 py-2">
+        <div className="grid lg:grid-cols-[1fr_400px] gap-3 md:gap-6">
           {/* Left Column - Images + Description */}
-          <div className="space-y-6">
+          <div className="space-y-3 md:space-y-6">
             {/* Images & Description/Specs in 2 columns */}
-            <div className="grid md:grid-cols-2 gap-3">
+            <div className="grid md:grid-cols-2 gap-2 md:gap-3 px-2 md:px-0">
               <Card className="overflow-hidden">
                 <CardContent className="p-3">
                   <div className="aspect-square w-full bg-gradient-to-br from-slate-100 to-slate-200 rounded-lg flex items-center justify-center">
@@ -229,7 +229,7 @@ const ProductDetail = () => {
           </div>
 
           {/* Right Sidebar - Info & Order */}
-          <div className="lg:sticky lg:top-20 space-y-3 h-fit">
+          <div className="lg:sticky lg:top-20 space-y-3 h-fit px-2 md:px-0">
             <Card className="bg-slate-900 text-white">
               <CardContent className="p-4">
                 <Badge variant="secondary" className="mb-1 text-xs">{product.category}</Badge>
@@ -378,7 +378,7 @@ const ProductDetail = () => {
 
       {/* Footer */}
       <footer className="bg-slate-900 text-white py-4">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-2 md:px-4">
           <div className="text-center text-xs text-slate-400">
             © 2024 ELECTRO MOTORS. Все права защищены.
           </div>

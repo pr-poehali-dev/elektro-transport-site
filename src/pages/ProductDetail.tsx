@@ -153,7 +153,7 @@ const ProductDetail = () => {
         <div className="grid lg:grid-cols-[1fr_400px] gap-6">
           {/* Left Column - Images + Description */}
           <div className="space-y-6">
-            {/* Images & Video in 2 columns on desktop */}
+            {/* Images & Description/Specs in 2 columns */}
             <div className="grid md:grid-cols-2 gap-3">
               <Card className="overflow-hidden h-full flex flex-col">
                 <CardContent className="p-3 flex-1 flex flex-col">
@@ -178,51 +178,51 @@ const ProductDetail = () => {
                 </CardContent>
               </Card>
 
-              {/* Video Review - Desktop only */}
-              {product.youtubeUrl && (
-                <Card className="hidden md:block">
+              {/* Description & Specs stacked */}
+              <div className="space-y-3">
+                <Card>
                   <CardContent className="p-3">
-                    <h2 className="text-base font-bold mb-2">Видео-обзор</h2>
-                    <div className="aspect-video">
-                      <iframe
-                        width="100%"
-                        height="100%"
-                        src={product.youtubeUrl}
-                        title="YouTube video player"
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                        className="rounded-lg"
-                      ></iframe>
+                    <h2 className="text-lg font-bold mb-3">Описание</h2>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{product.description}</p>
+                  </CardContent>
+                </Card>
+
+                <Card>
+                  <CardContent className="p-3">
+                    <h2 className="text-lg font-bold mb-3">Характеристики</h2>
+                    <div className="space-y-2">
+                      {product.specs.slice(0, 5).map((spec, idx) => (
+                        <div key={idx} className="flex justify-between py-2 border-b last:border-0 text-sm">
+                          <span className="text-muted-foreground">{spec.label}</span>
+                          <span className="font-semibold">{spec.value}</span>
+                        </div>
+                      ))}
                     </div>
                   </CardContent>
                 </Card>
-              )}
+              </div>
             </div>
 
-            {/* Description & Specs in 2 columns */}
-            <div className="grid md:grid-cols-2 gap-3">
-              <Card>
+            {/* Video Review - Desktop only (below) */}
+            {product.youtubeUrl && (
+              <Card className="hidden md:block">
                 <CardContent className="p-3">
-                  <h2 className="text-lg font-bold mb-3">Описание</h2>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{product.description}</p>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardContent className="p-3">
-                  <h2 className="text-lg font-bold mb-3">Характеристики</h2>
-                  <div className="space-y-2">
-                    {product.specs.slice(0, 5).map((spec, idx) => (
-                      <div key={idx} className="flex justify-between py-2 border-b last:border-0 text-sm">
-                        <span className="text-muted-foreground">{spec.label}</span>
-                        <span className="font-semibold">{spec.value}</span>
-                      </div>
-                    ))}
+                  <h2 className="text-base font-bold mb-2">Видео-обзор</h2>
+                  <div className="aspect-video">
+                    <iframe
+                      width="100%"
+                      height="100%"
+                      src={product.youtubeUrl}
+                      title="YouTube video player"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="rounded-lg"
+                    ></iframe>
                   </div>
                 </CardContent>
               </Card>
-            </div>
+            )}
 
           </div>
 

@@ -152,11 +152,11 @@ const ProductDetail = () => {
       <div className="container mx-auto px-0 md:px-4 py-2">
         <div className="grid lg:grid-cols-[1fr_400px] gap-3 md:gap-6">
           {/* Left Column - Images + Description */}
-          <div className="space-y-3 md:space-y-6">
+          <div className="space-y-2 md:space-y-6">
             {/* Images & Description/Specs in 2 columns */}
-            <div className="grid md:grid-cols-2 gap-2 md:gap-3 px-2 md:px-0">
+            <div className="grid md:grid-cols-2 gap-2 md:gap-3">
               <Card className="overflow-hidden">
-                <CardContent className="p-3">
+                <CardContent className="p-2 md:p-3">
                   <div className="aspect-square w-full bg-gradient-to-br from-slate-100 to-slate-200 rounded-lg flex items-center justify-center">
                     <img
                       src={product.images[selectedImage]}
@@ -164,7 +164,7 @@ const ProductDetail = () => {
                       className="w-full h-full object-contain p-4"
                     />
                   </div>
-                  <div className="grid grid-cols-6 gap-2 mt-3">
+                  <div className="grid grid-cols-6 gap-1 md:gap-2 mt-2 md:mt-3">
                     {product.images.map((img, idx) => (
                       <button
                         key={idx}
@@ -181,20 +181,20 @@ const ProductDetail = () => {
               </Card>
 
               {/* Description & Specs stacked */}
-              <div className="flex flex-col space-y-3">
+              <div className="flex flex-col space-y-2 md:space-y-3">
                 <Card className="order-2 md:order-1">
-                  <CardContent className="p-3">
-                    <h2 className="text-lg font-bold mb-3">Описание</h2>
+                  <CardContent className="p-2 md:p-3">
+                    <h2 className="text-base md:text-lg font-bold mb-2 md:mb-3">Описание</h2>
                     <p className="text-sm text-muted-foreground leading-relaxed">{product.description}</p>
                   </CardContent>
                 </Card>
 
                 <Card className="order-1 md:order-2">
-                  <CardContent className="p-3">
-                    <h2 className="text-lg font-bold mb-3">Характеристики</h2>
-                    <div className="space-y-2">
+                  <CardContent className="p-2 md:p-3">
+                    <h2 className="text-base md:text-lg font-bold mb-2 md:mb-3">Характеристики</h2>
+                    <div className="space-y-1 md:space-y-2">
                       {product.specs.slice(0, 5).map((spec, idx) => (
-                        <div key={idx} className="flex justify-between py-2 border-b last:border-0 text-sm">
+                        <div key={idx} className="flex justify-between py-1 md:py-2 border-b last:border-0 text-xs md:text-sm">
                           <span className="text-muted-foreground">{spec.label}</span>
                           <span className="font-semibold">{spec.value}</span>
                         </div>
@@ -206,7 +206,7 @@ const ProductDetail = () => {
                 {/* Video Review - Desktop only (below specs) */}
                 {product.youtubeUrl && (
                   <Card className="hidden md:block">
-                    <CardContent className="p-3">
+                    <CardContent className="p-2 md:p-3">
                       <h2 className="text-base font-bold mb-2">Видео-обзор</h2>
                       <div className="aspect-video">
                         <iframe
@@ -229,9 +229,9 @@ const ProductDetail = () => {
           </div>
 
           {/* Right Sidebar - Info & Order */}
-          <div className="lg:sticky lg:top-20 space-y-3 h-fit px-2 md:px-0">
+          <div className="lg:sticky lg:top-20 space-y-2 md:space-y-3 h-fit">
             <Card className="bg-slate-900 text-white">
-              <CardContent className="p-4">
+              <CardContent className="p-3 md:p-4">
                 <Badge variant="secondary" className="mb-1 text-xs">{product.category}</Badge>
                 <h1 className="text-xl font-bold mb-1">{product.name}</h1>
                 <div className="flex items-center gap-2 text-xs mb-3">
@@ -303,7 +303,7 @@ const ProductDetail = () => {
 
             {/* Order Form */}
             <Card id="order-form">
-              <CardContent className="p-3">
+              <CardContent className="p-2 md:p-3">
                 <h3 className="text-base font-bold mb-2">Заказать товар</h3>
                 <form onSubmit={handleSubmit} className="space-y-2">
                   <div>

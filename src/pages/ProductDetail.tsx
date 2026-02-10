@@ -318,7 +318,7 @@ const ProductDetail = () => {
                       value={formData.phone}
                       onChange={(e) => setFormData({...formData, phone: e.target.value})}
                       required
-                      placeholder="+7 (___) ___-__-__"
+                      placeholder="+375 (__) ___-__-__"
                       className="h-9 text-sm"
                     />
                   </div>

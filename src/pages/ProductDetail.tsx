@@ -149,19 +149,19 @@ const ProductDetail = () => {
       </header>
 
       {/* Product Content */}
-      <div className="container mx-auto px-4 py-2 h-[calc(100vh-80px)]">
-        <div className="grid lg:grid-cols-[1fr_380px] gap-4 h-full">
+      <div className="container mx-auto px-4 py-2">
+        <div className="grid lg:grid-cols-[1fr_400px] gap-6">
           {/* Left Column - Images + Description */}
-          <div className="flex flex-col gap-3 h-full">
+          <div className="space-y-6">
             {/* Images */}
-            <Card className="overflow-hidden flex-shrink-0">
+            <Card className="overflow-hidden">
               <CardContent className="p-3">
                 <img
                   src={product.images[selectedImage]}
                   alt={product.name}
-                  className="w-full h-[240px] object-contain bg-gradient-to-br from-slate-100 to-slate-200 rounded-lg"
+                  className="w-full h-[280px] object-contain bg-gradient-to-br from-slate-100 to-slate-200 rounded-lg"
                 />
-                <div className="grid grid-cols-6 gap-2 mt-2">
+                <div className="grid grid-cols-6 gap-2 mt-3">
                   {product.images.map((img, idx) => (
                     <button
                       key={idx}
@@ -170,60 +170,61 @@ const ProductDetail = () => {
                         selectedImage === idx ? "border-primary" : "border-slate-200"
                       }`}
                     >
-                      <img src={img} alt={`${product.name} ${idx + 1}`} className="w-full h-10 object-contain bg-slate-100" />
+                      <img src={img} alt={`${product.name} ${idx + 1}`} className="w-full h-12 object-contain bg-slate-100" />
                     </button>
                   ))}
                 </div>
               </CardContent>
             </Card>
 
-            {/* Description, Specs & Video in 3 columns */}
-            <div className="grid grid-cols-3 gap-3 flex-1 min-h-0">
-              <Card className="flex flex-col">
-                <CardContent className="p-3 flex-1 overflow-auto">
-                  <h2 className="text-sm font-bold mb-2">Описание</h2>
+            {/* Description & Specs in 2 columns */}
+            <div className="grid md:grid-cols-2 gap-3">
+              <Card>
+                <CardContent className="p-3">
+                  <h2 className="text-base font-bold mb-2">Описание</h2>
                   <p className="text-xs text-muted-foreground leading-relaxed">{product.description}</p>
                 </CardContent>
               </Card>
 
-              <Card className="flex flex-col">
-                <CardContent className="p-3 flex-1 overflow-auto">
-                  <h2 className="text-sm font-bold mb-2">Характеристики</h2>
+              <Card>
+                <CardContent className="p-3">
+                  <h2 className="text-base font-bold mb-2">Характеристики</h2>
                   <div className="space-y-1">
-                    {product.specs.map((spec, idx) => (
+                    {product.specs.slice(0, 5).map((spec, idx) => (
                       <div key={idx} className="flex justify-between py-1 border-b last:border-0 text-xs">
                         <span className="text-muted-foreground">{spec.label}</span>
-                        <span className="font-semibold text-right">{spec.value}</span>
+                        <span className="font-semibold">{spec.value}</span>
                       </div>
                     ))}
                   </div>
                 </CardContent>
               </Card>
-
-              {product.youtubeUrl && (
-                <Card className="flex flex-col">
-                  <CardContent className="p-3 flex-1">
-                    <h2 className="text-sm font-bold mb-2">Видео-обзор</h2>
-                    <div className="aspect-video">
-                      <iframe
-                        width="100%"
-                        height="100%"
-                        src={product.youtubeUrl}
-                        title="YouTube video player"
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                        className="rounded-lg"
-                      ></iframe>
-                    </div>
-                  </CardContent>
-                </Card>
-              )}
             </div>
+
+            {/* Video Review */}
+            {product.youtubeUrl && (
+              <Card>
+                <CardContent className="p-3">
+                  <h2 className="text-base font-bold mb-2">Видео-обзор</h2>
+                  <div className="aspect-video">
+                    <iframe
+                      width="100%"
+                      height="100%"
+                      src={product.youtubeUrl}
+                      title="YouTube video player"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="rounded-lg"
+                    ></iframe>
+                  </div>
+                </CardContent>
+              </Card>
+            )}
           </div>
 
           {/* Right Sidebar - Info & Order */}
-          <div className="flex flex-col gap-3 h-full overflow-auto">
+          <div className="lg:sticky lg:top-20 space-y-3 h-fit">
             <Card className="bg-slate-900 text-white">
               <CardContent className="p-4">
                 <Badge variant="secondary" className="mb-1 text-xs">{product.category}</Badge>

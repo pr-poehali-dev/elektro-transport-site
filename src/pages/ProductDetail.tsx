@@ -155,12 +155,12 @@ const ProductDetail = () => {
           <div className="space-y-6">
             {/* Images & Video in 2 columns on desktop */}
             <div className="grid md:grid-cols-2 gap-3">
-              <Card className="overflow-hidden">
-                <CardContent className="p-3">
+              <Card className="overflow-hidden h-full flex flex-col">
+                <CardContent className="p-3 flex-1 flex flex-col">
                   <img
                     src={product.images[selectedImage]}
                     alt={product.name}
-                    className="w-full h-[280px] object-contain bg-gradient-to-br from-slate-100 to-slate-200 rounded-lg"
+                    className="w-full flex-1 object-contain bg-gradient-to-br from-slate-100 to-slate-200 rounded-lg"
                   />
                   <div className="grid grid-cols-6 gap-2 mt-3">
                     {product.images.map((img, idx) => (

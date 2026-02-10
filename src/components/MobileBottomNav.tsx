@@ -4,7 +4,11 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Icon from "@/components/ui/icon";
 
-const MobileBottomNav = () => {
+interface MobileBottomNavProps {
+  onFilterClick?: () => void;
+}
+
+const MobileBottomNav = ({ onFilterClick }: MobileBottomNavProps) => {
   const navigate = useNavigate();
   const [showMenu, setShowMenu] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
@@ -105,7 +109,7 @@ const MobileBottomNav = () => {
 
       {/* Mobile Bottom Navigation */}
       <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 z-40 pb-safe">
-        <div className="grid grid-cols-4 h-16">
+        <div className="grid grid-cols-5 h-16">
           <Link to="/" className="flex flex-col items-center justify-center gap-1 text-muted-foreground hover:text-foreground">
             <Icon name="Home" size={24} />
             <span className="text-xs">Главная</span>
@@ -117,6 +121,15 @@ const MobileBottomNav = () => {
             <Icon name="Search" size={24} />
             <span className="text-xs">Поиск</span>
           </button>
+          {onFilterClick && (
+            <button 
+              onClick={onFilterClick}
+              className="flex flex-col items-center justify-center gap-1 text-muted-foreground hover:text-foreground"
+            >
+              <Icon name="SlidersHorizontal" size={24} />
+              <span className="text-xs">Фильтры</span>
+            </button>
+          )}
           <button 
             onClick={handleBuyClick}
             className="flex flex-col items-center justify-center gap-1 text-primary"

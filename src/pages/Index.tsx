@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -153,6 +153,13 @@ const Index = () => {
   const [deliveryDays, setDeliveryDays] = useState(30);
   const [onlyInStock, setOnlyInStock] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [showFilters, setShowFilters] = useState(false);
+
+  useEffect(() => {
+    const handleOpenFilters = () => setShowFilters(true);
+    window.addEventListener('openFilters', handleOpenFilters);
+    return () => window.removeEventListener('openFilters', handleOpenFilters);
+  }, []);
 
   const brands = ["Xiaomi", "Ninebot", "Yadea", "Sunra", "Eltreco"];
 
@@ -347,8 +354,8 @@ const Index = () => {
       <section id="catalog" className="py-8 md:py-16 mb-16 md:mb-0">
         <div className="container mx-auto px-1 md:px-4">
           <div className="flex flex-col md:flex-row gap-4 md:gap-8">
-            {/* Filters Sidebar */}
-            <aside className="w-full md:w-64 flex-shrink-0">
+            {/* Filters Sidebar - Desktop */}
+            <aside className="hidden md:block w-64 flex-shrink-0">
               <Card className="sticky top-20">
                 <CardContent className="p-6">
                   <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
@@ -678,6 +685,105 @@ const Index = () => {
           </div>
         </div>
       </footer>
+
+      {/* Mobile Filters Modal */}
+      {showFilters && (
+        <div className="md:hidden fixed inset-0 bg-black/50 z-50" onClick={() => setShowFilters(false)}>
+          <div className="absolute bottom-0 left-0 right-0 bg-white rounded-t-2xl p-6 max-h-[80vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+            <div className="flex justify-between items-center mb-4">
+              <h3 className="text-lg font-bold flex items-center gap-2">
+                <Icon name="SlidersHorizontal" size={20} />
+                Фильтры
+              </h3>
+              <Button variant="ghost" size="sm" onClick={() => setShowFilters(false)}>
+                <Icon name="X" size={20} />
+              </Button>
+            </div>
+
+            {/* Categories */}
+            <div className="mb-6">
+              <h4 className="font-semibold mb-3 text-sm">Категория</h4>
+              <div className="space-y-2">
+                {categories.map((cat) => (
+                  <button
+                    key={cat.name}
+                    onClick={() => setSelectedCategory(selectedCategory === cat.name ? null : cat.name)}
+                    className={`w-full flex items-center gap-3 p-3 rounded-lg transition-all ${
+                      selectedCategory === cat.name
+                        ? 'bg-primary text-white'
+                        : 'bg-slate-100 hover:bg-slate-200'
+                    }`}
+                  >
+                    <Icon name="Bike" size={18} />
+                    <span className="text-sm">{cat.name}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Brands */}
+            <div className="mb-6">
+              <h4 className="font-semibold mb-3 text-sm">Бренд</h4>
+              <div className="space-y-2">
+                {brands.map((brand) => (
+                  <label key={brand} className="flex items-center gap-2 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={selectedBrands.includes(brand)}
+                      onChange={(e) => {
+                        if (e.target.checked) {
+                          setSelectedBrands([...selectedBrands, brand]);
+                        } else {
+                          setSelectedBrands(selectedBrands.filter((b) => b !== brand));
+                        }
+                      }}
+                      className="rounded"
+                    />
+                    <span className="text-sm">{brand}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+
+            {/* In Stock */}
+            <div className="mb-6">
+              <label className="flex items-center gap-2 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={onlyInStock}
+                  onChange={(e) => setOnlyInStock(e.target.checked)}
+                  className="rounded"
+                />
+                <span className="text-sm font-semibold">Есть в наличии</span>
+              </label>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex gap-2">
+              <Button
+                variant="outline"
+                className="flex-1"
+                onClick={() => {
+                  setSelectedCategory(null);
+                  setSelectedBrands([]);
+                  setPowerRange([0, 3000]);
+                  setDeliveryDays(30);
+                  setOnlyInStock(false);
+                }}
+              >
+                <Icon name="RotateCcw" size={16} className="mr-2" />
+                Сбросить
+              </Button>
+              <Button
+                className="flex-1 bg-primary"
+                onClick={() => setShowFilters(false)}
+              >
+                Применить
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

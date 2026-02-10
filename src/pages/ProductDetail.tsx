@@ -97,10 +97,10 @@ const ProductDetail = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 overflow-x-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 overflow-x-hidden w-screen max-w-[100vw]">
       {/* Header */}
-      <header className="bg-white shadow-sm sticky top-0 z-50">
-        <div className="container mx-auto px-2 md:px-4 py-4">
+      <header className="bg-white shadow-sm sticky top-0 z-50 w-full overflow-x-hidden">
+        <div className="w-full max-w-full mx-auto px-2 md:px-4 py-4">
           <div className="flex items-center justify-between gap-4">
             <Link to="/" className="flex items-center gap-2">
               <span className="text-2xl font-bold text-foreground">ELECTRO MOTORS</span>
@@ -149,15 +149,15 @@ const ProductDetail = () => {
       </header>
 
       {/* Product Content */}
-      <div className="w-full max-w-full mx-auto px-0 md:px-4 py-2 md:container">
-        <div className="grid lg:grid-cols-[1fr_400px] gap-3 md:gap-6 w-full max-w-full">
+      <div className="w-full max-w-[100vw] mx-auto px-0 md:px-4 py-2 overflow-x-hidden">
+        <div className="grid lg:grid-cols-[1fr_400px] gap-3 md:gap-6 w-full max-w-full overflow-x-hidden">
           {/* Left Column - Images + Description */}
           <div className="space-y-2 md:space-y-6">
             {/* Images & Description/Specs in 2 columns */}
-            <div className="grid md:grid-cols-2 gap-2 md:gap-3 w-full max-w-full">
-              <Card className="overflow-hidden">
+            <div className="grid md:grid-cols-2 gap-2 md:gap-3 w-full max-w-full overflow-x-hidden">
+              <Card className="overflow-hidden w-full max-w-full">
                 <CardContent className="p-2 md:p-3">
-                  <div className="aspect-square w-full bg-gradient-to-br from-slate-100 to-slate-200 rounded-lg flex items-center justify-center">
+                  <div className="aspect-square w-full max-w-full bg-gradient-to-br from-slate-100 to-slate-200 rounded-lg flex items-center justify-center overflow-hidden">
                     <img
                       src={product.images[selectedImage]}
                       alt={product.name}
@@ -181,15 +181,15 @@ const ProductDetail = () => {
               </Card>
 
               {/* Description & Specs stacked */}
-              <div className="flex flex-col space-y-2 md:space-y-3">
-                <Card className="order-2 md:order-1">
+              <div className="flex flex-col space-y-2 md:space-y-3 w-full max-w-full overflow-x-hidden">
+                <Card className="order-2 md:order-1 w-full max-w-full overflow-hidden">
                   <CardContent className="p-2 md:p-3">
                     <h2 className="text-base md:text-lg font-bold mb-2 md:mb-3">Описание</h2>
                     <p className="text-sm text-muted-foreground leading-relaxed">{product.description}</p>
                   </CardContent>
                 </Card>
 
-                <Card className="order-1 md:order-2">
+                <Card className="order-1 md:order-2 w-full max-w-full overflow-hidden">
                   <CardContent className="p-2 md:p-3">
                     <h2 className="text-base md:text-lg font-bold mb-2 md:mb-3">Характеристики</h2>
                     <div className="space-y-1 md:space-y-2">

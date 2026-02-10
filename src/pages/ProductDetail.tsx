@@ -153,52 +153,50 @@ const ProductDetail = () => {
         <div className="grid lg:grid-cols-[1fr_400px] gap-6">
           {/* Left Column - Images + Description */}
           <div className="space-y-6">
-            {/* Images & Video in 2 columns */}
-            <div className="grid md:grid-cols-2 gap-3">
-              <Card className="overflow-hidden">
+            {/* Images */}
+            <Card className="overflow-hidden">
+              <CardContent className="p-3">
+                <img
+                  src={product.images[selectedImage]}
+                  alt={product.name}
+                  className="w-full h-[280px] object-contain bg-gradient-to-br from-slate-100 to-slate-200 rounded-lg"
+                />
+                <div className="grid grid-cols-6 gap-2 mt-3">
+                  {product.images.map((img, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setSelectedImage(idx)}
+                      className={`border-2 rounded-lg overflow-hidden transition-all ${
+                        selectedImage === idx ? "border-primary" : "border-slate-200"
+                      }`}
+                    >
+                      <img src={img} alt={`${product.name} ${idx + 1}`} className="w-full h-12 object-contain bg-slate-100" />
+                    </button>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Video Review - Desktop only */}
+            {product.youtubeUrl && (
+              <Card className="hidden md:block">
                 <CardContent className="p-3">
-                  <img
-                    src={product.images[selectedImage]}
-                    alt={product.name}
-                    className="w-full h-[280px] object-contain bg-gradient-to-br from-slate-100 to-slate-200 rounded-lg"
-                  />
-                  <div className="grid grid-cols-6 gap-2 mt-3">
-                    {product.images.map((img, idx) => (
-                      <button
-                        key={idx}
-                        onClick={() => setSelectedImage(idx)}
-                        className={`border-2 rounded-lg overflow-hidden transition-all ${
-                          selectedImage === idx ? "border-primary" : "border-slate-200"
-                        }`}
-                      >
-                        <img src={img} alt={`${product.name} ${idx + 1}`} className="w-full h-12 object-contain bg-slate-100" />
-                      </button>
-                    ))}
+                  <h2 className="text-base font-bold mb-2">Видео-обзор</h2>
+                  <div className="aspect-video">
+                    <iframe
+                      width="100%"
+                      height="100%"
+                      src={product.youtubeUrl}
+                      title="YouTube video player"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="rounded-lg"
+                    ></iframe>
                   </div>
                 </CardContent>
               </Card>
-
-              {/* Video Review */}
-              {product.youtubeUrl && (
-                <Card>
-                  <CardContent className="p-3">
-                    <h2 className="text-base font-bold mb-2">Видео-обзор</h2>
-                    <div className="aspect-video">
-                      <iframe
-                        width="100%"
-                        height="100%"
-                        src={product.youtubeUrl}
-                        title="YouTube video player"
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                        className="rounded-lg"
-                      ></iframe>
-                    </div>
-                  </CardContent>
-                </Card>
-              )}
-            </div>
+            )}
 
             {/* Description & Specs in 2 columns */}
             <div className="grid md:grid-cols-2 gap-3">
@@ -350,7 +348,28 @@ const ProductDetail = () => {
           </div>
         </div>
 
-
+        {/* Video Review - Mobile only (at bottom) */}
+        {product.youtubeUrl && (
+          <div className="md:hidden mt-6">
+            <Card>
+              <CardContent className="p-3">
+                <h2 className="text-base font-bold mb-2">Видео-обзор</h2>
+                <div className="aspect-video">
+                  <iframe
+                    width="100%"
+                    height="100%"
+                    src={product.youtubeUrl}
+                    title="YouTube video player"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="rounded-lg"
+                  ></iframe>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        )}
       </div>
 
       {/* Footer */}

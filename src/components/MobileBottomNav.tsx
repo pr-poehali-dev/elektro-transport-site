@@ -28,6 +28,20 @@ const MobileBottomNav = () => {
     }
   };
 
+  const handleCatalogClick = () => {
+    const catalog = document.getElementById('catalog');
+    if (catalog) {
+      catalog.scrollIntoView({ behavior: 'smooth' });
+      setShowMenu(false);
+    } else {
+      navigate('/');
+      setTimeout(() => {
+        document.getElementById('catalog')?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+      setShowMenu(false);
+    }
+  };
+
   return (
     <>
       {/* Mobile Search Modal */}
@@ -64,6 +78,10 @@ const MobileBottomNav = () => {
                 <Icon name="Home" size={20} />
                 <span>Главная</span>
               </Link>
+              <button onClick={handleCatalogClick} className="flex items-center gap-3 p-3 hover:bg-slate-100 rounded-lg w-full">
+                <Icon name="Grid" size={20} />
+                <span>Каталог</span>
+              </button>
               <a href="#" className="flex items-center gap-3 p-3 hover:bg-slate-100 rounded-lg">
                 <Icon name="Info" size={20} />
                 <span>О нас</span>

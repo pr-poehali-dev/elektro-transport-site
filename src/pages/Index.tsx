@@ -237,7 +237,7 @@ const Index = () => {
         </div>
       </header>
 
-      <section className="bg-gradient-to-br from-white via-slate-50 to-blue-50 h-[calc(100vh-72px)] relative flex items-center overflow-hidden">
+      <section className="bg-gradient-to-br from-white via-slate-50 to-blue-50 min-h-[calc(100vh-72px)] md:h-[calc(100vh-72px)] relative flex items-center overflow-hidden py-8 md:py-0">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-primary/10 rounded-full blur-[150px]"></div>
           <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-secondary/10 rounded-full blur-[120px]"></div>
@@ -256,8 +256,8 @@ const Index = () => {
         <div className="container mx-auto px-4 relative z-10 w-full">
           
           <div className="flex flex-col items-center gap-4 pt-16">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-end w-full h-[60vh] px-4 max-w-7xl mx-auto">
-              <div className="flex items-end justify-center relative animate-scale-in group scale-125">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-end w-full min-h-[50vh] md:h-[60vh] px-2 md:px-4 max-w-7xl mx-auto">
+              <div className="hidden md:flex items-end justify-center relative animate-scale-in group scale-125">
                 <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[200px] h-2 bg-purple-500/30 rounded-full blur-lg group-hover:w-[250px] transition-all duration-500"></div>
                 <img 
                   src="https://cdn.poehali.dev/files/b8881807-d273-44af-b7e1-6b32377493e2.png" 
@@ -269,12 +269,12 @@ const Index = () => {
                 />
               </div>
               
-              <div className="flex flex-col items-center justify-center gap-4 animate-fade-in h-full pb-8">
-                <p className="text-base md:text-xl text-slate-700 leading-relaxed text-center">
+              <div className="flex flex-col items-center justify-center gap-3 md:gap-4 animate-fade-in h-full pb-4 md:pb-8">
+                <p className="text-sm md:text-xl text-slate-700 leading-relaxed text-center px-4">
                   Современно. Экологично. Экономично. Комфортно.
                 </p>
                 
-                <div className="flex flex-col gap-3 w-full">
+                <div className="flex flex-col gap-2 md:gap-3 w-full px-4">
                   <Button
                     size="lg"
                     className="relative overflow-hidden bg-primary hover:bg-primary/90 text-white hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl rounded-2xl px-6 py-4 text-sm font-bold group"
@@ -308,7 +308,7 @@ const Index = () => {
             </div>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-12 mb-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 mt-8 md:mt-12 mb-8 md:mb-12 px-2 md:px-0">
             <div className="relative group overflow-hidden rounded-2xl bg-white border border-slate-200 p-8 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl flex flex-col justify-center items-center">
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-2xl"></div>
               <div className="relative">
@@ -344,11 +344,11 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="flex gap-8">
+      <section id="catalog" className="py-8 md:py-16 mb-16 md:mb-0">
+        <div className="container mx-auto px-1 md:px-4">
+          <div className="flex flex-col md:flex-row gap-4 md:gap-8">
             {/* Filters Sidebar */}
-            <aside className="w-64 flex-shrink-0">
+            <aside className="w-full md:w-64 flex-shrink-0">
               <Card className="sticky top-20">
                 <CardContent className="p-6">
                   <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
@@ -469,9 +469,9 @@ const Index = () => {
             </aside>
 
             {/* Products Section */}
-            <div className="flex-1">
-          <div className="flex items-center justify-between mb-8">
-            <h2 className="text-4xl font-bold">Каталог</h2>
+            <div className="flex-1 w-full">
+          <div className="flex items-center justify-between mb-4 md:mb-8 px-2 md:px-0">
+            <h2 className="text-2xl md:text-4xl font-bold">Каталог</h2>
             {compareList.length > 0 && (
               <Button
                 onClick={() => setShowCompare(!showCompare)}
@@ -562,7 +562,7 @@ const Index = () => {
             </Card>
           )}
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 px-1 md:px-0">
             {filteredProducts.map((product) => (
               <Card key={product.id} className="group hover:shadow-xl transition-all duration-300 animate-fade-in overflow-hidden">
                 <CardContent className="p-0">

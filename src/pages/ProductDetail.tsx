@@ -149,7 +149,7 @@ const ProductDetail = () => {
       </header>
 
       {/* Product Content */}
-      <div className="container mx-auto px-4 py-2">
+      <div className="container mx-auto px-2 md:px-4 py-2">
         <div className="grid lg:grid-cols-[1fr_400px] gap-6">
           {/* Left Column - Images + Description */}
           <div className="space-y-6">
@@ -181,15 +181,15 @@ const ProductDetail = () => {
               </Card>
 
               {/* Description & Specs stacked */}
-              <div className="space-y-3">
-                <Card>
+              <div className="flex flex-col space-y-3">
+                <Card className="order-2 md:order-1">
                   <CardContent className="p-3">
                     <h2 className="text-lg font-bold mb-3">Описание</h2>
                     <p className="text-sm text-muted-foreground leading-relaxed">{product.description}</p>
                   </CardContent>
                 </Card>
 
-                <Card>
+                <Card className="order-1 md:order-2">
                   <CardContent className="p-3">
                     <h2 className="text-lg font-bold mb-3">Характеристики</h2>
                     <div className="space-y-2">

@@ -100,7 +100,7 @@ const ProductDetail = () => {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 overflow-x-hidden">
       {/* Header */}
       <header className="bg-white shadow-sm sticky top-0 z-50">
-        <div className="container mx-auto px-2 md:px-4 py-4">
+        <div className="container mx-auto px-1 md:px-4 py-2 md:py-4">
           <div className="flex items-center justify-between gap-4">
             <Link to="/" className="flex items-center gap-2">
               <span className="text-2xl font-bold text-foreground">ELECTRO MOTORS</span>
@@ -149,12 +149,12 @@ const ProductDetail = () => {
       </header>
 
       {/* Product Content */}
-      <div className="w-full max-w-full mx-auto px-0 md:px-4 py-2 md:container">
-        <div className="grid lg:grid-cols-[1fr_400px] gap-3 md:gap-6 w-full max-w-full">
+      <div className="w-full max-w-full mx-auto px-1 md:px-4 py-1 md:py-2">
+        <div className="grid lg:grid-cols-[1fr_400px] gap-1 md:gap-6 w-full max-w-full">
           {/* Left Column - Images + Description */}
-          <div className="space-y-2 md:space-y-6">
+          <div className="space-y-1 md:space-y-6">
             {/* Images & Description/Specs in 2 columns */}
-            <div className="grid md:grid-cols-2 gap-2 md:gap-3 w-full max-w-full">
+            <div className="grid md:grid-cols-2 gap-1 md:gap-3 w-full max-w-full">
               <Card className="overflow-hidden">
                 <CardContent className="p-2 md:p-3">
                   <div className="aspect-square w-full bg-gradient-to-br from-slate-100 to-slate-200 rounded-lg flex items-center justify-center">
@@ -181,16 +181,16 @@ const ProductDetail = () => {
               </Card>
 
               {/* Description & Specs stacked */}
-              <div className="flex flex-col space-y-2 md:space-y-3">
+              <div className="flex flex-col space-y-1 md:space-y-3">
                 <Card className="order-2 md:order-1">
-                  <CardContent className="p-2 md:p-3">
+                  <CardContent className="p-1.5 md:p-3">
                     <h2 className="text-base md:text-lg font-bold mb-2 md:mb-3">Описание</h2>
                     <p className="text-sm text-muted-foreground leading-relaxed">{product.description}</p>
                   </CardContent>
                 </Card>
 
                 <Card className="order-1 md:order-2">
-                  <CardContent className="p-2 md:p-3">
+                  <CardContent className="p-1.5 md:p-3">
                     <h2 className="text-base md:text-lg font-bold mb-2 md:mb-3">Характеристики</h2>
                     <div className="space-y-1 md:space-y-2">
                       {product.specs.slice(0, 5).map((spec, idx) => (
@@ -229,7 +229,7 @@ const ProductDetail = () => {
           </div>
 
           {/* Right Sidebar - Info & Order */}
-          <div className="lg:sticky lg:top-20 space-y-2 md:space-y-3 h-fit">
+          <div className="lg:sticky lg:top-20 space-y-1 md:space-y-3 h-fit">
             <Card className="bg-slate-900 text-white">
               <CardContent className="p-3 md:p-4">
                 <Badge variant="secondary" className="mb-1 text-xs">{product.category}</Badge>
@@ -377,8 +377,8 @@ const ProductDetail = () => {
       </div>
 
       {/* Footer */}
-      <footer className="bg-slate-900 text-white py-4">
-        <div className="container mx-auto px-2 md:px-4">
+      <footer className="bg-slate-900 text-white py-2 md:py-4">
+        <div className="container mx-auto px-1 md:px-4">
           <div className="text-center text-xs text-slate-400">
             © 2024 ELECTRO MOTORS. Все права защищены.
           </div>

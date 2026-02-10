@@ -149,12 +149,12 @@ const ProductDetail = () => {
       </header>
 
       {/* Product Content */}
-      <div className="container mx-auto px-0 md:px-4 py-2">
-        <div className="grid lg:grid-cols-[1fr_400px] gap-3 md:gap-6">
+      <div className="w-full max-w-full mx-auto px-0 md:px-4 py-2 md:container">
+        <div className="grid lg:grid-cols-[1fr_400px] gap-3 md:gap-6 w-full max-w-full">
           {/* Left Column - Images + Description */}
           <div className="space-y-2 md:space-y-6">
             {/* Images & Description/Specs in 2 columns */}
-            <div className="grid md:grid-cols-2 gap-2 md:gap-3">
+            <div className="grid md:grid-cols-2 gap-2 md:gap-3 w-full max-w-full">
               <Card className="overflow-hidden">
                 <CardContent className="p-2 md:p-3">
                   <div className="aspect-square w-full bg-gradient-to-br from-slate-100 to-slate-200 rounded-lg flex items-center justify-center">

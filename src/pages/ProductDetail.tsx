@@ -148,31 +148,20 @@ const ProductDetail = () => {
         </div>
       </header>
 
-      {/* Breadcrumbs */}
-      <div className="container mx-auto px-4 py-4">
-        <div className="flex items-center gap-2 text-sm text-muted-foreground">
-          <Link to="/" className="hover:text-foreground transition-colors">Главная</Link>
-          <Icon name="ChevronRight" size={16} />
-          <Link to="/" className="hover:text-foreground transition-colors">{product.category}</Link>
-          <Icon name="ChevronRight" size={16} />
-          <span className="text-foreground">{product.name}</span>
-        </div>
-      </div>
-
       {/* Product Content */}
-      <div className="container mx-auto px-4 py-4">
+      <div className="container mx-auto px-4 py-2">
         <div className="grid lg:grid-cols-[1fr_400px] gap-6">
           {/* Left Column - Images + Description */}
           <div className="space-y-6">
             {/* Images */}
             <Card className="overflow-hidden">
-              <CardContent className="p-4">
+              <CardContent className="p-3">
                 <img
                   src={product.images[selectedImage]}
                   alt={product.name}
-                  className="w-full h-[400px] object-contain bg-gradient-to-br from-slate-100 to-slate-200 rounded-lg"
+                  className="w-full h-[280px] object-contain bg-gradient-to-br from-slate-100 to-slate-200 rounded-lg"
                 />
-                <div className="grid grid-cols-6 gap-2 mt-4">
+                <div className="grid grid-cols-6 gap-2 mt-3">
                   {product.images.map((img, idx) => (
                     <button
                       key={idx}
@@ -181,7 +170,7 @@ const ProductDetail = () => {
                         selectedImage === idx ? "border-primary" : "border-slate-200"
                       }`}
                     >
-                      <img src={img} alt={`${product.name} ${idx + 1}`} className="w-full h-16 object-contain bg-slate-100" />
+                      <img src={img} alt={`${product.name} ${idx + 1}`} className="w-full h-12 object-contain bg-slate-100" />
                     </button>
                   ))}
                 </div>
@@ -189,20 +178,20 @@ const ProductDetail = () => {
             </Card>
 
             {/* Description & Specs in 2 columns */}
-            <div className="grid md:grid-cols-2 gap-4">
+            <div className="grid md:grid-cols-2 gap-3">
               <Card>
-                <CardContent className="p-4">
-                  <h2 className="text-xl font-bold mb-3">Описание</h2>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{product.description}</p>
+                <CardContent className="p-3">
+                  <h2 className="text-base font-bold mb-2">Описание</h2>
+                  <p className="text-xs text-muted-foreground leading-relaxed">{product.description}</p>
                 </CardContent>
               </Card>
 
               <Card>
-                <CardContent className="p-4">
-                  <h2 className="text-xl font-bold mb-3">Характеристики</h2>
-                  <div className="space-y-2">
-                    {product.specs.map((spec, idx) => (
-                      <div key={idx} className="flex justify-between py-2 border-b last:border-0 text-sm">
+                <CardContent className="p-3">
+                  <h2 className="text-base font-bold mb-2">Характеристики</h2>
+                  <div className="space-y-1">
+                    {product.specs.slice(0, 5).map((spec, idx) => (
+                      <div key={idx} className="flex justify-between py-1 border-b last:border-0 text-xs">
                         <span className="text-muted-foreground">{spec.label}</span>
                         <span className="font-semibold">{spec.value}</span>
                       </div>
@@ -211,36 +200,15 @@ const ProductDetail = () => {
                 </CardContent>
               </Card>
             </div>
-
-            {/* Video Review */}
-            {product.youtubeUrl && (
-              <Card>
-                <CardContent className="p-4">
-                  <h2 className="text-xl font-bold mb-3">Видео-обзор</h2>
-                  <div className="aspect-video">
-                    <iframe
-                      width="100%"
-                      height="100%"
-                      src={product.youtubeUrl}
-                      title="YouTube video player"
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                      className="rounded-lg"
-                    ></iframe>
-                  </div>
-                </CardContent>
-              </Card>
-            )}
           </div>
 
           {/* Right Sidebar - Info & Order */}
-          <div className="lg:sticky lg:top-20 space-y-4 h-fit">
+          <div className="lg:sticky lg:top-20 space-y-3 h-fit">
             <Card className="bg-slate-900 text-white">
-              <CardContent className="p-6">
-                <Badge variant="secondary" className="mb-2">{product.category}</Badge>
-                <h1 className="text-2xl font-bold mb-2">{product.name}</h1>
-                <div className="flex items-center gap-2 text-sm mb-4">
+              <CardContent className="p-4">
+                <Badge variant="secondary" className="mb-1 text-xs">{product.category}</Badge>
+                <h1 className="text-xl font-bold mb-1">{product.name}</h1>
+                <div className="flex items-center gap-2 text-xs mb-3">
                   <span>Бренд: <strong>{product.brand}</strong></span>
                   <span>•</span>
                   {product.inStock ? (
@@ -253,61 +221,61 @@ const ProductDetail = () => {
                   )}
                 </div>
                 
-                <div className="border-t border-slate-700 pt-4 mb-4">
-                  <div className="text-sm text-slate-400 mb-1">Цена под ключ</div>
-                  <div className="text-3xl font-bold mb-2">
+                <div className="border-t border-slate-700 pt-3 mb-3">
+                  <div className="text-xs text-slate-400 mb-1">Цена под ключ</div>
+                  <div className="text-2xl font-bold mb-1">
                     {product.price.toLocaleString('ru-RU')} ₽
                   </div>
-                  <div className="text-sm text-secondary">
+                  <div className="text-xs text-secondary">
                     В кредит от {Math.round(product.price / 60).toLocaleString('ru-RU')} ₽/мес
                   </div>
                 </div>
 
                 {/* Quick Specs Grid */}
-                <div className="grid grid-cols-2 gap-3 mb-4">
-                  <div className="bg-slate-800 rounded-lg p-3">
-                    <div className="text-xs text-slate-400 mb-1">Скорость</div>
-                    <div className="font-semibold">{product.maxSpeed} км/ч</div>
+                <div className="grid grid-cols-2 gap-2 mb-3">
+                  <div className="bg-slate-800 rounded-lg p-2">
+                    <div className="text-[10px] text-slate-400">Скорость</div>
+                    <div className="font-semibold text-sm">{product.maxSpeed} км/ч</div>
                   </div>
-                  <div className="bg-slate-800 rounded-lg p-3">
-                    <div className="text-xs text-slate-400 mb-1">Запас хода</div>
-                    <div className="font-semibold">{product.range} км</div>
+                  <div className="bg-slate-800 rounded-lg p-2">
+                    <div className="text-[10px] text-slate-400">Запас хода</div>
+                    <div className="font-semibold text-sm">{product.range} км</div>
                   </div>
-                  <div className="bg-slate-800 rounded-lg p-3">
-                    <div className="text-xs text-slate-400 mb-1">Мощность</div>
-                    <div className="font-semibold">{product.power} Вт</div>
+                  <div className="bg-slate-800 rounded-lg p-2">
+                    <div className="text-[10px] text-slate-400">Мощность</div>
+                    <div className="font-semibold text-sm">{product.power} Вт</div>
                   </div>
-                  <div className="bg-slate-800 rounded-lg p-3">
-                    <div className="text-xs text-slate-400 mb-1">Вес</div>
-                    <div className="font-semibold">{product.weight} кг</div>
+                  <div className="bg-slate-800 rounded-lg p-2">
+                    <div className="text-[10px] text-slate-400">Вес</div>
+                    <div className="font-semibold text-sm">{product.weight} кг</div>
                   </div>
                 </div>
 
                 <Button
-                  className="w-full bg-primary hover:bg-primary/90 text-white rounded-xl py-6 text-lg font-bold mb-3"
+                  className="w-full bg-primary hover:bg-primary/90 text-white rounded-xl py-4 text-base font-bold mb-2"
                   onClick={() => document.getElementById('order-form')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   Оформить заказ
                 </Button>
 
                 <Button
-                  className="w-full bg-blue-500 hover:bg-blue-600 text-white rounded-xl py-4 font-semibold mb-4"
+                  className="w-full bg-blue-500 hover:bg-blue-600 text-white rounded-xl py-3 font-semibold mb-3"
                 >
-                  <Icon name="Send" size={18} className="mr-2" />
+                  <Icon name="Send" size={16} className="mr-2" />
                   Telegram
                 </Button>
 
-                <div className="pt-4 border-t border-slate-700 space-y-2">
-                  <div className="flex items-center gap-2 text-sm">
+                <div className="pt-3 border-t border-slate-700 space-y-1.5">
+                  <div className="flex items-center gap-2 text-xs">
                     <Icon name="Truck" size={16} className="text-blue-400" />
                     <span>Доставка ~ {product.deliveryDays} дней</span>
                   </div>
-                  <div className="flex items-center gap-2 text-sm">
-                    <Icon name="Shield" size={16} className="text-green-400" />
+                  <div className="flex items-center gap-2 text-xs">
+                    <Icon name="Shield" size={14} className="text-green-400" />
                     <span>Гарантия сроков доставки</span>
                   </div>
-                  <div className="flex items-center gap-2 text-sm">
-                    <Icon name="CreditCard" size={16} className="text-yellow-400" />
+                  <div className="flex items-center gap-2 text-xs">
+                    <Icon name="CreditCard" size={14} className="text-yellow-400" />
                     <span>Оплата при получении</span>
                   </div>
                 </div>
@@ -316,22 +284,20 @@ const ProductDetail = () => {
 
             {/* Order Form */}
             <Card id="order-form">
-              <CardContent className="p-4">
-                <h3 className="text-lg font-bold mb-3">Заказать товар</h3>
-                <form onSubmit={handleSubmit} className="space-y-3">
+              <CardContent className="p-3">
+                <h3 className="text-base font-bold mb-2">Заказать товар</h3>
+                <form onSubmit={handleSubmit} className="space-y-2">
                   <div>
-                    <Label htmlFor="name" className="text-xs">Имя *</Label>
                     <Input
                       id="name"
                       value={formData.name}
                       onChange={(e) => setFormData({...formData, name: e.target.value})}
                       required
-                      placeholder="Введите ваше имя"
-                      className="mt-1"
+                      placeholder="Ваше имя"
+                      className="h-9 text-sm"
                     />
                   </div>
                   <div>
-                    <Label htmlFor="phone" className="text-xs">Телефон *</Label>
                     <Input
                       id="phone"
                       type="tel"
@@ -339,27 +305,16 @@ const ProductDetail = () => {
                       onChange={(e) => setFormData({...formData, phone: e.target.value})}
                       required
                       placeholder="+7 (___) ___-__-__"
-                      className="mt-1"
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="comment" className="text-xs">Комментарий</Label>
-                    <Textarea
-                      id="comment"
-                      value={formData.comment}
-                      onChange={(e) => setFormData({...formData, comment: e.target.value})}
-                      placeholder="Дополнительная информация"
-                      rows={2}
-                      className="mt-1"
+                      className="h-9 text-sm"
                     />
                   </div>
                   <Button
                     type="submit"
-                    className="w-full bg-primary hover:bg-primary/90 text-white rounded-xl py-5 text-base font-bold"
+                    className="w-full bg-primary hover:bg-primary/90 text-white rounded-xl py-3 text-sm font-semibold"
                   >
                     {product.inStock ? "Оформить заказ" : "Предзаказ"}
                   </Button>
-                  <p className="text-xs text-muted-foreground text-center">
+                  <p className="text-[10px] text-muted-foreground text-center">
                     Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
                   </p>
                 </form>
@@ -372,9 +327,9 @@ const ProductDetail = () => {
       </div>
 
       {/* Footer */}
-      <footer className="bg-slate-900 text-white py-12">
+      <footer className="bg-slate-900 text-white py-4">
         <div className="container mx-auto px-4">
-          <div className="text-center text-sm text-slate-400">
+          <div className="text-center text-xs text-slate-400">
             © 2024 ELECTRO MOTORS. Все права защищены.
           </div>
         </div>

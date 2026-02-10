@@ -329,6 +329,16 @@ const ProductDetail = () => {
                       className="h-9 text-sm"
                     />
                   </div>
+                  <div>
+                    <Textarea
+                      id="comment"
+                      value={formData.comment}
+                      onChange={(e) => setFormData({...formData, comment: e.target.value})}
+                      placeholder="Комментарий к заказу"
+                      rows={2}
+                      className="text-sm resize-none"
+                    />
+                  </div>
                   <Button
                     type="submit"
                     className="w-full bg-primary hover:bg-primary/90 text-white rounded-xl py-3 text-sm font-semibold"

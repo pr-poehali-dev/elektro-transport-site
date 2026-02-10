@@ -338,11 +338,11 @@ const Index = () => {
       </section>
 
       <section id="catalog" className="py-8 md:py-16 mb-16 md:mb-0">
-        <div className="container mx-auto px-1 md:px-4">
-          <div className="flex flex-col md:flex-row gap-4 md:gap-8">
+        <div className="w-full max-w-full mx-auto px-1 md:px-4">
+          <div className="grid lg:grid-cols-[300px_1fr] gap-1 md:gap-6 w-full max-w-full">
             {/* Filters Sidebar - Desktop */}
-            <aside className="hidden md:block w-64 flex-shrink-0">
-              <Card className="sticky top-20">
+            <aside className="hidden lg:block flex-shrink-0 lg:sticky lg:top-20 h-fit">
+              <Card>
                 <CardContent className="p-6">
                   <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
                     <Icon name="SlidersHorizontal" size={20} />
@@ -555,7 +555,7 @@ const Index = () => {
             </Card>
           )}
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 px-1 md:px-0">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6 px-1 md:px-0">
             {filteredProducts.map((product) => (
               <Card key={product.id} className="group hover:shadow-xl transition-all duration-300 animate-fade-in overflow-hidden">
                 <CardContent className="p-0">

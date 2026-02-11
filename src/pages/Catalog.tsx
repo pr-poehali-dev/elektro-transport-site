@@ -505,21 +505,21 @@ const Catalog = () => {
                         </div>
                         
                         <div className="grid grid-cols-2 gap-3 mb-6">
-                          <div className="bg-white/10 border border-[#4a4a4a] p-3 rounded-lg">
-                            <div className="text-xs text-[#a0a0a0] tracking-wider uppercase mb-1.5">Скорость</div>
-                            <div className="text-base font-light text-white">{product.maxSpeed} км/ч</div>
+                          <div className="bg-gradient-to-br from-[#2a2e35] to-[#1f2229] border border-white/10 p-3 rounded-none shadow-[0_0_10px_rgba(96,165,250,0.1)]">
+                            <div className="text-xs text-[#a0a0a0] tracking-[0.2em] uppercase mb-1.5">СКОРОСТЬ</div>
+                            <div className="text-lg font-normal text-white tracking-tight">{product.maxSpeed} км/ч</div>
                           </div>
-                          <div className="bg-white/10 border border-[#4a4a4a] p-3 rounded-lg">
-                            <div className="text-xs text-[#a0a0a0] tracking-wider uppercase mb-1.5">Запас хода</div>
-                            <div className="text-base font-light text-white">{product.range} км</div>
+                          <div className="bg-gradient-to-br from-[#2a2e35] to-[#1f2229] border border-white/10 p-3 rounded-none shadow-[0_0_10px_rgba(96,165,250,0.1)]">
+                            <div className="text-xs text-[#a0a0a0] tracking-[0.2em] uppercase mb-1.5">ЗАПАС ХОДА</div>
+                            <div className="text-lg font-normal text-white tracking-tight">{product.range} км</div>
                           </div>
-                          <div className="bg-white/10 border border-[#4a4a4a] p-3 rounded-lg">
-                            <div className="text-xs text-[#a0a0a0] tracking-wider uppercase mb-1.5">Мощность</div>
-                            <div className="text-base font-light text-white">{product.power} Вт</div>
+                          <div className="bg-gradient-to-br from-[#2a2e35] to-[#1f2229] border border-white/10 p-3 rounded-none shadow-[0_0_10px_rgba(96,165,250,0.1)]">
+                            <div className="text-xs text-[#a0a0a0] tracking-[0.2em] uppercase mb-1.5">МОЩНОСТЬ</div>
+                            <div className="text-lg font-normal text-white tracking-tight">{product.power} Вт</div>
                           </div>
-                          <div className="bg-white/10 border border-[#4a4a4a] p-3 rounded-lg">
-                            <div className="text-xs text-[#a0a0a0] tracking-wider uppercase mb-1.5">Доставка</div>
-                            <div className="text-base font-light text-white">{product.deliveryDays} дн</div>
+                          <div className="bg-gradient-to-br from-[#2a2e35] to-[#1f2229] border border-white/10 p-3 rounded-none shadow-[0_0_10px_rgba(96,165,250,0.1)]">
+                            <div className="text-xs text-[#a0a0a0] tracking-[0.2em] uppercase mb-1.5">ДОСТАВКА</div>
+                            <div className="text-lg font-normal text-white tracking-tight">{product.deliveryDays} дн</div>
                           </div>
                         </div>
                         

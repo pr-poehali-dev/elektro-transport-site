@@ -59,18 +59,18 @@ const Index = () => {
   return (
     <div className="bg-[#0a0a0a] relative" style={{ minHeight: '120vh' }}>
       {/* Анимация слов */}
-      <div ref={wordsRef} className="fixed inset-0 z-50 bg-[#0a0a0a] hidden items-center justify-center transition-opacity duration-500" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-        <div className="text-center space-y-6">
-          <div className="text-[clamp(3rem,14vw,10rem)] font-light text-[#707070] tracking-tight uppercase opacity-0 animate-[wordAppear_0.6s_ease-out_0s_forwards]">
+      <div ref={wordsRef} className="fixed inset-0 z-50 bg-[#0a0a0a] hidden items-center justify-center transition-opacity duration-500 px-4" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+        <div className="text-center space-y-4 md:space-y-6 w-full max-w-[95vw]">
+          <div className="text-[clamp(2rem,12vw,10rem)] font-light text-[#707070] tracking-tight uppercase opacity-0 animate-[wordAppear_0.6s_ease-out_0s_forwards] leading-none">
             СОВРЕМЕННО
           </div>
-          <div className="text-[clamp(3rem,14vw,10rem)] font-light text-[#707070] tracking-tight uppercase opacity-0 animate-[wordAppear_0.6s_ease-out_0.6s_forwards]">
+          <div className="text-[clamp(2rem,12vw,10rem)] font-light text-[#707070] tracking-tight uppercase opacity-0 animate-[wordAppear_0.6s_ease-out_0.6s_forwards] leading-none">
             ЭКОЛОГИЧНО
           </div>
-          <div className="text-[clamp(3rem,14vw,10rem)] font-light text-[#707070] tracking-tight uppercase opacity-0 animate-[wordAppear_0.6s_ease-out_1.2s_forwards]">
+          <div className="text-[clamp(2rem,12vw,10rem)] font-light text-[#707070] tracking-tight uppercase opacity-0 animate-[wordAppear_0.6s_ease-out_1.2s_forwards] leading-none">
             ЭКОНОМИЧНО
           </div>
-          <div className="text-[clamp(3rem,14vw,10rem)] font-light text-[#707070] tracking-tight uppercase opacity-0 animate-[wordAppear_0.6s_ease-out_1.8s_forwards]">
+          <div className="text-[clamp(2rem,12vw,10rem)] font-light text-[#707070] tracking-tight uppercase opacity-0 animate-[wordAppear_0.6s_ease-out_1.8s_forwards] leading-none">
             КОМФОРТНО
           </div>
         </div>

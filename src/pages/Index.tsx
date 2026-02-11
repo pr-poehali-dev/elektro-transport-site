@@ -117,17 +117,11 @@ const Index = () => {
         <div className="absolute right-0 md:right-12 top-1/2 -translate-y-1/2 w-full md:w-[45%] h-full flex items-center justify-center z-[5] pointer-events-none opacity-20 md:opacity-100">
           <div className="absolute inset-0 bg-gradient-radial from-white/5 via-transparent to-transparent blur-3xl"></div>
           
-          <div className="absolute top-1/4 left-1/4 w-40 h-40 border border-white/5 rotate-45"></div>
-          <div className="absolute bottom-1/3 right-1/4 w-32 h-32 border border-white/5 rounded-full"></div>
-          
           <img 
             src="https://cdn.poehali.dev/files/6281e1c0-9b0b-4b9f-a8d6-d59f6b8c765b.png"
             alt="Premium Electric Bike"
             className="relative w-full h-auto max-h-[50vh] md:max-h-[85vh] object-contain bike-lightning-glow"
           />
-          
-          <div className="absolute top-1/2 left-0 w-20 h-px bg-gradient-to-r from-white/20 to-transparent"></div>
-          <div className="absolute bottom-1/3 right-0 w-16 h-px bg-gradient-to-l from-white/15 to-transparent"></div>
         </div>
 
         <div className="w-full px-6 md:px-12 py-0 relative z-10 flex items-center h-full">

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -67,6 +67,15 @@ const ProductDetail = () => {
     phone: "",
     comment: ""
   });
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   if (!product) {
     return (
@@ -114,7 +123,11 @@ const ProductDetail = () => {
             <div className="space-y-6">
               {/* Images & Description/Specs in 2 columns */}
               <div className="grid md:grid-cols-2 gap-4 md:gap-6">
-                <GlowCard glowIntensity="high" className="overflow-hidden bg-gradient-to-br from-[#2c3038] to-[#1a1d23] backdrop-blur-sm rounded-xl">
+                <GlowCard 
+                  glowIntensity="high" 
+                  className="overflow-hidden bg-gradient-to-br from-[#2c3038] to-[#1a1d23] backdrop-blur-sm rounded-xl transition-transform duration-200"
+                  style={{ transform: `translateY(${scrollY * 0.05}px)` }}
+                >
                   <GlowCardContent className="p-4 md:p-6">
                     <div className="aspect-square w-full bg-[#1a1a1a] rounded-lg flex items-center justify-center overflow-hidden">
                       <img

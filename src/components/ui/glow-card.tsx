@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils"
 export interface GlowCardProps extends React.HTMLAttributes<HTMLDivElement> {
   glowIntensity?: "low" | "medium" | "high"
   hoverEffect?: boolean
+  disableGlow?: string
 }
 
 const glowStyles = {
@@ -19,14 +20,22 @@ const hoverGlowStyles = {
 }
 
 const GlowCard = React.forwardRef<HTMLDivElement, GlowCardProps>(
-  ({ className, glowIntensity = "medium", hoverEffect = true, children, ...props }, ref) => {
+  ({ className, glowIntensity = "medium", hoverEffect = true, disableGlow, children, ...props }, ref) => {
+    const glowClasses = disableGlow 
+      ? `${disableGlow}:shadow-none ${disableGlow}:border-white/10`
+      : glowStyles[glowIntensity];
+    
+    const hoverClasses = disableGlow
+      ? `${disableGlow}:hover:shadow-none ${disableGlow}:hover:border-white/10`
+      : hoverEffect && hoverGlowStyles[glowIntensity];
+
     return (
       <div
         ref={ref}
         className={cn(
           "border bg-card text-card-foreground",
-          glowStyles[glowIntensity],
-          hoverEffect && hoverGlowStyles[glowIntensity],
+          glowClasses,
+          hoverClasses,
           hoverEffect && "transition-all duration-500",
           className
         )}

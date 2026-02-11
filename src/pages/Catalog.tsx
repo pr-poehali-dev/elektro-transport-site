@@ -465,7 +465,7 @@ const Catalog = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6">
                 {filteredProducts.map((product) => (
-                  <GlowCard key={product.id} glowIntensity="medium" className="group overflow-hidden bg-gradient-to-br from-[#2c3038] to-[#1a1d23] backdrop-blur-sm rounded-lg">
+                  <GlowCard key={product.id} glowIntensity="medium" disableGlow="md" className="group overflow-hidden bg-gradient-to-br from-[#2c3038] to-[#1a1d23] backdrop-blur-sm rounded-lg">
                     <GlowCardContent className="p-0">
                       <div className="relative aspect-square overflow-hidden bg-[#1a1a1a] rounded-lg">
                         <img
@@ -513,22 +513,22 @@ const Catalog = () => {
                           </div>
                         </div>
                         
-                        <div className="grid grid-cols-2 gap-3 mb-6">
-                          <div className="bg-gradient-to-br from-[#2a2e35] to-[#1f2229] border border-white/10 p-3 rounded-none shadow-[0_0_10px_rgba(96,165,250,0.1)]">
-                            <div className="text-xs text-[#a0a0a0] tracking-[0.2em] uppercase mb-1.5">СКОРОСТЬ</div>
-                            <div className="text-lg font-normal text-white tracking-tight">{product.maxSpeed} км/ч</div>
+                        <div className="grid grid-cols-2 gap-2 md:gap-3 mb-6">
+                          <div className="bg-gradient-to-br from-[#2a2e35] to-[#1f2229] border border-white/10 p-2 md:p-3 rounded-none shadow-[0_0_10px_rgba(96,165,250,0.1)]">
+                            <div className="text-[10px] md:text-xs text-[#a0a0a0] tracking-[0.15em] md:tracking-[0.2em] uppercase mb-1">СКОРОСТЬ</div>
+                            <div className="text-sm md:text-lg font-normal text-white tracking-tight">{product.maxSpeed} км/ч</div>
                           </div>
-                          <div className="bg-gradient-to-br from-[#2a2e35] to-[#1f2229] border border-white/10 p-3 rounded-none shadow-[0_0_10px_rgba(96,165,250,0.1)]">
-                            <div className="text-xs text-[#a0a0a0] tracking-[0.2em] uppercase mb-1.5">ЗАПАС ХОДА</div>
-                            <div className="text-lg font-normal text-white tracking-tight">{product.range} км</div>
+                          <div className="bg-gradient-to-br from-[#2a2e35] to-[#1f2229] border border-white/10 p-2 md:p-3 rounded-none shadow-[0_0_10px_rgba(96,165,250,0.1)]">
+                            <div className="text-[10px] md:text-xs text-[#a0a0a0] tracking-[0.15em] md:tracking-[0.2em] uppercase mb-1">ЗАПАС ХОДА</div>
+                            <div className="text-sm md:text-lg font-normal text-white tracking-tight">{product.range} км</div>
                           </div>
-                          <div className="bg-gradient-to-br from-[#2a2e35] to-[#1f2229] border border-white/10 p-3 rounded-none shadow-[0_0_10px_rgba(96,165,250,0.1)]">
-                            <div className="text-xs text-[#a0a0a0] tracking-[0.2em] uppercase mb-1.5">МОЩНОСТЬ</div>
-                            <div className="text-lg font-normal text-white tracking-tight">{product.power} Вт</div>
+                          <div className="bg-gradient-to-br from-[#2a2e35] to-[#1f2229] border border-white/10 p-2 md:p-3 rounded-none shadow-[0_0_10px_rgba(96,165,250,0.1)]">
+                            <div className="text-[10px] md:text-xs text-[#a0a0a0] tracking-[0.15em] md:tracking-[0.2em] uppercase mb-1">МОЩНОСТЬ</div>
+                            <div className="text-sm md:text-lg font-normal text-white tracking-tight">{product.power} Вт</div>
                           </div>
-                          <div className="bg-gradient-to-br from-[#2a2e35] to-[#1f2229] border border-white/10 p-3 rounded-none shadow-[0_0_10px_rgba(96,165,250,0.1)]">
-                            <div className="text-xs text-[#a0a0a0] tracking-[0.2em] uppercase mb-1.5">ДОСТАВКА</div>
-                            <div className="text-lg font-normal text-white tracking-tight">{product.deliveryDays} дн</div>
+                          <div className="bg-gradient-to-br from-[#2a2e35] to-[#1f2229] border border-white/10 p-2 md:p-3 rounded-none shadow-[0_0_10px_rgba(96,165,250,0.1)]">
+                            <div className="text-[10px] md:text-xs text-[#a0a0a0] tracking-[0.15em] md:tracking-[0.2em] uppercase mb-1">ДОСТАВКА</div>
+                            <div className="text-sm md:text-lg font-normal text-white tracking-tight">{product.deliveryDays} дн</div>
                           </div>
                         </div>
                         

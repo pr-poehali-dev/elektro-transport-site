@@ -86,8 +86,8 @@ const Index = () => {
     <div className="bg-[#0a0a0a] relative h-screen w-screen overflow-hidden fixed inset-0">
       {/* Анимация Premium Electric Mobility */}
       <div ref={premiumTextRef} className="fixed inset-0 z-50 bg-[#0a0a0a] hidden items-center justify-center px-4 transition-opacity duration-500" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-        <div className="inline-block px-5 py-3 md:px-10 md:py-5 border border-blue-400/30 opacity-0 animate-[premiumFade_1s_ease-out_0s_forwards]" style={{ boxShadow: '0 0 20px rgba(96, 165, 250, 0.2), inset 0 0 20px rgba(96, 165, 250, 0.08)' }}>
-          <span className="text-[#a0a0a0] text-[clamp(1rem,3.5vw,3.5rem)] tracking-[0.3em] uppercase font-light whitespace-nowrap">
+        <div className="inline-block px-3 py-2 md:px-10 md:py-5 border border-blue-400/30 opacity-0 animate-[premiumFade_1s_ease-out_0s_forwards] max-w-[95vw]" style={{ boxShadow: '0 0 20px rgba(96, 165, 250, 0.2), inset 0 0 20px rgba(96, 165, 250, 0.08)' }}>
+          <span className="text-[#a0a0a0] text-[clamp(0.7rem,3vw,3.5rem)] tracking-[0.15em] md:tracking-[0.3em] uppercase font-light whitespace-nowrap">
             Premium Electric Mobility
           </span>
         </div>

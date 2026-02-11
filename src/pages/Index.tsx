@@ -124,10 +124,7 @@ const Index = () => {
           <img 
             src="https://cdn.poehali.dev/files/6281e1c0-9b0b-4b9f-a8d6-d59f6b8c765b.png"
             alt="Premium Electric Bike"
-            className="relative w-full h-auto max-h-[80vh] object-contain animate-scale-in opacity-0 bike-lightning-glow"
-            style={{ 
-              animationDelay: '0.3s'
-            }}
+            className="relative w-full h-auto max-h-[80vh] object-contain bike-lightning-glow"
           />
           
           <div className="absolute top-1/2 left-0 w-20 h-px bg-gradient-to-r from-white/20 to-transparent"></div>

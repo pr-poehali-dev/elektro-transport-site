@@ -34,6 +34,7 @@ const Index = () => {
 
       <section className="relative h-[calc(100vh-73px)] md:h-[calc(100vh-73px)] flex items-center overflow-hidden py-0">
         <div className="absolute inset-0">
+          {/* Desktop: полная молния со всеми ветками */}
           <svg className="hidden md:block absolute inset-0 w-full h-full lightning-strike pointer-events-none z-20" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
             <defs>
               <filter id="glow">
@@ -93,6 +94,24 @@ const Index = () => {
               <path d="M970,880 L1060,920 L1030,980 L1090,1040" 
                     stroke="#ffffff" strokeWidth="1.5" fill="none" opacity="0.85" className="bolt bolt-branch"/>
             </g>
+          </svg>
+
+          {/* Mobile: упрощенная молния без фильтров и круга свечения */}
+          <svg className="md:hidden absolute inset-0 w-full h-full lightning-strike pointer-events-none z-20" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+            <path d="M960,0 L980,120 L940,160 L970,280 L930,350 L965,480 L945,560 L975,680 L940,760 L970,880 L950,960 L975,1080" 
+                  stroke="#60a5fa" strokeWidth="4" fill="none" opacity="0.8" className="bolt"/>
+            <path d="M960,0 L980,120 L940,160 L970,280 L930,350 L965,480 L945,560 L975,680 L940,760 L970,880 L950,960 L975,1080" 
+                  stroke="#ffffff" strokeWidth="2" fill="none" opacity="0.95" className="bolt"/>
+            
+            <path d="M970,280 L1050,310 L1020,360" 
+                  stroke="#60a5fa" strokeWidth="2.5" fill="none" opacity="0.7" className="bolt"/>
+            <path d="M970,280 L1050,310 L1020,360" 
+                  stroke="#ffffff" strokeWidth="1.2" fill="none" opacity="0.9" className="bolt"/>
+            
+            <path d="M930,350 L850,390 L880,450" 
+                  stroke="#60a5fa" strokeWidth="2.5" fill="none" opacity="0.7" className="bolt"/>
+            <path d="M930,350 L850,390 L880,450" 
+                  stroke="#ffffff" strokeWidth="1.2" fill="none" opacity="0.9" className="bolt"/>
           </svg>
           
           <div className="hidden md:block absolute bottom-0 left-0 right-0 h-32 bottom-glow-effect pointer-events-none"></div>

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { GlowCard, GlowCardContent } from "@/components/ui/glow-card";
@@ -149,6 +149,7 @@ const categories = [
 ];
 
 const Catalog = () => {
+  const [searchParams] = useSearchParams();
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [compareList, setCompareList] = useState<number[]>([]);
   const [showCompare, setShowCompare] = useState(false);
@@ -159,6 +160,13 @@ const Catalog = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [showFilters, setShowFilters] = useState(false);
   const [sortBy, setSortBy] = useState<"default" | "price-asc" | "price-desc">("default");
+
+  useEffect(() => {
+    const searchFromUrl = searchParams.get('search');
+    if (searchFromUrl) {
+      setSearchQuery(searchFromUrl);
+    }
+  }, [searchParams]);
 
   useEffect(() => {
     const handleOpenFilters = () => setShowFilters(true);

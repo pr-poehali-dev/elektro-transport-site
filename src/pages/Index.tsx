@@ -103,15 +103,30 @@ const Index = () => {
             <path d="M960,0 L980,120 L940,160 L970,280 L930,350 L965,480 L945,560 L975,680 L940,760 L970,880 L950,960 L975,1080" 
                   stroke="#ffffff" strokeWidth="2" fill="none" opacity="0.95" className="bolt"/>
             
-            <path d="M970,280 L1050,310 L1020,360" 
-                  stroke="#60a5fa" strokeWidth="2.5" fill="none" opacity="0.7" className="bolt"/>
-            <path d="M970,280 L1050,310 L1020,360" 
+            <path d="M970,280 L1050,310 L1020,360 L1080,420" 
+                  stroke="#60a5fa" strokeWidth="2.5" fill="none" opacity="0.75" className="bolt"/>
+            <path d="M970,280 L1050,310 L1020,360 L1080,420" 
                   stroke="#ffffff" strokeWidth="1.2" fill="none" opacity="0.9" className="bolt"/>
             
-            <path d="M930,350 L850,390 L880,450" 
+            <path d="M930,350 L850,390 L880,450 L820,510" 
                   stroke="#60a5fa" strokeWidth="2.5" fill="none" opacity="0.7" className="bolt"/>
-            <path d="M930,350 L850,390 L880,450" 
+            <path d="M930,350 L850,390 L880,450 L820,510" 
+                  stroke="#ffffff" strokeWidth="1.2" fill="none" opacity="0.85" className="bolt"/>
+
+            <path d="M965,480 L1090,530 L1060,590" 
+                  stroke="#60a5fa" strokeWidth="2.5" fill="none" opacity="0.75" className="bolt"/>
+            <path d="M965,480 L1090,530 L1060,590" 
                   stroke="#ffffff" strokeWidth="1.2" fill="none" opacity="0.9" className="bolt"/>
+
+            <path d="M940,760 L860,810 L890,870" 
+                  stroke="#60a5fa" strokeWidth="2.5" fill="none" opacity="0.7" className="bolt"/>
+            <path d="M940,760 L860,810 L890,870" 
+                  stroke="#ffffff" strokeWidth="1.2" fill="none" opacity="0.85" className="bolt"/>
+
+            <path d="M970,880 L1060,920 L1030,980" 
+                  stroke="#60a5fa" strokeWidth="2.5" fill="none" opacity="0.7" className="bolt"/>
+            <path d="M970,880 L1060,920 L1030,980" 
+                  stroke="#ffffff" strokeWidth="1.2" fill="none" opacity="0.85" className="bolt"/>
           </svg>
           
           <div className="hidden md:block absolute bottom-0 left-0 right-0 h-32 bottom-glow-effect pointer-events-none"></div>

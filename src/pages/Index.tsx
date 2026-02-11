@@ -112,6 +112,7 @@ const Index = () => {
             </g>
           </svg>
           
+          <div className="absolute bottom-0 left-0 right-0 h-32 bottom-glow-effect pointer-events-none"></div>
 
         </div>
 
@@ -156,7 +157,7 @@ const Index = () => {
                     Современно. Экологично. Экономично. Комфортно.
                   </p>
                   
-                  <div className="flex flex-col md:flex-row items-start gap-4">
+                  <div className="flex flex-col md:flex-row items-start gap-4 mb-12">
                     <Link to="/catalog" className="w-full md:w-auto">
                       <Button
                         size="lg"
@@ -172,41 +173,39 @@ const Index = () => {
                       КОНСУЛЬТАЦИЯ
                     </Button>
                   </div>
+                  
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <div>
+                      <div className="flex items-start gap-1 mb-2">
+                        <div className="text-4xl font-light text-white tracking-tight">30</div>
+                        <div className="text-xl font-light text-[#707070] mt-1">%</div>
+                      </div>
+                      <div className="text-[#707070] text-xs tracking-[0.2em] uppercase font-light">Экономия</div>
+                    </div>
+                    
+                    <div>
+                      <div className="text-4xl font-light text-white tracking-tight mb-2">30</div>
+                      <div className="text-[#707070] text-xs tracking-[0.2em] uppercase font-light">Дней доставка</div>
+                    </div>
+                    
+                    <div>
+                      <div className="text-4xl font-light text-white tracking-tight mb-2">24/7</div>
+                      <div className="text-[#707070] text-xs tracking-[0.2em] uppercase font-light">Поддержка</div>
+                    </div>
+                    
+                    <div>
+                      <div className="flex items-start gap-1 mb-2">
+                        <div className="text-4xl font-light text-white tracking-tight">100</div>
+                        <div className="text-xl font-light text-[#707070] mt-1">%</div>
+                      </div>
+                      <div className="text-[#707070] text-xs tracking-[0.2em] uppercase font-light">Гарантия</div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-px bg-[#2a2a2a] border border-[#2a2a2a] animate-fade-in" style={{ animationDelay: '0.3s' }}>
-              <div className="bg-[#0a0a0a] p-10 group cursor-default hover:bg-[#121212] transition-colors duration-300">
-                <div className="mb-4 flex items-start gap-1">
-                  <div className="text-5xl font-light text-white tracking-tight">30</div>
-                  <div className="text-2xl font-light text-[#707070] mt-1">%</div>
-                </div>
-                <div className="text-[#707070] text-xs tracking-[0.2em] uppercase font-light">Экономия</div>
-              </div>
 
-              <div className="bg-[#0a0a0a] p-10 group cursor-default hover:bg-[#121212] transition-colors duration-300">
-                <div className="mb-4">
-                  <div className="text-5xl font-light text-white tracking-tight">30</div>
-                </div>
-                <div className="text-[#707070] text-xs tracking-[0.2em] uppercase font-light">Дней доставка</div>
-              </div>
-
-              <div className="bg-[#0a0a0a] p-10 group cursor-default hover:bg-[#121212] transition-colors duration-300">
-                <div className="mb-4">
-                  <div className="text-5xl font-light text-white tracking-tight">24/7</div>
-                </div>
-                <div className="text-[#707070] text-xs tracking-[0.2em] uppercase font-light">Поддержка</div>
-              </div>
-
-              <div className="bg-[#0a0a0a] p-10 group cursor-default hover:bg-[#121212] transition-colors duration-300">
-                <div className="mb-4 flex items-start gap-1">
-                  <div className="text-5xl font-light text-white tracking-tight">100</div>
-                  <div className="text-2xl font-light text-[#707070] mt-1">%</div>
-                </div>
-                <div className="text-[#707070] text-xs tracking-[0.2em] uppercase font-light">Гарантия</div>
-              </div>
-            </div>
           </div>
         </div>
 

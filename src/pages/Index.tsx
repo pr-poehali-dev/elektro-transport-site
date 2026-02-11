@@ -36,29 +36,15 @@ const Index = () => {
 
       <section className="relative min-h-[calc(100vh-73px)] flex items-center overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-bl from-[#1a1a1a] to-transparent"></div>
-          <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-[#1a1a1a] to-transparent"></div>
+          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-bl from-[#1a1a1a] to-transparent animate-pulse" style={{ animationDuration: '8s' }}></div>
+          <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-[#1a1a1a] to-transparent animate-pulse" style={{ animationDuration: '6s', animationDelay: '2s' }}></div>
           
-          <svg className="absolute inset-0 w-full h-full opacity-20" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="line-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" style={{ stopColor: '#ffffff', stopOpacity: 0 }} />
-                <stop offset="50%" style={{ stopColor: '#ffffff', stopOpacity: 0.3 }} />
-                <stop offset="100%" style={{ stopColor: '#ffffff', stopOpacity: 0 }} />
-              </linearGradient>
-            </defs>
-            
-            <line x1="0" y1="20%" x2="100%" y2="20%" stroke="url(#line-gradient)" strokeWidth="1" className="animate-pulse" style={{ animationDuration: '3s' }} />
-            <line x1="0" y1="40%" x2="100%" y2="40%" stroke="url(#line-gradient)" strokeWidth="1" className="animate-pulse" style={{ animationDuration: '4s', animationDelay: '1s' }} />
-            <line x1="0" y1="60%" x2="100%" y2="60%" stroke="url(#line-gradient)" strokeWidth="1" className="animate-pulse" style={{ animationDuration: '5s', animationDelay: '0.5s' }} />
-            <line x1="0" y1="80%" x2="100%" y2="80%" stroke="url(#line-gradient)" strokeWidth="1" className="animate-pulse" style={{ animationDuration: '3.5s', animationDelay: '1.5s' }} />
-            
-            <line x1="20%" y1="0" x2="20%" y2="100%" stroke="url(#line-gradient)" strokeWidth="1" className="animate-pulse" style={{ animationDuration: '4s', animationDelay: '0.3s' }} />
-            <line x1="50%" y1="0" x2="50%" y2="100%" stroke="url(#line-gradient)" strokeWidth="1" className="animate-pulse" style={{ animationDuration: '3s', animationDelay: '1.2s' }} />
-            <line x1="80%" y1="0" x2="80%" y2="100%" stroke="url(#line-gradient)" strokeWidth="1" className="animate-pulse" style={{ animationDuration: '4.5s', animationDelay: '0.8s' }} />
-          </svg>
+          <div className="absolute inset-0 grid-lines-animation"></div>
           
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.03),transparent_50%)]"></div>
+          <div className="absolute top-1/4 left-1/4 w-32 h-32 border border-white/10 rounded-full animate-ping" style={{ animationDuration: '4s' }}></div>
+          <div className="absolute bottom-1/3 right-1/4 w-24 h-24 border border-white/10 rounded-full animate-ping" style={{ animationDuration: '5s', animationDelay: '1s' }}></div>
+          
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.05),transparent_70%)] animate-pulse" style={{ animationDuration: '10s' }}></div>
         </div>
 
         <div className="container mx-auto px-6 py-24 relative z-10">

@@ -48,17 +48,17 @@ const Index = () => {
       {/* Анимация слов */}
       <div ref={wordsRef} className="fixed inset-0 z-50 bg-[#0a0a0a] hidden items-center justify-center">
         <div className="text-center space-y-6">
-          <div className="text-[clamp(3rem,10vw,8rem)] font-light text-white tracking-tight opacity-0 animate-[fadeSlide_0.6s_ease-out_0s_forwards]">
-            Современно
+          <div className="text-[clamp(3rem,10vw,8rem)] font-light text-white tracking-tight uppercase opacity-0 animate-[fadeSlide_0.6s_ease-out_0s_forwards]">
+            СОВРЕМЕННО
           </div>
-          <div className="text-[clamp(3rem,10vw,8rem)] font-light text-white tracking-tight opacity-0 animate-[fadeSlide_0.6s_ease-out_0.6s_forwards]">
-            Экологично
+          <div className="text-[clamp(3rem,10vw,8rem)] font-light text-white tracking-tight uppercase opacity-0 animate-[fadeSlide_0.6s_ease-out_0.6s_forwards]">
+            ЭКОЛОГИЧНО
           </div>
-          <div className="text-[clamp(3rem,10vw,8rem)] font-light text-white tracking-tight opacity-0 animate-[fadeSlide_0.6s_ease-out_1.2s_forwards]">
-            Экономично
+          <div className="text-[clamp(3rem,10vw,8rem)] font-light text-white tracking-tight uppercase opacity-0 animate-[fadeSlide_0.6s_ease-out_1.2s_forwards]">
+            ЭКОНОМИЧНО
           </div>
-          <div className="text-[clamp(3rem,10vw,8rem)] font-light text-white tracking-tight opacity-0 animate-[fadeSlide_0.6s_ease-out_1.8s_forwards]">
-            Комфортно
+          <div className="text-[clamp(3rem,10vw,8rem)] font-light text-white tracking-tight uppercase opacity-0 animate-[fadeSlide_0.6s_ease-out_1.8s_forwards]">
+            КОМФОРТНО
           </div>
         </div>
       </div>

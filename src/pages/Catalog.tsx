@@ -414,7 +414,7 @@ const Catalog = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6">
                 {filteredProducts.map((product) => (
-                  <GlowCard key={product.id} glowIntensity="medium" className="group overflow-hidden bg-black/60 backdrop-blur-sm border-[#3a3a3a] hover:border-blue-400/50">
+                  <GlowCard key={product.id} glowIntensity="medium" className="group overflow-hidden bg-black/60 backdrop-blur-sm">
                     <GlowCardContent className="p-0">
                       <div className="relative aspect-square overflow-hidden bg-[#1a1a1a]">
                         <img

@@ -7,15 +7,15 @@ export interface GlowCardProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const glowStyles = {
-  low: "shadow-[0_0_15px_rgba(96,165,250,0.1),inset_0_0_15px_rgba(96,165,250,0.05)]",
-  medium: "shadow-[0_0_20px_rgba(96,165,250,0.15),inset_0_0_20px_rgba(96,165,250,0.05)]",
-  high: "shadow-[0_0_25px_rgba(96,165,250,0.2),inset_0_0_25px_rgba(96,165,250,0.08)]"
+  low: "shadow-[0_0_15px_rgba(96,165,250,0.12),inset_0_0_15px_rgba(96,165,250,0.05)] border-blue-400/20",
+  medium: "shadow-[0_0_20px_rgba(96,165,250,0.2),inset_0_0_20px_rgba(96,165,250,0.08)] border-blue-400/30",
+  high: "shadow-[0_0_25px_rgba(96,165,250,0.25),inset_0_0_25px_rgba(96,165,250,0.1)] border-blue-400/40"
 }
 
 const hoverGlowStyles = {
-  low: "hover:shadow-[0_0_25px_rgba(96,165,250,0.2),inset_0_0_25px_rgba(96,165,250,0.08)]",
-  medium: "hover:shadow-[0_0_35px_rgba(96,165,250,0.3),inset_0_0_30px_rgba(96,165,250,0.1)]",
-  high: "hover:shadow-[0_0_40px_rgba(96,165,250,0.35),inset_0_0_35px_rgba(96,165,250,0.12)]"
+  low: "hover:shadow-[0_0_25px_rgba(96,165,250,0.25),inset_0_0_25px_rgba(96,165,250,0.1)] hover:border-blue-400/40",
+  medium: "hover:shadow-[0_0_35px_rgba(96,165,250,0.35),inset_0_0_30px_rgba(96,165,250,0.15)] hover:border-blue-400/50",
+  high: "hover:shadow-[0_0_40px_rgba(96,165,250,0.4),inset_0_0_35px_rgba(96,165,250,0.2)] hover:border-blue-400/60"
 }
 
 const GlowCard = React.forwardRef<HTMLDivElement, GlowCardProps>(

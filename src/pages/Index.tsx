@@ -140,7 +140,7 @@ const Index = () => {
                 </div>
               </div>
               
-              <h1 className="text-[clamp(3.5rem,10vw,8rem)] font-light leading-[0.95] tracking-tight mb-8">
+              <h1 className="text-[clamp(3.5rem,10vw,8rem)] font-light leading-[0.95] tracking-tight mb-8 title-charge-glow">
                 <span className="block text-white">
                   НА ПОЛНОМ
                 </span>

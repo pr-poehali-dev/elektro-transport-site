@@ -322,4 +322,35 @@
   .bike-lightning-glow {
     animation: bike-glow 8s ease-in-out infinite;
   }
+
+  @keyframes title-charge {
+    0%,
+    4% {
+      text-shadow: 0 0 0px rgba(96, 165, 250, 0);
+    }
+    4.5% {
+      text-shadow:
+        0 0 15px rgba(96, 165, 250, 0.5),
+        0 0 30px rgba(96, 165, 250, 0.3);
+    }
+    5% {
+      text-shadow:
+        0 0 30px rgba(96, 165, 250, 1),
+        0 0 60px rgba(96, 165, 250, 0.8),
+        0 0 90px rgba(255, 255, 255, 0.6);
+    }
+    5.5% {
+      text-shadow:
+        0 0 20px rgba(96, 165, 250, 0.6),
+        0 0 40px rgba(96, 165, 250, 0.4);
+    }
+    6%,
+    100% {
+      text-shadow: 0 0 0px rgba(96, 165, 250, 0);
+    }
+  }
+
+  .title-charge-glow {
+    animation: title-charge 8s ease-in-out infinite;
+  }
 }

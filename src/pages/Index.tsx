@@ -7,6 +7,7 @@ const Index = () => {
   const navigate = useNavigate();
   const hasNavigated = useRef(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const wordsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,6 +18,11 @@ const Index = () => {
       if (scrollY > 50) {
         hasNavigated.current = true;
         
+        // Анимация слов
+        if (wordsRef.current) {
+          wordsRef.current.style.display = 'flex';
+        }
+        
         // Плавная анимация перед переходом
         if (containerRef.current) {
           containerRef.current.style.transform = 'translateX(-100%)';
@@ -25,8 +31,9 @@ const Index = () => {
         
         // Переход после завершения анимации
         setTimeout(() => {
+          window.scrollTo(0, 0);
           navigate('/catalog');
-        }, 600);
+        }, 2400);
       }
     };
 
@@ -37,7 +44,25 @@ const Index = () => {
   }, [navigate]);
 
   return (
-    <div className="bg-[#0a0a0a]" style={{ minHeight: '120vh' }}>
+    <div className="bg-[#0a0a0a] relative" style={{ minHeight: '120vh' }}>
+      {/* Анимация слов */}
+      <div ref={wordsRef} className="fixed inset-0 z-50 bg-[#0a0a0a] hidden items-center justify-center">
+        <div className="text-center space-y-6">
+          <div className="text-[clamp(3rem,10vw,8rem)] font-light text-white tracking-tight opacity-0 animate-[fadeSlide_0.6s_ease-out_0s_forwards]">
+            Современно
+          </div>
+          <div className="text-[clamp(3rem,10vw,8rem)] font-light text-white tracking-tight opacity-0 animate-[fadeSlide_0.6s_ease-out_0.6s_forwards]">
+            Экологично
+          </div>
+          <div className="text-[clamp(3rem,10vw,8rem)] font-light text-white tracking-tight opacity-0 animate-[fadeSlide_0.6s_ease-out_1.2s_forwards]">
+            Экономично
+          </div>
+          <div className="text-[clamp(3rem,10vw,8rem)] font-light text-white tracking-tight opacity-0 animate-[fadeSlide_0.6s_ease-out_1.8s_forwards]">
+            Комфортно
+          </div>
+        </div>
+      </div>
+      
       <div ref={containerRef} className="transition-all duration-[600ms] ease-out" style={{ willChange: 'transform, opacity' }}>
       <Header />
 

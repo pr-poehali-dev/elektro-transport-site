@@ -115,7 +115,7 @@ const Index = () => {
 
         </div>
 
-        <div className="absolute right-10 top-1/2 -translate-y-1/2 w-[45%] h-full flex items-center justify-center z-[5] pointer-events-none">
+        <div className="absolute right-16 top-1/2 -translate-y-1/2 w-[42%] h-full flex items-center justify-center z-[5] pointer-events-none">
           <div className="absolute inset-0 bg-gradient-radial from-white/5 via-transparent to-transparent blur-3xl"></div>
           
           <div className="absolute top-1/4 left-1/4 w-40 h-40 border border-white/5 rotate-45"></div>

@@ -53,7 +53,8 @@ const Index = () => {
   }, [navigate]);
 
   return (
-    <div className="bg-[#0a0a0a] relative" style={{ minHeight: '120vh' }}>
+    <>
+    <div className="bg-[#0a0a0a] relative" style={{ height: '100vh', minHeight: '100vh', maxHeight: '100vh', overflow: 'hidden' }}>
       {/* Анимация слов */}
       <div ref={wordsRef} className="fixed inset-0 z-50 bg-[#0a0a0a] hidden items-center justify-center transition-opacity duration-500" style={{ fontFamily: 'Montserrat, sans-serif' }}>
         {/* Фоновое изображение велосипеда */}
@@ -317,6 +318,8 @@ const Index = () => {
       </section>
       </div>
     </div>
+    <div style={{ height: '200px' }}></div>
+    </>
   );
 };
 

@@ -216,7 +216,7 @@ const Catalog = () => {
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="grid lg:grid-cols-[280px_1fr] gap-6">
             <aside className="hidden lg:block">
-              <GlowCard glowIntensity="low" hoverEffect={false} className="bg-gradient-to-br from-[#3a3f47] to-[#2a2e35] backdrop-blur-sm">
+              <GlowCard glowIntensity="low" hoverEffect={false} className="bg-gradient-to-br from-[#2c3038] to-[#1a1d23] backdrop-blur-sm">
                 <GlowCardContent className="p-6">
                   <h3 className="text-lg font-light mb-4 text-white tracking-wide">Категории</h3>
                   <div className="space-y-1 mb-8">
@@ -342,7 +342,7 @@ const Catalog = () => {
               </div>
 
               {showCompare && compareProducts.length > 0 && (
-                <GlowCard glowIntensity="medium" hoverEffect={false} className="mb-8 bg-gradient-to-br from-[#3a3f47] to-[#2a2e35] backdrop-blur-sm">
+                <GlowCard glowIntensity="medium" hoverEffect={false} className="mb-8 bg-gradient-to-br from-[#2c3038] to-[#1a1d23] backdrop-blur-sm">
                   <GlowCardContent className="p-6">
                     <div className="flex items-center justify-between mb-6">
                       <h3 className="text-xl font-light text-white">Сравнение моделей</h3>
@@ -414,7 +414,7 @@ const Catalog = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6">
                 {filteredProducts.map((product) => (
-                  <GlowCard key={product.id} glowIntensity="medium" className="group overflow-hidden bg-gradient-to-br from-[#3a3f47] to-[#2a2e35] backdrop-blur-sm">
+                  <GlowCard key={product.id} glowIntensity="medium" className="group overflow-hidden bg-gradient-to-br from-[#2c3038] to-[#1a1d23] backdrop-blur-sm">
                     <GlowCardContent className="p-0">
                       <div className="relative aspect-square overflow-hidden bg-[#1a1a1a]">
                         <img
@@ -503,8 +503,8 @@ const Catalog = () => {
 
       {showFilters && (
         <div className="lg:hidden fixed inset-0 bg-black/95 backdrop-blur-sm z-[110]" onClick={() => setShowFilters(false)}>
-          <GlowCard glowIntensity="medium" hoverEffect={false} className="absolute bottom-0 left-0 right-0 bg-gradient-to-br from-[#3a3f47] to-[#2a2e35] border-t border-[#2a2a2a] max-h-[85vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
-            <div className="sticky top-0 bg-gradient-to-br from-[#3a3f47] to-[#2a2e35] border-b border-[#2a2a2a] p-4 flex items-center justify-between z-10">
+          <GlowCard glowIntensity="medium" hoverEffect={false} className="absolute bottom-0 left-0 right-0 bg-gradient-to-br from-[#2c3038] to-[#1a1d23] border-t border-[#2a2a2a] max-h-[85vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+            <div className="sticky top-0 bg-gradient-to-br from-[#2c3038] to-[#1a1d23] border-b border-[#2a2a2a] p-4 flex items-center justify-between z-10">
               <h3 className="text-lg font-light text-white tracking-wide">Фильтры</h3>
               <Button variant="ghost" size="sm" onClick={() => setShowFilters(false)} className="text-[#b0b0b0] hover:text-white hover:bg-white/5">
                 <Icon name="X" size={20} />

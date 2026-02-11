@@ -5,31 +5,17 @@ import { useEffect, useRef } from "react";
 
 const Index = () => {
   const navigate = useNavigate();
-  const mainRef = useRef<HTMLDivElement>(null);
   const hasNavigated = useRef(false);
 
   useEffect(() => {
     const handleScroll = () => {
       if (hasNavigated.current) return;
-      if (!mainRef.current) return;
       
       const scrollY = window.scrollY;
-      const windowHeight = window.innerHeight;
-      const triggerPoint = windowHeight * 0.5;
       
-      if (scrollY > triggerPoint) {
-        const progress = Math.min((scrollY - triggerPoint) / (windowHeight * 0.4), 1);
-        mainRef.current.style.transform = `translateX(-${progress * 100}%)`;
-        mainRef.current.style.opacity = `${1 - progress}`;
-        
-        // Переход на каталог при завершении анимации
-        if (progress >= 0.9) {
-          hasNavigated.current = true;
-          navigate('/catalog');
-        }
-      } else {
-        mainRef.current.style.transform = 'translateX(0)';
-        mainRef.current.style.opacity = '1';
+      if (scrollY > 100) {
+        hasNavigated.current = true;
+        navigate('/catalog');
       }
     };
 
@@ -40,10 +26,10 @@ const Index = () => {
   }, [navigate]);
 
   return (
-    <div className="bg-[#0a0a0a]" style={{ minHeight: '150vh' }}>
+    <div className="min-h-screen bg-[#0a0a0a]">
       <Header />
 
-      <section ref={mainRef} className="relative h-screen flex items-center transition-all duration-300 ease-out" style={{ willChange: 'transform, opacity' }}>
+      <section className="relative h-[calc(100vh-73px)] md:h-[calc(100vh-73px)] flex items-center overflow-hidden py-0">
         <div className="absolute inset-0">
           {/* Desktop: полная молния со всеми ветками */}
           <svg className="hidden md:block absolute inset-0 w-full h-full lightning-strike pointer-events-none z-[3]" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">

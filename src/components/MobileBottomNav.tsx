@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Icon from "@/components/ui/icon";
@@ -10,17 +10,44 @@ interface MobileBottomNavProps {
 
 const MobileBottomNav = ({ onFilterClick }: MobileBottomNavProps) => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [showMenu, setShowMenu] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
 
+  const handleSearchChange = (value: string) => {
+    setSearchQuery(value);
+    
+    const updateSearch = (searchValue: string) => {
+      const url = new URL(window.location.href);
+      if (searchValue.trim()) {
+        url.searchParams.set('search', searchValue.trim());
+      } else {
+        url.searchParams.delete('search');
+      }
+      window.history.replaceState({}, '', url.toString());
+      window.dispatchEvent(new CustomEvent('searchUpdate', { detail: searchValue.trim() }));
+    };
+
+    if (value.trim()) {
+      if (location.pathname !== '/catalog') {
+        setShowSearch(false);
+        navigate(`/catalog?search=${encodeURIComponent(value.trim())}`, { replace: true });
+        setTimeout(() => {
+          updateSearch(value);
+        }, 50);
+      } else {
+        updateSearch(value);
+      }
+    } else {
+      if (location.pathname === '/catalog') {
+        updateSearch('');
+      }
+    }
+  };
+
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    if (searchQuery.trim()) {
-      navigate(`/?search=${encodeURIComponent(searchQuery)}`);
-      setShowSearch(false);
-      setSearchQuery("");
-    }
   };
 
   const handleBuyClick = () => {
@@ -41,18 +68,44 @@ const MobileBottomNav = ({ onFilterClick }: MobileBottomNavProps) => {
     <>
       {/* Mobile Search Modal */}
       {showSearch && (
-        <div className="md:hidden fixed inset-0 bg-black/95 backdrop-blur-sm z-50" onClick={() => setShowSearch(false)}>
+        <div className="md:hidden fixed inset-0 bg-black/95 backdrop-blur-sm z-50" onClick={() => {
+          setShowSearch(false);
+          setSearchQuery("");
+          if (location.pathname === '/catalog') {
+            const url = new URL(window.location.href);
+            url.searchParams.delete('search');
+            window.history.replaceState({}, '', url.toString());
+            window.dispatchEvent(new CustomEvent('searchUpdate', { detail: '' }));
+          }
+        }}>
           <div className="bg-[#0a0a0a] border-b border-[#2a2a2a] p-6" onClick={(e) => e.stopPropagation()}>
-            <form onSubmit={handleSearch} className="flex gap-3">
+            <form onSubmit={handleSearch} className="flex gap-3 items-center">
               <Input
                 type="text"
                 placeholder="Поиск товаров..."
                 value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+                onChange={(e) => handleSearchChange(e.target.value)}
                 className="flex-1 bg-transparent border-[#3a3a3a] text-white placeholder:text-[#707070] rounded-none focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-white"
                 autoFocus
               />
-              <Button type="submit" size="sm" className="bg-white text-black hover:bg-[#e5e5e5] rounded-none px-6 tracking-[0.15em] font-light">НАЙТИ</Button>
+              <Button 
+                type="button" 
+                size="sm" 
+                variant="ghost"
+                onClick={() => {
+                  setShowSearch(false);
+                  setSearchQuery("");
+                  if (location.pathname === '/catalog') {
+                    const url = new URL(window.location.href);
+                    url.searchParams.delete('search');
+                    window.history.replaceState({}, '', url.toString());
+                    window.dispatchEvent(new CustomEvent('searchUpdate', { detail: '' }));
+                  }
+                }}
+                className="text-white hover:bg-white/5 rounded-none px-4"
+              >
+                <Icon name="X" size={20} />
+              </Button>
             </form>
           </div>
         </div>

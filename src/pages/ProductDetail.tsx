@@ -216,21 +216,21 @@ const ProductDetail = () => {
 
                   {/* Quick Specs Grid */}
                   <div className="grid grid-cols-2 gap-3 mb-4">
-                    <div className="bg-white/5 border border-[#3a3a3a] rounded-none p-3">
-                      <div className="text-xs text-[#a0a0a0] tracking-wide mb-1">СКОРОСТЬ</div>
-                      <div className="font-normal text-xl text-white">{product.maxSpeed} км/ч</div>
+                    <div className="bg-white/5 border border-[#3a3a3a] rounded-none p-2">
+                      <div className="text-xs text-[#a0a0a0] tracking-wide mb-0.5">СКОРОСТЬ</div>
+                      <div className="font-normal text-lg text-white">{product.maxSpeed} км/ч</div>
                     </div>
-                    <div className="bg-white/5 border border-[#3a3a3a] rounded-none p-3">
-                      <div className="text-xs text-[#a0a0a0] tracking-wide mb-1">ЗАПАС ХОДА</div>
-                      <div className="font-normal text-xl text-white">{product.range} км</div>
+                    <div className="bg-white/5 border border-[#3a3a3a] rounded-none p-2">
+                      <div className="text-xs text-[#a0a0a0] tracking-wide mb-0.5">ЗАПАС ХОДА</div>
+                      <div className="font-normal text-lg text-white">{product.range} км</div>
                     </div>
-                    <div className="bg-white/5 border border-[#3a3a3a] rounded-none p-3">
-                      <div className="text-xs text-[#a0a0a0] tracking-wide mb-1">МОЩНОСТЬ</div>
-                      <div className="font-normal text-xl text-white">{product.power} Вт</div>
+                    <div className="bg-white/5 border border-[#3a3a3a] rounded-none p-2">
+                      <div className="text-xs text-[#a0a0a0] tracking-wide mb-0.5">МОЩНОСТЬ</div>
+                      <div className="font-normal text-lg text-white">{product.power} Вт</div>
                     </div>
-                    <div className="bg-white/5 border border-[#3a3a3a] rounded-none p-3">
-                      <div className="text-xs text-[#a0a0a0] tracking-wide mb-1">ВЕС</div>
-                      <div className="font-normal text-xl text-white">{product.weight} кг</div>
+                    <div className="bg-white/5 border border-[#3a3a3a] rounded-none p-2">
+                      <div className="text-xs text-[#a0a0a0] tracking-wide mb-0.5">ВЕС</div>
+                      <div className="font-normal text-lg text-white">{product.weight} кг</div>
                     </div>
                   </div>
 

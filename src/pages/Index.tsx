@@ -158,56 +158,99 @@ const Index = () => {
                 </span>
               </h1>
               
-              <div className="flex items-start gap-6 md:gap-20 max-w-5xl">
+              <div className="flex items-start gap-6 md:gap-20 max-w-5xl mb-0 md:mb-16">
                 <div className="hidden md:block w-[2px] h-36 bg-gradient-to-b from-white via-white/50 to-transparent"></div>
                 <div className="flex-1">
-                  <p className="text-[#a0a0a0] text-sm md:text-3xl font-light leading-relaxed mb-0 md:mb-16 max-w-3xl">
+                  <p className="text-[#a0a0a0] text-sm md:text-3xl font-light leading-relaxed mb-0 max-w-3xl">
                     Современно. Экологично. Экономично. Комфортно.
                   </p>
+                </div>
+              </div>
+
+              {/* Кнопка и статистика на десктопе */}
+              <div className="hidden md:block space-y-8">
+                <div className="flex justify-start">
+                  <Link to="/catalog">
+                    <Button
+                      size="lg"
+                      className="bg-white text-black hover:bg-[#e5e5e5] font-normal text-base px-14 py-8 rounded-none tracking-[0.2em] transition-all duration-300 button-charge-glow"
+                    >
+                      ПЕРЕЙТИ В КАТАЛОГ
+                    </Button>
+                  </Link>
+                </div>
+                
+                <div className="grid grid-cols-4 gap-16 max-w-4xl">
+                  <div>
+                    <div className="flex items-start gap-0.5 mb-2">
+                      <div className="text-6xl font-light text-white tracking-tight">30</div>
+                      <div className="text-3xl font-light text-[#707070] mt-2">%</div>
+                    </div>
+                    <div className="text-[#707070] text-sm tracking-[0.25em] uppercase font-light">Экономия</div>
+                  </div>
+                  
+                  <div>
+                    <div className="text-6xl font-light text-white tracking-tight mb-2">30</div>
+                    <div className="text-[#707070] text-sm tracking-[0.25em] uppercase font-light">Дней доставка</div>
+                  </div>
+                  
+                  <div>
+                    <div className="text-6xl font-light text-white tracking-tight mb-2">24/7</div>
+                    <div className="text-[#707070] text-sm tracking-[0.25em] uppercase font-light">Поддержка</div>
+                  </div>
+                  
+                  <div>
+                    <div className="flex items-start gap-0.5 mb-2">
+                      <div className="text-6xl font-light text-white tracking-tight">100</div>
+                      <div className="text-3xl font-light text-[#707070] mt-2">%</div>
+                    </div>
+                    <div className="text-[#707070] text-sm tracking-[0.25em] uppercase font-light">Гарантия</div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="absolute bottom-20 md:bottom-auto md:relative left-0 right-0 px-6 md:px-16 z-20 md:mt-auto">
-          <div className="max-w-screen-2xl mx-auto w-full space-y-4 md:space-y-0">
-            <div className="flex justify-center md:justify-start mb-4">
-              <Link to="/catalog" className="w-full md:w-auto">
+        {/* Кнопка и статистика на мобильных */}
+        <div className="md:hidden absolute bottom-20 left-0 right-0 px-6 z-20">
+          <div className="max-w-screen-2xl mx-auto w-full space-y-4">
+            <div className="flex justify-center mb-4">
+              <Link to="/catalog" className="w-full">
                 <Button
                   size="lg"
-                  className="w-full md:w-auto bg-white text-black hover:bg-[#e5e5e5] font-normal text-sm md:text-base px-10 py-4 md:px-14 md:py-8 rounded-none tracking-[0.15em] md:tracking-[0.2em] transition-all duration-300 button-charge-glow"
+                  className="w-full bg-white text-black hover:bg-[#e5e5e5] font-normal text-sm px-10 py-4 rounded-none tracking-[0.15em] transition-all duration-300 button-charge-glow"
                 >
                   ПЕРЕЙТИ В КАТАЛОГ
                 </Button>
               </Link>
             </div>
             
-            <div className="grid grid-cols-4 gap-2 md:gap-16">
+            <div className="grid grid-cols-4 gap-2">
               <div>
-                <div className="flex items-start gap-0.5 mb-0.5 md:mb-2">
-                  <div className="text-2xl md:text-6xl font-light text-white tracking-tight">30</div>
-                  <div className="text-sm md:text-3xl font-light text-[#707070] mt-0.5 md:mt-2">%</div>
+                <div className="flex items-start gap-0.5 mb-0.5">
+                  <div className="text-2xl font-light text-white tracking-tight">30</div>
+                  <div className="text-sm font-light text-[#707070] mt-0.5">%</div>
                 </div>
-                <div className="text-[#707070] text-[8px] md:text-sm tracking-[0.15em] md:tracking-[0.25em] uppercase font-light">Экономия</div>
+                <div className="text-[#707070] text-[8px] tracking-[0.15em] uppercase font-light">Экономия</div>
               </div>
               
               <div>
-                <div className="text-2xl md:text-6xl font-light text-white tracking-tight mb-0.5 md:mb-2">30</div>
-                <div className="text-[#707070] text-[8px] md:text-sm tracking-[0.15em] md:tracking-[0.25em] uppercase font-light">Дней доставка</div>
+                <div className="text-2xl font-light text-white tracking-tight mb-0.5">30</div>
+                <div className="text-[#707070] text-[8px] tracking-[0.15em] uppercase font-light">Дней доставка</div>
               </div>
               
               <div>
-                <div className="text-2xl md:text-6xl font-light text-white tracking-tight mb-0.5 md:mb-2">24/7</div>
-                <div className="text-[#707070] text-[8px] md:text-sm tracking-[0.15em] md:tracking-[0.25em] uppercase font-light">Поддержка</div>
+                <div className="text-2xl font-light text-white tracking-tight mb-0.5">24/7</div>
+                <div className="text-[#707070] text-[8px] tracking-[0.15em] uppercase font-light">Поддержка</div>
               </div>
               
               <div>
-                <div className="flex items-start gap-0.5 mb-0.5 md:mb-2">
-                  <div className="text-2xl md:text-6xl font-light text-white tracking-tight">100</div>
-                  <div className="text-sm md:text-3xl font-light text-[#707070] mt-0.5 md:mt-2">%</div>
+                <div className="flex items-start gap-0.5 mb-0.5">
+                  <div className="text-2xl font-light text-white tracking-tight">100</div>
+                  <div className="text-sm font-light text-[#707070] mt-0.5">%</div>
                 </div>
-                <div className="text-[#707070] text-[8px] md:text-sm tracking-[0.15em] md:tracking-[0.25em] uppercase font-light">Гарантия</div>
+                <div className="text-[#707070] text-[8px] tracking-[0.15em] uppercase font-light">Гарантия</div>
               </div>
             </div>
           </div>

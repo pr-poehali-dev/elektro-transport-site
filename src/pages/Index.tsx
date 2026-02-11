@@ -1,24 +1,37 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const Index = () => {
+  const navigate = useNavigate();
   const mainRef = useRef<HTMLDivElement>(null);
   const catalogPreviewRef = useRef<HTMLDivElement>(null);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   useEffect(() => {
+    let scrollTimeout: NodeJS.Timeout;
+    
     const handleScroll = () => {
+      if (isTransitioning) return;
       if (!mainRef.current || !catalogPreviewRef.current) return;
       
       const scrollY = window.scrollY;
       const windowHeight = window.innerHeight;
-      const triggerPoint = windowHeight * 0.5;
+      const triggerPoint = windowHeight * 0.3;
       
       if (scrollY > triggerPoint) {
-        const progress = Math.min((scrollY - triggerPoint) / windowHeight, 1);
+        const progress = Math.min((scrollY - triggerPoint) / (windowHeight * 0.5), 1);
         mainRef.current.style.transform = `translateX(-${progress * 100}%)`;
         catalogPreviewRef.current.style.transform = `translateX(-${progress * 100}%)`;
+        
+        // Переход на каталог при завершении анимации
+        if (progress >= 0.95 && !isTransitioning) {
+          setIsTransitioning(true);
+          scrollTimeout = setTimeout(() => {
+            navigate('/catalog');
+          }, 300);
+        }
       } else {
         mainRef.current.style.transform = 'translateX(0)';
         catalogPreviewRef.current.style.transform = 'translateX(0)';
@@ -26,11 +39,14 @@ const Index = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      clearTimeout(scrollTimeout);
+    };
+  }, [navigate, isTransitioning]);
 
   return (
-    <div className="bg-[#0a0a0a]" style={{ minHeight: '200vh' }}>
+    <div className="bg-[#0a0a0a]" style={{ minHeight: '180vh' }}>
       <Header />
 
       <div className="fixed top-0 left-0 w-full h-screen overflow-hidden">

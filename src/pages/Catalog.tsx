@@ -218,7 +218,7 @@ const Catalog = () => {
             <aside className="hidden lg:block">
               <GlowCard glowIntensity="low" hoverEffect={false} className="bg-gradient-to-br from-[#2c3038] to-[#1a1d23] backdrop-blur-sm rounded-lg">
                 <GlowCardContent className="p-6">
-                  <h3 className="text-lg font-light mb-4 text-white tracking-wide">Категории</h3>
+                  <h3 className="text-xl font-semibold mb-5 text-white tracking-wide">Категории</h3>
                   <div className="space-y-1 mb-8">
                     <Button
                       variant="ghost"
@@ -250,17 +250,17 @@ const Catalog = () => {
                   </div>
 
                   <div className="mb-6 pb-6 border-b border-[#2a2a2a]">
-                    <h4 className="text-sm font-light mb-3 text-white tracking-wide">Бренд</h4>
-                    <div className="space-y-2">
+                    <h4 className="text-base font-semibold mb-4 text-white tracking-wide">Бренд</h4>
+                    <div className="space-y-3">
                       {brands.map((brand) => (
-                        <div key={brand} className="flex items-center space-x-2">
+                        <div key={brand} className="flex items-center space-x-3">
                           <Checkbox
                             id={brand}
                             checked={selectedBrands.includes(brand)}
                             onCheckedChange={() => toggleBrand(brand)}
-                            className="border-[#3a3a3a] data-[state=checked]:bg-white data-[state=checked]:text-black"
+                            className="border-[#4a4a4a] data-[state=checked]:bg-white data-[state=checked]:text-black w-5 h-5"
                           />
-                          <label htmlFor={brand} className="text-sm cursor-pointer text-[#b0b0b0] hover:text-white transition-colors">
+                          <label htmlFor={brand} className="text-base cursor-pointer text-white hover:text-blue-400 transition-colors">
                             {brand}
                           </label>
                         </div>
@@ -269,9 +269,9 @@ const Catalog = () => {
                   </div>
 
                   <div className="mb-6 pb-6 border-b border-[#2a2a2a]">
-                    <h4 className="text-sm font-light mb-3 text-white tracking-wide">Мощность (Вт)</h4>
-                    <div className="space-y-2">
-                      <div className="flex justify-between text-xs text-[#707070]">
+                    <h4 className="text-base font-semibold mb-4 text-white tracking-wide">Мощность (Вт)</h4>
+                    <div className="space-y-3">
+                      <div className="flex justify-between text-sm text-white font-medium">
                         <span>{powerRange[0]}</span>
                         <span>{powerRange[1]}</span>
                       </div>
@@ -288,8 +288,8 @@ const Catalog = () => {
                   </div>
 
                   <div className="mb-6 pb-6 border-b border-[#2a2a2a]">
-                    <h4 className="text-sm font-light mb-3 text-white tracking-wide">Доставка (до {deliveryDays} дней)</h4>
-                    <div className="space-y-2">
+                    <h4 className="text-base font-semibold mb-4 text-white tracking-wide">Доставка (до {deliveryDays} дней)</h4>
+                    <div className="space-y-3">
                       <input
                         type="range"
                         min="3"
@@ -299,7 +299,7 @@ const Catalog = () => {
                         onChange={(e) => setDeliveryDays(parseInt(e.target.value))}
                         className="w-full h-1 bg-[#2a2a2a] rounded-lg appearance-none cursor-pointer accent-white"
                       />
-                      <div className="flex justify-between text-xs text-[#707070]">
+                      <div className="flex justify-between text-sm text-white font-medium">
                         <span>3 дня</span>
                         <span>30 дней</span>
                       </div>
@@ -307,14 +307,14 @@ const Catalog = () => {
                   </div>
 
                   <div className="mb-6">
-                    <div className="flex items-center space-x-2">
+                    <div className="flex items-center space-x-3">
                       <Checkbox
                         id="inStock"
                         checked={onlyInStock}
                         onCheckedChange={(checked) => setOnlyInStock(checked as boolean)}
-                        className="border-[#3a3a3a] data-[state=checked]:bg-white data-[state=checked]:text-black"
+                        className="border-[#4a4a4a] data-[state=checked]:bg-white data-[state=checked]:text-black w-5 h-5"
                       />
-                      <label htmlFor="inStock" className="text-sm cursor-pointer text-[#b0b0b0] hover:text-white transition-colors">
+                      <label htmlFor="inStock" className="text-base cursor-pointer text-white hover:text-blue-400 transition-colors">
                         Только в наличии
                       </label>
                     </div>
@@ -422,11 +422,22 @@ const Catalog = () => {
                           alt={product.name}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 rounded-lg"
                         />
-                        {!product.inStock && (
-                          <Badge className="absolute top-3 left-3 bg-white/10 text-white border border-white/20">
-                            Под заказ
-                          </Badge>
-                        )}
+                        <div className="absolute top-3 left-3 flex flex-col gap-2">
+                          {product.inStock ? (
+                            <Badge className="bg-green-500/90 text-white border-0 font-semibold px-3 py-1">
+                              В наличии
+                            </Badge>
+                          ) : (
+                            <Badge className="bg-orange-500/90 text-white border-0 font-semibold px-3 py-1">
+                              Под заказ
+                            </Badge>
+                          )}
+                          {product.deliveryDays <= 7 && (
+                            <Badge className="bg-blue-500/90 text-white border-0 font-semibold px-3 py-1">
+                              Быстрая доставка
+                            </Badge>
+                          )}
+                        </div>
                         <div className="absolute top-3 right-3 flex flex-col gap-2">
                           <Button
                             size="icon"

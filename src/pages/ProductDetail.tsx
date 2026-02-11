@@ -114,7 +114,7 @@ const ProductDetail = () => {
             <div className="space-y-6">
               {/* Images & Description/Specs in 2 columns */}
               <div className="grid md:grid-cols-2 gap-4 md:gap-6">
-                <GlowCard glowIntensity="high" className="overflow-hidden bg-gradient-to-br from-[#2c3038] to-[#1a1d23] backdrop-blur-sm">
+                <GlowCard glowIntensity="high" className="overflow-hidden bg-gradient-to-br from-[#2c3038] to-[#1a1d23] backdrop-blur-sm rounded-xl">
                   <GlowCardContent className="p-4 md:p-6">
                     <div className="aspect-square w-full bg-[#1a1a1a] rounded-lg flex items-center justify-center overflow-hidden">
                       <img

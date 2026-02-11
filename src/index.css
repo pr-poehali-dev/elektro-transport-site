@@ -629,21 +629,18 @@
     }
   }
 
-  @keyframes wordSlide {
+  @keyframes wordAppear {
     0% {
       opacity: 0;
-      transform: translateY(80px) scale(0.9);
-      filter: blur(10px);
+      transform: scale(0.5) rotateX(90deg);
     }
-    60% {
+    50% {
       opacity: 1;
-      transform: translateY(0) scale(1.02);
-      filter: blur(0px);
+      transform: scale(1.1) rotateX(0deg);
     }
     100% {
       opacity: 1;
-      transform: translateY(0) scale(1);
-      filter: blur(0px);
+      transform: scale(1) rotateX(0deg);
     }
   }
 

@@ -55,18 +55,18 @@ const Index = () => {
   return (
     <div className="bg-[#0a0a0a] relative" style={{ minHeight: '120vh' }}>
       {/* Анимация слов */}
-      <div ref={wordsRef} className="fixed inset-0 z-50 bg-[#0a0a0a] hidden items-center justify-center transition-opacity duration-500 px-4" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-        <div className="text-center space-y-4 md:space-y-6 w-full max-w-[95vw]">
-          <div className="text-[clamp(2rem,12vw,10rem)] font-light text-[#707070] tracking-tight uppercase opacity-0 animate-[wordFade_0.7s_ease-out_0s_forwards] leading-none">
+      <div ref={wordsRef} className="fixed inset-0 z-50 bg-[#0a0a0a] hidden items-center justify-center transition-opacity duration-500" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+        <div className="flex flex-col items-center justify-center space-y-4 md:space-y-6 w-full px-4">
+          <div className="text-[clamp(2rem,12vw,10rem)] font-light text-[#707070] uppercase opacity-0 animate-[wordFade_0.7s_ease-out_0s_forwards] leading-none" style={{ letterSpacing: '-0.05em' }}>
             СОВРЕМЕННО
           </div>
-          <div className="text-[clamp(2rem,12vw,10rem)] font-light text-[#707070] tracking-tight uppercase opacity-0 animate-[wordFade_0.7s_ease-out_0.4s_forwards] leading-none">
+          <div className="text-[clamp(2rem,12vw,10rem)] font-light text-[#707070] uppercase opacity-0 animate-[wordFade_0.7s_ease-out_0.4s_forwards] leading-none" style={{ letterSpacing: '-0.05em' }}>
             ЭКОЛОГИЧНО
           </div>
-          <div className="text-[clamp(2rem,12vw,10rem)] font-light text-[#707070] tracking-tight uppercase opacity-0 animate-[wordFade_0.7s_ease-out_0.8s_forwards] leading-none">
+          <div className="text-[clamp(2rem,12vw,10rem)] font-light text-[#707070] uppercase opacity-0 animate-[wordFade_0.7s_ease-out_0.8s_forwards] leading-none" style={{ letterSpacing: '-0.05em' }}>
             ЭКОНОМИЧНО
           </div>
-          <div className="text-[clamp(2rem,12vw,10rem)] font-light text-[#707070] tracking-tight uppercase opacity-0 animate-[wordFade_0.7s_ease-out_1.2s_forwards] leading-none">
+          <div className="text-[clamp(2rem,12vw,10rem)] font-light text-[#707070] uppercase opacity-0 animate-[wordFade_0.7s_ease-out_1.2s_forwards] leading-none" style={{ letterSpacing: '-0.05em' }}>
             КОМФОРТНО
           </div>
         </div>

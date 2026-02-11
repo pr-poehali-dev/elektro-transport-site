@@ -47,7 +47,7 @@ const Index = () => {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.05),transparent_70%)] animate-pulse" style={{ animationDuration: '10s' }}></div>
         </div>
 
-        <div className="absolute right-0 top-1/2 -translate-y-1/2 h-full flex items-center justify-end z-[5] pointer-events-none">
+        <div className="absolute right-10 top-1/2 -translate-y-1/2 h-full flex items-center justify-end z-[5] pointer-events-none">
           <img 
             src="https://cdn.poehali.dev/files/6281e1c0-9b0b-4b9f-a8d6-d59f6b8c765b.png"
             alt="Premium Electric Bike"

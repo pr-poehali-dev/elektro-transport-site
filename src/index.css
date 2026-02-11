@@ -629,6 +629,27 @@
     }
   }
 
+  @keyframes premiumFade {
+    0% {
+      opacity: 0;
+      transform: scale(0.8);
+      filter: blur(10px);
+      letter-spacing: 0.5em;
+    }
+    50% {
+      opacity: 0.7;
+      transform: scale(1.05);
+      filter: blur(2px);
+      letter-spacing: 0.35em;
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+      filter: blur(0px);
+      letter-spacing: 0.3em;
+    }
+  }
+
   @keyframes wordFade {
     0% {
       opacity: 0;

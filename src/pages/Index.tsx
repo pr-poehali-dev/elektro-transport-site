@@ -8,6 +8,7 @@ const Index = () => {
   const hasNavigated = useRef(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const wordsRef = useRef<HTMLDivElement>(null);
+  const premiumTextRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     let startY = 0;
@@ -50,12 +51,27 @@ const Index = () => {
         containerRef.current.style.opacity = '0';
       }
       
-      // Показываем анимацию слов
+      // Показываем надпись Premium Electric Mobility
       setTimeout(() => {
-        if (wordsRef.current) {
-          wordsRef.current.style.display = 'flex';
+        if (premiumTextRef.current) {
+          premiumTextRef.current.style.display = 'flex';
         }
       }, 600);
+      
+      // Скрываем надпись и показываем анимацию слов
+      setTimeout(() => {
+        if (premiumTextRef.current) {
+          premiumTextRef.current.style.opacity = '0';
+        }
+        setTimeout(() => {
+          if (premiumTextRef.current) {
+            premiumTextRef.current.style.display = 'none';
+          }
+          if (wordsRef.current) {
+            wordsRef.current.style.display = 'flex';
+          }
+        }, 500);
+      }, 1600);
       
       // Скрываем слова и переход в каталог
       setTimeout(() => {
@@ -84,6 +100,13 @@ const Index = () => {
 
   return (
     <div className="bg-[#0a0a0a] relative h-screen w-screen overflow-hidden fixed inset-0">
+      {/* Анимация Premium Electric Mobility */}
+      <div ref={premiumTextRef} className="fixed inset-0 z-50 bg-[#0a0a0a] hidden items-center justify-center transition-opacity duration-500" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+        <div className="text-[#a0a0a0] text-[clamp(0.5rem,3vw,1.2rem)] tracking-[0.3em] uppercase font-light opacity-0 animate-[premiumFade_1s_ease-out_0s_forwards]">
+          Premium Electric Mobility
+        </div>
+      </div>
+      
       {/* Анимация слов */}
       <div ref={wordsRef} className="fixed inset-0 z-50 bg-[#0a0a0a] hidden items-center justify-center transition-opacity duration-500" style={{ fontFamily: 'Montserrat, sans-serif' }}>
         {/* Фоновое изображение велосипеда */}

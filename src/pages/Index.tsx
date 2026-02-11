@@ -34,7 +34,7 @@ const Index = () => {
         </div>
       </header>
 
-      <section className="relative h-[calc(100vh-73px)] flex items-center overflow-hidden">
+      <section className="relative h-[calc(100vh-73px)] flex items-center overflow-hidden py-0">
         <div className="absolute inset-0">
           <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-bl from-[#1a1a1a] to-transparent animate-pulse" style={{ animationDuration: '8s' }}></div>
           <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-[#1a1a1a] to-transparent animate-pulse" style={{ animationDuration: '6s', animationDelay: '2s' }}></div>
@@ -116,7 +116,7 @@ const Index = () => {
 
         </div>
 
-        <div className="absolute right-16 top-1/2 -translate-y-1/2 w-[42%] h-full flex items-center justify-center z-[5] pointer-events-none">
+        <div className="absolute right-12 top-1/2 -translate-y-1/2 w-[45%] h-full flex items-center justify-center z-[5] pointer-events-none">
           <div className="absolute inset-0 bg-gradient-radial from-white/5 via-transparent to-transparent blur-3xl"></div>
           
           <div className="absolute top-1/4 left-1/4 w-40 h-40 border border-white/5 rotate-45"></div>
@@ -125,23 +125,23 @@ const Index = () => {
           <img 
             src="https://cdn.poehali.dev/files/6281e1c0-9b0b-4b9f-a8d6-d59f6b8c765b.png"
             alt="Premium Electric Bike"
-            className="relative w-full h-auto max-h-[80vh] object-contain bike-lightning-glow"
+            className="relative w-full h-auto max-h-[85vh] object-contain bike-lightning-glow"
           />
           
           <div className="absolute top-1/2 left-0 w-20 h-px bg-gradient-to-r from-white/20 to-transparent"></div>
           <div className="absolute bottom-1/3 right-0 w-16 h-px bg-gradient-to-l from-white/15 to-transparent"></div>
         </div>
 
-        <div className="w-full px-10 py-8 relative z-10">
-          <div className="max-w-screen-2xl mx-auto">
-            <div className="mb-12 animate-fade-in">
-              <div className="mb-6">
-                <div className="inline-block px-4 py-2 border border-[#3a3a3a] mb-8">
+        <div className="w-full px-12 py-0 relative z-10 flex items-center h-full">
+          <div className="max-w-screen-2xl mx-auto w-full">
+            <div className="animate-fade-in">
+              <div className="mb-8">
+                <div className="inline-block px-4 py-2 border border-[#3a3a3a] mb-10">
                   <span className="text-[#a0a0a0] text-xs tracking-[0.25em] uppercase font-light">Premium Electric Mobility</span>
                 </div>
               </div>
               
-              <h1 className="text-[clamp(3.5rem,10vw,8rem)] font-light leading-[0.95] tracking-tight mb-8 title-charge-glow">
+              <h1 className="text-[clamp(4rem,11vw,9rem)] font-light leading-[0.9] tracking-tight mb-10 title-charge-glow">
                 <span className="block text-white">
                   НА ПОЛНОМ
                 </span>
@@ -150,55 +150,55 @@ const Index = () => {
                 </span>
               </h1>
               
-              <div className="flex items-start gap-16 max-w-4xl">
-                <div className="w-[2px] h-24 bg-gradient-to-b from-white to-transparent"></div>
+              <div className="flex items-start gap-20 max-w-5xl">
+                <div className="w-[2px] h-32 bg-gradient-to-b from-white to-transparent"></div>
                 <div>
-                  <p className="text-[#a0a0a0] text-xl font-light leading-relaxed mb-12 max-w-2xl">
+                  <p className="text-[#a0a0a0] text-2xl font-light leading-relaxed mb-14 max-w-3xl">
                     Современно. Экологично. Экономично. Комфортно.
                   </p>
                   
-                  <div className="flex flex-col md:flex-row items-start gap-4 mb-12">
+                  <div className="flex flex-col md:flex-row items-start gap-5 mb-14">
                     <Link to="/catalog" className="w-full md:w-auto">
                       <Button
                         size="lg"
-                        className="w-full md:w-auto bg-white text-black hover:bg-[#e5e5e5] font-normal text-sm px-10 py-6 rounded-none tracking-[0.15em] transition-all duration-300 button-charge-glow"
+                        className="w-full md:w-auto bg-white text-black hover:bg-[#e5e5e5] font-normal text-sm px-12 py-7 rounded-none tracking-[0.15em] transition-all duration-300 button-charge-glow"
                       >
                         ПЕРЕЙТИ В КАТАЛОГ
                       </Button>
                     </Link>
                     <Button
                       size="lg"
-                      className="w-full md:w-auto bg-transparent border border-white text-white hover:bg-white hover:text-black font-normal text-sm px-10 py-6 rounded-none tracking-[0.15em] transition-all duration-300"
+                      className="w-full md:w-auto bg-transparent border border-white text-white hover:bg-white hover:text-black font-normal text-sm px-12 py-7 rounded-none tracking-[0.15em] transition-all duration-300"
                     >
                       КОНСУЛЬТАЦИЯ
                     </Button>
                   </div>
                   
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
                     <div>
-                      <div className="flex items-start gap-1 mb-2">
-                        <div className="text-4xl font-light text-white tracking-tight">30</div>
-                        <div className="text-xl font-light text-[#707070] mt-1">%</div>
+                      <div className="flex items-start gap-1 mb-3">
+                        <div className="text-5xl font-light text-white tracking-tight">30</div>
+                        <div className="text-2xl font-light text-[#707070] mt-1">%</div>
                       </div>
-                      <div className="text-[#707070] text-xs tracking-[0.2em] uppercase font-light">Экономия</div>
+                      <div className="text-[#707070] text-sm tracking-[0.2em] uppercase font-light">Экономия</div>
                     </div>
                     
                     <div>
-                      <div className="text-4xl font-light text-white tracking-tight mb-2">30</div>
-                      <div className="text-[#707070] text-xs tracking-[0.2em] uppercase font-light">Дней доставка</div>
+                      <div className="text-5xl font-light text-white tracking-tight mb-3">30</div>
+                      <div className="text-[#707070] text-sm tracking-[0.2em] uppercase font-light">Дней доставка</div>
                     </div>
                     
                     <div>
-                      <div className="text-4xl font-light text-white tracking-tight mb-2">24/7</div>
-                      <div className="text-[#707070] text-xs tracking-[0.2em] uppercase font-light">Поддержка</div>
+                      <div className="text-5xl font-light text-white tracking-tight mb-3">24/7</div>
+                      <div className="text-[#707070] text-sm tracking-[0.2em] uppercase font-light">Поддержка</div>
                     </div>
                     
                     <div>
-                      <div className="flex items-start gap-1 mb-2">
-                        <div className="text-4xl font-light text-white tracking-tight">100</div>
-                        <div className="text-xl font-light text-[#707070] mt-1">%</div>
+                      <div className="flex items-start gap-1 mb-3">
+                        <div className="text-5xl font-light text-white tracking-tight">100</div>
+                        <div className="text-2xl font-light text-[#707070] mt-1">%</div>
                       </div>
-                      <div className="text-[#707070] text-xs tracking-[0.2em] uppercase font-light">Гарантия</div>
+                      <div className="text-[#707070] text-sm tracking-[0.2em] uppercase font-light">Гарантия</div>
                     </div>
                   </div>
                 </div>

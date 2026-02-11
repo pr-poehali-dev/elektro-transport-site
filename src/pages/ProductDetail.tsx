@@ -143,19 +143,19 @@ const ProductDetail = () => {
                 <div className="flex flex-col space-y-4">
                   <GlowCard glowIntensity="low" hoverEffect={false} className="bg-gradient-to-br from-[#2c3038] to-[#1a1d23] backdrop-blur-sm rounded-lg">
                     <GlowCardContent className="p-4 md:p-6">
-                      <h2 className="text-lg font-light mb-4 text-white tracking-wide">Описание</h2>
-                      <p className="text-sm text-[#b0b0b0] leading-relaxed">{product.description}</p>
+                      <h2 className="text-xl font-normal mb-4 text-white tracking-wide">Описание</h2>
+                      <p className="text-base text-[#d0d0d0] leading-relaxed">{product.description}</p>
                     </GlowCardContent>
                   </GlowCard>
 
                   <GlowCard glowIntensity="low" hoverEffect={false} className="bg-gradient-to-br from-[#2c3038] to-[#1a1d23] backdrop-blur-sm rounded-lg">
                     <GlowCardContent className="p-4 md:p-6">
-                      <h2 className="text-lg font-light mb-4 text-white tracking-wide">Характеристики</h2>
+                      <h2 className="text-xl font-normal mb-4 text-white tracking-wide">Характеристики</h2>
                       <div className="space-y-3">
                         {product.specs.map((spec, idx) => (
-                          <div key={idx} className="flex justify-between py-2 border-b border-[#2a2a2a] last:border-0 text-sm">
-                            <span className="text-[#707070]">{spec.label}</span>
-                            <span className="font-light text-white">{spec.value}</span>
+                          <div key={idx} className="flex justify-between py-3 border-b border-[#3a3a3a] last:border-0 text-base">
+                            <span className="text-[#a0a0a0]">{spec.label}</span>
+                            <span className="font-normal text-white">{spec.value}</span>
                           </div>
                         ))}
                       </div>

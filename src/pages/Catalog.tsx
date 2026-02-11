@@ -457,7 +457,7 @@ const Catalog = () => {
                       <div className="p-6">
                         <div className="flex items-start justify-between mb-4">
                           <div>
-                            <h3 className="font-semibold text-white text-xl mb-2 tracking-tight">{product.name}</h3>
+                            <h3 className="font-light text-white text-xl mb-2 tracking-tight">{product.name}</h3>
                             <p className="text-sm text-[#a0a0a0] tracking-wider uppercase">{product.brand}</p>
                           </div>
                         </div>
@@ -465,28 +465,28 @@ const Catalog = () => {
                         <div className="grid grid-cols-2 gap-3 mb-6">
                           <div className="bg-white/10 border border-[#4a4a4a] p-3 rounded-lg">
                             <div className="text-xs text-[#a0a0a0] tracking-wider uppercase mb-1.5">Скорость</div>
-                            <div className="text-base font-semibold text-white">{product.maxSpeed} км/ч</div>
+                            <div className="text-base font-light text-white">{product.maxSpeed} км/ч</div>
                           </div>
                           <div className="bg-white/10 border border-[#4a4a4a] p-3 rounded-lg">
                             <div className="text-xs text-[#a0a0a0] tracking-wider uppercase mb-1.5">Запас хода</div>
-                            <div className="text-base font-semibold text-white">{product.range} км</div>
+                            <div className="text-base font-light text-white">{product.range} км</div>
                           </div>
                           <div className="bg-white/10 border border-[#4a4a4a] p-3 rounded-lg">
                             <div className="text-xs text-[#a0a0a0] tracking-wider uppercase mb-1.5">Мощность</div>
-                            <div className="text-base font-semibold text-white">{product.power} Вт</div>
+                            <div className="text-base font-light text-white">{product.power} Вт</div>
                           </div>
                           <div className="bg-white/10 border border-[#4a4a4a] p-3 rounded-lg">
                             <div className="text-xs text-[#a0a0a0] tracking-wider uppercase mb-1.5">Доставка</div>
-                            <div className="text-base font-semibold text-white">{product.deliveryDays} дн</div>
+                            <div className="text-base font-light text-white">{product.deliveryDays} дн</div>
                           </div>
                         </div>
                         
                         <div className="flex items-center justify-between pt-5 border-t border-[#4a4a4a]">
                           <div>
-                            <div className="text-3xl font-bold text-white tracking-tight">{product.price.toLocaleString()} ₽</div>
+                            <div className="text-3xl font-light text-white tracking-tight">{product.price.toLocaleString()} ₽</div>
                           </div>
                           <Link to={`/product/${product.id}`}>
-                            <Button size="sm" className="bg-white text-black hover:bg-[#e5e5e5] rounded-lg px-6 py-3 font-semibold tracking-wider uppercase text-sm transition-all duration-300">
+                            <Button size="sm" className="bg-white text-black hover:bg-[#e5e5e5] rounded-lg px-6 py-3 font-light tracking-wider uppercase text-sm transition-all duration-300">
                               Подробнее
                             </Button>
                           </Link>

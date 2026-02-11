@@ -170,8 +170,17 @@ const Catalog = () => {
 
   useEffect(() => {
     const handleOpenFilters = () => setShowFilters(true);
+    const handleSearchUpdate = (e: CustomEvent) => {
+      setSearchQuery(e.detail);
+    };
+    
     window.addEventListener('openFilters', handleOpenFilters);
-    return () => window.removeEventListener('openFilters', handleOpenFilters);
+    window.addEventListener('searchUpdate', handleSearchUpdate as EventListener);
+    
+    return () => {
+      window.removeEventListener('openFilters', handleOpenFilters);
+      window.removeEventListener('searchUpdate', handleSearchUpdate as EventListener);
+    };
   }, []);
 
   const brands = ["Xiaomi", "Ninebot", "Yadea", "Sunra", "Eltreco"];

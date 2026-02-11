@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Icon from "@/components/ui/icon";
@@ -7,6 +7,21 @@ import Icon from "@/components/ui/icon";
 const Header = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleSearchChange = (value: string) => {
+    setSearchQuery(value);
+    if (value.trim()) {
+      if (location.pathname !== '/catalog') {
+        navigate(`/catalog?search=${encodeURIComponent(value.trim())}`);
+      } else {
+        const url = new URL(window.location.href);
+        url.searchParams.set('search', value.trim());
+        window.history.replaceState({}, '', url.toString());
+        window.dispatchEvent(new CustomEvent('searchUpdate', { detail: value.trim() }));
+      }
+    }
+  };
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -39,7 +54,7 @@ const Header = () => {
                 type="text"
                 placeholder="Поиск товаров..."
                 value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+                onChange={(e) => handleSearchChange(e.target.value)}
                 className="w-full bg-white/5 border border-white/20 text-white placeholder:text-[#a0a0a0] rounded-none pr-10 h-9 text-sm focus:border-white/40 transition-colors"
               />
               <button type="submit" className="absolute right-0 top-0 h-full px-3 text-[#a0a0a0] hover:text-white transition-colors">

@@ -12,21 +12,30 @@ const Header = () => {
 
   const handleSearchChange = (value: string) => {
     setSearchQuery(value);
+    
+    const updateSearch = (searchValue: string) => {
+      const url = new URL(window.location.href);
+      if (searchValue.trim()) {
+        url.searchParams.set('search', searchValue.trim());
+      } else {
+        url.searchParams.delete('search');
+      }
+      window.history.replaceState({}, '', url.toString());
+      window.dispatchEvent(new CustomEvent('searchUpdate', { detail: searchValue.trim() }));
+    };
+
     if (value.trim()) {
       if (location.pathname !== '/catalog') {
         navigate(`/catalog?search=${encodeURIComponent(value.trim())}`, { replace: true });
+        setTimeout(() => {
+          updateSearch(value);
+        }, 50);
       } else {
-        const url = new URL(window.location.href);
-        url.searchParams.set('search', value.trim());
-        window.history.replaceState({}, '', url.toString());
-        window.dispatchEvent(new CustomEvent('searchUpdate', { detail: value.trim() }));
+        updateSearch(value);
       }
     } else {
       if (location.pathname === '/catalog') {
-        const url = new URL(window.location.href);
-        url.searchParams.delete('search');
-        window.history.replaceState({}, '', url.toString());
-        window.dispatchEvent(new CustomEvent('searchUpdate', { detail: '' }));
+        updateSearch('');
       }
     }
   };

@@ -7,6 +7,8 @@ import Icon from "@/components/ui/icon";
 import { Badge } from "@/components/ui/badge";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Label } from "@/components/ui/label";
 import Header from "@/components/Header";
 
 interface Product {
@@ -156,6 +158,7 @@ const Catalog = () => {
   const [onlyInStock, setOnlyInStock] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [showFilters, setShowFilters] = useState(false);
+  const [sortBy, setSortBy] = useState<"default" | "price-asc" | "price-desc">("default");
 
   useEffect(() => {
     const handleOpenFilters = () => setShowFilters(true);
@@ -165,17 +168,23 @@ const Catalog = () => {
 
   const brands = ["Xiaomi", "Ninebot", "Yadea", "Sunra", "Eltreco"];
 
-  const filteredProducts = products.filter((p) => {
-    if (selectedCategory && p.category !== selectedCategory) return false;
-    if (selectedBrands.length > 0 && !selectedBrands.includes(p.brand)) return false;
-    if (p.power < powerRange[0] || p.power > powerRange[1]) return false;
-    if (p.deliveryDays > deliveryDays) return false;
-    if (onlyInStock && !p.inStock) return false;
-    if (searchQuery && !p.name.toLowerCase().includes(searchQuery.toLowerCase()) && 
-        !p.category.toLowerCase().includes(searchQuery.toLowerCase()) &&
-        !p.brand.toLowerCase().includes(searchQuery.toLowerCase())) return false;
-    return true;
-  });
+  const filteredProducts = products
+    .filter((p) => {
+      if (selectedCategory && p.category !== selectedCategory) return false;
+      if (selectedBrands.length > 0 && !selectedBrands.includes(p.brand)) return false;
+      if (p.power < powerRange[0] || p.power > powerRange[1]) return false;
+      if (p.deliveryDays > deliveryDays) return false;
+      if (onlyInStock && !p.inStock) return false;
+      if (searchQuery && !p.name.toLowerCase().includes(searchQuery.toLowerCase()) && 
+          !p.category.toLowerCase().includes(searchQuery.toLowerCase()) &&
+          !p.brand.toLowerCase().includes(searchQuery.toLowerCase())) return false;
+      return true;
+    })
+    .sort((a, b) => {
+      if (sortBy === "price-asc") return a.price - b.price;
+      if (sortBy === "price-desc") return b.price - a.price;
+      return 0;
+    });
 
   const toggleBrand = (brand: string) => {
     setSelectedBrands((prev) =>
@@ -197,6 +206,7 @@ const Catalog = () => {
     setPowerRange([0, 3000]);
     setDeliveryDays(30);
     setOnlyInStock(false);
+    setSortBy("default");
   };
 
   return (
@@ -306,7 +316,7 @@ const Catalog = () => {
                     </div>
                   </div>
 
-                  <div className="mb-6">
+                  <div className="mb-6 pb-6 border-b border-[#2a2a2a]">
                     <div className="flex items-center space-x-3">
                       <Checkbox
                         id="inStock"
@@ -318,6 +328,30 @@ const Catalog = () => {
                         Только в наличии
                       </label>
                     </div>
+                  </div>
+
+                  <div className="mb-6">
+                    <h4 className="text-base font-semibold mb-4 text-white tracking-wide">Сортировка по цене</h4>
+                    <RadioGroup value={sortBy} onValueChange={(value) => setSortBy(value as "default" | "price-asc" | "price-desc")}>
+                      <div className="flex items-center space-x-3 mb-3">
+                        <RadioGroupItem value="default" id="sort-default" className="border-[#4a4a4a] text-white" />
+                        <Label htmlFor="sort-default" className="text-base cursor-pointer text-white hover:text-blue-400 transition-colors">
+                          По умолчанию
+                        </Label>
+                      </div>
+                      <div className="flex items-center space-x-3 mb-3">
+                        <RadioGroupItem value="price-asc" id="sort-asc" className="border-[#4a4a4a] text-white" />
+                        <Label htmlFor="sort-asc" className="text-base cursor-pointer text-white hover:text-blue-400 transition-colors">
+                          От дешёвых к дорогим
+                        </Label>
+                      </div>
+                      <div className="flex items-center space-x-3">
+                        <RadioGroupItem value="price-desc" id="sort-desc" className="border-[#4a4a4a] text-white" />
+                        <Label htmlFor="sort-desc" className="text-base cursor-pointer text-white hover:text-blue-400 transition-colors">
+                          От дорогих к дешёвым
+                        </Label>
+                      </div>
+                    </RadioGroup>
                   </div>
 
                   <Button className="w-full bg-transparent border border-white text-white hover:bg-white hover:text-black rounded-none tracking-wide font-light transition-all duration-300" onClick={resetFilters}>
@@ -585,6 +619,30 @@ const Catalog = () => {
                     Только в наличии
                   </label>
                 </div>
+              </div>
+
+              <div className="pt-4 border-t border-[#2a2a2a]">
+                <h4 className="text-sm font-light mb-3 text-white tracking-wide">Сортировка по цене</h4>
+                <RadioGroup value={sortBy} onValueChange={(value) => setSortBy(value as "default" | "price-asc" | "price-desc")}>
+                  <div className="flex items-center space-x-2 mb-2">
+                    <RadioGroupItem value="default" id="mobile-sort-default" className="border-[#3a3a3a] text-white" />
+                    <Label htmlFor="mobile-sort-default" className="text-sm cursor-pointer text-[#b0b0b0]">
+                      По умолчанию
+                    </Label>
+                  </div>
+                  <div className="flex items-center space-x-2 mb-2">
+                    <RadioGroupItem value="price-asc" id="mobile-sort-asc" className="border-[#3a3a3a] text-white" />
+                    <Label htmlFor="mobile-sort-asc" className="text-sm cursor-pointer text-[#b0b0b0]">
+                      От дешёвых к дорогим
+                    </Label>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <RadioGroupItem value="price-desc" id="mobile-sort-desc" className="border-[#3a3a3a] text-white" />
+                    <Label htmlFor="mobile-sort-desc" className="text-sm cursor-pointer text-[#b0b0b0]">
+                      От дорогих к дешёвым
+                    </Label>
+                  </div>
+                </RadioGroup>
               </div>
 
               <div className="pt-4 border-t border-[#2a2a2a] flex gap-3">

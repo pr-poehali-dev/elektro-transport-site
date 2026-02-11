@@ -51,15 +51,26 @@ const Index = () => {
           
           <div className="absolute top-1/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
           
-          <svg className="absolute top-20 right-1/4 w-32 h-32 text-white/20 lightning-effect" viewBox="0 0 24 24" fill="currentColor" style={{ animationDelay: '0s' }}>
-            <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z"/>
+          <svg className="absolute left-1/2 top-0 -translate-x-1/2 w-1 h-full lightning-strike" viewBox="0 0 2 100" preserveAspectRatio="none">
+            <path 
+              d="M1,0 L1.5,15 L0.8,20 L1.2,30 L0.7,35 L1.3,45 L0.9,50 L1.1,60 L0.6,65 L1.4,75 L0.8,80 L1.2,90 L1,100" 
+              stroke="url(#lightning-gradient)" 
+              strokeWidth="2" 
+              fill="none"
+              className="lightning-path"
+            />
+            <defs>
+              <linearGradient id="lightning-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="rgba(147, 197, 253, 0)" />
+                <stop offset="20%" stopColor="rgba(147, 197, 253, 0.8)" />
+                <stop offset="50%" stopColor="rgba(255, 255, 255, 1)" />
+                <stop offset="80%" stopColor="rgba(147, 197, 253, 0.8)" />
+                <stop offset="100%" stopColor="rgba(147, 197, 253, 0)" />
+              </linearGradient>
+            </defs>
           </svg>
-          <svg className="absolute bottom-32 left-1/3 w-24 h-24 text-white/15 lightning-effect" viewBox="0 0 24 24" fill="currentColor" style={{ animationDelay: '3s' }}>
-            <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z"/>
-          </svg>
-          <svg className="absolute top-1/2 right-20 w-20 h-20 text-white/10 lightning-effect" viewBox="0 0 24 24" fill="currentColor" style={{ animationDelay: '5s' }}>
-            <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z"/>
-          </svg>
+          
+          <div className="absolute left-1/2 top-0 -translate-x-1/2 w-px h-full bg-gradient-to-b from-transparent via-blue-300/30 to-transparent lightning-glow"></div>
           
 
         </div>

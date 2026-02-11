@@ -214,23 +214,65 @@
     animation: grid-lines 20s ease-in-out infinite;
   }
 
-  @keyframes lightning {
-    0%,
+  @keyframes lightning-strike {
+    0% {
+      opacity: 0;
+      filter: blur(0px) drop-shadow(0 0 0px rgba(147, 197, 253, 0));
+    }
+    1% {
+      opacity: 1;
+      filter: blur(2px) drop-shadow(0 0 20px rgba(147, 197, 253, 1));
+    }
+    2% {
+      opacity: 0;
+    }
+    3% {
+      opacity: 1;
+      filter: blur(1px) drop-shadow(0 0 30px rgba(255, 255, 255, 1));
+    }
+    4%,
     100% {
       opacity: 0;
-      transform: translateX(-100px) translateY(0) scale(0.5);
-    }
-    10% {
-      opacity: 1;
-      transform: translateX(0) translateY(-20px) scale(1);
-    }
-    20% {
-      opacity: 0;
-      transform: translateX(100px) translateY(-40px) scale(0.5);
+      filter: blur(0px) drop-shadow(0 0 0px rgba(147, 197, 253, 0));
     }
   }
 
-  .lightning-effect {
-    animation: lightning 8s ease-in-out infinite;
+  @keyframes lightning-glow {
+    0% {
+      opacity: 0;
+      box-shadow: 0 0 0px rgba(147, 197, 253, 0);
+    }
+    1% {
+      opacity: 1;
+      box-shadow:
+        0 0 40px rgba(147, 197, 253, 0.8),
+        0 0 80px rgba(255, 255, 255, 0.6);
+    }
+    2% {
+      opacity: 0.5;
+    }
+    3% {
+      opacity: 1;
+      box-shadow:
+        0 0 60px rgba(147, 197, 253, 1),
+        0 0 120px rgba(255, 255, 255, 0.8);
+    }
+    4%,
+    100% {
+      opacity: 0;
+      box-shadow: 0 0 0px rgba(147, 197, 253, 0);
+    }
+  }
+
+  .lightning-strike {
+    animation: lightning-strike 6s ease-in-out infinite;
+  }
+
+  .lightning-glow {
+    animation: lightning-glow 6s ease-in-out infinite;
+  }
+
+  .lightning-path {
+    filter: drop-shadow(0 0 10px rgba(147, 197, 253, 0.8));
   }
 }

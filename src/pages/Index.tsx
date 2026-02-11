@@ -124,18 +124,18 @@ const Index = () => {
           />
         </div>
 
-        <div className="w-full px-6 md:px-16 py-0 relative z-10 flex items-center h-full">
+        <div className="w-full px-6 md:px-16 py-0 relative z-10 flex items-start h-full">
           <div className="max-w-screen-2xl mx-auto w-full">
-            <div className="animate-fade-in flex flex-col h-full py-4 md:py-16">
+            <div className="animate-fade-in flex flex-col h-full pt-2 pb-6 md:py-16">
               
-              <div className="mb-3 md:mb-auto">
-                <div className="inline-block px-4 py-2 md:px-6 md:py-3 border border-[#3a3a3a] mb-4 md:mb-16">
+              <div className="mb-2 md:mb-auto">
+                <div className="inline-block px-4 py-2 md:px-6 md:py-3 border border-[#3a3a3a] mb-3 md:mb-16">
                   <span className="text-[#a0a0a0] text-[9px] md:text-xs tracking-[0.25em] md:tracking-[0.3em] uppercase font-light">Premium Electric Mobility</span>
                 </div>
               </div>
               
               <div className="mb-auto">
-                <h1 className="text-[clamp(3.5rem,15vw,10rem)] font-light leading-[0.8] tracking-tight mb-6 md:mb-12 title-charge-glow">
+                <h1 className="text-[clamp(3rem,14vw,10rem)] font-light leading-[0.8] tracking-tight mb-4 md:mb-12 title-charge-glow">
                   <span className="block text-white">
                     НА ПОЛНОМ
                   </span>
@@ -147,7 +147,7 @@ const Index = () => {
                 <div className="flex items-start gap-6 md:gap-20 max-w-5xl">
                   <div className="hidden md:block w-[2px] h-36 bg-gradient-to-b from-white via-white/50 to-transparent"></div>
                   <div className="flex-1">
-                    <p className="text-[#a0a0a0] text-base md:text-3xl font-light leading-relaxed mb-0 md:mb-16 max-w-3xl">
+                    <p className="text-[#a0a0a0] text-sm md:text-3xl font-light leading-relaxed mb-0 md:mb-16 max-w-3xl">
                       Современно. Экологично. Экономично. Комфортно.
                     </p>
                   </div>

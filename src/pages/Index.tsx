@@ -18,22 +18,24 @@ const Index = () => {
       if (scrollY > 50) {
         hasNavigated.current = true;
         
-        // Анимация слов
-        if (wordsRef.current) {
-          wordsRef.current.style.display = 'flex';
-        }
-        
-        // Плавная анимация перед переходом
+        // Сначала скрываем главную страницу
         if (containerRef.current) {
           containerRef.current.style.transform = 'translateX(-100%)';
           containerRef.current.style.opacity = '0';
         }
         
-        // Переход после завершения анимации
+        // Затем показываем анимацию слов
+        setTimeout(() => {
+          if (wordsRef.current) {
+            wordsRef.current.style.display = 'flex';
+          }
+        }, 600);
+        
+        // Переход после завершения анимации слов
         setTimeout(() => {
           window.scrollTo(0, 0);
           navigate('/catalog');
-        }, 2400);
+        }, 3000);
       }
     };
 

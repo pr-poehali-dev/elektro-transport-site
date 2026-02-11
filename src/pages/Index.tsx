@@ -26,7 +26,7 @@ const Index = () => {
               <Button variant="ghost" size="icon" className="hidden md:flex text-[#b0b0b0] hover:text-white hover:bg-white/5">
                 <Icon name="Heart" size={18} />
               </Button>
-              <Button size="sm" className="bg-white text-black hover:bg-[#e5e5e5] rounded-none px-6 text-xs tracking-wider font-medium">
+              <Button size="sm" className="bg-white text-black hover:bg-[#e5e5e5] rounded-full px-6 text-xs tracking-wider font-medium">
                 +7 (495) 123-45-67
               </Button>
             </div>
@@ -91,14 +91,14 @@ const Index = () => {
                     <Link to="/catalog" className="w-full md:w-auto">
                       <Button
                         size="lg"
-                        className="w-full md:w-auto bg-white text-black hover:bg-[#e5e5e5] font-normal text-sm px-10 py-6 rounded-none tracking-[0.15em] transition-all duration-300"
+                        className="w-full md:w-auto bg-white text-black hover:bg-[#e5e5e5] font-normal text-sm px-10 py-6 rounded-full tracking-[0.15em] transition-all duration-300"
                       >
                         ПЕРЕЙТИ В КАТАЛОГ
                       </Button>
                     </Link>
                     <Button
                       size="lg"
-                      className="w-full md:w-auto bg-transparent border border-white text-white hover:bg-white hover:text-black font-normal text-sm px-10 py-6 rounded-none tracking-[0.15em] transition-all duration-300"
+                      className="w-full md:w-auto bg-transparent border border-white text-white hover:bg-white hover:text-black font-normal text-sm px-10 py-6 rounded-full tracking-[0.15em] transition-all duration-300"
                     >
                       КОНСУЛЬТАЦИЯ
                     </Button>

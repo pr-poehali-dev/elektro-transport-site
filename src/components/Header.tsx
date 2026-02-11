@@ -91,55 +91,12 @@ const Header = () => {
           </form>
           
           <div className="flex items-center gap-2 md:gap-3">
-            <Button 
-              size="sm" 
-              onClick={() => setShowMobileSearch(true)}
-              className="md:hidden bg-transparent border border-white text-white hover:bg-white hover:text-black rounded-none px-3 py-1.5 text-[10px] tracking-[0.1em] font-light transition-all duration-300"
-            >
-              <Icon name="Search" className="h-4 w-4" />
-            </Button>
             <Button size="sm" className="bg-transparent border border-white text-white hover:bg-white hover:text-black rounded-none px-3 md:px-8 py-1.5 md:py-2 text-[10px] md:text-xs tracking-[0.1em] md:tracking-[0.15em] font-light transition-all duration-300">
               <span className="hidden sm:inline">+7 (495) 123-45-67</span>
               <span className="sm:hidden">Звонок</span>
             </Button>
           </div>
         </div>
-
-        {showMobileSearch && (
-          <div className="md:hidden mt-3">
-            <form onSubmit={handleSearch} className="relative">
-              <Input
-                type="text"
-                placeholder="Поиск товаров..."
-                value={searchQuery}
-                onChange={(e) => handleSearchChange(e.target.value)}
-                autoFocus
-                className="w-full bg-white/5 border border-white/20 text-white placeholder:text-[#a0a0a0] rounded-none pr-20 h-9 text-sm focus:border-white/40 transition-colors"
-              />
-              <div className="absolute right-0 top-0 h-full flex items-center">
-                <button type="submit" className="h-full px-3 text-[#a0a0a0] hover:text-white transition-colors">
-                  <Icon name="Search" className="h-4 w-4" />
-                </button>
-                <button 
-                  type="button" 
-                  onClick={() => {
-                    setShowMobileSearch(false);
-                    setSearchQuery("");
-                    if (location.pathname === '/catalog') {
-                      const url = new URL(window.location.href);
-                      url.searchParams.delete('search');
-                      window.history.replaceState({}, '', url.toString());
-                      window.dispatchEvent(new CustomEvent('searchUpdate', { detail: '' }));
-                    }
-                  }}
-                  className="h-full px-3 text-[#a0a0a0] hover:text-white transition-colors"
-                >
-                  <Icon name="X" className="h-4 w-4" />
-                </button>
-              </div>
-            </form>
-          </div>
-        )}
       </div>
     </header>
   );

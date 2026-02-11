@@ -413,13 +413,14 @@ const Catalog = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6">
                 {filteredProducts.map((product) => (
-                  <Card key={product.id} className="group overflow-hidden bg-black/60 backdrop-blur-sm border-[#3a3a3a] hover:border-white/30 transition-all duration-300">
+                  <Card key={product.id} className="group overflow-hidden bg-black/60 backdrop-blur-sm border-[#3a3a3a] hover:border-blue-400/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(96,165,250,0.3)]">
                     <CardContent className="p-0">
                       <div className="relative aspect-square overflow-hidden bg-[#1a1a1a]">
+                        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 via-blue-400/0 to-blue-500/0 group-hover:from-blue-500/10 group-hover:via-blue-400/5 group-hover:to-blue-500/10 transition-all duration-500 z-10 pointer-events-none"></div>
                         <img
                           src={product.image}
                           alt={product.name}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          className="w-full h-full object-cover group-hover:scale-105 group-hover:brightness-110 transition-all duration-500"
                         />
                         {!product.inStock && (
                           <Badge className="absolute top-3 left-3 bg-white/10 text-white border border-white/20">

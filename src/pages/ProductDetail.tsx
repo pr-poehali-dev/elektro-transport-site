@@ -113,13 +113,14 @@ const ProductDetail = () => {
             <div className="space-y-6">
               {/* Images & Description/Specs in 2 columns */}
               <div className="grid md:grid-cols-2 gap-4 md:gap-6">
-                <Card className="overflow-hidden bg-black/40 backdrop-blur-sm border-[#2a2a2a]">
+                <Card className="overflow-hidden bg-black/40 backdrop-blur-sm border-[#2a2a2a] hover:border-blue-400/50 hover:shadow-[0_0_40px_rgba(96,165,250,0.4)] transition-all duration-500">
                   <CardContent className="p-4 md:p-6">
-                    <div className="aspect-square w-full bg-[#1a1a1a] rounded-lg flex items-center justify-center overflow-hidden">
+                    <div className="aspect-square w-full bg-[#1a1a1a] rounded-lg flex items-center justify-center overflow-hidden relative group">
+                      <div className="absolute inset-0 bg-gradient-radial from-blue-500/20 via-blue-400/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none"></div>
                       <img
                         src={product.images[selectedImage]}
                         alt={product.name}
-                        className="w-full h-full object-contain p-4"
+                        className="w-full h-full object-contain p-4 relative z-0 group-hover:brightness-110 group-hover:contrast-110 transition-all duration-500"
                       />
                     </div>
                     <div className="grid grid-cols-6 gap-2 mt-4">

@@ -102,7 +102,7 @@ const Index = () => {
     <div className="bg-[#0a0a0a] relative h-screen w-screen overflow-hidden fixed inset-0">
       {/* Анимация Premium Electric Mobility */}
       <div ref={premiumTextRef} className="fixed inset-0 z-50 bg-[#0a0a0a] hidden items-center justify-center transition-opacity duration-500" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-        <div className="inline-block px-4 py-2 md:px-6 md:py-3 border border-[#3a3a3a] opacity-0 animate-[premiumFade_1s_ease-out_0s_forwards]">
+        <div className="inline-block px-4 py-2 md:px-6 md:py-3 border border-blue-400/30 opacity-0 animate-[premiumFade_1s_ease-out_0s_forwards]" style={{ boxShadow: '0 0 20px rgba(96, 165, 250, 0.2), inset 0 0 20px rgba(96, 165, 250, 0.08)' }}>
           <span className="text-[#a0a0a0] text-[clamp(1rem,5vw,2.5rem)] tracking-[0.3em] uppercase font-light">
             Premium Electric Mobility
           </span>
@@ -122,17 +122,25 @@ const Index = () => {
         
         {/* Слова поверх изображения */}
         <div className="flex flex-col items-center justify-center space-y-4 md:space-y-6 w-full px-4 relative z-10">
-          <div className="text-[clamp(2rem,12vw,10rem)] font-light text-[#707070] uppercase opacity-0 animate-[wordFade_0.7s_ease-out_0s_forwards] leading-none" style={{ letterSpacing: '-0.05em' }}>
-            СОВРЕМЕННО
+          <div className="inline-block px-6 py-3 md:px-8 md:py-4 border border-blue-400/30 opacity-0 animate-[wordFade_0.7s_ease-out_0s_forwards]" style={{ boxShadow: '0 0 20px rgba(96, 165, 250, 0.2), inset 0 0 20px rgba(96, 165, 250, 0.08)' }}>
+            <span className="text-[clamp(2rem,12vw,10rem)] font-light text-[#707070] uppercase leading-none" style={{ letterSpacing: '-0.05em' }}>
+              СОВРЕМЕННО
+            </span>
           </div>
-          <div className="text-[clamp(2rem,12vw,10rem)] font-light text-[#707070] uppercase opacity-0 animate-[wordFade_0.7s_ease-out_0.4s_forwards] leading-none" style={{ letterSpacing: '-0.05em' }}>
-            ЭКОЛОГИЧНО
+          <div className="inline-block px-6 py-3 md:px-8 md:py-4 border border-blue-400/30 opacity-0 animate-[wordFade_0.7s_ease-out_0.4s_forwards]" style={{ boxShadow: '0 0 20px rgba(96, 165, 250, 0.2), inset 0 0 20px rgba(96, 165, 250, 0.08)' }}>
+            <span className="text-[clamp(2rem,12vw,10rem)] font-light text-[#707070] uppercase leading-none" style={{ letterSpacing: '-0.05em' }}>
+              ЭКОЛОГИЧНО
+            </span>
           </div>
-          <div className="text-[clamp(2rem,12vw,10rem)] font-light text-[#707070] uppercase opacity-0 animate-[wordFade_0.7s_ease-out_0.8s_forwards] leading-none" style={{ letterSpacing: '-0.05em' }}>
-            ЭКОНОМИЧНО
+          <div className="inline-block px-6 py-3 md:px-8 md:py-4 border border-blue-400/30 opacity-0 animate-[wordFade_0.7s_ease-out_0.8s_forwards]" style={{ boxShadow: '0 0 20px rgba(96, 165, 250, 0.2), inset 0 0 20px rgba(96, 165, 250, 0.08)' }}>
+            <span className="text-[clamp(2rem,12vw,10rem)] font-light text-[#707070] uppercase leading-none" style={{ letterSpacing: '-0.05em' }}>
+              ЭКОНОМИЧНО
+            </span>
           </div>
-          <div className="text-[clamp(2rem,12vw,10rem)] font-light text-[#707070] uppercase opacity-0 animate-[wordFade_0.7s_ease-out_1.2s_forwards] leading-none" style={{ letterSpacing: '-0.05em' }}>
-            КОМФОРТНО
+          <div className="inline-block px-6 py-3 md:px-8 md:py-4 border border-blue-400/30 opacity-0 animate-[wordFade_0.7s_ease-out_1.2s_forwards]" style={{ boxShadow: '0 0 20px rgba(96, 165, 250, 0.2), inset 0 0 20px rgba(96, 165, 250, 0.08)' }}>
+            <span className="text-[clamp(2rem,12vw,10rem)] font-light text-[#707070] uppercase leading-none" style={{ letterSpacing: '-0.05em' }}>
+              КОМФОРТНО
+            </span>
           </div>
         </div>
       </div>

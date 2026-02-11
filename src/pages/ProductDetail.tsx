@@ -70,7 +70,7 @@ const ProductDetail = () => {
 
   if (!product) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-[#0a0a0a] via-[#1a1a2e] to-[#0a0a0a]">
+      <div className="min-h-screen bg-[#0a0a0a]">
         <Header />
         <div className="flex items-center justify-center min-h-[80vh]">
           <div className="text-center">
@@ -94,7 +94,7 @@ const ProductDetail = () => {
 
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#0a0a0a] via-[#1a1a2e] to-[#0a0a0a] overflow-x-hidden">
+    <div className="min-h-screen bg-[#0a0a0a] overflow-x-hidden">
       <Header />
 
       {/* Product Content */}

@@ -24,7 +24,7 @@ const GlowCard = React.forwardRef<HTMLDivElement, GlowCardProps>(
       <div
         ref={ref}
         className={cn(
-          "rounded-lg border bg-card text-card-foreground",
+          "border bg-card text-card-foreground",
           glowStyles[glowIntensity],
           hoverEffect && hoverGlowStyles[glowIntensity],
           hoverEffect && "transition-all duration-500",

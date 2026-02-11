@@ -141,14 +141,14 @@ const ProductDetail = () => {
 
                 {/* Description & Specs stacked */}
                 <div className="flex flex-col space-y-4">
-                  <GlowCard glowIntensity="low" hoverEffect={false} className="bg-gradient-to-br from-[#2c3038] to-[#1a1d23] backdrop-blur-sm">
+                  <GlowCard glowIntensity="low" hoverEffect={false} className="bg-gradient-to-br from-[#2c3038] to-[#1a1d23] backdrop-blur-sm rounded-lg">
                     <GlowCardContent className="p-4 md:p-6">
                       <h2 className="text-lg font-light mb-4 text-white tracking-wide">Описание</h2>
                       <p className="text-sm text-[#b0b0b0] leading-relaxed">{product.description}</p>
                     </GlowCardContent>
                   </GlowCard>
 
-                  <GlowCard glowIntensity="low" hoverEffect={false} className="bg-gradient-to-br from-[#2c3038] to-[#1a1d23] backdrop-blur-sm">
+                  <GlowCard glowIntensity="low" hoverEffect={false} className="bg-gradient-to-br from-[#2c3038] to-[#1a1d23] backdrop-blur-sm rounded-lg">
                     <GlowCardContent className="p-4 md:p-6">
                       <h2 className="text-lg font-light mb-4 text-white tracking-wide">Характеристики</h2>
                       <div className="space-y-3">
@@ -164,7 +164,7 @@ const ProductDetail = () => {
 
                   {/* Video Review - Desktop only (below specs) */}
                   {product.youtubeUrl && (
-                    <GlowCard glowIntensity="low" hoverEffect={false} className="hidden md:block bg-gradient-to-br from-[#2c3038] to-[#1a1d23] backdrop-blur-sm">
+                    <GlowCard glowIntensity="low" hoverEffect={false} className="hidden md:block bg-gradient-to-br from-[#2c3038] to-[#1a1d23] backdrop-blur-sm rounded-lg">
                       <GlowCardContent className="p-4 md:p-6">
                         <h2 className="text-lg font-light mb-4 text-white tracking-wide">Видео-обзор</h2>
                         <div className="aspect-video bg-[#1a1a1a] rounded-lg overflow-hidden">
@@ -187,7 +187,7 @@ const ProductDetail = () => {
 
             {/* Right Sidebar - Info & Order */}
             <div className="lg:sticky lg:top-24 space-y-4 h-fit">
-              <GlowCard glowIntensity="high" hoverEffect={false} className="bg-gradient-to-br from-[#2c3038] to-[#1a1d23] backdrop-blur-sm">
+              <GlowCard glowIntensity="high" hoverEffect={false} className="bg-gradient-to-br from-[#2c3038] to-[#1a1d23] backdrop-blur-sm rounded-lg">
                 <GlowCardContent className="p-4 md:p-6">
                   <Badge className="mb-2 text-xs bg-white/10 text-white border-none">{product.category}</Badge>
                   <h1 className="text-2xl font-light mb-3 text-white tracking-tight">{product.name}</h1>
@@ -259,7 +259,7 @@ const ProductDetail = () => {
               </GlowCard>
 
               {/* Order Form */}
-              <GlowCard id="order-form" glowIntensity="high" hoverEffect={false} className="bg-gradient-to-br from-[#2c3038] to-[#1a1d23] backdrop-blur-sm">
+              <GlowCard id="order-form" glowIntensity="high" hoverEffect={false} className="bg-gradient-to-br from-[#2c3038] to-[#1a1d23] backdrop-blur-sm rounded-lg">
                 <GlowCardContent className="p-4 md:p-6">
                   <h3 className="text-lg font-light mb-4 text-white tracking-wide">Заказать товар</h3>
                   <form onSubmit={handleSubmit} className="space-y-3">

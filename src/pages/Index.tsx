@@ -168,43 +168,49 @@ const Index = () => {
               </div>
 
               {/* Кнопка и статистика на десктопе */}
-              <div className="hidden md:block space-y-6">
-                <div className="flex justify-start">
+              <div className="hidden md:block space-y-8">
+                <div className="flex justify-start gap-4">
                   <Link to="/catalog">
                     <Button
                       size="lg"
-                      className="bg-white text-black hover:bg-[#e5e5e5] font-normal text-sm px-12 py-6 rounded-none tracking-[0.2em] transition-all duration-300 button-charge-glow"
+                      className="bg-white text-black hover:bg-[#e5e5e5] font-normal text-base px-16 py-7 rounded-none tracking-[0.2em] transition-all duration-300 button-charge-glow"
                     >
                       ПЕРЕЙТИ В КАТАЛОГ
                     </Button>
                   </Link>
+                  <Button
+                    size="lg"
+                    className="bg-transparent text-white border border-white hover:bg-white hover:text-black font-normal text-base px-16 py-7 rounded-none tracking-[0.2em] transition-all duration-300"
+                  >
+                    КОНСУЛЬТАЦИЯ
+                  </Button>
                 </div>
                 
                 <div className="grid grid-cols-4 gap-12 max-w-4xl">
                   <div>
-                    <div className="flex items-start gap-0.5 mb-1">
-                      <div className="text-5xl font-light text-white tracking-tight">30</div>
-                      <div className="text-2xl font-light text-[#707070] mt-1">%</div>
+                    <div className="flex items-start gap-0.5 mb-2">
+                      <div className="text-6xl font-light text-white tracking-tight">30</div>
+                      <div className="text-3xl font-light text-[#707070] mt-1">%</div>
                     </div>
-                    <div className="text-[#707070] text-xs tracking-[0.25em] uppercase font-light">Экономия</div>
+                    <div className="text-[#707070] text-sm tracking-[0.25em] uppercase font-light">Экономия</div>
                   </div>
                   
                   <div>
-                    <div className="text-5xl font-light text-white tracking-tight mb-1">30</div>
-                    <div className="text-[#707070] text-xs tracking-[0.25em] uppercase font-light">Дней доставка</div>
+                    <div className="text-6xl font-light text-white tracking-tight mb-2">30</div>
+                    <div className="text-[#707070] text-sm tracking-[0.25em] uppercase font-light">Дней доставка</div>
                   </div>
                   
                   <div>
-                    <div className="text-5xl font-light text-white tracking-tight mb-1">24/7</div>
-                    <div className="text-[#707070] text-xs tracking-[0.25em] uppercase font-light">Поддержка</div>
+                    <div className="text-6xl font-light text-white tracking-tight mb-2">24/7</div>
+                    <div className="text-[#707070] text-sm tracking-[0.25em] uppercase font-light">Поддержка</div>
                   </div>
                   
                   <div>
-                    <div className="flex items-start gap-0.5 mb-1">
-                      <div className="text-5xl font-light text-white tracking-tight">100</div>
-                      <div className="text-2xl font-light text-[#707070] mt-1">%</div>
+                    <div className="flex items-start gap-0.5 mb-2">
+                      <div className="text-6xl font-light text-white tracking-tight">100</div>
+                      <div className="text-3xl font-light text-[#707070] mt-1">%</div>
                     </div>
-                    <div className="text-[#707070] text-xs tracking-[0.25em] uppercase font-light">Гарантия</div>
+                    <div className="text-[#707070] text-sm tracking-[0.25em] uppercase font-light">Гарантия</div>
                   </div>
                 </div>
               </div>

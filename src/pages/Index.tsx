@@ -23,10 +23,7 @@ const Index = () => {
             </nav>
             
             <div className="flex items-center gap-3">
-              <Button variant="ghost" size="icon" className="hidden md:flex text-[#b0b0b0] hover:text-white hover:bg-white/5">
-                <Icon name="Heart" size={18} />
-              </Button>
-              <Button size="sm" className="bg-white text-black hover:bg-[#e5e5e5] rounded-full px-6 text-xs tracking-wider font-medium">
+              <Button size="sm" className="bg-transparent border border-white text-white hover:bg-white hover:text-black rounded-none px-8 py-2 text-xs tracking-[0.15em] font-light transition-all duration-300">
                 +7 (495) 123-45-67
               </Button>
             </div>

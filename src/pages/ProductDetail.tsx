@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -67,15 +67,6 @@ const ProductDetail = () => {
     phone: "",
     comment: ""
   });
-  const [scrollY, setScrollY] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   if (!product) {
     return (
@@ -123,11 +114,7 @@ const ProductDetail = () => {
             <div className="space-y-6">
               {/* Images & Description/Specs in 2 columns */}
               <div className="grid md:grid-cols-2 gap-4 md:gap-6">
-                <GlowCard 
-                  glowIntensity="high" 
-                  className="overflow-hidden bg-gradient-to-br from-[#2c3038] to-[#1a1d23] backdrop-blur-sm rounded-xl transition-transform duration-200"
-                  style={{ transform: `translateY(${scrollY * 0.05}px)` }}
-                >
+                <GlowCard glowIntensity="high" className="overflow-hidden bg-gradient-to-br from-[#2c3038] to-[#1a1d23] backdrop-blur-sm rounded-xl">
                   <GlowCardContent className="p-4 md:p-6">
                     <div className="aspect-square w-full bg-[#1a1a1a] rounded-lg flex items-center justify-center overflow-hidden">
                       <img
@@ -179,7 +166,7 @@ const ProductDetail = () => {
                   {product.youtubeUrl && (
                     <GlowCard glowIntensity="low" hoverEffect={false} className="hidden md:block bg-gradient-to-br from-[#2c3038] to-[#1a1d23] backdrop-blur-sm rounded-lg">
                       <GlowCardContent className="p-4 md:p-6">
-                        <h2 className="text-xl font-normal mb-4 text-white tracking-wide">Видео-обзор</h2>
+                        <h2 className="text-lg font-light mb-4 text-white tracking-wide">Видео-обзор</h2>
                         <div className="aspect-video bg-[#1a1a1a] rounded-lg overflow-hidden">
                           <iframe
                             width="100%"
@@ -202,9 +189,9 @@ const ProductDetail = () => {
             <div className="lg:sticky lg:top-24 space-y-4 h-fit">
               <GlowCard glowIntensity="high" hoverEffect={false} className="bg-gradient-to-br from-[#2c3038] to-[#1a1d23] backdrop-blur-sm rounded-lg">
                 <GlowCardContent className="p-4 md:p-6">
-                  <Badge className="mb-3 text-sm bg-white/10 text-white border-none">{product.category}</Badge>
-                  <h1 className="text-3xl font-normal mb-4 text-white tracking-tight">{product.name}</h1>
-                  <div className="flex items-center gap-2 text-sm mb-4 text-[#c0c0c0]">
+                  <Badge className="mb-2 text-xs bg-white/10 text-white border-none">{product.category}</Badge>
+                  <h1 className="text-2xl font-light mb-3 text-white tracking-tight">{product.name}</h1>
+                  <div className="flex items-center gap-2 text-xs mb-4 text-[#b0b0b0]">
                     <span>Бренд: <strong className="text-white">{product.brand}</strong></span>
                     <span>•</span>
                     {product.inStock ? (
@@ -217,54 +204,54 @@ const ProductDetail = () => {
                     )}
                   </div>
                   
-                  <div className="border-t border-[#3a3a3a] pt-4 mb-4">
-                    <div className="text-sm text-[#a0a0a0] mb-2 tracking-wide">Цена под ключ</div>
-                    <div className="text-4xl font-normal mb-2 text-white">
+                  <div className="border-t border-[#2a2a2a] pt-4 mb-4">
+                    <div className="text-xs text-[#707070] mb-1 tracking-wide">Цена под ключ</div>
+                    <div className="text-3xl font-light mb-1 text-white">
                       {product.price.toLocaleString('ru-RU')} ₽
                     </div>
-                    <div className="text-sm text-[#c0c0c0]">
+                    <div className="text-xs text-[#b0b0b0]">
                       В кредит от {Math.round(product.price / 60).toLocaleString('ru-RU')} ₽/мес
                     </div>
                   </div>
 
                   {/* Quick Specs Grid */}
                   <div className="grid grid-cols-2 gap-3 mb-4">
-                    <div className="bg-white/5 border border-[#3a3a3a] rounded-none p-3">
-                      <div className="text-xs text-[#a0a0a0] tracking-wide mb-1">СКОРОСТЬ</div>
-                      <div className="font-normal text-xl text-white">{product.maxSpeed} км/ч</div>
+                    <div className="bg-white/5 border border-[#2a2a2a] rounded-none p-3">
+                      <div className="text-[10px] text-[#707070] tracking-wide">СКОРОСТЬ</div>
+                      <div className="font-light text-lg text-white">{product.maxSpeed} км/ч</div>
                     </div>
-                    <div className="bg-white/5 border border-[#3a3a3a] rounded-none p-3">
-                      <div className="text-xs text-[#a0a0a0] tracking-wide mb-1">ЗАПАС ХОДА</div>
-                      <div className="font-normal text-xl text-white">{product.range} км</div>
+                    <div className="bg-white/5 border border-[#2a2a2a] rounded-none p-3">
+                      <div className="text-[10px] text-[#707070] tracking-wide">ЗАПАС ХОДА</div>
+                      <div className="font-light text-lg text-white">{product.range} км</div>
                     </div>
-                    <div className="bg-white/5 border border-[#3a3a3a] rounded-none p-3">
-                      <div className="text-xs text-[#a0a0a0] tracking-wide mb-1">МОЩНОСТЬ</div>
-                      <div className="font-normal text-xl text-white">{product.power} Вт</div>
+                    <div className="bg-white/5 border border-[#2a2a2a] rounded-none p-3">
+                      <div className="text-[10px] text-[#707070] tracking-wide">МОЩНОСТЬ</div>
+                      <div className="font-light text-lg text-white">{product.power} Вт</div>
                     </div>
-                    <div className="bg-white/5 border border-[#3a3a3a] rounded-none p-3">
-                      <div className="text-xs text-[#a0a0a0] tracking-wide mb-1">ВЕС</div>
-                      <div className="font-normal text-xl text-white">{product.weight} кг</div>
+                    <div className="bg-white/5 border border-[#2a2a2a] rounded-none p-3">
+                      <div className="text-[10px] text-[#707070] tracking-wide">ВЕС</div>
+                      <div className="font-light text-lg text-white">{product.weight} кг</div>
                     </div>
                   </div>
 
                   <Button
-                    className="w-full bg-blue-500 hover:bg-blue-600 text-white rounded-none py-5 font-normal text-base tracking-wide mb-4"
+                    className="w-full bg-blue-500 hover:bg-blue-600 text-white rounded-none py-4 font-light tracking-wide mb-4"
                   >
                     <Icon name="Send" size={16} className="mr-2" />
                     Написать в Telegram
                   </Button>
 
-                  <div className="pt-4 border-t border-[#3a3a3a] space-y-3">
-                    <div className="flex items-center gap-2 text-sm text-[#c0c0c0]">
-                      <Icon name="Truck" size={18} className="text-blue-400" />
+                  <div className="pt-4 border-t border-[#2a2a2a] space-y-3">
+                    <div className="flex items-center gap-2 text-xs text-[#b0b0b0]">
+                      <Icon name="Truck" size={16} className="text-blue-400" />
                       <span>Доставка ~ {product.deliveryDays} дней</span>
                     </div>
-                    <div className="flex items-center gap-2 text-sm text-[#c0c0c0]">
-                      <Icon name="Shield" size={16} className="text-green-400" />
+                    <div className="flex items-center gap-2 text-xs text-[#b0b0b0]">
+                      <Icon name="Shield" size={14} className="text-green-400" />
                       <span>Гарантия сроков доставки</span>
                     </div>
-                    <div className="flex items-center gap-2 text-sm text-[#c0c0c0]">
-                      <Icon name="CreditCard" size={16} className="text-yellow-400" />
+                    <div className="flex items-center gap-2 text-xs text-[#b0b0b0]">
+                      <Icon name="CreditCard" size={14} className="text-yellow-400" />
                       <span>Оплата при получении</span>
                     </div>
                   </div>
@@ -274,7 +261,7 @@ const ProductDetail = () => {
               {/* Order Form */}
               <GlowCard id="order-form" glowIntensity="high" hoverEffect={false} className="bg-gradient-to-br from-[#2c3038] to-[#1a1d23] backdrop-blur-sm rounded-lg">
                 <GlowCardContent className="p-4 md:p-6">
-                  <h3 className="text-xl font-normal mb-5 text-white tracking-wide">Заказать товар</h3>
+                  <h3 className="text-lg font-light mb-4 text-white tracking-wide">Заказать товар</h3>
                   <form onSubmit={handleSubmit} className="space-y-3">
                     <div>
                       <Input
@@ -325,9 +312,9 @@ const ProductDetail = () => {
           {/* Video Review - Mobile only (at bottom) */}
           {product.youtubeUrl && (
             <div className="md:hidden container mx-auto px-4 mt-6">
-              <GlowCard glowIntensity="low" hoverEffect={false} className="bg-gradient-to-br from-[#2c3038] to-[#1a1d23] backdrop-blur-sm rounded-lg">
+              <GlowCard glowIntensity="low" hoverEffect={false} className="bg-black/40 backdrop-blur-sm">
                 <GlowCardContent className="p-4">
-                  <h2 className="text-xl font-normal mb-4 text-white tracking-wide">Видео-обзор</h2>
+                  <h2 className="text-lg font-light mb-4 text-white tracking-wide">Видео-обзор</h2>
                   <div className="aspect-video bg-[#1a1a1a] rounded-lg overflow-hidden">
                     <iframe
                       width="100%"

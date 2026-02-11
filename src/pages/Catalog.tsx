@@ -575,6 +575,17 @@ const Catalog = () => {
             
             <div className="p-4 space-y-6">
               <div>
+                <h4 className="text-sm font-light mb-3 text-white tracking-wide">Поиск</h4>
+                <Input
+                  type="text"
+                  placeholder="Поиск товаров..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full bg-white/5 border border-white/20 text-white placeholder:text-[#a0a0a0] rounded-none h-9 text-sm focus:border-white/40 transition-colors mb-4"
+                />
+              </div>
+
+              <div className="pt-4 border-t border-[#2a2a2a]">
                 <h4 className="text-sm font-light mb-3 text-white tracking-wide">Категории</h4>
                 <div className="space-y-1">
                   <Button

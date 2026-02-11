@@ -10,8 +10,6 @@ const Index = () => {
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   useEffect(() => {
-    let scrollTimeout: NodeJS.Timeout;
-    
     const handleScroll = () => {
       if (isTransitioning) return;
       if (!mainRef.current || !catalogPreviewRef.current) return;
@@ -21,16 +19,14 @@ const Index = () => {
       const triggerPoint = windowHeight * 0.3;
       
       if (scrollY > triggerPoint) {
-        const progress = Math.min((scrollY - triggerPoint) / (windowHeight * 0.5), 1);
+        const progress = Math.min((scrollY - triggerPoint) / (windowHeight * 0.4), 1);
         mainRef.current.style.transform = `translateX(-${progress * 100}%)`;
         catalogPreviewRef.current.style.transform = `translateX(-${progress * 100}%)`;
         
         // Переход на каталог при завершении анимации
-        if (progress >= 0.95 && !isTransitioning) {
+        if (progress >= 1) {
           setIsTransitioning(true);
-          scrollTimeout = setTimeout(() => {
-            navigate('/catalog');
-          }, 300);
+          navigate('/catalog');
         }
       } else {
         mainRef.current.style.transform = 'translateX(0)';
@@ -41,7 +37,6 @@ const Index = () => {
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      clearTimeout(scrollTimeout);
     };
   }, [navigate, isTransitioning]);
 

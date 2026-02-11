@@ -35,7 +35,7 @@ const Index = () => {
       <section className="relative h-[calc(100vh-73px)] md:h-[calc(100vh-73px)] flex items-center overflow-hidden py-0">
         <div className="absolute inset-0">
           {/* Desktop: полная молния со всеми ветками */}
-          <svg className="hidden md:block absolute inset-0 w-full h-full lightning-strike pointer-events-none z-20" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+          <svg className="hidden md:block absolute inset-0 w-full h-full lightning-strike pointer-events-none z-[3]" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
             <defs>
               <filter id="glow">
                 <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
@@ -97,7 +97,7 @@ const Index = () => {
           </svg>
 
           {/* Mobile: упрощенная молния без фильтров и круга свечения */}
-          <svg className="md:hidden absolute inset-0 w-full h-full lightning-strike pointer-events-none z-20" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+          <svg className="md:hidden absolute inset-0 w-full h-full lightning-strike pointer-events-none z-[3]" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
             <path d="M960,0 L980,120 L940,160 L970,280 L930,350 L965,480 L945,560 L975,680 L940,760 L970,880 L950,960 L975,1080" 
                   stroke="#60a5fa" strokeWidth="4" fill="none" opacity="0.8" className="bolt"/>
             <path d="M960,0 L980,120 L940,160 L970,280 L930,350 L965,480 L945,560 L975,680 L940,760 L970,880 L950,960 L975,1080" 

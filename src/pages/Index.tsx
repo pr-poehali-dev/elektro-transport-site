@@ -109,9 +109,9 @@ const Index = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-px bg-[#2a2a2a] border border-[#2a2a2a] animate-fade-in" style={{ animationDelay: '0.3s' }}>
               <div className="bg-[#0a0a0a] p-10 group cursor-default hover:bg-[#121212] transition-colors duration-300">
-                <div className="mb-4">
+                <div className="mb-4 flex items-start gap-1">
                   <div className="text-5xl font-light text-white tracking-tight">30</div>
-                  <div className="text-xl font-light text-[#707070]">%</div>
+                  <div className="text-2xl font-light text-[#707070] mt-1">%</div>
                 </div>
                 <div className="text-[#707070] text-xs tracking-[0.2em] uppercase font-light">Экономия</div>
               </div>
@@ -131,9 +131,9 @@ const Index = () => {
               </div>
 
               <div className="bg-[#0a0a0a] p-10 group cursor-default hover:bg-[#121212] transition-colors duration-300">
-                <div className="mb-4">
+                <div className="mb-4 flex items-start gap-1">
                   <div className="text-5xl font-light text-white tracking-tight">100</div>
-                  <div className="text-xl font-light text-[#707070]">%</div>
+                  <div className="text-2xl font-light text-[#707070] mt-1">%</div>
                 </div>
                 <div className="text-[#707070] text-xs tracking-[0.2em] uppercase font-light">Гарантия</div>
               </div>

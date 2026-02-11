@@ -47,6 +47,21 @@ const Index = () => {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.05),transparent_70%)] animate-pulse" style={{ animationDuration: '10s' }}></div>
         </div>
 
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[55%] h-full flex items-center justify-end z-[5] pointer-events-none">
+          <div className="relative w-full h-full flex items-center justify-center">
+            <div className="absolute inset-0 bg-gradient-to-l from-transparent via-[#0a0a0a]/50 to-[#0a0a0a]"></div>
+            <img 
+              src="https://cdn.poehali.dev/files/6281e1c0-9b0b-4b9f-a8d6-d59f6b8c765b.png"
+              alt="Premium Electric Bike"
+              className="relative w-full h-auto max-h-[80vh] object-contain animate-scale-in opacity-0 drop-shadow-[0_0_60px_rgba(255,255,255,0.15)]"
+              style={{ 
+                filter: 'brightness(1.1) contrast(1.05)',
+                animationDelay: '0.3s'
+              }}
+            />
+          </div>
+        </div>
+
         <div className="container mx-auto px-6 py-24 relative z-10">
           <div className="max-w-6xl mx-auto">
             <div className="mb-32 animate-fade-in">

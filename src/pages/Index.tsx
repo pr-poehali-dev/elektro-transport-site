@@ -45,17 +45,35 @@ const Index = () => {
           <div className="absolute bottom-1/3 right-1/4 w-24 h-24 border border-white/10 rounded-full animate-ping" style={{ animationDuration: '5s', animationDelay: '1s' }}></div>
           
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.05),transparent_70%)] animate-pulse" style={{ animationDuration: '10s' }}></div>
+          
+          <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-white/10 to-transparent"></div>
+          <div className="absolute top-0 right-1/3 w-px h-full bg-gradient-to-b from-transparent via-white/5 to-transparent"></div>
+          
+          <div className="absolute top-1/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
+          
+          <div className="absolute top-10 right-20 w-2 h-2 bg-white/30 rounded-full animate-pulse" style={{ animationDuration: '3s' }}></div>
+          <div className="absolute bottom-20 left-40 w-1 h-1 bg-white/20 rounded-full animate-pulse" style={{ animationDuration: '4s', animationDelay: '1s' }}></div>
+          <div className="absolute top-1/2 right-1/4 w-1.5 h-1.5 bg-white/25 rounded-full animate-pulse" style={{ animationDuration: '5s', animationDelay: '2s' }}></div>
         </div>
 
         <div className="absolute right-10 top-1/2 -translate-y-1/2 w-[45%] h-full flex items-center justify-center z-[5] pointer-events-none">
+          <div className="absolute inset-0 bg-gradient-radial from-white/5 via-transparent to-transparent blur-3xl"></div>
+          
+          <div className="absolute top-1/4 left-1/4 w-40 h-40 border border-white/5 rotate-45"></div>
+          <div className="absolute bottom-1/3 right-1/4 w-32 h-32 border border-white/5 rounded-full"></div>
+          
           <img 
             src="https://cdn.poehali.dev/files/6281e1c0-9b0b-4b9f-a8d6-d59f6b8c765b.png"
             alt="Premium Electric Bike"
-            className="w-full h-auto max-h-[80vh] object-contain animate-scale-in opacity-0"
+            className="relative w-full h-auto max-h-[80vh] object-contain animate-scale-in opacity-0 drop-shadow-[0_0_80px_rgba(255,255,255,0.1)]"
             style={{ 
-              animationDelay: '0.3s'
+              animationDelay: '0.3s',
+              filter: 'brightness(1.05) contrast(1.1)'
             }}
           />
+          
+          <div className="absolute top-1/2 left-0 w-20 h-px bg-gradient-to-r from-white/20 to-transparent"></div>
+          <div className="absolute bottom-1/3 right-0 w-16 h-px bg-gradient-to-l from-white/15 to-transparent"></div>
         </div>
 
         <div className="w-full px-10 py-24 relative z-10">

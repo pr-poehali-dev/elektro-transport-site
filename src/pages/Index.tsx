@@ -34,7 +34,7 @@ const Index = () => {
         </div>
       </header>
 
-      <section className="relative min-h-[calc(100vh-73px)] flex items-center overflow-hidden">
+      <section className="relative h-[calc(100vh-73px)] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-bl from-[#1a1a1a] to-transparent animate-pulse" style={{ animationDuration: '8s' }}></div>
           <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-[#1a1a1a] to-transparent animate-pulse" style={{ animationDuration: '6s', animationDelay: '2s' }}></div>
@@ -131,9 +131,9 @@ const Index = () => {
           <div className="absolute bottom-1/3 right-0 w-16 h-px bg-gradient-to-l from-white/15 to-transparent"></div>
         </div>
 
-        <div className="w-full px-10 py-24 relative z-10">
+        <div className="w-full px-10 py-8 relative z-10">
           <div className="max-w-screen-2xl mx-auto">
-            <div className="mb-32 animate-fade-in">
+            <div className="mb-12 animate-fade-in">
               <div className="mb-6">
                 <div className="inline-block px-4 py-2 border border-[#3a3a3a] mb-8">
                   <span className="text-[#a0a0a0] text-xs tracking-[0.25em] uppercase font-light">Premium Electric Mobility</span>
@@ -210,12 +210,7 @@ const Index = () => {
           </div>
         </div>
 
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-fade-in opacity-0" style={{ animationDelay: '0.6s' }}>
-          <div className="flex flex-col items-center gap-2 text-[#505050]">
-            <Icon name="ChevronDown" size={20} className="animate-bounce" />
-            <span className="text-xs tracking-[0.2em] uppercase font-light">Scroll</span>
-          </div>
-        </div>
+
       </section>
     </div>
   );

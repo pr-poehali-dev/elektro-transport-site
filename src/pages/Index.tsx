@@ -126,15 +126,13 @@ const Index = () => {
 
         <div className="w-full px-6 md:px-16 py-0 relative z-10 flex items-start h-full">
           <div className="max-w-screen-2xl mx-auto w-full">
-            <div className="animate-fade-in flex flex-col h-full pt-2 pb-6 md:py-16">
+            <div className="animate-fade-in flex flex-col justify-between h-full pt-2 pb-2 md:py-16">
               
-              <div className="mb-2 md:mb-auto">
+              <div>
                 <div className="inline-block px-4 py-2 md:px-6 md:py-3 border border-[#3a3a3a] mb-3 md:mb-16">
                   <span className="text-[#a0a0a0] text-[9px] md:text-xs tracking-[0.25em] md:tracking-[0.3em] uppercase font-light">Premium Electric Mobility</span>
                 </div>
-              </div>
-              
-              <div className="mb-auto">
+                
                 <h1 className="text-[clamp(3rem,14vw,10rem)] font-light leading-[0.8] tracking-tight mb-4 md:mb-12 title-charge-glow">
                   <span className="block text-white">
                     НА ПОЛНОМ
@@ -154,7 +152,7 @@ const Index = () => {
                 </div>
               </div>
               
-              <div className="mt-auto space-y-4 md:space-y-0 pb-0 md:pb-0">
+              <div className="space-y-4 md:space-y-0 md:mt-auto">
                 <div className="flex justify-center md:justify-start">
                   <Link to="/catalog" className="w-full md:w-auto">
                     <Button

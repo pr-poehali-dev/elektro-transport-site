@@ -6,13 +6,13 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-[#0a0a0a]">
       <header className="bg-black/95 backdrop-blur-sm border-b border-[#2a2a2a] sticky top-0 z-[100]">
-        <div className="container mx-auto px-6 py-5">
-          <div className="flex items-center justify-between gap-4">
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-gradient-to-br from-[#c4c4c4] to-[#8a8a8a] rounded-full flex items-center justify-center">
-                <span className="text-black font-bold text-sm">EM</span>
+        <div className="container mx-auto px-4 md:px-6 py-3 md:py-5">
+          <div className="flex items-center justify-between gap-2 md:gap-4">
+            <div className="flex items-center gap-2 md:gap-3">
+              <div className="w-8 h-8 md:w-12 md:h-12 bg-gradient-to-br from-[#c4c4c4] to-[#8a8a8a] rounded-full flex items-center justify-center">
+                <span className="text-black font-bold text-[10px] md:text-sm">EM</span>
               </div>
-              <span className="text-base font-normal tracking-[0.2em] text-[#e5e5e5]">ELECTRO MOTORS</span>
+              <span className="text-[10px] md:text-base font-normal tracking-[0.15em] md:tracking-[0.2em] text-[#e5e5e5]">ELECTRO MOTORS</span>
             </div>
 
             <nav className="hidden lg:flex items-center gap-8">
@@ -22,9 +22,10 @@ const Index = () => {
               <a href="#" className="text-[#b0b0b0] hover:text-white transition-colors text-sm font-light">Гарантия</a>
             </nav>
             
-            <div className="flex items-center gap-3">
-              <Button size="sm" className="bg-transparent border border-white text-white hover:bg-white hover:text-black rounded-none px-8 py-2 text-xs tracking-[0.15em] font-light transition-all duration-300">
-                +7 (495) 123-45-67
+            <div className="flex items-center gap-2 md:gap-3">
+              <Button size="sm" className="bg-transparent border border-white text-white hover:bg-white hover:text-black rounded-none px-3 md:px-8 py-1.5 md:py-2 text-[10px] md:text-xs tracking-[0.1em] md:tracking-[0.15em] font-light transition-all duration-300">
+                <span className="hidden sm:inline">+7 (495) 123-45-67</span>
+                <span className="sm:hidden">Звонок</span>
               </Button>
             </div>
           </div>
@@ -38,8 +39,8 @@ const Index = () => {
           
           <div className="absolute inset-0 grid-lines-animation"></div>
           
-          <div className="absolute top-1/4 left-1/4 w-32 h-32 border border-white/10 rounded-full animate-ping" style={{ animationDuration: '4s' }}></div>
-          <div className="absolute bottom-1/3 right-1/4 w-24 h-24 border border-white/10 rounded-full animate-ping" style={{ animationDuration: '5s', animationDelay: '1s' }}></div>
+          <div className="hidden lg:block absolute top-1/4 left-1/4 w-32 h-32 border border-white/10 rounded-full animate-ping" style={{ animationDuration: '4s' }}></div>
+          <div className="hidden lg:block absolute bottom-1/3 right-1/4 w-24 h-24 border border-white/10 rounded-full animate-ping" style={{ animationDuration: '5s', animationDelay: '1s' }}></div>
           
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.05),transparent_70%)] animate-pulse" style={{ animationDuration: '10s' }}></div>
           
@@ -113,7 +114,7 @@ const Index = () => {
 
         </div>
 
-        <div className="absolute right-12 top-1/2 -translate-y-1/2 w-[45%] h-full flex items-center justify-center z-[5] pointer-events-none">
+        <div className="absolute right-0 md:right-12 top-1/2 -translate-y-1/2 w-full md:w-[45%] h-full flex items-center justify-center z-[5] pointer-events-none opacity-30 md:opacity-100">
           <div className="absolute inset-0 bg-gradient-radial from-white/5 via-transparent to-transparent blur-3xl"></div>
           
           <div className="absolute top-1/4 left-1/4 w-40 h-40 border border-white/5 rotate-45"></div>
@@ -122,23 +123,23 @@ const Index = () => {
           <img 
             src="https://cdn.poehali.dev/files/6281e1c0-9b0b-4b9f-a8d6-d59f6b8c765b.png"
             alt="Premium Electric Bike"
-            className="relative w-full h-auto max-h-[85vh] object-contain bike-lightning-glow"
+            className="relative w-full h-auto max-h-[50vh] md:max-h-[85vh] object-contain bike-lightning-glow"
           />
           
           <div className="absolute top-1/2 left-0 w-20 h-px bg-gradient-to-r from-white/20 to-transparent"></div>
           <div className="absolute bottom-1/3 right-0 w-16 h-px bg-gradient-to-l from-white/15 to-transparent"></div>
         </div>
 
-        <div className="w-full px-12 py-0 relative z-10 flex items-center h-full">
+        <div className="w-full px-4 md:px-12 py-0 relative z-10 flex items-center h-full">
           <div className="max-w-screen-2xl mx-auto w-full">
             <div className="animate-fade-in">
-              <div className="mb-8">
-                <div className="inline-block px-4 py-2 border border-[#3a3a3a] mb-10">
-                  <span className="text-[#a0a0a0] text-xs tracking-[0.25em] uppercase font-light">Premium Electric Mobility</span>
+              <div className="mb-4 md:mb-8">
+                <div className="inline-block px-3 py-1.5 md:px-4 md:py-2 border border-[#3a3a3a] mb-6 md:mb-10">
+                  <span className="text-[#a0a0a0] text-[10px] md:text-xs tracking-[0.2em] md:tracking-[0.25em] uppercase font-light">Premium Electric Mobility</span>
                 </div>
               </div>
               
-              <h1 className="text-[clamp(4rem,11vw,9rem)] font-light leading-[0.9] tracking-tight mb-10 title-charge-glow">
+              <h1 className="text-[clamp(2.5rem,15vw,9rem)] font-light leading-[0.9] tracking-tight mb-6 md:mb-10 title-charge-glow">
                 <span className="block text-white">
                   НА ПОЛНОМ
                 </span>
@@ -147,55 +148,55 @@ const Index = () => {
                 </span>
               </h1>
               
-              <div className="flex items-start gap-20 max-w-5xl">
-                <div className="w-[2px] h-32 bg-gradient-to-b from-white to-transparent"></div>
+              <div className="flex items-start gap-6 md:gap-20 max-w-5xl">
+                <div className="hidden md:block w-[2px] h-32 bg-gradient-to-b from-white to-transparent"></div>
                 <div>
-                  <p className="text-[#a0a0a0] text-2xl font-light leading-relaxed mb-14 max-w-3xl">
+                  <p className="text-[#a0a0a0] text-sm md:text-2xl font-light leading-relaxed mb-6 md:mb-14 max-w-3xl">
                     Современно. Экологично. Экономично. Комфортно.
                   </p>
                   
-                  <div className="flex flex-col md:flex-row items-start gap-5 mb-14">
+                  <div className="flex flex-col md:flex-row items-start gap-3 md:gap-5 mb-8 md:mb-14">
                     <Link to="/catalog" className="w-full md:w-auto">
                       <Button
                         size="lg"
-                        className="w-full md:w-auto bg-white text-black hover:bg-[#e5e5e5] font-normal text-sm px-12 py-7 rounded-none tracking-[0.15em] transition-all duration-300 button-charge-glow"
+                        className="w-full md:w-auto bg-white text-black hover:bg-[#e5e5e5] font-normal text-xs md:text-sm px-8 py-4 md:px-12 md:py-7 rounded-none tracking-[0.12em] md:tracking-[0.15em] transition-all duration-300 button-charge-glow"
                       >
                         ПЕРЕЙТИ В КАТАЛОГ
                       </Button>
                     </Link>
                     <Button
                       size="lg"
-                      className="w-full md:w-auto bg-transparent border border-white text-white hover:bg-white hover:text-black font-normal text-sm px-12 py-7 rounded-none tracking-[0.15em] transition-all duration-300"
+                      className="w-full md:w-auto bg-transparent border border-white text-white hover:bg-white hover:text-black font-normal text-xs md:text-sm px-8 py-4 md:px-12 md:py-7 rounded-none tracking-[0.12em] md:tracking-[0.15em] transition-all duration-300"
                     >
                       КОНСУЛЬТАЦИЯ
                     </Button>
                   </div>
                   
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12">
                     <div>
-                      <div className="flex items-start gap-1 mb-3">
-                        <div className="text-5xl font-light text-white tracking-tight">30</div>
-                        <div className="text-2xl font-light text-[#707070] mt-1">%</div>
+                      <div className="flex items-start gap-1 mb-2">
+                        <div className="text-3xl md:text-5xl font-light text-white tracking-tight">30</div>
+                        <div className="text-lg md:text-2xl font-light text-[#707070] mt-0.5 md:mt-1">%</div>
                       </div>
-                      <div className="text-[#707070] text-sm tracking-[0.2em] uppercase font-light">Экономия</div>
+                      <div className="text-[#707070] text-[10px] md:text-sm tracking-[0.15em] md:tracking-[0.2em] uppercase font-light">Экономия</div>
                     </div>
                     
                     <div>
-                      <div className="text-5xl font-light text-white tracking-tight mb-3">30</div>
-                      <div className="text-[#707070] text-sm tracking-[0.2em] uppercase font-light">Дней доставка</div>
+                      <div className="text-3xl md:text-5xl font-light text-white tracking-tight mb-2">30</div>
+                      <div className="text-[#707070] text-[10px] md:text-sm tracking-[0.15em] md:tracking-[0.2em] uppercase font-light">Дней доставка</div>
                     </div>
                     
                     <div>
-                      <div className="text-5xl font-light text-white tracking-tight mb-3">24/7</div>
-                      <div className="text-[#707070] text-sm tracking-[0.2em] uppercase font-light">Поддержка</div>
+                      <div className="text-3xl md:text-5xl font-light text-white tracking-tight mb-2">24/7</div>
+                      <div className="text-[#707070] text-[10px] md:text-sm tracking-[0.15em] md:tracking-[0.2em] uppercase font-light">Поддержка</div>
                     </div>
                     
                     <div>
-                      <div className="flex items-start gap-1 mb-3">
-                        <div className="text-5xl font-light text-white tracking-tight">100</div>
-                        <div className="text-2xl font-light text-[#707070] mt-1">%</div>
+                      <div className="flex items-start gap-1 mb-2">
+                        <div className="text-3xl md:text-5xl font-light text-white tracking-tight">100</div>
+                        <div className="text-lg md:text-2xl font-light text-[#707070] mt-0.5 md:mt-1">%</div>
                       </div>
-                      <div className="text-[#707070] text-sm tracking-[0.2em] uppercase font-light">Гарантия</div>
+                      <div className="text-[#707070] text-[10px] md:text-sm tracking-[0.15em] md:tracking-[0.2em] uppercase font-light">Гарантия</div>
                     </div>
                   </div>
                 </div>

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { GlowCard, GlowCardContent } from "@/components/ui/glow-card";
 import Icon from "@/components/ui/icon";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
@@ -113,8 +114,8 @@ const ProductDetail = () => {
             <div className="space-y-6">
               {/* Images & Description/Specs in 2 columns */}
               <div className="grid md:grid-cols-2 gap-4 md:gap-6">
-                <Card className="overflow-hidden bg-black/40 backdrop-blur-sm border-[#2a2a2a] hover:border-blue-400/50 shadow-[0_0_25px_rgba(96,165,250,0.2),inset_0_0_25px_rgba(96,165,250,0.08)] hover:shadow-[0_0_40px_rgba(96,165,250,0.35),inset_0_0_35px_rgba(96,165,250,0.12)] transition-all duration-500">
-                  <CardContent className="p-4 md:p-6">
+                <GlowCard glowIntensity="high" className="overflow-hidden bg-black/40 backdrop-blur-sm border-[#2a2a2a] hover:border-blue-400/50">
+                  <GlowCardContent className="p-4 md:p-6">
                     <div className="aspect-square w-full bg-[#1a1a1a] rounded-lg flex items-center justify-center overflow-hidden">
                       <img
                         src={product.images[selectedImage]}
@@ -135,20 +136,20 @@ const ProductDetail = () => {
                         </button>
                       ))}
                     </div>
-                  </CardContent>
-                </Card>
+                  </GlowCardContent>
+                </GlowCard>
 
                 {/* Description & Specs stacked */}
                 <div className="flex flex-col space-y-4">
-                  <Card className="bg-black/40 backdrop-blur-sm border-[#2a2a2a] shadow-[0_0_15px_rgba(96,165,250,0.12),inset_0_0_15px_rgba(96,165,250,0.05)]">
-                    <CardContent className="p-4 md:p-6">
+                  <GlowCard glowIntensity="low" hoverEffect={false} className="bg-black/40 backdrop-blur-sm border-[#2a2a2a]">
+                    <GlowCardContent className="p-4 md:p-6">
                       <h2 className="text-lg font-light mb-4 text-white tracking-wide">Описание</h2>
                       <p className="text-sm text-[#b0b0b0] leading-relaxed">{product.description}</p>
-                    </CardContent>
-                  </Card>
+                    </GlowCardContent>
+                  </GlowCard>
 
-                  <Card className="bg-black/40 backdrop-blur-sm border-[#2a2a2a] shadow-[0_0_15px_rgba(96,165,250,0.12),inset_0_0_15px_rgba(96,165,250,0.05)]">
-                    <CardContent className="p-4 md:p-6">
+                  <GlowCard glowIntensity="low" hoverEffect={false} className="bg-black/40 backdrop-blur-sm border-[#2a2a2a]">
+                    <GlowCardContent className="p-4 md:p-6">
                       <h2 className="text-lg font-light mb-4 text-white tracking-wide">Характеристики</h2>
                       <div className="space-y-3">
                         {product.specs.map((spec, idx) => (
@@ -158,13 +159,13 @@ const ProductDetail = () => {
                           </div>
                         ))}
                       </div>
-                    </CardContent>
-                  </Card>
+                    </GlowCardContent>
+                  </GlowCard>
 
                   {/* Video Review - Desktop only (below specs) */}
                   {product.youtubeUrl && (
-                    <Card className="hidden md:block bg-black/40 backdrop-blur-sm border-[#2a2a2a] shadow-[0_0_15px_rgba(96,165,250,0.12),inset_0_0_15px_rgba(96,165,250,0.05)]">
-                      <CardContent className="p-4 md:p-6">
+                    <GlowCard glowIntensity="low" hoverEffect={false} className="hidden md:block bg-black/40 backdrop-blur-sm border-[#2a2a2a]">
+                      <GlowCardContent className="p-4 md:p-6">
                         <h2 className="text-lg font-light mb-4 text-white tracking-wide">Видео-обзор</h2>
                         <div className="aspect-video bg-[#1a1a1a] rounded-lg overflow-hidden">
                           <iframe
@@ -177,8 +178,8 @@ const ProductDetail = () => {
                             allowFullScreen
                           ></iframe>
                         </div>
-                      </CardContent>
-                    </Card>
+                      </GlowCardContent>
+                    </GlowCard>
                   )}
                 </div>
               </div>
@@ -186,8 +187,8 @@ const ProductDetail = () => {
 
             {/* Right Sidebar - Info & Order */}
             <div className="lg:sticky lg:top-24 space-y-4 h-fit">
-              <Card className="bg-black/60 backdrop-blur-sm border-[#2a2a2a] shadow-[0_0_25px_rgba(96,165,250,0.2),inset_0_0_25px_rgba(96,165,250,0.08)]">
-                <CardContent className="p-4 md:p-6">
+              <GlowCard glowIntensity="high" hoverEffect={false} className="bg-black/60 backdrop-blur-sm border-[#2a2a2a]">
+                <GlowCardContent className="p-4 md:p-6">
                   <Badge className="mb-2 text-xs bg-white/10 text-white border-none">{product.category}</Badge>
                   <h1 className="text-2xl font-light mb-3 text-white tracking-tight">{product.name}</h1>
                   <div className="flex items-center gap-2 text-xs mb-4 text-[#b0b0b0]">
@@ -254,12 +255,12 @@ const ProductDetail = () => {
                       <span>Оплата при получении</span>
                     </div>
                   </div>
-                </CardContent>
-              </Card>
+                </GlowCardContent>
+              </GlowCard>
 
               {/* Order Form */}
-              <Card id="order-form" className="bg-black/60 backdrop-blur-sm border-[#2a2a2a] shadow-[0_0_25px_rgba(96,165,250,0.2),inset_0_0_25px_rgba(96,165,250,0.08)]">
-                <CardContent className="p-4 md:p-6">
+              <GlowCard id="order-form" glowIntensity="high" hoverEffect={false} className="bg-black/60 backdrop-blur-sm border-[#2a2a2a]">
+                <GlowCardContent className="p-4 md:p-6">
                   <h3 className="text-lg font-light mb-4 text-white tracking-wide">Заказать товар</h3>
                   <form onSubmit={handleSubmit} className="space-y-3">
                     <div>
@@ -303,16 +304,16 @@ const ProductDetail = () => {
                       Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
                     </p>
                   </form>
-                </CardContent>
-              </Card>
+                </GlowCardContent>
+              </GlowCard>
             </div>
           </div>
 
           {/* Video Review - Mobile only (at bottom) */}
           {product.youtubeUrl && (
             <div className="md:hidden container mx-auto px-4 mt-6">
-              <Card className="bg-black/40 backdrop-blur-sm border-[#2a2a2a] shadow-[0_0_15px_rgba(96,165,250,0.12),inset_0_0_15px_rgba(96,165,250,0.05)]">
-                <CardContent className="p-4">
+              <GlowCard glowIntensity="low" hoverEffect={false} className="bg-black/40 backdrop-blur-sm border-[#2a2a2a]">
+                <GlowCardContent className="p-4">
                   <h2 className="text-lg font-light mb-4 text-white tracking-wide">Видео-обзор</h2>
                   <div className="aspect-video bg-[#1a1a1a] rounded-lg overflow-hidden">
                     <iframe
@@ -325,8 +326,8 @@ const ProductDetail = () => {
                       allowFullScreen
                     ></iframe>
                   </div>
-                </CardContent>
-              </Card>
+                </GlowCardContent>
+              </GlowCard>
             </div>
           )}
         </div>

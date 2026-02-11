@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { GlowCard, GlowCardContent } from "@/components/ui/glow-card";
 import Icon from "@/components/ui/icon";
 import { Badge } from "@/components/ui/badge";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -215,8 +216,8 @@ const Catalog = () => {
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="grid lg:grid-cols-[280px_1fr] gap-6">
             <aside className="hidden lg:block">
-              <Card className="bg-black/40 backdrop-blur-sm border-[#2a2a2a] shadow-[0_0_15px_rgba(96,165,250,0.1),inset_0_0_15px_rgba(96,165,250,0.05)]">
-                <CardContent className="p-6">
+              <GlowCard glowIntensity="low" hoverEffect={false} className="bg-black/40 backdrop-blur-sm border-[#2a2a2a]">
+                <GlowCardContent className="p-6">
                   <h3 className="text-lg font-light mb-4 text-white tracking-wide">Категории</h3>
                   <div className="space-y-1 mb-8">
                     <Button
@@ -322,8 +323,8 @@ const Catalog = () => {
                   <Button className="w-full bg-transparent border border-white text-white hover:bg-white hover:text-black rounded-none tracking-wide font-light transition-all duration-300" onClick={resetFilters}>
                     Сбросить фильтры
                   </Button>
-                </CardContent>
-              </Card>
+                </GlowCardContent>
+              </GlowCard>
             </aside>
 
             <div className="w-full">
@@ -341,8 +342,8 @@ const Catalog = () => {
               </div>
 
               {showCompare && compareProducts.length > 0 && (
-                <Card className="mb-8 bg-black/40 backdrop-blur-sm border-[#2a2a2a] shadow-[0_0_20px_rgba(96,165,250,0.15),inset_0_0_20px_rgba(96,165,250,0.05)]">
-                  <CardContent className="p-6">
+                <GlowCard glowIntensity="medium" hoverEffect={false} className="mb-8 bg-black/40 backdrop-blur-sm border-[#2a2a2a]">
+                  <GlowCardContent className="p-6">
                     <div className="flex items-center justify-between mb-6">
                       <h3 className="text-xl font-light text-white">Сравнение моделей</h3>
                       <Button
@@ -407,14 +408,14 @@ const Catalog = () => {
                         </tbody>
                       </table>
                     </div>
-                  </CardContent>
-                </Card>
+                  </GlowCardContent>
+                </GlowCard>
               )}
 
               <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6">
                 {filteredProducts.map((product) => (
-                  <Card key={product.id} className="group overflow-hidden bg-black/60 backdrop-blur-sm border-[#3a3a3a] hover:border-blue-400/50 transition-all duration-500 shadow-[0_0_20px_rgba(96,165,250,0.15),inset_0_0_20px_rgba(96,165,250,0.05)] hover:shadow-[0_0_35px_rgba(96,165,250,0.3),inset_0_0_30px_rgba(96,165,250,0.1)]">
-                    <CardContent className="p-0">
+                  <GlowCard key={product.id} glowIntensity="medium" className="group overflow-hidden bg-black/60 backdrop-blur-sm border-[#3a3a3a] hover:border-blue-400/50">
+                    <GlowCardContent className="p-0">
                       <div className="relative aspect-square overflow-hidden bg-[#1a1a1a]">
                         <img
                           src={product.image}
@@ -480,8 +481,8 @@ const Catalog = () => {
                           </Link>
                         </div>
                       </div>
-                    </CardContent>
-                  </Card>
+                    </GlowCardContent>
+                  </GlowCard>
                 ))}
               </div>
 
@@ -502,7 +503,7 @@ const Catalog = () => {
 
       {showFilters && (
         <div className="lg:hidden fixed inset-0 bg-black/95 backdrop-blur-sm z-[110]" onClick={() => setShowFilters(false)}>
-          <div className="absolute bottom-0 left-0 right-0 bg-[#0a0a0a] border-t border-[#2a2a2a] max-h-[85vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+          <GlowCard glowIntensity="medium" hoverEffect={false} className="absolute bottom-0 left-0 right-0 bg-[#0a0a0a] border-t border-[#2a2a2a] max-h-[85vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
             <div className="sticky top-0 bg-[#0a0a0a] border-b border-[#2a2a2a] p-4 flex items-center justify-between z-10">
               <h3 className="text-lg font-light text-white tracking-wide">Фильтры</h3>
               <Button variant="ghost" size="sm" onClick={() => setShowFilters(false)} className="text-[#b0b0b0] hover:text-white hover:bg-white/5">
@@ -584,7 +585,7 @@ const Catalog = () => {
                 </Button>
               </div>
             </div>
-          </div>
+          </GlowCard>
         </div>
       )}
     </div>

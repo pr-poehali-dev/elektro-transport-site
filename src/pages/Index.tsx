@@ -1,30 +1,30 @@
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 const Index = () => {
   const navigate = useNavigate();
   const mainRef = useRef<HTMLDivElement>(null);
-  const [isTransitioning, setIsTransitioning] = useState(false);
+  const hasNavigated = useRef(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (isTransitioning) return;
+      if (hasNavigated.current) return;
       if (!mainRef.current) return;
       
       const scrollY = window.scrollY;
       const windowHeight = window.innerHeight;
-      const triggerPoint = windowHeight * 0.3;
+      const triggerPoint = windowHeight * 0.5;
       
       if (scrollY > triggerPoint) {
-        const progress = Math.min((scrollY - triggerPoint) / (windowHeight * 0.3), 1);
+        const progress = Math.min((scrollY - triggerPoint) / (windowHeight * 0.4), 1);
         mainRef.current.style.transform = `translateX(-${progress * 100}%)`;
         mainRef.current.style.opacity = `${1 - progress}`;
         
         // Переход на каталог при завершении анимации
-        if (progress >= 1) {
-          setIsTransitioning(true);
+        if (progress >= 0.9) {
+          hasNavigated.current = true;
           navigate('/catalog');
         }
       } else {
@@ -33,11 +33,11 @@ const Index = () => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [navigate, isTransitioning]);
+  }, [navigate]);
 
   return (
     <div className="bg-[#0a0a0a]" style={{ minHeight: '150vh' }}>

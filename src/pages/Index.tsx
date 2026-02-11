@@ -47,7 +47,7 @@ const Index = () => {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.05),transparent_70%)] animate-pulse" style={{ animationDuration: '10s' }}></div>
         </div>
 
-        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[55%] h-full flex items-center justify-end z-[5] pointer-events-none">
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1/2 h-full flex items-center justify-end z-[5] pointer-events-none">
           <div className="relative w-full h-full flex items-center justify-center">
             <div className="absolute inset-0 bg-gradient-to-l from-transparent via-[#0a0a0a]/50 to-[#0a0a0a]"></div>
             <img 

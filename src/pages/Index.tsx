@@ -86,22 +86,10 @@ const Index = () => {
     <div className="bg-[#0a0a0a] relative h-screen w-screen overflow-hidden fixed inset-0">
       {/* Анимация Premium Electric Mobility */}
       <div ref={premiumTextRef} className="fixed inset-0 z-50 bg-[#0a0a0a] hidden items-center justify-center transition-opacity duration-500" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-        {/* Фоновое изображение велосипеда */}
-        <div className="absolute inset-0 flex items-center justify-center opacity-20">
-          <img 
-            src="https://cdn.poehali.dev/files/6281e1c0-9b0b-4b9f-a8d6-d59f6b8c765b.png"
-            alt="Electric Bike"
-            className="w-full h-auto max-h-[80vh] object-contain"
-          />
-        </div>
-        
-        {/* Надпись поверх изображения */}
-        <div className="relative z-10">
-          <div className="inline-block px-4 py-2 md:px-6 md:py-3 border border-blue-400/30 opacity-0 animate-[premiumFade_1s_ease-out_0s_forwards]" style={{ boxShadow: '0 0 20px rgba(96, 165, 250, 0.2), inset 0 0 20px rgba(96, 165, 250, 0.08)' }}>
-            <span className="text-[#a0a0a0] text-[clamp(1rem,5vw,2.5rem)] tracking-[0.3em] uppercase font-light">
-              Premium Electric Mobility
-            </span>
-          </div>
+        <div className="inline-block px-4 py-2 md:px-6 md:py-3 border border-blue-400/30 opacity-0 animate-[premiumFade_1s_ease-out_0s_forwards]" style={{ boxShadow: '0 0 20px rgba(96, 165, 250, 0.2), inset 0 0 20px rgba(96, 165, 250, 0.08)' }}>
+          <span className="text-[#a0a0a0] text-[clamp(1rem,5vw,2.5rem)] tracking-[0.3em] uppercase font-light">
+            Premium Electric Mobility
+          </span>
         </div>
       </div>
       

@@ -149,8 +149,8 @@ const Index = () => {
                     Современно. Экологично. Экономично. Комфортно.
                   </p>
                   
-                  <div className="flex flex-col md:flex-row items-stretch md:items-start gap-4 md:gap-5 mb-12 md:mb-14">
-                    <Link to="/catalog" className="w-full md:w-auto">
+                  <div className="mb-12 md:mb-14">
+                    <Link to="/catalog" className="inline-block">
                       <Button
                         size="lg"
                         className="w-full md:w-auto bg-white text-black hover:bg-[#e5e5e5] font-normal text-sm md:text-sm px-8 py-5 md:px-12 md:py-7 rounded-none tracking-[0.15em] md:tracking-[0.15em] transition-all duration-300 button-charge-glow"
@@ -158,12 +158,6 @@ const Index = () => {
                         ПЕРЕЙТИ В КАТАЛОГ
                       </Button>
                     </Link>
-                    <Button
-                      size="lg"
-                      className="w-full md:w-auto bg-transparent border border-white text-white hover:bg-white hover:text-black font-normal text-sm md:text-sm px-8 py-5 md:px-12 md:py-7 rounded-none tracking-[0.15em] md:tracking-[0.15em] transition-all duration-300"
-                    >
-                      КОНСУЛЬТАЦИЯ
-                    </Button>
                   </div>
                   
                   <div className="grid grid-cols-4 md:grid-cols-4 gap-3 md:gap-12">

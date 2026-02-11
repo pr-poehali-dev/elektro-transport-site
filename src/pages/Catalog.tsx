@@ -481,15 +481,15 @@ const Catalog = () => {
                           </div>
                         </div>
                         
-                        <div className="flex items-center justify-between pt-5 border-t border-[#4a4a4a]">
-                          <div>
-                            <div className="text-3xl font-light text-white tracking-tight">{product.price.toLocaleString()} ₽</div>
+                        <div className="pt-5 border-t border-[#4a4a4a]">
+                          <div className="text-3xl font-light text-white tracking-tight mb-3">{product.price.toLocaleString()} ₽</div>
+                          <div className="flex justify-end">
+                            <Link to={`/product/${product.id}`}>
+                              <Button size="sm" className="bg-white text-black hover:bg-[#e5e5e5] rounded-none px-6 py-3 font-light tracking-wider uppercase text-sm transition-all duration-300">
+                                Подробнее
+                              </Button>
+                            </Link>
                           </div>
-                          <Link to={`/product/${product.id}`}>
-                            <Button size="sm" className="bg-white text-black hover:bg-[#e5e5e5] rounded-none px-6 py-3 font-light tracking-wider uppercase text-sm transition-all duration-300">
-                              Подробнее
-                            </Button>
-                          </Link>
                         </div>
                       </div>
                     </GlowCardContent>

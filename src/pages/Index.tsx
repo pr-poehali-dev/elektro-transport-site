@@ -76,70 +76,24 @@ const Index = () => {
         </div>
       </div>
       
-      {/* Эффект молнии */}
+      {/* Эффект погружения */}
       <div ref={lightningRef} className="fixed inset-0 z-[60] bg-[#0a0a0a]" style={{ display: 'none' }}>
-        <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
-          <defs>
-            <filter id="finale-glow">
-              <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
-              <feMerge>
-                <feMergeNode in="coloredBlur"/>
-                <feMergeNode in="SourceGraphic"/>
-              </feMerge>
-            </filter>
-            <radialGradient id="finale-radial-glow">
-              <stop offset="0%" stopColor="rgba(96, 165, 250, 0.6)" />
-              <stop offset="50%" stopColor="rgba(96, 165, 250, 0.3)" />
-              <stop offset="100%" stopColor="rgba(96, 165, 250, 0)" />
-            </radialGradient>
-          </defs>
-          
-          <circle cx="960" cy="540" r="600" fill="url(#finale-radial-glow)" className="animate-[finaleGlow_0.8s_ease-out_forwards]"/>
-          
-          <g filter="url(#finale-glow)">
-            {/* Основная молния */}
-            <path d="M960,0 L980,120 L940,160 L970,280 L930,350 L965,480 L945,560 L975,680 L940,760 L970,880 L950,960 L975,1080" 
-                  stroke="#60a5fa" strokeWidth="5" fill="none" opacity="0.9" className="animate-[finaleLightning_0.6s_ease-out_forwards] bolt bolt-main"/>
-            <path d="M960,0 L980,120 L940,160 L970,280 L930,350 L965,480 L945,560 L975,680 L940,760 L970,880 L950,960 L975,1080" 
-                  stroke="#ffffff" strokeWidth="2.5" fill="none" className="animate-[finaleLightning_0.6s_ease-out_forwards] bolt bolt-core"/>
-            
-            {/* Ветки молнии */}
-            <path d="M970,280 L1050,310 L1020,360 L1080,420 L1050,480" 
-                  stroke="#60a5fa" strokeWidth="3" fill="none" opacity="0.8" className="animate-[finaleLightning_0.6s_ease-out_0.1s_forwards] bolt bolt-branch"/>
-            <path d="M970,280 L1050,310 L1020,360 L1080,420 L1050,480" 
-                  stroke="#ffffff" strokeWidth="1.5" fill="none" opacity="0.95" className="animate-[finaleLightning_0.6s_ease-out_0.1s_forwards] bolt bolt-branch"/>
-            
-            <path d="M930,350 L850,390 L880,450 L820,510 L850,570" 
-                  stroke="#60a5fa" strokeWidth="3" fill="none" opacity="0.75" className="animate-[finaleLightning_0.6s_ease-out_0.15s_forwards] bolt bolt-branch"/>
-            <path d="M930,350 L850,390 L880,450 L820,510 L850,570" 
-                  stroke="#ffffff" strokeWidth="1.5" fill="none" opacity="0.9" className="animate-[finaleLightning_0.6s_ease-out_0.15s_forwards] bolt bolt-branch"/>
-            
-            <path d="M1080,420 L1180,460 L1150,520 L1220,590" 
-                  stroke="#60a5fa" strokeWidth="2.5" fill="none" opacity="0.7" className="animate-[finaleLightning_0.6s_ease-out_0.2s_forwards] bolt bolt-branch"/>
-            <path d="M1080,420 L1180,460 L1150,520 L1220,590" 
-                  stroke="#ffffff" strokeWidth="1.2" fill="none" opacity="0.85" className="animate-[finaleLightning_0.6s_ease-out_0.2s_forwards] bolt bolt-branch"/>
-            
-            <path d="M820,510 L720,560 L750,620 L680,690" 
-                  stroke="#60a5fa" strokeWidth="2.5" fill="none" opacity="0.7" className="animate-[finaleLightning_0.6s_ease-out_0.25s_forwards] bolt bolt-branch"/>
-            <path d="M820,510 L720,560 L750,620 L680,690" 
-                  stroke="#ffffff" strokeWidth="1.2" fill="none" opacity="0.85" className="animate-[finaleLightning_0.6s_ease-out_0.25s_forwards] bolt bolt-branch"/>
-            
-            <path d="M965,480 L1090,530 L1060,590 L1120,660 L1090,720" 
-                  stroke="#60a5fa" strokeWidth="3" fill="none" opacity="0.8" className="animate-[finaleLightning_0.6s_ease-out_0.12s_forwards] bolt bolt-branch"/>
-            <path d="M965,480 L1090,530 L1060,590 L1120,660 L1090,720" 
-                  stroke="#ffffff" strokeWidth="1.5" fill="none" opacity="0.95" className="animate-[finaleLightning_0.6s_ease-out_0.12s_forwards] bolt bolt-branch"/>
-            
-            <path d="M940,760 L860,810 L890,870 L830,930 L860,990" 
-                  stroke="#60a5fa" strokeWidth="3" fill="none" opacity="0.75" className="animate-[finaleLightning_0.6s_ease-out_0.18s_forwards] bolt bolt-branch"/>
-            <path d="M940,760 L860,810 L890,870 L830,930 L860,990" 
-                  stroke="#ffffff" strokeWidth="1.5" fill="none" opacity="0.9" className="animate-[finaleLightning_0.6s_ease-out_0.18s_forwards] bolt bolt-branch"/>
-            
-            <path d="M970,880 L1060,920 L1030,980 L1090,1040" 
-                  stroke="#60a5fa" strokeWidth="3" fill="none" opacity="0.7" className="animate-[finaleLightning_0.6s_ease-out_0.22s_forwards] bolt bolt-branch"/>
-            <path d="M970,880 L1060,920 L1030,980 L1090,1040" 
-                  stroke="#ffffff" strokeWidth="1.5" fill="none" opacity="0.85" className="animate-[finaleLightning_0.6s_ease-out_0.22s_forwards] bolt bolt-branch"/>
-          </g>
-        </svg>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-full h-full relative overflow-hidden">
+            <div className="absolute inset-0 animate-[immersionGlow_1.2s_ease-out_forwards]" style={{
+              background: 'radial-gradient(circle at center, rgba(59, 130, 246, 0.4) 0%, rgba(59, 130, 246, 0.2) 25%, rgba(59, 130, 246, 0.1) 50%, transparent 70%)',
+              filter: 'blur(60px)'
+            }}></div>
+            <div className="absolute inset-0 animate-[immersionGlow_1.2s_ease-out_0.2s_forwards]" style={{
+              background: 'radial-gradient(circle at center, rgba(96, 165, 250, 0.5) 0%, rgba(96, 165, 250, 0.25) 30%, transparent 60%)',
+              filter: 'blur(80px)'
+            }}></div>
+            <div className="absolute inset-0 animate-[immersionGlow_1.2s_ease-out_0.4s_forwards]" style={{
+              background: 'radial-gradient(circle at center, rgba(147, 197, 253, 0.3) 0%, rgba(147, 197, 253, 0.1) 40%, transparent 70%)',
+              filter: 'blur(100px)'
+            }}></div>
+          </div>
+        </div>
       </div>
       
       <div ref={containerRef} className="transition-all duration-[600ms] ease-out" style={{ willChange: 'transform, opacity' }}>

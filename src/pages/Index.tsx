@@ -34,22 +34,7 @@ const Index = () => {
 
       <section className="relative h-[calc(100vh-73px)] md:h-[calc(100vh-73px)] flex items-center overflow-hidden py-0">
         <div className="absolute inset-0">
-          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-bl from-[#1a1a1a] to-transparent animate-pulse" style={{ animationDuration: '8s' }}></div>
-          <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-[#1a1a1a] to-transparent animate-pulse" style={{ animationDuration: '6s', animationDelay: '2s' }}></div>
-          
-          <div className="absolute inset-0 grid-lines-animation"></div>
-          
-          <div className="hidden lg:block absolute top-1/4 left-1/4 w-32 h-32 border border-white/10 rounded-full animate-ping" style={{ animationDuration: '4s' }}></div>
-          <div className="hidden lg:block absolute bottom-1/3 right-1/4 w-24 h-24 border border-white/10 rounded-full animate-ping" style={{ animationDuration: '5s', animationDelay: '1s' }}></div>
-          
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.05),transparent_70%)] animate-pulse" style={{ animationDuration: '10s' }}></div>
-          
-          <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-white/10 to-transparent"></div>
-          <div className="absolute top-0 right-1/3 w-px h-full bg-gradient-to-b from-transparent via-white/5 to-transparent"></div>
-          
-          <div className="absolute top-1/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
-          
-          <svg className="absolute inset-0 w-full h-full lightning-strike pointer-events-none z-20" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+          <svg className="hidden md:block absolute inset-0 w-full h-full lightning-strike pointer-events-none z-20" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
             <defs>
               <filter id="glow">
                 <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
@@ -110,12 +95,11 @@ const Index = () => {
             </g>
           </svg>
           
-          <div className="absolute bottom-0 left-0 right-0 h-32 bottom-glow-effect pointer-events-none"></div>
+          <div className="hidden md:block absolute bottom-0 left-0 right-0 h-32 bottom-glow-effect pointer-events-none"></div>
 
         </div>
 
         <div className="absolute right-0 md:right-12 top-1/2 -translate-y-1/2 w-full md:w-[45%] h-full flex items-center justify-center z-[5] pointer-events-none opacity-50 md:opacity-100">
-          <div className="absolute inset-0 bg-gradient-radial from-white/5 via-transparent to-transparent blur-3xl"></div>
           
           <img 
             src="https://cdn.poehali.dev/files/6281e1c0-9b0b-4b9f-a8d6-d59f6b8c765b.png"
@@ -126,7 +110,7 @@ const Index = () => {
 
         <div className="w-full px-6 md:px-16 py-0 relative z-10 flex items-start h-full">
           <div className="max-w-screen-2xl mx-auto w-full">
-            <div className="animate-fade-in h-full pt-2 md:py-16">
+            <div className="h-full pt-2 md:py-16 md:animate-fade-in">
               <div className="inline-block px-4 py-2 md:px-6 md:py-3 border border-[#3a3a3a] mb-3 md:mb-16">
                 <span className="text-[#a0a0a0] text-[9px] md:text-xs tracking-[0.25em] md:tracking-[0.3em] uppercase font-light">Premium Electric Mobility</span>
               </div>

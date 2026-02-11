@@ -4,133 +4,125 @@ import Icon from "@/components/ui/icon";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-white">
-      <header className="bg-white/80 backdrop-blur-xl border-b border-slate-200/50 sticky top-0 z-[100]">
-        <div className="container mx-auto px-6 py-6">
+    <div className="min-h-screen bg-[#0a0a0a]">
+      <header className="bg-black/95 backdrop-blur-sm border-b border-[#2a2a2a] sticky top-0 z-[100]">
+        <div className="container mx-auto px-6 py-5">
           <div className="flex items-center justify-between gap-4">
-            <div className="flex items-center gap-2">
-              <span className="text-xl font-light tracking-[0.3em] text-slate-900">ELECTRO MOTORS</span>
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 bg-gradient-to-br from-[#c4c4c4] to-[#8a8a8a] rounded-full flex items-center justify-center">
+                <span className="text-black font-bold text-sm">EM</span>
+              </div>
+              <span className="text-base font-normal tracking-[0.2em] text-[#e5e5e5]">ELECTRO MOTORS</span>
             </div>
 
-            <nav className="hidden lg:flex items-center gap-10">
-              <Link to="/catalog" className="text-slate-600 hover:text-slate-900 transition-colors text-sm tracking-wider">Каталог</Link>
-              <a href="#" className="text-slate-600 hover:text-slate-900 transition-colors text-sm tracking-wider">О нас</a>
-              <a href="#" className="text-slate-600 hover:text-slate-900 transition-colors text-sm tracking-wider">Доставка</a>
-              <a href="#" className="text-slate-600 hover:text-slate-900 transition-colors text-sm tracking-wider">Гарантия</a>
+            <nav className="hidden lg:flex items-center gap-8">
+              <Link to="/catalog" className="text-[#b0b0b0] hover:text-white transition-colors text-sm font-light">Каталог</Link>
+              <a href="#" className="text-[#b0b0b0] hover:text-white transition-colors text-sm font-light">О нас</a>
+              <a href="#" className="text-[#b0b0b0] hover:text-white transition-colors text-sm font-light">Доставка</a>
+              <a href="#" className="text-[#b0b0b0] hover:text-white transition-colors text-sm font-light">Гарантия</a>
             </nav>
             
             <div className="flex items-center gap-3">
-              <Button variant="ghost" size="icon" className="hidden md:flex text-slate-600 hover:text-slate-900 hover:bg-slate-100/50">
-                <Icon name="Heart" size={20} />
+              <Button variant="ghost" size="icon" className="hidden md:flex text-[#b0b0b0] hover:text-white hover:bg-white/5">
+                <Icon name="Heart" size={18} />
               </Button>
-              <Button size="icon" className="md:w-auto bg-slate-900 hover:bg-slate-800 text-white rounded-none md:px-8 text-sm tracking-wider font-light">
-                <Icon name="Phone" size={18} />
-                <span className="hidden md:inline md:ml-2">+7 (495) 123-45-67</span>
+              <Button size="sm" className="bg-white text-black hover:bg-[#e5e5e5] rounded-none px-6 text-xs tracking-wider font-medium">
+                +7 (495) 123-45-67
               </Button>
             </div>
           </div>
         </div>
       </header>
 
-      <section className="relative min-h-[calc(100vh-88px)] flex items-center overflow-hidden bg-gradient-to-b from-slate-50 to-white">
-        <div className="container mx-auto px-6 py-20 relative z-10">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-20 animate-fade-in">
-              <p className="text-slate-500 text-sm tracking-[0.3em] uppercase mb-6 font-light">Premium Electric Vehicles</p>
-              <h1 className="text-[clamp(3rem,8vw,7rem)] font-extralight leading-[1.1] tracking-tight mb-6">
-                <span className="block text-slate-900">
+      <section className="relative min-h-[calc(100vh-73px)] flex items-center overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-bl from-[#1a1a1a] to-transparent"></div>
+          <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-[#1a1a1a] to-transparent"></div>
+        </div>
+
+        <div className="container mx-auto px-6 py-24 relative z-10">
+          <div className="max-w-6xl mx-auto">
+            <div className="mb-32 animate-fade-in">
+              <div className="mb-6">
+                <div className="inline-block px-4 py-2 border border-[#3a3a3a] mb-8">
+                  <span className="text-[#a0a0a0] text-xs tracking-[0.25em] uppercase font-light">Premium Electric Mobility</span>
+                </div>
+              </div>
+              
+              <h1 className="text-[clamp(3.5rem,10vw,8rem)] font-light leading-[0.95] tracking-tight mb-8">
+                <span className="block text-white">
                   НА ПОЛНОМ
                 </span>
-                <span className="block text-slate-900 font-light italic">
+                <span className="block text-[#707070] italic">
                   ЗАРЯДЕ
                 </span>
               </h1>
-              <p className="text-slate-600 text-lg font-light max-w-xl mx-auto leading-relaxed">
-                Современно. Экологично. Экономично. Комфортно.
-              </p>
-            </div>
-
-            <div className="relative mb-20">
-              <div className="flex items-center justify-center gap-12">
-                <div className="hidden lg:block w-[280px] animate-slide-in-left opacity-0">
-                  <div className="relative group">
-                    <img 
-                      src="https://cdn.poehali.dev/projects/795ac98f-803c-4050-937a-9e9c042d136c/files/e25773ab-a522-45b7-a156-17496c63e452.jpg"
-                      alt="Electric Bike"
-                      className="relative z-10 w-full h-auto transform group-hover:scale-105 transition-transform duration-700"
-                    />
-                  </div>
-                </div>
-
-                <div className="w-[450px] md:w-[550px] animate-scale-in opacity-0">
-                  <div className="relative group">
-                    <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-[60%] h-[20px] bg-slate-900/10 rounded-full blur-xl"></div>
-                    <img 
-                      src="https://cdn.poehali.dev/projects/795ac98f-803c-4050-937a-9e9c042d136c/files/b66a30bf-2421-4969-8e60-c83db26aac26.jpg"
-                      alt="Electric Scooter"
-                      className="relative z-10 w-full h-auto transform group-hover:scale-105 transition-transform duration-700"
-                    />
-                  </div>
-                </div>
-
-                <div className="hidden lg:block w-[280px] animate-slide-in-right opacity-0">
-                  <div className="relative group">
-                    <img 
-                      src="https://cdn.poehali.dev/files/26aabfed-1ab2-4231-965b-7ab4d5c7bdef.png"
-                      alt="Electric Tricycle"
-                      className="relative z-10 w-full h-auto transform group-hover:scale-105 transition-transform duration-700"
-                    />
+              
+              <div className="flex items-start gap-16 max-w-4xl">
+                <div className="w-[2px] h-24 bg-gradient-to-b from-white to-transparent"></div>
+                <div>
+                  <p className="text-[#a0a0a0] text-xl font-light leading-relaxed mb-12 max-w-2xl">
+                    Современно. Экологично. Экономично. Комфортно.
+                  </p>
+                  
+                  <div className="flex flex-col md:flex-row items-start gap-4">
+                    <Link to="/catalog" className="w-full md:w-auto">
+                      <Button
+                        size="lg"
+                        className="w-full md:w-auto bg-white text-black hover:bg-[#e5e5e5] font-normal text-sm px-10 py-6 rounded-none tracking-[0.15em] transition-all duration-300"
+                      >
+                        ПЕРЕЙТИ В КАТАЛОГ
+                      </Button>
+                    </Link>
+                    <Button
+                      size="lg"
+                      className="w-full md:w-auto bg-transparent border border-white text-white hover:bg-white hover:text-black font-normal text-sm px-10 py-6 rounded-none tracking-[0.15em] transition-all duration-300"
+                    >
+                      КОНСУЛЬТАЦИЯ
+                    </Button>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-24 animate-fade-in opacity-0" style={{ animationDelay: '0.4s' }}>
-              <Link to="/catalog" className="w-full md:w-auto">
-                <Button
-                  size="lg"
-                  className="w-full md:w-auto bg-slate-900 hover:bg-slate-800 text-white font-light text-base px-12 py-6 rounded-none tracking-wider hover:tracking-[0.2em] transition-all duration-300"
-                >
-                  <span className="flex items-center gap-4">
-                    Перейти в каталог
-                    <Icon name="ArrowRight" size={20} className="group-hover:translate-x-1 transition-transform" />
-                  </span>
-                </Button>
-              </Link>
-              <Button
-                size="lg"
-                className="w-full md:w-auto bg-white border-2 border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white font-light text-base px-12 py-6 rounded-none tracking-wider transition-all duration-300"
-              >
-                <span className="flex items-center gap-4">
-                  <Icon name="MessageCircle" size={20} />
-                  Консультация
-                </span>
-              </Button>
-            </div>
-
-            <div className="border-t border-slate-200 pt-16 animate-fade-in opacity-0" style={{ animationDelay: '0.6s' }}>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-16">
-                <div className="text-center group cursor-default">
-                  <div className="text-5xl font-extralight text-slate-900 mb-3 tracking-tight group-hover:scale-110 transition-transform duration-300">30<span className="text-2xl">%</span></div>
-                  <div className="text-slate-500 text-xs tracking-[0.2em] uppercase font-light">Экономия</div>
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-px bg-[#2a2a2a] border border-[#2a2a2a] animate-fade-in" style={{ animationDelay: '0.3s' }}>
+              <div className="bg-[#0a0a0a] p-10 group cursor-default hover:bg-[#121212] transition-colors duration-300">
+                <div className="mb-4">
+                  <div className="text-5xl font-light text-white tracking-tight">30</div>
+                  <div className="text-xl font-light text-[#707070]">%</div>
                 </div>
+                <div className="text-[#707070] text-xs tracking-[0.2em] uppercase font-light">Экономия</div>
+              </div>
 
-                <div className="text-center group cursor-default">
-                  <div className="text-5xl font-extralight text-slate-900 mb-3 tracking-tight group-hover:scale-110 transition-transform duration-300">30</div>
-                  <div className="text-slate-500 text-xs tracking-[0.2em] uppercase font-light">Дней доставка</div>
+              <div className="bg-[#0a0a0a] p-10 group cursor-default hover:bg-[#121212] transition-colors duration-300">
+                <div className="mb-4">
+                  <div className="text-5xl font-light text-white tracking-tight">30</div>
                 </div>
+                <div className="text-[#707070] text-xs tracking-[0.2em] uppercase font-light">Дней доставка</div>
+              </div>
 
-                <div className="text-center group cursor-default">
-                  <div className="text-5xl font-extralight text-slate-900 mb-3 tracking-tight group-hover:scale-110 transition-transform duration-300">24/7</div>
-                  <div className="text-slate-500 text-xs tracking-[0.2em] uppercase font-light">Поддержка</div>
+              <div className="bg-[#0a0a0a] p-10 group cursor-default hover:bg-[#121212] transition-colors duration-300">
+                <div className="mb-4">
+                  <div className="text-5xl font-light text-white tracking-tight">24/7</div>
                 </div>
+                <div className="text-[#707070] text-xs tracking-[0.2em] uppercase font-light">Поддержка</div>
+              </div>
 
-                <div className="text-center group cursor-default">
-                  <div className="text-5xl font-extralight text-slate-900 mb-3 tracking-tight group-hover:scale-110 transition-transform duration-300">100<span className="text-2xl">%</span></div>
-                  <div className="text-slate-500 text-xs tracking-[0.2em] uppercase font-light">Гарантия</div>
+              <div className="bg-[#0a0a0a] p-10 group cursor-default hover:bg-[#121212] transition-colors duration-300">
+                <div className="mb-4">
+                  <div className="text-5xl font-light text-white tracking-tight">100</div>
+                  <div className="text-xl font-light text-[#707070]">%</div>
                 </div>
+                <div className="text-[#707070] text-xs tracking-[0.2em] uppercase font-light">Гарантия</div>
               </div>
             </div>
+          </div>
+        </div>
+
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-fade-in opacity-0" style={{ animationDelay: '0.6s' }}>
+          <div className="flex flex-col items-center gap-2 text-[#505050]">
+            <Icon name="ChevronDown" size={20} className="animate-bounce" />
+            <span className="text-xs tracking-[0.2em] uppercase font-light">Scroll</span>
           </div>
         </div>
       </section>

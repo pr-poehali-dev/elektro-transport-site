@@ -154,43 +154,43 @@ const Index = () => {
                 </div>
               </div>
               
-              <div className="mt-auto space-y-8 md:space-y-0">
+              <div className="mt-auto space-y-4 md:space-y-0 pb-0 md:pb-0">
                 <div className="flex justify-center md:justify-start">
                   <Link to="/catalog" className="w-full md:w-auto">
                     <Button
                       size="lg"
-                      className="w-full md:w-auto bg-white text-black hover:bg-[#e5e5e5] font-normal text-sm md:text-base px-10 py-5 md:px-14 md:py-8 rounded-none tracking-[0.15em] md:tracking-[0.2em] transition-all duration-300 button-charge-glow"
+                      className="w-full md:w-auto bg-white text-black hover:bg-[#e5e5e5] font-normal text-sm md:text-base px-10 py-4 md:px-14 md:py-8 rounded-none tracking-[0.15em] md:tracking-[0.2em] transition-all duration-300 button-charge-glow"
                     >
                       ПЕРЕЙТИ В КАТАЛОГ
                     </Button>
                   </Link>
                 </div>
                 
-                <div className="grid grid-cols-4 md:grid-cols-4 gap-3 md:gap-16">
+                <div className="grid grid-cols-4 md:grid-cols-4 gap-2 md:gap-16">
                   <div>
-                    <div className="flex items-start gap-0.5 mb-1 md:mb-2">
-                      <div className="text-3xl md:text-6xl font-light text-white tracking-tight">30</div>
-                      <div className="text-base md:text-3xl font-light text-[#707070] mt-1 md:mt-2">%</div>
+                    <div className="flex items-start gap-0.5 mb-0.5 md:mb-2">
+                      <div className="text-2xl md:text-6xl font-light text-white tracking-tight">30</div>
+                      <div className="text-sm md:text-3xl font-light text-[#707070] mt-0.5 md:mt-2">%</div>
                     </div>
-                    <div className="text-[#707070] text-[9px] md:text-sm tracking-[0.15em] md:tracking-[0.25em] uppercase font-light">Экономия</div>
+                    <div className="text-[#707070] text-[8px] md:text-sm tracking-[0.15em] md:tracking-[0.25em] uppercase font-light">Экономия</div>
                   </div>
                   
                   <div>
-                    <div className="text-3xl md:text-6xl font-light text-white tracking-tight mb-1 md:mb-2">30</div>
-                    <div className="text-[#707070] text-[9px] md:text-sm tracking-[0.15em] md:tracking-[0.25em] uppercase font-light">Дней доставка</div>
+                    <div className="text-2xl md:text-6xl font-light text-white tracking-tight mb-0.5 md:mb-2">30</div>
+                    <div className="text-[#707070] text-[8px] md:text-sm tracking-[0.15em] md:tracking-[0.25em] uppercase font-light">Дней доставка</div>
                   </div>
                   
                   <div>
-                    <div className="text-3xl md:text-6xl font-light text-white tracking-tight mb-1 md:mb-2">24/7</div>
-                    <div className="text-[#707070] text-[9px] md:text-sm tracking-[0.15em] md:tracking-[0.25em] uppercase font-light">Поддержка</div>
+                    <div className="text-2xl md:text-6xl font-light text-white tracking-tight mb-0.5 md:mb-2">24/7</div>
+                    <div className="text-[#707070] text-[8px] md:text-sm tracking-[0.15em] md:tracking-[0.25em] uppercase font-light">Поддержка</div>
                   </div>
                   
                   <div>
-                    <div className="flex items-start gap-0.5 mb-1 md:mb-2">
-                      <div className="text-3xl md:text-6xl font-light text-white tracking-tight">100</div>
-                      <div className="text-base md:text-3xl font-light text-[#707070] mt-1 md:mt-2">%</div>
+                    <div className="flex items-start gap-0.5 mb-0.5 md:mb-2">
+                      <div className="text-2xl md:text-6xl font-light text-white tracking-tight">100</div>
+                      <div className="text-sm md:text-3xl font-light text-[#707070] mt-0.5 md:mt-2">%</div>
                     </div>
-                    <div className="text-[#707070] text-[9px] md:text-sm tracking-[0.15em] md:tracking-[0.25em] uppercase font-light">Гарантия</div>
+                    <div className="text-[#707070] text-[8px] md:text-sm tracking-[0.15em] md:tracking-[0.25em] uppercase font-light">Гарантия</div>
                   </div>
                 </div>
               </div>

@@ -10,51 +10,80 @@ const Index = () => {
   const wordsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleScroll = () => {
+    let startY = 0;
+    let scrollTimeout: NodeJS.Timeout;
+
+    const handleTouchStart = (e: TouchEvent) => {
+      startY = e.touches[0].clientY;
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
       if (hasNavigated.current) return;
       
-      const scrollY = window.scrollY;
+      const currentY = e.touches[0].clientY;
+      const deltaY = startY - currentY;
       
-      if (scrollY > 50) {
-        hasNavigated.current = true;
-        
-        // Скрываем главную страницу
-        if (containerRef.current) {
-          containerRef.current.style.transform = 'translateX(-100%)';
-          containerRef.current.style.opacity = '0';
-        }
-        
-        // Показываем анимацию слов
-        setTimeout(() => {
-          if (wordsRef.current) {
-            wordsRef.current.style.display = 'flex';
-          }
-        }, 600);
-        
-        // Скрываем слова и переход в каталог
-        setTimeout(() => {
-          if (wordsRef.current) {
-            wordsRef.current.style.opacity = '0';
-          }
-        }, 2800);
-        
-        // Переход в каталог
-        setTimeout(() => {
-          window.scrollTo(0, 0);
-          navigate('/catalog');
-        }, 3300);
+      if (deltaY > 50) {
+        triggerTransition();
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    const handleWheel = (e: WheelEvent) => {
+      if (hasNavigated.current) return;
+      
+      clearTimeout(scrollTimeout);
+      
+      if (e.deltaY > 50) {
+        scrollTimeout = setTimeout(() => {
+          triggerTransition();
+        }, 100);
+      }
+    };
+
+    const triggerTransition = () => {
+      if (hasNavigated.current) return;
+      hasNavigated.current = true;
+      
+      // Скрываем главную страницу
+      if (containerRef.current) {
+        containerRef.current.style.transform = 'translateX(-100%)';
+        containerRef.current.style.opacity = '0';
+      }
+      
+      // Показываем анимацию слов
+      setTimeout(() => {
+        if (wordsRef.current) {
+          wordsRef.current.style.display = 'flex';
+        }
+      }, 600);
+      
+      // Скрываем слова и переход в каталог
+      setTimeout(() => {
+        if (wordsRef.current) {
+          wordsRef.current.style.opacity = '0';
+        }
+      }, 2800);
+      
+      // Переход в каталог
+      setTimeout(() => {
+        navigate('/catalog');
+      }, 3300);
+    };
+
+    window.addEventListener('wheel', handleWheel, { passive: true });
+    window.addEventListener('touchstart', handleTouchStart, { passive: true });
+    window.addEventListener('touchmove', handleTouchMove, { passive: true });
+    
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('wheel', handleWheel);
+      window.removeEventListener('touchstart', handleTouchStart);
+      window.removeEventListener('touchmove', handleTouchMove);
+      clearTimeout(scrollTimeout);
     };
   }, [navigate]);
 
   return (
-    <>
-    <div className="bg-[#0a0a0a] relative" style={{ height: '100vh', minHeight: '100vh', maxHeight: '100vh', overflow: 'hidden' }}>
+    <div className="bg-[#0a0a0a] relative h-screen w-screen overflow-hidden fixed inset-0">
       {/* Анимация слов */}
       <div ref={wordsRef} className="fixed inset-0 z-50 bg-[#0a0a0a] hidden items-center justify-center transition-opacity duration-500" style={{ fontFamily: 'Montserrat, sans-serif' }}>
         {/* Фоновое изображение велосипеда */}
@@ -83,10 +112,10 @@ const Index = () => {
         </div>
       </div>
       
-      <div ref={containerRef} className="transition-all duration-[600ms] ease-out" style={{ willChange: 'transform, opacity' }}>
+      <div ref={containerRef} className="h-full flex flex-col transition-all duration-[600ms] ease-out" style={{ willChange: 'transform, opacity' }}>
       <Header />
 
-      <section className="relative h-[calc(100vh-73px)] md:h-[calc(100vh-73px)] flex items-center overflow-hidden py-0">
+      <section className="relative flex-1 flex items-center overflow-hidden">
         <div className="absolute inset-0">
           {/* Desktop: полная молния со всеми ветками */}
           <svg className="hidden md:block absolute inset-0 w-full h-full lightning-strike pointer-events-none z-[3]" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
@@ -318,8 +347,6 @@ const Index = () => {
       </section>
       </div>
     </div>
-    <div style={{ height: '200px' }}></div>
-    </>
   );
 };
 

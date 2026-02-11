@@ -145,11 +145,11 @@ const Index = () => {
         <div className="w-full px-6 md:px-16 py-0 relative z-10 flex items-start h-full">
           <div className="max-w-screen-2xl mx-auto w-full">
             <div className="h-full pt-2 md:py-16 md:animate-fade-in">
-              <div className="inline-block px-4 py-2 md:px-6 md:py-3 border border-[#3a3a3a] mb-3 md:mb-16">
+              <div className="inline-block px-4 py-2 md:px-6 md:py-3 border border-[#3a3a3a] mb-3 md:mb-8">
                 <span className="text-[#a0a0a0] text-[9px] md:text-xs tracking-[0.25em] md:tracking-[0.3em] uppercase font-light">Premium Electric Mobility</span>
               </div>
               
-              <h1 className="text-[clamp(3rem,14vw,10rem)] font-light leading-[0.8] tracking-tight mb-4 md:mb-12 title-charge-glow">
+              <h1 className="text-[clamp(3rem,14vw,10rem)] font-light leading-[0.8] tracking-tight mb-4 md:mb-6 title-charge-glow">
                 <span className="block text-white">
                   НА ПОЛНОМ
                 </span>
@@ -158,53 +158,53 @@ const Index = () => {
                 </span>
               </h1>
               
-              <div className="flex items-start gap-6 md:gap-20 max-w-5xl mb-0 md:mb-16">
-                <div className="hidden md:block w-[2px] h-36 bg-gradient-to-b from-white via-white/50 to-transparent"></div>
+              <div className="flex items-start gap-6 md:gap-20 max-w-5xl mb-0 md:mb-8">
+                <div className="hidden md:block w-[2px] h-24 bg-gradient-to-b from-white via-white/50 to-transparent"></div>
                 <div className="flex-1">
-                  <p className="text-[#a0a0a0] text-sm md:text-3xl font-light leading-relaxed mb-0 max-w-3xl">
+                  <p className="text-[#a0a0a0] text-sm md:text-2xl font-light leading-relaxed mb-0 max-w-3xl">
                     Современно. Экологично. Экономично. Комфортно.
                   </p>
                 </div>
               </div>
 
               {/* Кнопка и статистика на десктопе */}
-              <div className="hidden md:block space-y-8">
+              <div className="hidden md:block space-y-6">
                 <div className="flex justify-start">
                   <Link to="/catalog">
                     <Button
                       size="lg"
-                      className="bg-white text-black hover:bg-[#e5e5e5] font-normal text-base px-14 py-8 rounded-none tracking-[0.2em] transition-all duration-300 button-charge-glow"
+                      className="bg-white text-black hover:bg-[#e5e5e5] font-normal text-sm px-12 py-6 rounded-none tracking-[0.2em] transition-all duration-300 button-charge-glow"
                     >
                       ПЕРЕЙТИ В КАТАЛОГ
                     </Button>
                   </Link>
                 </div>
                 
-                <div className="grid grid-cols-4 gap-16 max-w-4xl">
+                <div className="grid grid-cols-4 gap-12 max-w-4xl">
                   <div>
-                    <div className="flex items-start gap-0.5 mb-2">
-                      <div className="text-6xl font-light text-white tracking-tight">30</div>
-                      <div className="text-3xl font-light text-[#707070] mt-2">%</div>
+                    <div className="flex items-start gap-0.5 mb-1">
+                      <div className="text-5xl font-light text-white tracking-tight">30</div>
+                      <div className="text-2xl font-light text-[#707070] mt-1">%</div>
                     </div>
-                    <div className="text-[#707070] text-sm tracking-[0.25em] uppercase font-light">Экономия</div>
+                    <div className="text-[#707070] text-xs tracking-[0.25em] uppercase font-light">Экономия</div>
                   </div>
                   
                   <div>
-                    <div className="text-6xl font-light text-white tracking-tight mb-2">30</div>
-                    <div className="text-[#707070] text-sm tracking-[0.25em] uppercase font-light">Дней доставка</div>
+                    <div className="text-5xl font-light text-white tracking-tight mb-1">30</div>
+                    <div className="text-[#707070] text-xs tracking-[0.25em] uppercase font-light">Дней доставка</div>
                   </div>
                   
                   <div>
-                    <div className="text-6xl font-light text-white tracking-tight mb-2">24/7</div>
-                    <div className="text-[#707070] text-sm tracking-[0.25em] uppercase font-light">Поддержка</div>
+                    <div className="text-5xl font-light text-white tracking-tight mb-1">24/7</div>
+                    <div className="text-[#707070] text-xs tracking-[0.25em] uppercase font-light">Поддержка</div>
                   </div>
                   
                   <div>
-                    <div className="flex items-start gap-0.5 mb-2">
-                      <div className="text-6xl font-light text-white tracking-tight">100</div>
-                      <div className="text-3xl font-light text-[#707070] mt-2">%</div>
+                    <div className="flex items-start gap-0.5 mb-1">
+                      <div className="text-5xl font-light text-white tracking-tight">100</div>
+                      <div className="text-2xl font-light text-[#707070] mt-1">%</div>
                     </div>
-                    <div className="text-[#707070] text-sm tracking-[0.25em] uppercase font-light">Гарантия</div>
+                    <div className="text-[#707070] text-xs tracking-[0.25em] uppercase font-light">Гарантия</div>
                   </div>
                 </div>
               </div>

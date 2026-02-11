@@ -8,6 +8,7 @@ const Index = () => {
   const hasNavigated = useRef(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const wordsRef = useRef<HTMLDivElement>(null);
+  const lightningRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,22 +19,34 @@ const Index = () => {
       if (scrollY > 50) {
         hasNavigated.current = true;
         
-        // Анимация слов
-        if (wordsRef.current) {
-          wordsRef.current.style.display = 'flex';
-        }
-        
-        // Плавная анимация перед переходом
+        // Скрываем главную страницу
         if (containerRef.current) {
           containerRef.current.style.transform = 'translateX(-100%)';
           containerRef.current.style.opacity = '0';
         }
         
-        // Переход после завершения анимации
+        // Показываем анимацию слов
+        setTimeout(() => {
+          if (wordsRef.current) {
+            wordsRef.current.style.display = 'flex';
+          }
+        }, 600);
+        
+        // Скрываем слова и показываем молнию
+        setTimeout(() => {
+          if (wordsRef.current) {
+            wordsRef.current.style.opacity = '0';
+          }
+          if (lightningRef.current) {
+            lightningRef.current.style.display = 'block';
+          }
+        }, 3000);
+        
+        // Переход в каталог после молнии
         setTimeout(() => {
           window.scrollTo(0, 0);
           navigate('/catalog');
-        }, 2400);
+        }, 3800);
       }
     };
 
@@ -46,21 +59,59 @@ const Index = () => {
   return (
     <div className="bg-[#0a0a0a] relative" style={{ minHeight: '120vh' }}>
       {/* Анимация слов */}
-      <div ref={wordsRef} className="fixed inset-0 z-50 bg-[#0a0a0a] hidden items-center justify-center" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+      <div ref={wordsRef} className="fixed inset-0 z-50 bg-[#0a0a0a] hidden items-center justify-center transition-opacity duration-500" style={{ fontFamily: 'Montserrat, sans-serif' }}>
         <div className="text-center space-y-6">
-          <div className="text-[clamp(3rem,14vw,10rem)] font-light text-white tracking-tight uppercase opacity-0 animate-[fadeSlide_0.6s_ease-out_0s_forwards]">
+          <div className="text-[clamp(3rem,14vw,10rem)] font-light text-[#707070] italic tracking-tight uppercase opacity-0 animate-[wordAppear_0.6s_ease-out_0s_forwards]">
             СОВРЕМЕННО
           </div>
-          <div className="text-[clamp(3rem,14vw,10rem)] font-light text-white tracking-tight uppercase opacity-0 animate-[fadeSlide_0.6s_ease-out_0.6s_forwards]">
+          <div className="text-[clamp(3rem,14vw,10rem)] font-light text-[#707070] italic tracking-tight uppercase opacity-0 animate-[wordAppear_0.6s_ease-out_0.6s_forwards]">
             ЭКОЛОГИЧНО
           </div>
-          <div className="text-[clamp(3rem,14vw,10rem)] font-light text-white tracking-tight uppercase opacity-0 animate-[fadeSlide_0.6s_ease-out_1.2s_forwards]">
+          <div className="text-[clamp(3rem,14vw,10rem)] font-light text-[#707070] italic tracking-tight uppercase opacity-0 animate-[wordAppear_0.6s_ease-out_1.2s_forwards]">
             ЭКОНОМИЧНО
           </div>
-          <div className="text-[clamp(3rem,14vw,10rem)] font-light text-white tracking-tight uppercase opacity-0 animate-[fadeSlide_0.6s_ease-out_1.8s_forwards]">
+          <div className="text-[clamp(3rem,14vw,10rem)] font-light text-[#707070] italic tracking-tight uppercase opacity-0 animate-[wordAppear_0.6s_ease-out_1.8s_forwards]">
             КОМФОРТНО
           </div>
         </div>
+      </div>
+      
+      {/* Эффект молнии */}
+      <div ref={lightningRef} className="fixed inset-0 z-[60] bg-[#0a0a0a]" style={{ display: 'none' }}>
+        <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <filter id="finale-glow">
+              <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+              <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+            <radialGradient id="finale-radial-glow">
+              <stop offset="0%" stopColor="rgba(96, 165, 250, 0.8)" />
+              <stop offset="50%" stopColor="rgba(96, 165, 250, 0.4)" />
+              <stop offset="100%" stopColor="rgba(96, 165, 250, 0)" />
+            </radialGradient>
+          </defs>
+          
+          <circle cx="960" cy="540" r="800" fill="url(#finale-radial-glow)" className="animate-[finaleGlow_0.8s_ease-out_forwards]"/>
+          
+          <g filter="url(#finale-glow)" className="animate-[finaleLightning_0.5s_ease-out_forwards]">
+            <path d="M960,0 L980,120 L940,160 L970,280 L930,350 L965,480 L945,560 L975,680 L940,760 L970,880 L950,960 L975,1080" 
+                  stroke="#60a5fa" strokeWidth="8" fill="none" opacity="0" className="bolt-finale"/>
+            <path d="M960,0 L980,120 L940,160 L970,280 L930,350 L965,480 L945,560 L975,680 L940,760 L970,880 L950,960 L975,1080" 
+                  stroke="#ffffff" strokeWidth="4" fill="none" opacity="0" className="bolt-finale"/>
+            
+            <path d="M970,280 L1050,310 L1020,360 L1080,420 L1050,480" 
+                  stroke="#60a5fa" strokeWidth="5" fill="none" opacity="0" className="bolt-finale"/>
+            <path d="M930,350 L850,390 L880,450 L820,510 L850,570" 
+                  stroke="#60a5fa" strokeWidth="5" fill="none" opacity="0" className="bolt-finale"/>
+            <path d="M965,480 L1090,530 L1060,590 L1120,660 L1090,720" 
+                  stroke="#60a5fa" strokeWidth="5" fill="none" opacity="0" className="bolt-finale"/>
+            <path d="M940,760 L860,810 L890,870 L830,930 L860,990" 
+                  stroke="#60a5fa" strokeWidth="5" fill="none" opacity="0" className="bolt-finale"/>
+          </g>
+        </svg>
       </div>
       
       <div ref={containerRef} className="transition-all duration-[600ms] ease-out" style={{ willChange: 'transform, opacity' }}>

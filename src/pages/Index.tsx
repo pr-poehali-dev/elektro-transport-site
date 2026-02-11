@@ -12,21 +12,23 @@ const Index = () => {
       if (hasNavigated.current) return;
       
       const scrollY = window.scrollY;
+      console.log('Scroll Y:', scrollY);
       
-      if (scrollY > 100) {
+      if (scrollY > 50) {
+        console.log('Navigating to catalog...');
         hasNavigated.current = true;
         navigate('/catalog');
       }
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, [navigate]);
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a]">
+    <div className="bg-[#0a0a0a]" style={{ minHeight: '120vh' }}>
       <Header />
 
       <section className="relative h-[calc(100vh-73px)] md:h-[calc(100vh-73px)] flex items-center overflow-hidden py-0">

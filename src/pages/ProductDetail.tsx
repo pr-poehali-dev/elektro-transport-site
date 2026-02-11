@@ -120,7 +120,7 @@ const ProductDetail = () => {
                       <img
                         src={product.images[selectedImage]}
                         alt={product.name}
-                        className="w-full h-full object-contain p-4"
+                        className="w-full h-full object-contain p-4 rounded-lg"
                       />
                     </div>
                     <div className="grid grid-cols-6 gap-2 mt-4">
@@ -132,7 +132,7 @@ const ProductDetail = () => {
                             selectedImage === idx ? "border-white" : "border-[#2a2a2a]"
                           }`}
                         >
-                          <img src={img} alt={`${product.name} ${idx + 1}`} className="w-full h-16 object-contain bg-[#1a1a1a] p-1" />
+                          <img src={img} alt={`${product.name} ${idx + 1}`} className="w-full h-16 object-contain bg-[#1a1a1a] p-1 rounded-lg" />
                         </button>
                       ))}
                     </div>

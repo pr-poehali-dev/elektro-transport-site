@@ -416,11 +416,11 @@ const Catalog = () => {
                 {filteredProducts.map((product) => (
                   <GlowCard key={product.id} glowIntensity="medium" className="group overflow-hidden bg-gradient-to-br from-[#2c3038] to-[#1a1d23] backdrop-blur-sm">
                     <GlowCardContent className="p-0">
-                      <div className="relative aspect-square overflow-hidden bg-[#1a1a1a]">
+                      <div className="relative aspect-square overflow-hidden bg-[#1a1a1a] rounded-lg">
                         <img
                           src={product.image}
                           alt={product.name}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 rounded-lg"
                         />
                         {!product.inStock && (
                           <Badge className="absolute top-3 left-3 bg-white/10 text-white border border-white/20">

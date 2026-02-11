@@ -56,7 +56,17 @@ const Index = () => {
     <div className="bg-[#0a0a0a] relative" style={{ minHeight: '120vh' }}>
       {/* Анимация слов */}
       <div ref={wordsRef} className="fixed inset-0 z-50 bg-[#0a0a0a] hidden items-center justify-center transition-opacity duration-500" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-        <div className="flex flex-col items-center justify-center space-y-4 md:space-y-6 w-full px-4">
+        {/* Фоновое изображение велосипеда */}
+        <div className="absolute inset-0 flex items-center justify-center opacity-20">
+          <img 
+            src="https://cdn.poehali.dev/files/6281e1c0-9b0b-4b9f-a8d6-d59f6b8c765b.png"
+            alt="Electric Bike"
+            className="w-full h-auto max-h-[80vh] object-contain"
+          />
+        </div>
+        
+        {/* Слова поверх изображения */}
+        <div className="flex flex-col items-center justify-center space-y-4 md:space-y-6 w-full px-4 relative z-10">
           <div className="text-[clamp(2rem,12vw,10rem)] font-light text-[#707070] uppercase opacity-0 animate-[wordFade_0.7s_ease-out_0s_forwards] leading-none" style={{ letterSpacing: '-0.05em' }}>
             СОВРЕМЕННО
           </div>

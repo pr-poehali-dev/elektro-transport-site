@@ -50,19 +50,12 @@ const Index = () => {
         <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1/2 h-full flex items-center justify-end z-[5] pointer-events-none">
           <div className="relative w-full h-full flex items-center justify-center">
             <div className="absolute inset-0 bg-gradient-to-l from-transparent via-[#0a0a0a]/50 to-[#0a0a0a]"></div>
-            
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 rounded-full blur-[120px] animate-pulse" style={{ animationDuration: '8s' }}></div>
-            
-            <div className="absolute top-1/4 right-1/4 w-2 h-2 bg-white rounded-full animate-ping" style={{ animationDuration: '3s' }}></div>
-            <div className="absolute top-1/3 right-1/3 w-1 h-1 bg-white/70 rounded-full animate-ping" style={{ animationDuration: '4s', animationDelay: '1s' }}></div>
-            <div className="absolute bottom-1/3 right-1/4 w-1.5 h-1.5 bg-white/80 rounded-full animate-ping" style={{ animationDuration: '5s', animationDelay: '2s' }}></div>
-            
             <img 
               src="https://cdn.poehali.dev/files/6281e1c0-9b0b-4b9f-a8d6-d59f6b8c765b.png"
               alt="Premium Electric Bike"
-              className="relative w-full h-auto max-h-[80vh] object-contain animate-scale-in opacity-0 drop-shadow-[0_0_80px_rgba(139,92,246,0.3)] hover:scale-105 transition-transform duration-1000"
+              className="relative w-full h-auto max-h-[80vh] object-contain animate-scale-in opacity-0 drop-shadow-[0_0_60px_rgba(255,255,255,0.15)]"
               style={{ 
-                filter: 'brightness(1.15) contrast(1.1) drop-shadow(0 0 40px rgba(255,255,255,0.1))',
+                filter: 'brightness(1.1) contrast(1.05)',
                 animationDelay: '0.3s'
               }}
             />
@@ -115,38 +108,34 @@ const Index = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-px bg-[#2a2a2a] border border-[#2a2a2a] animate-fade-in" style={{ animationDelay: '0.3s' }}>
-              <div className="bg-[#0a0a0a] p-10 group cursor-default hover:bg-gradient-to-br hover:from-[#1a1a1a] hover:to-[#0a0a0a] transition-all duration-500 relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="relative mb-4 flex items-start gap-1 group-hover:scale-110 transition-transform duration-500">
+              <div className="bg-[#0a0a0a] p-10 group cursor-default hover:bg-[#121212] transition-colors duration-300">
+                <div className="mb-4 flex items-start gap-1">
                   <div className="text-5xl font-light text-white tracking-tight">30</div>
-                  <div className="text-2xl font-light text-[#707070] mt-1 group-hover:text-blue-400 transition-colors duration-500">%</div>
+                  <div className="text-2xl font-light text-[#707070] mt-1">%</div>
                 </div>
-                <div className="relative text-[#707070] text-xs tracking-[0.2em] uppercase font-light group-hover:text-[#a0a0a0] transition-colors duration-500">Экономия</div>
+                <div className="text-[#707070] text-xs tracking-[0.2em] uppercase font-light">Экономия</div>
               </div>
 
-              <div className="bg-[#0a0a0a] p-10 group cursor-default hover:bg-gradient-to-br hover:from-[#1a1a1a] hover:to-[#0a0a0a] transition-all duration-500 relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="relative mb-4 group-hover:scale-110 transition-transform duration-500">
-                  <div className="text-5xl font-light text-white tracking-tight group-hover:text-purple-400 transition-colors duration-500">30</div>
+              <div className="bg-[#0a0a0a] p-10 group cursor-default hover:bg-[#121212] transition-colors duration-300">
+                <div className="mb-4">
+                  <div className="text-5xl font-light text-white tracking-tight">30</div>
                 </div>
-                <div className="relative text-[#707070] text-xs tracking-[0.2em] uppercase font-light group-hover:text-[#a0a0a0] transition-colors duration-500">Дней доставка</div>
+                <div className="text-[#707070] text-xs tracking-[0.2em] uppercase font-light">Дней доставка</div>
               </div>
 
-              <div className="bg-[#0a0a0a] p-10 group cursor-default hover:bg-gradient-to-br hover:from-[#1a1a1a] hover:to-[#0a0a0a] transition-all duration-500 relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="relative mb-4 group-hover:scale-110 transition-transform duration-500">
-                  <div className="text-5xl font-light text-white tracking-tight group-hover:text-green-400 transition-colors duration-500">24/7</div>
+              <div className="bg-[#0a0a0a] p-10 group cursor-default hover:bg-[#121212] transition-colors duration-300">
+                <div className="mb-4">
+                  <div className="text-5xl font-light text-white tracking-tight">24/7</div>
                 </div>
-                <div className="relative text-[#707070] text-xs tracking-[0.2em] uppercase font-light group-hover:text-[#a0a0a0] transition-colors duration-500">Поддержка</div>
+                <div className="text-[#707070] text-xs tracking-[0.2em] uppercase font-light">Поддержка</div>
               </div>
 
-              <div className="bg-[#0a0a0a] p-10 group cursor-default hover:bg-gradient-to-br hover:from-[#1a1a1a] hover:to-[#0a0a0a] transition-all duration-500 relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-pink-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="relative mb-4 flex items-start gap-1 group-hover:scale-110 transition-transform duration-500">
+              <div className="bg-[#0a0a0a] p-10 group cursor-default hover:bg-[#121212] transition-colors duration-300">
+                <div className="mb-4 flex items-start gap-1">
                   <div className="text-5xl font-light text-white tracking-tight">100</div>
-                  <div className="text-2xl font-light text-[#707070] mt-1 group-hover:text-pink-400 transition-colors duration-500">%</div>
+                  <div className="text-2xl font-light text-[#707070] mt-1">%</div>
                 </div>
-                <div className="relative text-[#707070] text-xs tracking-[0.2em] uppercase font-light group-hover:text-[#a0a0a0] transition-colors duration-500">Гарантия</div>
+                <div className="text-[#707070] text-xs tracking-[0.2em] uppercase font-light">Гарантия</div>
               </div>
             </div>
           </div>

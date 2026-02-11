@@ -172,31 +172,31 @@ const Index = () => {
                     </Button>
                   </div>
                   
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12">
                     <div>
-                      <div className="flex items-start gap-0.5 mb-2">
-                        <div className="text-4xl md:text-5xl font-light text-white tracking-tight">30</div>
-                        <div className="text-xl md:text-2xl font-light text-[#707070] mt-1 md:mt-1">%</div>
+                      <div className="flex items-start gap-0.5 mb-1.5">
+                        <div className="text-3xl md:text-5xl font-light text-white tracking-tight">30</div>
+                        <div className="text-base md:text-2xl font-light text-[#707070] mt-0.5 md:mt-1">%</div>
                       </div>
-                      <div className="text-[#707070] text-[11px] md:text-sm tracking-[0.2em] md:tracking-[0.2em] uppercase font-light">Экономия</div>
+                      <div className="text-[#707070] text-[10px] md:text-sm tracking-[0.2em] md:tracking-[0.2em] uppercase font-light">Экономия</div>
                     </div>
                     
                     <div>
-                      <div className="text-4xl md:text-5xl font-light text-white tracking-tight mb-2">30</div>
-                      <div className="text-[#707070] text-[11px] md:text-sm tracking-[0.2em] md:tracking-[0.2em] uppercase font-light">Дней доставка</div>
+                      <div className="text-3xl md:text-5xl font-light text-white tracking-tight mb-1.5">30</div>
+                      <div className="text-[#707070] text-[10px] md:text-sm tracking-[0.2em] md:tracking-[0.2em] uppercase font-light">Дней доставка</div>
                     </div>
                     
                     <div>
-                      <div className="text-4xl md:text-5xl font-light text-white tracking-tight mb-2">24/7</div>
-                      <div className="text-[#707070] text-[11px] md:text-sm tracking-[0.2em] md:tracking-[0.2em] uppercase font-light">Поддержка</div>
+                      <div className="text-3xl md:text-5xl font-light text-white tracking-tight mb-1.5">24/7</div>
+                      <div className="text-[#707070] text-[10px] md:text-sm tracking-[0.2em] md:tracking-[0.2em] uppercase font-light">Поддержка</div>
                     </div>
                     
                     <div>
-                      <div className="flex items-start gap-0.5 mb-2">
-                        <div className="text-4xl md:text-5xl font-light text-white tracking-tight">100</div>
-                        <div className="text-xl md:text-2xl font-light text-[#707070] mt-1 md:mt-1">%</div>
+                      <div className="flex items-start gap-0.5 mb-1.5">
+                        <div className="text-3xl md:text-5xl font-light text-white tracking-tight">100</div>
+                        <div className="text-base md:text-2xl font-light text-[#707070] mt-0.5 md:mt-1">%</div>
                       </div>
-                      <div className="text-[#707070] text-[11px] md:text-sm tracking-[0.2em] md:tracking-[0.2em] uppercase font-light">Гарантия</div>
+                      <div className="text-[#707070] text-[10px] md:text-sm tracking-[0.2em] md:tracking-[0.2em] uppercase font-light">Гарантия</div>
                     </div>
                   </div>
                 </div>

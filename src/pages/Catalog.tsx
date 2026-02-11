@@ -199,7 +199,7 @@ const Catalog = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a]">
+    <div className="min-h-screen bg-gradient-to-br from-[#0a0a0a] via-[#1a1a2e] to-[#0a0a0a]">
       <Header />
 
       <section className="relative py-12 md:py-24 mb-16 md:mb-0">

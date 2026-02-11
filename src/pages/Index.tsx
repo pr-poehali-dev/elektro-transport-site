@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-[#0a0a0a]">
+    <div className="min-h-screen bg-gradient-to-br from-[#0a0a0a] via-[#1a1a2e] to-[#0a0a0a]">
       <Header />
 
       <section className="relative h-[calc(100vh-73px)] md:h-[calc(100vh-73px)] flex items-center overflow-hidden py-0">

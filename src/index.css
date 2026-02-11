@@ -213,4 +213,24 @@
     background-size: 80px 80px;
     animation: grid-lines 20s ease-in-out infinite;
   }
+
+  @keyframes lightning {
+    0%,
+    100% {
+      opacity: 0;
+      transform: translateX(-100px) translateY(0) scale(0.5);
+    }
+    10% {
+      opacity: 1;
+      transform: translateX(0) translateY(-20px) scale(1);
+    }
+    20% {
+      opacity: 0;
+      transform: translateX(100px) translateY(-40px) scale(0.5);
+    }
+  }
+
+  .lightning-effect {
+    animation: lightning 8s ease-in-out infinite;
+  }
 }

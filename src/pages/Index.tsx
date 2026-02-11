@@ -51,9 +51,17 @@ const Index = () => {
           
           <div className="absolute top-1/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
           
-          <div className="absolute top-10 right-20 w-2 h-2 bg-white/30 rounded-full animate-pulse" style={{ animationDuration: '3s' }}></div>
-          <div className="absolute bottom-20 left-40 w-1 h-1 bg-white/20 rounded-full animate-pulse" style={{ animationDuration: '4s', animationDelay: '1s' }}></div>
-          <div className="absolute top-1/2 right-1/4 w-1.5 h-1.5 bg-white/25 rounded-full animate-pulse" style={{ animationDuration: '5s', animationDelay: '2s' }}></div>
+          <svg className="absolute top-20 right-1/4 w-32 h-32 text-white/20 lightning-effect" viewBox="0 0 24 24" fill="currentColor" style={{ animationDelay: '0s' }}>
+            <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z"/>
+          </svg>
+          <svg className="absolute bottom-32 left-1/3 w-24 h-24 text-white/15 lightning-effect" viewBox="0 0 24 24" fill="currentColor" style={{ animationDelay: '3s' }}>
+            <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z"/>
+          </svg>
+          <svg className="absolute top-1/2 right-20 w-20 h-20 text-white/10 lightning-effect" viewBox="0 0 24 24" fill="currentColor" style={{ animationDelay: '5s' }}>
+            <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z"/>
+          </svg>
+          
+
         </div>
 
         <div className="absolute right-10 top-1/2 -translate-y-1/2 w-[45%] h-full flex items-center justify-center z-[5] pointer-events-none">
@@ -105,14 +113,14 @@ const Index = () => {
                     <Link to="/catalog" className="w-full md:w-auto">
                       <Button
                         size="lg"
-                        className="w-full md:w-auto bg-white text-black hover:bg-[#e5e5e5] font-normal text-sm px-10 py-6 rounded-full tracking-[0.15em] transition-all duration-300"
+                        className="w-full md:w-auto bg-white text-black hover:bg-[#e5e5e5] font-normal text-sm px-10 py-6 rounded-none tracking-[0.15em] transition-all duration-300"
                       >
                         ПЕРЕЙТИ В КАТАЛОГ
                       </Button>
                     </Link>
                     <Button
                       size="lg"
-                      className="w-full md:w-auto bg-transparent border border-white text-white hover:bg-white hover:text-black font-normal text-sm px-10 py-6 rounded-full tracking-[0.15em] transition-all duration-300"
+                      className="w-full md:w-auto bg-transparent border border-white text-white hover:bg-white hover:text-black font-normal text-sm px-10 py-6 rounded-none tracking-[0.15em] transition-all duration-300"
                     >
                       КОНСУЛЬТАЦИЯ
                     </Button>

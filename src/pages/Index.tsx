@@ -6,18 +6,27 @@ import { useEffect, useRef } from "react";
 const Index = () => {
   const navigate = useNavigate();
   const hasNavigated = useRef(false);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
       if (hasNavigated.current) return;
       
       const scrollY = window.scrollY;
-      console.log('Scroll Y:', scrollY);
       
       if (scrollY > 50) {
-        console.log('Navigating to catalog...');
         hasNavigated.current = true;
-        navigate('/catalog');
+        
+        // Плавная анимация перед переходом
+        if (containerRef.current) {
+          containerRef.current.style.transform = 'translateX(-100%)';
+          containerRef.current.style.opacity = '0';
+        }
+        
+        // Переход после завершения анимации
+        setTimeout(() => {
+          navigate('/catalog');
+        }, 600);
       }
     };
 
@@ -29,6 +38,7 @@ const Index = () => {
 
   return (
     <div className="bg-[#0a0a0a]" style={{ minHeight: '120vh' }}>
+      <div ref={containerRef} className="transition-all duration-[600ms] ease-out" style={{ willChange: 'transform, opacity' }}>
       <Header />
 
       <section className="relative h-[calc(100vh-73px)] md:h-[calc(100vh-73px)] flex items-center overflow-hidden py-0">
@@ -261,6 +271,7 @@ const Index = () => {
           </div>
         </div>
       </section>
+      </div>
     </div>
   );
 };

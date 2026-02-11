@@ -259,10 +259,10 @@ const ProductDetail = () => {
               </GlowCard>
 
               {/* Order Form */}
-              <GlowCard id="order-form" glowIntensity="high" hoverEffect={false} className="bg-gradient-to-br from-[#2c3038] to-[#1a1d23] backdrop-blur-sm rounded-lg">
-                <GlowCardContent className="p-4 md:p-6">
-                  <h3 className="text-xl font-normal mb-5 text-white tracking-wide">Заказать товар</h3>
-                  <form onSubmit={handleSubmit} className="space-y-3">
+              <GlowCard id="order-form" glowIntensity="high" hoverEffect={false} className="bg-gradient-to-br from-[#3a3f47] to-[#2a2e35] backdrop-blur-sm rounded-lg border-2 border-blue-400/40">
+                <GlowCardContent className="p-6 md:p-8">
+                  <h3 className="text-2xl font-semibold mb-6 text-white tracking-wide">Заказать товар</h3>
+                  <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
                       <Input
                         id="name"
@@ -270,7 +270,7 @@ const ProductDetail = () => {
                         onChange={(e) => setFormData({...formData, name: e.target.value})}
                         required
                         placeholder="Ваше имя"
-                        className="bg-white/5 border-[#2a2a2a] text-white placeholder:text-[#707070] rounded-none focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-white"
+                        className="bg-white/10 border-[#4a4a4a] text-white placeholder:text-[#a0a0a0] rounded-lg h-12 text-base focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-blue-400"
                       />
                     </div>
                     <div>
@@ -281,7 +281,7 @@ const ProductDetail = () => {
                         onChange={(e) => setFormData({...formData, phone: e.target.value})}
                         required
                         placeholder="+7 (___) ___-__-__"
-                        className="bg-white/5 border-[#2a2a2a] text-white placeholder:text-[#707070] rounded-none focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-white"
+                        className="bg-white/10 border-[#4a4a4a] text-white placeholder:text-[#a0a0a0] rounded-lg h-12 text-base focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-blue-400"
                       />
                     </div>
                     <div>
@@ -290,17 +290,17 @@ const ProductDetail = () => {
                         value={formData.comment}
                         onChange={(e) => setFormData({...formData, comment: e.target.value})}
                         placeholder="Комментарий к заказу"
-                        rows={3}
-                        className="bg-white/5 border-[#2a2a2a] text-white placeholder:text-[#707070] rounded-none resize-none focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-white"
+                        rows={4}
+                        className="bg-white/10 border-[#4a4a4a] text-white placeholder:text-[#a0a0a0] rounded-lg text-base resize-none focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-blue-400"
                       />
                     </div>
                     <Button
                       type="submit"
-                      className="w-full bg-white text-black hover:bg-[#e5e5e5] rounded-none py-4 font-light tracking-wide"
+                      className="w-full bg-white text-black hover:bg-[#e5e5e5] rounded-lg py-5 text-lg font-semibold tracking-wide shadow-lg hover:shadow-xl transition-all"
                     >
                       {product.inStock ? "Оформить заказ" : "Предзаказ"}
                     </Button>
-                    <p className="text-[10px] text-[#707070] text-center">
+                    <p className="text-xs text-[#a0a0a0] text-center leading-relaxed">
                       Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
                     </p>
                   </form>

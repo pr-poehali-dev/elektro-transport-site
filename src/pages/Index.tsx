@@ -160,7 +160,7 @@ const Index = () => {
                     <Link to="/catalog" className="w-full md:w-auto">
                       <Button
                         size="lg"
-                        className="w-full md:w-auto bg-white text-black hover:bg-[#e5e5e5] font-normal text-sm px-10 py-6 rounded-none tracking-[0.15em] transition-all duration-300"
+                        className="w-full md:w-auto bg-white text-black hover:bg-[#e5e5e5] font-normal text-sm px-10 py-6 rounded-none tracking-[0.15em] transition-all duration-300 button-charge-glow"
                       >
                         ПЕРЕЙТИ В КАТАЛОГ
                       </Button>

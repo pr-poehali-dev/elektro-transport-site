@@ -264,7 +264,7 @@
   }
 
   .lightning-strike {
-    animation: lightning-flash 15s ease-in-out infinite;
+    animation: lightning-flash 8s ease-in-out infinite;
   }
 
   .bolt {
@@ -286,7 +286,7 @@
   }
 
   .lightning-glow-circle {
-    animation: glow-pulse 15s ease-in-out infinite;
+    animation: glow-pulse 8s ease-in-out infinite;
   }
 
   @keyframes bike-glow {
@@ -320,13 +320,14 @@
     }
     11%,
     100% {
-      filter: brightness(1.05) contrast(1.1)
-        drop-shadow(0 0 0px rgba(96, 165, 250, 0));
+      filter: brightness(1.15) contrast(1.15)
+        drop-shadow(0 0 25px rgba(96, 165, 250, 0.5))
+        drop-shadow(0 0 50px rgba(96, 165, 250, 0.3));
     }
   }
 
   .bike-lightning-glow {
-    animation: bike-glow 15s ease-in-out infinite;
+    animation: bike-glow 8s ease-in-out infinite;
   }
 
   @keyframes title-charge {
@@ -372,6 +373,34 @@
   }
 
   .title-charge-glow {
-    animation: title-charge 15s ease-in-out infinite;
+    animation: title-charge 8s ease-in-out infinite;
+  }
+
+  @keyframes button-charge-glow {
+    0%,
+    9% {
+      box-shadow: 0 0 0px rgba(96, 165, 250, 0);
+    }
+    10% {
+      box-shadow:
+        0 0 20px rgba(96, 165, 250, 0.8),
+        0 0 40px rgba(96, 165, 250, 0.6),
+        0 0 60px rgba(255, 255, 255, 0.4);
+    }
+    11% {
+      box-shadow:
+        0 0 15px rgba(96, 165, 250, 0.6),
+        0 0 30px rgba(96, 165, 250, 0.4);
+    }
+    12%,
+    100% {
+      box-shadow:
+        0 0 15px rgba(96, 165, 250, 0.6),
+        0 0 30px rgba(96, 165, 250, 0.4);
+    }
+  }
+
+  .button-charge-glow {
+    animation: button-charge-glow 8s ease-in-out infinite;
   }
 }

@@ -61,16 +61,16 @@ const Index = () => {
       {/* Анимация слов */}
       <div ref={wordsRef} className="fixed inset-0 z-50 bg-[#0a0a0a] hidden items-center justify-center transition-opacity duration-500" style={{ fontFamily: 'Montserrat, sans-serif' }}>
         <div className="text-center space-y-6">
-          <div className="text-[clamp(3rem,14vw,10rem)] font-light text-[#707070] italic tracking-tight uppercase opacity-0 animate-[wordAppear_0.6s_ease-out_0s_forwards]">
+          <div className="text-[clamp(3rem,14vw,10rem)] font-light text-[#707070] tracking-tight uppercase opacity-0 animate-[wordAppear_0.6s_ease-out_0s_forwards]">
             СОВРЕМЕННО
           </div>
-          <div className="text-[clamp(3rem,14vw,10rem)] font-light text-[#707070] italic tracking-tight uppercase opacity-0 animate-[wordAppear_0.6s_ease-out_0.6s_forwards]">
+          <div className="text-[clamp(3rem,14vw,10rem)] font-light text-[#707070] tracking-tight uppercase opacity-0 animate-[wordAppear_0.6s_ease-out_0.6s_forwards]">
             ЭКОЛОГИЧНО
           </div>
-          <div className="text-[clamp(3rem,14vw,10rem)] font-light text-[#707070] italic tracking-tight uppercase opacity-0 animate-[wordAppear_0.6s_ease-out_1.2s_forwards]">
+          <div className="text-[clamp(3rem,14vw,10rem)] font-light text-[#707070] tracking-tight uppercase opacity-0 animate-[wordAppear_0.6s_ease-out_1.2s_forwards]">
             ЭКОНОМИЧНО
           </div>
-          <div className="text-[clamp(3rem,14vw,10rem)] font-light text-[#707070] italic tracking-tight uppercase opacity-0 animate-[wordAppear_0.6s_ease-out_1.8s_forwards]">
+          <div className="text-[clamp(3rem,14vw,10rem)] font-light text-[#707070] tracking-tight uppercase opacity-0 animate-[wordAppear_0.6s_ease-out_1.8s_forwards]">
             КОМФОРТНО
           </div>
         </div>
@@ -81,35 +81,63 @@ const Index = () => {
         <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
           <defs>
             <filter id="finale-glow">
-              <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+              <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
               <feMerge>
                 <feMergeNode in="coloredBlur"/>
                 <feMergeNode in="SourceGraphic"/>
               </feMerge>
             </filter>
             <radialGradient id="finale-radial-glow">
-              <stop offset="0%" stopColor="rgba(96, 165, 250, 0.8)" />
-              <stop offset="50%" stopColor="rgba(96, 165, 250, 0.4)" />
+              <stop offset="0%" stopColor="rgba(96, 165, 250, 0.6)" />
+              <stop offset="50%" stopColor="rgba(96, 165, 250, 0.3)" />
               <stop offset="100%" stopColor="rgba(96, 165, 250, 0)" />
             </radialGradient>
           </defs>
           
-          <circle cx="960" cy="540" r="800" fill="url(#finale-radial-glow)" className="animate-[finaleGlow_0.8s_ease-out_forwards]"/>
+          <circle cx="960" cy="540" r="600" fill="url(#finale-radial-glow)" className="animate-[finaleGlow_0.8s_ease-out_forwards]"/>
           
-          <g filter="url(#finale-glow)" className="animate-[finaleLightning_0.5s_ease-out_forwards]">
+          <g filter="url(#finale-glow)">
+            {/* Основная молния */}
             <path d="M960,0 L980,120 L940,160 L970,280 L930,350 L965,480 L945,560 L975,680 L940,760 L970,880 L950,960 L975,1080" 
-                  stroke="#60a5fa" strokeWidth="8" fill="none" opacity="0" className="bolt-finale"/>
+                  stroke="#60a5fa" strokeWidth="5" fill="none" opacity="0.9" className="animate-[finaleLightning_0.6s_ease-out_forwards] bolt bolt-main"/>
             <path d="M960,0 L980,120 L940,160 L970,280 L930,350 L965,480 L945,560 L975,680 L940,760 L970,880 L950,960 L975,1080" 
-                  stroke="#ffffff" strokeWidth="4" fill="none" opacity="0" className="bolt-finale"/>
+                  stroke="#ffffff" strokeWidth="2.5" fill="none" className="animate-[finaleLightning_0.6s_ease-out_forwards] bolt bolt-core"/>
             
+            {/* Ветки молнии */}
             <path d="M970,280 L1050,310 L1020,360 L1080,420 L1050,480" 
-                  stroke="#60a5fa" strokeWidth="5" fill="none" opacity="0" className="bolt-finale"/>
+                  stroke="#60a5fa" strokeWidth="3" fill="none" opacity="0.8" className="animate-[finaleLightning_0.6s_ease-out_0.1s_forwards] bolt bolt-branch"/>
+            <path d="M970,280 L1050,310 L1020,360 L1080,420 L1050,480" 
+                  stroke="#ffffff" strokeWidth="1.5" fill="none" opacity="0.95" className="animate-[finaleLightning_0.6s_ease-out_0.1s_forwards] bolt bolt-branch"/>
+            
             <path d="M930,350 L850,390 L880,450 L820,510 L850,570" 
-                  stroke="#60a5fa" strokeWidth="5" fill="none" opacity="0" className="bolt-finale"/>
+                  stroke="#60a5fa" strokeWidth="3" fill="none" opacity="0.75" className="animate-[finaleLightning_0.6s_ease-out_0.15s_forwards] bolt bolt-branch"/>
+            <path d="M930,350 L850,390 L880,450 L820,510 L850,570" 
+                  stroke="#ffffff" strokeWidth="1.5" fill="none" opacity="0.9" className="animate-[finaleLightning_0.6s_ease-out_0.15s_forwards] bolt bolt-branch"/>
+            
+            <path d="M1080,420 L1180,460 L1150,520 L1220,590" 
+                  stroke="#60a5fa" strokeWidth="2.5" fill="none" opacity="0.7" className="animate-[finaleLightning_0.6s_ease-out_0.2s_forwards] bolt bolt-branch"/>
+            <path d="M1080,420 L1180,460 L1150,520 L1220,590" 
+                  stroke="#ffffff" strokeWidth="1.2" fill="none" opacity="0.85" className="animate-[finaleLightning_0.6s_ease-out_0.2s_forwards] bolt bolt-branch"/>
+            
+            <path d="M820,510 L720,560 L750,620 L680,690" 
+                  stroke="#60a5fa" strokeWidth="2.5" fill="none" opacity="0.7" className="animate-[finaleLightning_0.6s_ease-out_0.25s_forwards] bolt bolt-branch"/>
+            <path d="M820,510 L720,560 L750,620 L680,690" 
+                  stroke="#ffffff" strokeWidth="1.2" fill="none" opacity="0.85" className="animate-[finaleLightning_0.6s_ease-out_0.25s_forwards] bolt bolt-branch"/>
+            
             <path d="M965,480 L1090,530 L1060,590 L1120,660 L1090,720" 
-                  stroke="#60a5fa" strokeWidth="5" fill="none" opacity="0" className="bolt-finale"/>
+                  stroke="#60a5fa" strokeWidth="3" fill="none" opacity="0.8" className="animate-[finaleLightning_0.6s_ease-out_0.12s_forwards] bolt bolt-branch"/>
+            <path d="M965,480 L1090,530 L1060,590 L1120,660 L1090,720" 
+                  stroke="#ffffff" strokeWidth="1.5" fill="none" opacity="0.95" className="animate-[finaleLightning_0.6s_ease-out_0.12s_forwards] bolt bolt-branch"/>
+            
             <path d="M940,760 L860,810 L890,870 L830,930 L860,990" 
-                  stroke="#60a5fa" strokeWidth="5" fill="none" opacity="0" className="bolt-finale"/>
+                  stroke="#60a5fa" strokeWidth="3" fill="none" opacity="0.75" className="animate-[finaleLightning_0.6s_ease-out_0.18s_forwards] bolt bolt-branch"/>
+            <path d="M940,760 L860,810 L890,870 L830,930 L860,990" 
+                  stroke="#ffffff" strokeWidth="1.5" fill="none" opacity="0.9" className="animate-[finaleLightning_0.6s_ease-out_0.18s_forwards] bolt bolt-branch"/>
+            
+            <path d="M970,880 L1060,920 L1030,980 L1090,1040" 
+                  stroke="#60a5fa" strokeWidth="3" fill="none" opacity="0.7" className="animate-[finaleLightning_0.6s_ease-out_0.22s_forwards] bolt bolt-branch"/>
+            <path d="M970,880 L1060,920 L1030,980 L1090,1040" 
+                  stroke="#ffffff" strokeWidth="1.5" fill="none" opacity="0.85" className="animate-[finaleLightning_0.6s_ease-out_0.22s_forwards] bolt bolt-branch"/>
           </g>
         </svg>
       </div>

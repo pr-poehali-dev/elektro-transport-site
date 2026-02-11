@@ -141,14 +141,14 @@ const ProductDetail = () => {
 
                 {/* Description & Specs stacked */}
                 <div className="flex flex-col space-y-4">
-                  <GlowCard glowIntensity="low" hoverEffect={false} className="bg-black/40 backdrop-blur-sm border-[#2a2a2a]">
+                  <GlowCard glowIntensity="low" hoverEffect={false} className="bg-black/40 backdrop-blur-sm">
                     <GlowCardContent className="p-4 md:p-6">
                       <h2 className="text-lg font-light mb-4 text-white tracking-wide">Описание</h2>
                       <p className="text-sm text-[#b0b0b0] leading-relaxed">{product.description}</p>
                     </GlowCardContent>
                   </GlowCard>
 
-                  <GlowCard glowIntensity="low" hoverEffect={false} className="bg-black/40 backdrop-blur-sm border-[#2a2a2a]">
+                  <GlowCard glowIntensity="low" hoverEffect={false} className="bg-black/40 backdrop-blur-sm">
                     <GlowCardContent className="p-4 md:p-6">
                       <h2 className="text-lg font-light mb-4 text-white tracking-wide">Характеристики</h2>
                       <div className="space-y-3">
@@ -164,7 +164,7 @@ const ProductDetail = () => {
 
                   {/* Video Review - Desktop only (below specs) */}
                   {product.youtubeUrl && (
-                    <GlowCard glowIntensity="low" hoverEffect={false} className="hidden md:block bg-black/40 backdrop-blur-sm border-[#2a2a2a]">
+                    <GlowCard glowIntensity="low" hoverEffect={false} className="hidden md:block bg-black/40 backdrop-blur-sm">
                       <GlowCardContent className="p-4 md:p-6">
                         <h2 className="text-lg font-light mb-4 text-white tracking-wide">Видео-обзор</h2>
                         <div className="aspect-video bg-[#1a1a1a] rounded-lg overflow-hidden">
@@ -312,7 +312,7 @@ const ProductDetail = () => {
           {/* Video Review - Mobile only (at bottom) */}
           {product.youtubeUrl && (
             <div className="md:hidden container mx-auto px-4 mt-6">
-              <GlowCard glowIntensity="low" hoverEffect={false} className="bg-black/40 backdrop-blur-sm border-[#2a2a2a]">
+              <GlowCard glowIntensity="low" hoverEffect={false} className="bg-black/40 backdrop-blur-sm">
                 <GlowCardContent className="p-4">
                   <h2 className="text-lg font-light mb-4 text-white tracking-wide">Видео-обзор</h2>
                   <div className="aspect-video bg-[#1a1a1a] rounded-lg overflow-hidden">

@@ -1,10 +1,28 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { GlowCard, GlowCardContent } from "@/components/ui/glow-card";
+import Icon from "@/components/ui/icon";
+import { Badge } from "@/components/ui/badge";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Input } from "@/components/ui/input";
 import Header from "@/components/Header";
-import CatalogFilters from "@/components/catalog/CatalogFilters";
-import CatalogHeader from "@/components/catalog/CatalogHeader";
-import ProductGrid from "@/components/catalog/ProductGrid";
-import ComparePanel from "@/components/catalog/ComparePanel";
-import { Product } from "@/components/catalog/types";
+
+interface Product {
+  id: number;
+  name: string;
+  category: string;
+  price: number;
+  image: string;
+  maxSpeed: number;
+  range: number;
+  weight: number;
+  power: number;
+  brand: string;
+  deliveryDays: number;
+  inStock: boolean;
+}
 
 const products: Product[] = [
   {
@@ -197,49 +215,390 @@ const Catalog = () => {
 
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="grid lg:grid-cols-[280px_1fr] gap-6">
-            <CatalogFilters
-              categories={categories}
-              selectedCategory={selectedCategory}
-              setSelectedCategory={setSelectedCategory}
-              brands={brands}
-              selectedBrands={selectedBrands}
-              toggleBrand={toggleBrand}
-              powerRange={powerRange}
-              setPowerRange={setPowerRange}
-              deliveryDays={deliveryDays}
-              setDeliveryDays={setDeliveryDays}
-              onlyInStock={onlyInStock}
-              setOnlyInStock={setOnlyInStock}
-              resetFilters={resetFilters}
-              showFilters={showFilters}
-              setShowFilters={setShowFilters}
-            />
+            <aside className="hidden lg:block">
+              <GlowCard glowIntensity="low" hoverEffect={false} className="bg-gradient-to-br from-[#2c3038] to-[#1a1d23] backdrop-blur-sm rounded-lg">
+                <GlowCardContent className="p-6">
+                  <h3 className="text-xl font-semibold mb-5 text-white tracking-wide">Категории</h3>
+                  <div className="space-y-1 mb-8">
+                    <Button
+                      variant="ghost"
+                      className={`w-full justify-start rounded-none border-l-2 ${
+                        selectedCategory === null 
+                          ? 'border-white bg-white/10 text-white' 
+                          : 'border-transparent text-[#b0b0b0] hover:text-white hover:bg-white/5'
+                      }`}
+                      onClick={() => setSelectedCategory(null)}
+                    >
+                      <Icon name="LayoutGrid" className="mr-2 h-4 w-4" />
+                      Все категории
+                    </Button>
+                    {categories.map((cat) => (
+                      <Button
+                        key={cat.name}
+                        variant="ghost"
+                        className={`w-full justify-start rounded-none border-l-2 ${
+                          selectedCategory === cat.name 
+                            ? 'border-white bg-white/10 text-white' 
+                            : 'border-transparent text-[#b0b0b0] hover:text-white hover:bg-white/5'
+                        }`}
+                        onClick={() => setSelectedCategory(cat.name)}
+                      >
+                        <Icon name="Bike" className="mr-2 h-4 w-4" />
+                        {cat.name}
+                      </Button>
+                    ))}
+                  </div>
 
-            <div>
-              <CatalogHeader
-                searchQuery={searchQuery}
-                setSearchQuery={setSearchQuery}
-                setShowCompare={setShowCompare}
-                compareListLength={compareList.length}
-                setShowFilters={setShowFilters}
-              />
+                  <div className="mb-6 pb-6 border-b border-[#2a2a2a]">
+                    <h4 className="text-base font-semibold mb-4 text-white tracking-wide">Бренд</h4>
+                    <div className="space-y-3">
+                      {brands.map((brand) => (
+                        <div key={brand} className="flex items-center space-x-3">
+                          <Checkbox
+                            id={brand}
+                            checked={selectedBrands.includes(brand)}
+                            onCheckedChange={() => toggleBrand(brand)}
+                            className="border-[#4a4a4a] data-[state=checked]:bg-white data-[state=checked]:text-black w-5 h-5"
+                          />
+                          <label htmlFor={brand} className="text-base cursor-pointer text-white hover:text-blue-400 transition-colors">
+                            {brand}
+                          </label>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
 
-              <ProductGrid
-                products={filteredProducts}
-                compareList={compareList}
-                toggleCompare={toggleCompare}
-              />
+                  <div className="mb-6 pb-6 border-b border-[#2a2a2a]">
+                    <h4 className="text-base font-semibold mb-4 text-white tracking-wide">Мощность (Вт)</h4>
+                    <div className="space-y-3">
+                      <div className="flex justify-between text-sm text-white font-medium">
+                        <span>{powerRange[0]}</span>
+                        <span>{powerRange[1]}</span>
+                      </div>
+                      <input
+                        type="range"
+                        min="0"
+                        max="3000"
+                        step="100"
+                        value={powerRange[1]}
+                        onChange={(e) => setPowerRange([0, parseInt(e.target.value)])}
+                        className="w-full h-1 bg-[#2a2a2a] rounded-lg appearance-none cursor-pointer accent-white"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="mb-6 pb-6 border-b border-[#2a2a2a]">
+                    <h4 className="text-base font-semibold mb-4 text-white tracking-wide">Доставка (до {deliveryDays} дней)</h4>
+                    <div className="space-y-3">
+                      <input
+                        type="range"
+                        min="3"
+                        max="30"
+                        step="1"
+                        value={deliveryDays}
+                        onChange={(e) => setDeliveryDays(parseInt(e.target.value))}
+                        className="w-full h-1 bg-[#2a2a2a] rounded-lg appearance-none cursor-pointer accent-white"
+                      />
+                      <div className="flex justify-between text-sm text-white font-medium">
+                        <span>3 дня</span>
+                        <span>30 дней</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mb-6">
+                    <div className="flex items-center space-x-3">
+                      <Checkbox
+                        id="inStock"
+                        checked={onlyInStock}
+                        onCheckedChange={(checked) => setOnlyInStock(checked as boolean)}
+                        className="border-[#4a4a4a] data-[state=checked]:bg-white data-[state=checked]:text-black w-5 h-5"
+                      />
+                      <label htmlFor="inStock" className="text-base cursor-pointer text-white hover:text-blue-400 transition-colors">
+                        Только в наличии
+                      </label>
+                    </div>
+                  </div>
+
+                  <Button className="w-full bg-transparent border border-white text-white hover:bg-white hover:text-black rounded-none tracking-wide font-light transition-all duration-300" onClick={resetFilters}>
+                    Сбросить фильтры
+                  </Button>
+                </GlowCardContent>
+              </GlowCard>
+            </aside>
+
+            <div className="w-full">
+              <div className="flex items-center justify-between mb-6 md:mb-10">
+                <h2 className="text-2xl md:text-4xl font-light text-white tracking-tight">Каталог</h2>
+                {compareList.length > 0 && (
+                  <Button
+                    onClick={() => setShowCompare(!showCompare)}
+                    className="bg-white text-black hover:bg-[#e5e5e5] rounded-none px-6 py-2 font-light tracking-wide"
+                  >
+                    <Icon name="GitCompare" size={18} className="mr-2" />
+                    Сравнить ({compareList.length})
+                  </Button>
+                )}
+              </div>
+
+              {showCompare && compareProducts.length > 0 && (
+                <GlowCard glowIntensity="medium" hoverEffect={false} className="mb-8 bg-gradient-to-br from-[#2c3038] to-[#1a1d23] backdrop-blur-sm rounded-lg">
+                  <GlowCardContent className="p-6">
+                    <div className="flex items-center justify-between mb-6">
+                      <h3 className="text-xl font-light text-white">Сравнение моделей</h3>
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={() => {
+                          setShowCompare(false);
+                          setCompareList([]);
+                        }}
+                        className="text-[#b0b0b0] hover:text-white hover:bg-white/5"
+                      >
+                        <Icon name="X" size={18} />
+                      </Button>
+                    </div>
+                    <div className="overflow-x-auto">
+                      <table className="w-full text-sm">
+                        <thead>
+                          <tr className="border-b border-[#2a2a2a]">
+                            <th className="text-left py-3 px-2 text-[#707070] font-light">Параметр</th>
+                            {compareProducts.map((p) => (
+                              <th key={p.id} className="text-left py-3 px-2 text-white font-light">{p.name}</th>
+                            ))}
+                          </tr>
+                        </thead>
+                        <tbody className="text-[#b0b0b0]">
+                          <tr className="border-b border-[#2a2a2a]">
+                            <td className="py-3 px-2 text-[#707070]">Цена</td>
+                            {compareProducts.map((p) => (
+                              <td key={p.id} className="py-3 px-2 font-light text-white">{p.price.toLocaleString()} ₽</td>
+                            ))}
+                          </tr>
+                          <tr className="border-b border-[#2a2a2a]">
+                            <td className="py-3 px-2 text-[#707070]">Макс. скорость</td>
+                            {compareProducts.map((p) => (
+                              <td key={p.id} className="py-3 px-2">{p.maxSpeed} км/ч</td>
+                            ))}
+                          </tr>
+                          <tr className="border-b border-[#2a2a2a]">
+                            <td className="py-3 px-2 text-[#707070]">Запас хода</td>
+                            {compareProducts.map((p) => (
+                              <td key={p.id} className="py-3 px-2">{p.range} км</td>
+                            ))}
+                          </tr>
+                          <tr className="border-b border-[#2a2a2a]">
+                            <td className="py-3 px-2 text-[#707070]">Вес</td>
+                            {compareProducts.map((p) => (
+                              <td key={p.id} className="py-3 px-2">{p.weight} кг</td>
+                            ))}
+                          </tr>
+                          <tr className="border-b border-[#2a2a2a]">
+                            <td className="py-3 px-2 text-[#707070]">Мощность</td>
+                            {compareProducts.map((p) => (
+                              <td key={p.id} className="py-3 px-2">{p.power} Вт</td>
+                            ))}
+                          </tr>
+                          <tr>
+                            <td className="py-3 px-2 text-[#707070]">Доставка</td>
+                            {compareProducts.map((p) => (
+                              <td key={p.id} className="py-3 px-2">{p.deliveryDays} дней</td>
+                            ))}
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </GlowCardContent>
+                </GlowCard>
+              )}
+
+              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6">
+                {filteredProducts.map((product) => (
+                  <GlowCard key={product.id} glowIntensity="medium" className="group overflow-hidden bg-gradient-to-br from-[#2c3038] to-[#1a1d23] backdrop-blur-sm rounded-lg">
+                    <GlowCardContent className="p-0">
+                      <div className="relative aspect-square overflow-hidden bg-[#1a1a1a] rounded-lg">
+                        <img
+                          src={product.image}
+                          alt={product.name}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 rounded-lg"
+                        />
+                        <div className="absolute top-3 left-3 flex flex-col gap-2">
+                          {product.inStock ? (
+                            <Badge className="bg-green-500/90 text-white border-0 font-semibold px-3 py-1">
+                              В наличии
+                            </Badge>
+                          ) : (
+                            <Badge className="bg-orange-500/90 text-white border-0 font-semibold px-3 py-1">
+                              Под заказ
+                            </Badge>
+                          )}
+                          {product.deliveryDays <= 7 && (
+                            <Badge className="bg-blue-500/90 text-white border-0 font-semibold px-3 py-1">
+                              Быстрая доставка
+                            </Badge>
+                          )}
+                        </div>
+                        <div className="absolute top-3 right-3 flex flex-col gap-2">
+                          <Button
+                            size="icon"
+                            variant="ghost"
+                            onClick={() => toggleCompare(product.id)}
+                            className={`h-9 w-9 rounded-none backdrop-blur-sm transition-all duration-300 ${
+                              compareList.includes(product.id)
+                                ? 'bg-white text-black hover:bg-white/90 border border-white'
+                                : 'bg-black/40 text-white hover:bg-white hover:text-black border border-white/20'
+                            }`}
+                          >
+                            <Icon name="GitCompare" size={16} />
+                          </Button>
+                        </div>
+                      </div>
+                      
+                      <div className="p-6">
+                        <div className="flex items-start justify-between mb-4">
+                          <div>
+                            <h3 className="font-light text-white text-xl mb-2 tracking-tight">{product.name}</h3>
+                            <p className="text-sm text-[#a0a0a0] tracking-wider uppercase">{product.brand}</p>
+                          </div>
+                        </div>
+                        
+                        <div className="grid grid-cols-2 gap-3 mb-6">
+                          <div className="bg-white/10 border border-[#4a4a4a] p-3 rounded-lg">
+                            <div className="text-xs text-[#a0a0a0] tracking-wider uppercase mb-1.5">Скорость</div>
+                            <div className="text-base font-light text-white">{product.maxSpeed} км/ч</div>
+                          </div>
+                          <div className="bg-white/10 border border-[#4a4a4a] p-3 rounded-lg">
+                            <div className="text-xs text-[#a0a0a0] tracking-wider uppercase mb-1.5">Запас хода</div>
+                            <div className="text-base font-light text-white">{product.range} км</div>
+                          </div>
+                          <div className="bg-white/10 border border-[#4a4a4a] p-3 rounded-lg">
+                            <div className="text-xs text-[#a0a0a0] tracking-wider uppercase mb-1.5">Мощность</div>
+                            <div className="text-base font-light text-white">{product.power} Вт</div>
+                          </div>
+                          <div className="bg-white/10 border border-[#4a4a4a] p-3 rounded-lg">
+                            <div className="text-xs text-[#a0a0a0] tracking-wider uppercase mb-1.5">Доставка</div>
+                            <div className="text-base font-light text-white">{product.deliveryDays} дн</div>
+                          </div>
+                        </div>
+                        
+                        <div className="pt-5 border-t border-[#4a4a4a]">
+                          <div className="text-3xl font-light text-white tracking-tight mb-3">{product.price.toLocaleString()} ₽</div>
+                          <div className="flex justify-end">
+                            <Link to={`/product/${product.id}`}>
+                              <Button size="sm" className="bg-white text-black hover:bg-[#e5e5e5] rounded-none px-6 py-3 font-light tracking-wider uppercase text-sm transition-all duration-300">
+                                Подробнее
+                              </Button>
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                    </GlowCardContent>
+                  </GlowCard>
+                ))}
+              </div>
+
+              {filteredProducts.length === 0 && (
+                <div className="text-center py-16">
+                  <Icon name="SearchX" size={64} className="mx-auto mb-4 text-[#707070]" />
+                  <h3 className="text-xl font-light text-white mb-2">Товары не найдены</h3>
+                  <p className="text-[#b0b0b0] mb-6">Попробуйте изменить параметры фильтра</p>
+                  <Button onClick={resetFilters} className="bg-white text-black hover:bg-[#e5e5e5] rounded-none px-8 font-light tracking-wide">
+                    Сбросить фильтры
+                  </Button>
+                </div>
+              )}
             </div>
           </div>
         </div>
       </section>
 
-      <ComparePanel
-        showCompare={showCompare}
-        setShowCompare={setShowCompare}
-        compareProducts={compareProducts}
-        toggleCompare={toggleCompare}
-      />
+      {showFilters && (
+        <div className="lg:hidden fixed inset-0 bg-black/95 backdrop-blur-sm z-[110]" onClick={() => setShowFilters(false)}>
+          <GlowCard glowIntensity="medium" hoverEffect={false} className="absolute bottom-0 left-0 right-0 bg-gradient-to-br from-[#2c3038] to-[#1a1d23] border-t border-[#2a2a2a] max-h-[85vh] overflow-y-auto rounded-t-lg" onClick={(e) => e.stopPropagation()}>
+            <div className="sticky top-0 bg-gradient-to-br from-[#2c3038] to-[#1a1d23] border-b border-[#2a2a2a] p-4 flex items-center justify-between z-10">
+              <h3 className="text-lg font-light text-white tracking-wide">Фильтры</h3>
+              <Button variant="ghost" size="sm" onClick={() => setShowFilters(false)} className="text-[#b0b0b0] hover:text-white hover:bg-white/5">
+                <Icon name="X" size={20} />
+              </Button>
+            </div>
+            
+            <div className="p-4 space-y-6">
+              <div>
+                <h4 className="text-sm font-light mb-3 text-white tracking-wide">Категории</h4>
+                <div className="space-y-1">
+                  <Button
+                    variant="ghost"
+                    className={`w-full justify-start rounded-none border-l-2 ${
+                      selectedCategory === null 
+                        ? 'border-white bg-white/10 text-white' 
+                        : 'border-transparent text-[#b0b0b0]'
+                    }`}
+                    onClick={() => setSelectedCategory(null)}
+                  >
+                    Все категории
+                  </Button>
+                  {categories.map((cat) => (
+                    <Button
+                      key={cat.name}
+                      variant="ghost"
+                      className={`w-full justify-start rounded-none border-l-2 ${
+                        selectedCategory === cat.name 
+                          ? 'border-white bg-white/10 text-white' 
+                          : 'border-transparent text-[#b0b0b0]'
+                      }`}
+                      onClick={() => setSelectedCategory(cat.name)}
+                    >
+                      {cat.name}
+                    </Button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="pt-4 border-t border-[#2a2a2a]">
+                <h4 className="text-sm font-light mb-3 text-white tracking-wide">Бренд</h4>
+                <div className="space-y-2">
+                  {brands.map((brand) => (
+                    <div key={brand} className="flex items-center space-x-2">
+                      <Checkbox
+                        id={`mobile-${brand}`}
+                        checked={selectedBrands.includes(brand)}
+                        onCheckedChange={() => toggleBrand(brand)}
+                        className="border-[#3a3a3a] data-[state=checked]:bg-white data-[state=checked]:text-black"
+                      />
+                      <label htmlFor={`mobile-${brand}`} className="text-sm cursor-pointer text-[#b0b0b0]">
+                        {brand}
+                      </label>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="pt-4 border-t border-[#2a2a2a]">
+                <div className="flex items-center space-x-2">
+                  <Checkbox
+                    id="mobile-inStock"
+                    checked={onlyInStock}
+                    onCheckedChange={(checked) => setOnlyInStock(checked as boolean)}
+                    className="border-[#3a3a3a] data-[state=checked]:bg-white data-[state=checked]:text-black"
+                  />
+                  <label htmlFor="mobile-inStock" className="text-sm cursor-pointer text-[#b0b0b0]">
+                    Только в наличии
+                  </label>
+                </div>
+              </div>
+
+              <div className="pt-4 border-t border-[#2a2a2a] flex gap-3">
+                <Button className="flex-1 bg-transparent border border-white text-white hover:bg-white hover:text-black rounded-none font-light" onClick={resetFilters}>
+                  Сбросить
+                </Button>
+                <Button className="flex-1 bg-white text-black hover:bg-[#e5e5e5] rounded-none font-light" onClick={() => setShowFilters(false)}>
+                  Применить
+                </Button>
+              </div>
+            </div>
+          </GlowCard>
+        </div>
+      )}
     </div>
   );
 };

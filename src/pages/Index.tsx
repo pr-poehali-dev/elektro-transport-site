@@ -51,57 +51,65 @@ const Index = () => {
           
           <div className="absolute top-1/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
           
-          <svg className="absolute inset-0 w-full h-full lightning-strike pointer-events-none" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+          <svg className="absolute inset-0 w-full h-full lightning-strike pointer-events-none z-20" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
             <defs>
               <filter id="glow">
-                <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
                 <feMerge>
                   <feMergeNode in="coloredBlur"/>
                   <feMergeNode in="SourceGraphic"/>
                 </feMerge>
               </filter>
-            </defs>
-            
-            <g filter="url(#glow)">
-              <path d="M400,0 L420,80 L390,100 L410,180 L385,220 L405,280 L395,320 L410,380 L390,420 L405,480 L395,520 L408,600" 
-                    stroke="#60a5fa" strokeWidth="3" fill="none" opacity="0.8" className="bolt bolt-main"/>
-              <path d="M400,0 L420,80 L390,100 L410,180 L385,220 L405,280 L395,320 L410,380 L390,420 L405,480 L395,520 L408,600" 
-                    stroke="#ffffff" strokeWidth="1.5" fill="none" className="bolt bolt-core"/>
-              
-              <path d="M410,180 L450,190 L430,220 L460,250" 
-                    stroke="#60a5fa" strokeWidth="2" fill="none" opacity="0.7" className="bolt bolt-branch"/>
-              <path d="M410,180 L450,190 L430,220 L460,250" 
-                    stroke="#ffffff" strokeWidth="1" fill="none" opacity="0.9" className="bolt bolt-branch"/>
-              
-              <path d="M385,220 L350,240 L370,280 L340,310" 
-                    stroke="#60a5fa" strokeWidth="2" fill="none" opacity="0.6" className="bolt bolt-branch"/>
-              <path d="M385,220 L350,240 L370,280 L340,310" 
-                    stroke="#ffffff" strokeWidth="1" fill="none" opacity="0.8" className="bolt bolt-branch"/>
-              
-              <path d="M405,280 L440,300 L420,340 L455,380" 
-                    stroke="#60a5fa" strokeWidth="2" fill="none" opacity="0.7" className="bolt bolt-branch"/>
-              <path d="M405,280 L440,300 L420,340 L455,380" 
-                    stroke="#ffffff" strokeWidth="1" fill="none" opacity="0.9" className="bolt bolt-branch"/>
-              
-              <path d="M390,420 L360,450 L375,490 L350,530" 
-                    stroke="#60a5fa" strokeWidth="2" fill="none" opacity="0.6" className="bolt bolt-branch"/>
-              <path d="M390,420 L360,450 L375,490 L350,530" 
-                    stroke="#ffffff" strokeWidth="1" fill="none" opacity="0.8" className="bolt bolt-branch"/>
-              
-              <path d="M405,480 L435,500 L425,540 L450,580" 
-                    stroke="#60a5fa" strokeWidth="2" fill="none" opacity="0.6" className="bolt bolt-branch"/>
-              <path d="M405,480 L435,500 L425,540 L450,580" 
-                    stroke="#ffffff" strokeWidth="1" fill="none" opacity="0.8" className="bolt bolt-branch"/>
-            </g>
-            
-            <circle cx="400" cy="300" r="150" fill="url(#radial-glow)" className="lightning-glow-circle"/>
-            <defs>
               <radialGradient id="radial-glow">
-                <stop offset="0%" stopColor="rgba(96, 165, 250, 0.3)" />
-                <stop offset="50%" stopColor="rgba(96, 165, 250, 0.1)" />
+                <stop offset="0%" stopColor="rgba(96, 165, 250, 0.4)" />
+                <stop offset="50%" stopColor="rgba(96, 165, 250, 0.15)" />
                 <stop offset="100%" stopColor="rgba(96, 165, 250, 0)" />
               </radialGradient>
             </defs>
+            
+            <circle cx="960" cy="540" r="500" fill="url(#radial-glow)" className="lightning-glow-circle"/>
+            
+            <g filter="url(#glow)">
+              <path d="M960,0 L980,120 L940,160 L970,280 L930,350 L965,480 L945,560 L975,680 L940,760 L970,880 L950,960 L975,1080" 
+                    stroke="#60a5fa" strokeWidth="5" fill="none" opacity="0.9" className="bolt bolt-main"/>
+              <path d="M960,0 L980,120 L940,160 L970,280 L930,350 L965,480 L945,560 L975,680 L940,760 L970,880 L950,960 L975,1080" 
+                    stroke="#ffffff" strokeWidth="2.5" fill="none" className="bolt bolt-core"/>
+              
+              <path d="M970,280 L1050,310 L1020,360 L1080,420 L1050,480" 
+                    stroke="#60a5fa" strokeWidth="3" fill="none" opacity="0.8" className="bolt bolt-branch"/>
+              <path d="M970,280 L1050,310 L1020,360 L1080,420 L1050,480" 
+                    stroke="#ffffff" strokeWidth="1.5" fill="none" opacity="0.95" className="bolt bolt-branch"/>
+              
+              <path d="M930,350 L850,390 L880,450 L820,510 L850,570" 
+                    stroke="#60a5fa" strokeWidth="3" fill="none" opacity="0.75" className="bolt bolt-branch"/>
+              <path d="M930,350 L850,390 L880,450 L820,510 L850,570" 
+                    stroke="#ffffff" strokeWidth="1.5" fill="none" opacity="0.9" className="bolt bolt-branch"/>
+              
+              <path d="M1080,420 L1180,460 L1150,520 L1220,590" 
+                    stroke="#60a5fa" strokeWidth="2.5" fill="none" opacity="0.7" className="bolt bolt-branch"/>
+              <path d="M1080,420 L1180,460 L1150,520 L1220,590" 
+                    stroke="#ffffff" strokeWidth="1.2" fill="none" opacity="0.85" className="bolt bolt-branch"/>
+              
+              <path d="M820,510 L720,560 L750,620 L680,690" 
+                    stroke="#60a5fa" strokeWidth="2.5" fill="none" opacity="0.7" className="bolt bolt-branch"/>
+              <path d="M820,510 L720,560 L750,620 L680,690" 
+                    stroke="#ffffff" strokeWidth="1.2" fill="none" opacity="0.85" className="bolt bolt-branch"/>
+              
+              <path d="M965,480 L1090,530 L1060,590 L1120,660 L1090,720" 
+                    stroke="#60a5fa" strokeWidth="3" fill="none" opacity="0.8" className="bolt bolt-branch"/>
+              <path d="M965,480 L1090,530 L1060,590 L1120,660 L1090,720" 
+                    stroke="#ffffff" strokeWidth="1.5" fill="none" opacity="0.95" className="bolt bolt-branch"/>
+              
+              <path d="M940,760 L860,810 L890,870 L830,930 L860,990" 
+                    stroke="#60a5fa" strokeWidth="3" fill="none" opacity="0.75" className="bolt bolt-branch"/>
+              <path d="M940,760 L860,810 L890,870 L830,930 L860,990" 
+                    stroke="#ffffff" strokeWidth="1.5" fill="none" opacity="0.9" className="bolt bolt-branch"/>
+              
+              <path d="M970,880 L1060,920 L1030,980 L1090,1040" 
+                    stroke="#60a5fa" strokeWidth="3" fill="none" opacity="0.7" className="bolt bolt-branch"/>
+              <path d="M970,880 L1060,920 L1030,980 L1090,1040" 
+                    stroke="#ffffff" strokeWidth="1.5" fill="none" opacity="0.85" className="bolt bolt-branch"/>
+            </g>
           </svg>
           
 
@@ -116,10 +124,9 @@ const Index = () => {
           <img 
             src="https://cdn.poehali.dev/files/6281e1c0-9b0b-4b9f-a8d6-d59f6b8c765b.png"
             alt="Premium Electric Bike"
-            className="relative w-full h-auto max-h-[80vh] object-contain animate-scale-in opacity-0 drop-shadow-[0_0_80px_rgba(255,255,255,0.1)]"
+            className="relative w-full h-auto max-h-[80vh] object-contain animate-scale-in opacity-0 bike-lightning-glow"
             style={{ 
-              animationDelay: '0.3s',
-              filter: 'brightness(1.05) contrast(1.1)'
+              animationDelay: '0.3s'
             }}
           />
           

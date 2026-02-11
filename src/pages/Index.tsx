@@ -126,10 +126,10 @@ const Index = () => {
 
         <div className="w-full px-6 md:px-16 py-0 relative z-10 flex items-center h-full">
           <div className="max-w-screen-2xl mx-auto w-full">
-            <div className="animate-fade-in flex flex-col h-full py-6 md:py-16">
+            <div className="animate-fade-in flex flex-col h-full py-4 md:py-16">
               
-              <div className="mb-6 md:mb-auto">
-                <div className="inline-block px-4 py-2 md:px-6 md:py-3 border border-[#3a3a3a] mb-8 md:mb-16">
+              <div className="mb-3 md:mb-auto">
+                <div className="inline-block px-4 py-2 md:px-6 md:py-3 border border-[#3a3a3a] mb-4 md:mb-16">
                   <span className="text-[#a0a0a0] text-[9px] md:text-xs tracking-[0.25em] md:tracking-[0.3em] uppercase font-light">Premium Electric Mobility</span>
                 </div>
               </div>

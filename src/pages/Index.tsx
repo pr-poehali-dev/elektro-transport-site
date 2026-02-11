@@ -71,19 +71,19 @@ const Index = () => {
             wordsRef.current.style.display = 'flex';
           }
         }, 500);
-      }, 1600);
+      }, 1800);
       
       // Скрываем слова и переход в каталог
       setTimeout(() => {
         if (wordsRef.current) {
           wordsRef.current.style.opacity = '0';
         }
-      }, 2800);
+      }, 5000);
       
       // Переход в каталог
       setTimeout(() => {
         navigate('/catalog');
-      }, 3300);
+      }, 5500);
     };
 
     window.addEventListener('wheel', handleWheel, { passive: true });
@@ -102,7 +102,7 @@ const Index = () => {
     <div className="bg-[#0a0a0a] relative h-screen w-screen overflow-hidden fixed inset-0">
       {/* Анимация Premium Electric Mobility */}
       <div ref={premiumTextRef} className="fixed inset-0 z-50 bg-[#0a0a0a] hidden items-center justify-center transition-opacity duration-500" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-        <div className="text-[#a0a0a0] text-[clamp(0.5rem,3vw,1.2rem)] tracking-[0.3em] uppercase font-light opacity-0 animate-[premiumFade_1s_ease-out_0s_forwards]">
+        <div className="text-[#a0a0a0] text-[clamp(1rem,5vw,2.5rem)] tracking-[0.3em] uppercase font-light opacity-0 animate-[premiumFade_1s_ease-out_0s_forwards]">
           Premium Electric Mobility
         </div>
       </div>

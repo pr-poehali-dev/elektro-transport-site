@@ -6,22 +6,21 @@ import { useEffect, useRef, useState } from "react";
 const Index = () => {
   const navigate = useNavigate();
   const mainRef = useRef<HTMLDivElement>(null);
-  const catalogPreviewRef = useRef<HTMLDivElement>(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       if (isTransitioning) return;
-      if (!mainRef.current || !catalogPreviewRef.current) return;
+      if (!mainRef.current) return;
       
       const scrollY = window.scrollY;
       const windowHeight = window.innerHeight;
       const triggerPoint = windowHeight * 0.3;
       
       if (scrollY > triggerPoint) {
-        const progress = Math.min((scrollY - triggerPoint) / (windowHeight * 0.4), 1);
+        const progress = Math.min((scrollY - triggerPoint) / (windowHeight * 0.3), 1);
         mainRef.current.style.transform = `translateX(-${progress * 100}%)`;
-        catalogPreviewRef.current.style.transform = `translateX(-${progress * 100}%)`;
+        mainRef.current.style.opacity = `${1 - progress}`;
         
         // Переход на каталог при завершении анимации
         if (progress >= 1) {
@@ -30,7 +29,7 @@ const Index = () => {
         }
       } else {
         mainRef.current.style.transform = 'translateX(0)';
-        catalogPreviewRef.current.style.transform = 'translateX(0)';
+        mainRef.current.style.opacity = '1';
       }
     };
 
@@ -41,13 +40,10 @@ const Index = () => {
   }, [navigate, isTransitioning]);
 
   return (
-    <div className="bg-[#0a0a0a]" style={{ minHeight: '180vh' }}>
+    <div className="bg-[#0a0a0a]" style={{ minHeight: '150vh' }}>
       <Header />
 
-      <div className="fixed top-0 left-0 w-full h-screen overflow-hidden">
-        <div className="flex h-full" style={{ width: '200vw' }}>
-          {/* Главная секция */}
-          <section ref={mainRef} className="relative w-screen h-full flex items-center transition-transform duration-300 ease-out" style={{ willChange: 'transform' }}>
+      <section ref={mainRef} className="relative h-screen flex items-center transition-all duration-300 ease-out" style={{ willChange: 'transform, opacity' }}>
         <div className="absolute inset-0">
           {/* Desktop: полная молния со всеми ветками */}
           <svg className="hidden md:block absolute inset-0 w-full h-full lightning-strike pointer-events-none z-[3]" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
@@ -277,23 +273,6 @@ const Index = () => {
           </div>
         </div>
       </section>
-
-      {/* Превью каталога */}
-      <div ref={catalogPreviewRef} className="w-screen h-full bg-[#0a0a0a] flex items-center justify-center transition-transform duration-300 ease-out" style={{ willChange: 'transform' }}>
-        <div className="text-center px-6">
-          <h2 className="text-6xl md:text-8xl font-light text-white mb-8 tracking-tight">КАТАЛОГ</h2>
-          <p className="text-xl md:text-2xl text-[#a0a0a0] mb-12">Скролльте дальше, чтобы увидеть товары</p>
-          <div className="flex justify-center">
-            <Link to="/catalog">
-              <Button size="lg" className="bg-white text-black hover:bg-[#e5e5e5] font-normal text-base px-16 py-7 rounded-none tracking-[0.2em]">
-                ОТКРЫТЬ КАТАЛОГ
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </div>
-    </div>
-    </div>
     </div>
   );
 };

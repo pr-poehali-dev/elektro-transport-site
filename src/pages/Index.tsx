@@ -8,7 +8,6 @@ const Index = () => {
   const hasNavigated = useRef(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const wordsRef = useRef<HTMLDivElement>(null);
-  const lightningRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,21 +31,18 @@ const Index = () => {
           }
         }, 600);
         
-        // Скрываем слова и показываем молнию
+        // Скрываем слова и переход в каталог
         setTimeout(() => {
           if (wordsRef.current) {
             wordsRef.current.style.opacity = '0';
           }
-          if (lightningRef.current) {
-            lightningRef.current.style.display = 'block';
-          }
-        }, 3000);
+        }, 2800);
         
-        // Переход в каталог после молнии
+        // Переход в каталог
         setTimeout(() => {
           window.scrollTo(0, 0);
           navigate('/catalog');
-        }, 3800);
+        }, 3300);
       }
     };
 
@@ -61,37 +57,17 @@ const Index = () => {
       {/* Анимация слов */}
       <div ref={wordsRef} className="fixed inset-0 z-50 bg-[#0a0a0a] hidden items-center justify-center transition-opacity duration-500 px-4" style={{ fontFamily: 'Montserrat, sans-serif' }}>
         <div className="text-center space-y-4 md:space-y-6 w-full max-w-[95vw]">
-          <div className="text-[clamp(2rem,12vw,10rem)] font-light text-[#707070] tracking-tight uppercase opacity-0 animate-[wordAppear_0.6s_ease-out_0s_forwards] leading-none">
+          <div className="text-[clamp(2rem,12vw,10rem)] font-light text-[#707070] tracking-tight uppercase opacity-0 animate-[wordFade_0.7s_ease-out_0s_forwards] leading-none">
             СОВРЕМЕННО
           </div>
-          <div className="text-[clamp(2rem,12vw,10rem)] font-light text-[#707070] tracking-tight uppercase opacity-0 animate-[wordAppear_0.6s_ease-out_0.6s_forwards] leading-none">
+          <div className="text-[clamp(2rem,12vw,10rem)] font-light text-[#707070] tracking-tight uppercase opacity-0 animate-[wordFade_0.7s_ease-out_0.4s_forwards] leading-none">
             ЭКОЛОГИЧНО
           </div>
-          <div className="text-[clamp(2rem,12vw,10rem)] font-light text-[#707070] tracking-tight uppercase opacity-0 animate-[wordAppear_0.6s_ease-out_1.2s_forwards] leading-none">
+          <div className="text-[clamp(2rem,12vw,10rem)] font-light text-[#707070] tracking-tight uppercase opacity-0 animate-[wordFade_0.7s_ease-out_0.8s_forwards] leading-none">
             ЭКОНОМИЧНО
           </div>
-          <div className="text-[clamp(2rem,12vw,10rem)] font-light text-[#707070] tracking-tight uppercase opacity-0 animate-[wordAppear_0.6s_ease-out_1.8s_forwards] leading-none">
+          <div className="text-[clamp(2rem,12vw,10rem)] font-light text-[#707070] tracking-tight uppercase opacity-0 animate-[wordFade_0.7s_ease-out_1.2s_forwards] leading-none">
             КОМФОРТНО
-          </div>
-        </div>
-      </div>
-      
-      {/* Эффект погружения */}
-      <div ref={lightningRef} className="fixed inset-0 z-[60] bg-[#0a0a0a]" style={{ display: 'none' }}>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-full h-full relative overflow-hidden">
-            <div className="absolute inset-0 animate-[immersionGlow_1.2s_ease-out_forwards]" style={{
-              background: 'radial-gradient(circle at center, rgba(59, 130, 246, 0.4) 0%, rgba(59, 130, 246, 0.2) 25%, rgba(59, 130, 246, 0.1) 50%, transparent 70%)',
-              filter: 'blur(60px)'
-            }}></div>
-            <div className="absolute inset-0 animate-[immersionGlow_1.2s_ease-out_0.2s_forwards]" style={{
-              background: 'radial-gradient(circle at center, rgba(96, 165, 250, 0.5) 0%, rgba(96, 165, 250, 0.25) 30%, transparent 60%)',
-              filter: 'blur(80px)'
-            }}></div>
-            <div className="absolute inset-0 animate-[immersionGlow_1.2s_ease-out_0.4s_forwards]" style={{
-              background: 'radial-gradient(circle at center, rgba(147, 197, 253, 0.3) 0%, rgba(147, 197, 253, 0.1) 40%, transparent 70%)',
-              filter: 'blur(100px)'
-            }}></div>
           </div>
         </div>
       </div>

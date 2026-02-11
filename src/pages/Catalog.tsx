@@ -6,6 +6,7 @@ import Icon from "@/components/ui/icon";
 import { Badge } from "@/components/ui/badge";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
+import Header from "@/components/Header";
 
 interface Product {
   id: number;
@@ -198,99 +199,78 @@ const Catalog = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
-      <header className="bg-white shadow-sm sticky top-0 z-[100]">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between gap-4">
-            <Link to="/" className="flex items-center gap-2">
-              <span className="text-2xl font-bold text-foreground">ELECTRO MOTORS</span>
-            </Link>
-            
-            <div className="hidden md:flex flex-1 max-w-xl mx-8">
-              <div className="relative w-full">
-                <Icon name="Search" size={20} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
-                <Input
-                  type="text"
-                  placeholder="Поиск товаров..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10 rounded-full"
-                />
-              </div>
-            </div>
+    <div className="min-h-screen bg-[#0a0a0a]">
+      <Header />
 
-            <nav className="hidden lg:flex items-center gap-6">
-              <Link to="/" className="text-muted-foreground hover:text-foreground transition-colors">Главная</Link>
-              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">О нас</a>
-              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Доставка</a>
-              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Гарантия</a>
-            </nav>
-            
-            <div className="flex items-center gap-2">
-              <Button variant="ghost" size="icon" className="hidden md:flex">
-                <Icon name="Heart" size={20} />
-              </Button>
-              <Button size="icon" className="md:w-auto bg-secondary hover:bg-secondary/90 text-white rounded-full md:px-6">
-                <Icon name="Phone" size={18} />
-                <span className="hidden md:inline md:ml-2">+7 (495) 123-45-67</span>
-              </Button>
-            </div>
-          </div>
+      <section className="relative py-12 md:py-24 mb-16 md:mb-0">
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <svg className="hidden md:block absolute inset-0 w-full h-full opacity-10" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+            <path d="M960,0 L980,120 L940,160 L970,280 L930,350 L965,480 L945,560 L975,680 L940,760 L970,880 L950,960 L975,1080" 
+                  stroke="#60a5fa" strokeWidth="3" fill="none" opacity="0.6"/>
+            <path d="M960,0 L980,120 L940,160 L970,280 L930,350 L965,480 L945,560 L975,680 L940,760 L970,880 L950,960 L975,1080" 
+                  stroke="#ffffff" strokeWidth="1.5" fill="none" opacity="0.8"/>
+          </svg>
         </div>
-      </header>
 
-      <section className="py-8 md:py-16 mb-16 md:mb-0">
-        <div className="w-full max-w-full mx-auto px-1 md:px-4">
-          <div className="grid lg:grid-cols-[300px_1fr] gap-1 md:gap-6 w-full max-w-full">
-            <aside className="hidden lg:block flex-shrink-0 lg:sticky lg:top-20 h-fit">
-              <Card>
+        <div className="container mx-auto px-4 md:px-6 relative z-10">
+          <div className="grid lg:grid-cols-[280px_1fr] gap-6">
+            <aside className="hidden lg:block">
+              <Card className="bg-black/40 backdrop-blur-sm border-[#2a2a2a]">
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
-                    <Icon name="SlidersHorizontal" size={20} />
-                    Фильтры
-                  </h3>
-
-                  <div className="mb-6">
-                    <h4 className="font-semibold mb-3 text-sm">Категория</h4>
-                    <div className="space-y-2">
-                      <label className="flex items-center gap-2 cursor-pointer">
-                        <Checkbox
-                          checked={selectedCategory === null}
-                          onCheckedChange={() => setSelectedCategory(null)}
-                        />
-                        <span className="text-sm">Все категории</span>
-                      </label>
-                      {categories.map((cat) => (
-                        <label key={cat.name} className="flex items-center gap-2 cursor-pointer">
-                          <Checkbox
-                            checked={selectedCategory === cat.name}
-                            onCheckedChange={() => setSelectedCategory(selectedCategory === cat.name ? null : cat.name)}
-                          />
-                          <span className="text-sm">{cat.name}</span>
-                        </label>
-                      ))}
-                    </div>
+                  <h3 className="text-lg font-light mb-4 text-white tracking-wide">Категории</h3>
+                  <div className="space-y-1 mb-8">
+                    <Button
+                      variant="ghost"
+                      className={`w-full justify-start rounded-none border-l-2 ${
+                        selectedCategory === null 
+                          ? 'border-white bg-white/10 text-white' 
+                          : 'border-transparent text-[#b0b0b0] hover:text-white hover:bg-white/5'
+                      }`}
+                      onClick={() => setSelectedCategory(null)}
+                    >
+                      <Icon name="LayoutGrid" className="mr-2 h-4 w-4" />
+                      Все категории
+                    </Button>
+                    {categories.map((cat) => (
+                      <Button
+                        key={cat.name}
+                        variant="ghost"
+                        className={`w-full justify-start rounded-none border-l-2 ${
+                          selectedCategory === cat.name 
+                            ? 'border-white bg-white/10 text-white' 
+                            : 'border-transparent text-[#b0b0b0] hover:text-white hover:bg-white/5'
+                        }`}
+                        onClick={() => setSelectedCategory(cat.name)}
+                      >
+                        <Icon name="Bike" className="mr-2 h-4 w-4" />
+                        {cat.name}
+                      </Button>
+                    ))}
                   </div>
 
-                  <div className="mb-6">
-                    <h4 className="font-semibold mb-3 text-sm">Марка</h4>
+                  <div className="mb-6 pb-6 border-b border-[#2a2a2a]">
+                    <h4 className="text-sm font-light mb-3 text-white tracking-wide">Бренд</h4>
                     <div className="space-y-2">
                       {brands.map((brand) => (
-                        <label key={brand} className="flex items-center gap-2 cursor-pointer">
+                        <div key={brand} className="flex items-center space-x-2">
                           <Checkbox
+                            id={brand}
                             checked={selectedBrands.includes(brand)}
                             onCheckedChange={() => toggleBrand(brand)}
+                            className="border-[#3a3a3a] data-[state=checked]:bg-white data-[state=checked]:text-black"
                           />
-                          <span className="text-sm">{brand}</span>
-                        </label>
+                          <label htmlFor={brand} className="text-sm cursor-pointer text-[#b0b0b0] hover:text-white transition-colors">
+                            {brand}
+                          </label>
+                        </div>
                       ))}
                     </div>
                   </div>
 
-                  <div className="mb-6">
-                    <h4 className="font-semibold mb-3 text-sm">Мощность (Вт)</h4>
+                  <div className="mb-6 pb-6 border-b border-[#2a2a2a]">
+                    <h4 className="text-sm font-light mb-3 text-white tracking-wide">Мощность (Вт)</h4>
                     <div className="space-y-2">
-                      <div className="flex justify-between text-xs text-muted-foreground">
+                      <div className="flex justify-between text-xs text-[#707070]">
                         <span>{powerRange[0]}</span>
                         <span>{powerRange[1]}</span>
                       </div>
@@ -301,13 +281,13 @@ const Catalog = () => {
                         step="100"
                         value={powerRange[1]}
                         onChange={(e) => setPowerRange([0, parseInt(e.target.value)])}
-                        className="w-full"
+                        className="w-full h-1 bg-[#2a2a2a] rounded-lg appearance-none cursor-pointer accent-white"
                       />
                     </div>
                   </div>
 
-                  <div className="mb-6">
-                    <h4 className="font-semibold mb-3 text-sm">Срок доставки (до {deliveryDays} дней)</h4>
+                  <div className="mb-6 pb-6 border-b border-[#2a2a2a]">
+                    <h4 className="text-sm font-light mb-3 text-white tracking-wide">Доставка (до {deliveryDays} дней)</h4>
                     <div className="space-y-2">
                       <input
                         type="range"
@@ -316,47 +296,43 @@ const Catalog = () => {
                         step="1"
                         value={deliveryDays}
                         onChange={(e) => setDeliveryDays(parseInt(e.target.value))}
-                        className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-primary"
-                        style={{
-                          accentColor: 'hsl(var(--primary))'
-                        }}
+                        className="w-full h-1 bg-[#2a2a2a] rounded-lg appearance-none cursor-pointer accent-white"
                       />
-                      <div className="flex justify-between text-xs text-muted-foreground">
+                      <div className="flex justify-between text-xs text-[#707070]">
                         <span>3 дня</span>
                         <span>30 дней</span>
                       </div>
                     </div>
                   </div>
 
-                  <div className="mb-4">
-                    <label className="flex items-center gap-2 cursor-pointer">
+                  <div className="mb-6">
+                    <div className="flex items-center space-x-2">
                       <Checkbox
+                        id="inStock"
                         checked={onlyInStock}
-                        onCheckedChange={(checked) => setOnlyInStock(checked === true)}
+                        onCheckedChange={(checked) => setOnlyInStock(checked as boolean)}
+                        className="border-[#3a3a3a] data-[state=checked]:bg-white data-[state=checked]:text-black"
                       />
-                      <span className="text-sm font-semibold">Есть в наличии</span>
-                    </label>
+                      <label htmlFor="inStock" className="text-sm cursor-pointer text-[#b0b0b0] hover:text-white transition-colors">
+                        Только в наличии
+                      </label>
+                    </div>
                   </div>
 
-                  <Button
-                    variant="outline"
-                    className="w-full"
-                    onClick={resetFilters}
-                  >
-                    <Icon name="RotateCcw" size={16} className="mr-2" />
+                  <Button className="w-full bg-transparent border border-white text-white hover:bg-white hover:text-black rounded-none tracking-wide font-light transition-all duration-300" onClick={resetFilters}>
                     Сбросить фильтры
                   </Button>
                 </CardContent>
               </Card>
             </aside>
 
-            <div className="flex-1 w-full">
-              <div className="flex items-center justify-between mb-4 md:mb-8 px-2 md:px-0">
-                <h2 className="text-2xl md:text-4xl font-bold">Каталог</h2>
+            <div className="w-full">
+              <div className="flex items-center justify-between mb-6 md:mb-10">
+                <h2 className="text-2xl md:text-4xl font-light text-white tracking-tight">Каталог</h2>
                 {compareList.length > 0 && (
                   <Button
                     onClick={() => setShowCompare(!showCompare)}
-                    className="bg-primary hover:bg-primary/90 text-white rounded-full"
+                    className="bg-white text-black hover:bg-[#e5e5e5] rounded-none px-6 py-2 font-light tracking-wide"
                   >
                     <Icon name="GitCompare" size={18} className="mr-2" />
                     Сравнить ({compareList.length})
@@ -365,10 +341,10 @@ const Catalog = () => {
               </div>
 
               {showCompare && compareProducts.length > 0 && (
-                <Card className="mb-8 shadow-lg animate-fade-in">
+                <Card className="mb-8 bg-black/40 backdrop-blur-sm border-[#2a2a2a]">
                   <CardContent className="p-6">
-                    <div className="flex items-center justify-between mb-4">
-                      <h3 className="text-2xl font-bold">Сравнение моделей</h3>
+                    <div className="flex items-center justify-between mb-6">
+                      <h3 className="text-xl font-light text-white">Сравнение моделей</h3>
                       <Button
                         variant="ghost"
                         size="sm"
@@ -376,64 +352,56 @@ const Catalog = () => {
                           setShowCompare(false);
                           setCompareList([]);
                         }}
+                        className="text-[#b0b0b0] hover:text-white hover:bg-white/5"
                       >
                         <Icon name="X" size={18} />
                       </Button>
                     </div>
                     <div className="overflow-x-auto">
-                      <table className="w-full">
+                      <table className="w-full text-sm">
                         <thead>
-                          <tr className="border-b">
-                            <th className="text-left p-4 font-semibold">Характеристика</th>
-                            {compareProducts.map((product) => (
-                              <th key={product.id} className="text-center p-4">
-                                <div className="flex flex-col items-center gap-2">
-                                  <img src={product.image} alt={product.name} className="w-24 h-24 object-contain" />
-                                  <div className="font-semibold text-sm">{product.name}</div>
-                                </div>
-                              </th>
+                          <tr className="border-b border-[#2a2a2a]">
+                            <th className="text-left py-3 px-2 text-[#707070] font-light">Параметр</th>
+                            {compareProducts.map((p) => (
+                              <th key={p.id} className="text-left py-3 px-2 text-white font-light">{p.name}</th>
                             ))}
                           </tr>
                         </thead>
-                        <tbody>
-                          <tr className="border-b hover:bg-slate-50">
-                            <td className="p-4 font-medium">Цена</td>
-                            {compareProducts.map((product) => (
-                              <td key={product.id} className="text-center p-4 font-bold text-primary">
-                                {product.price.toLocaleString('ru-RU')} ₽
-                              </td>
+                        <tbody className="text-[#b0b0b0]">
+                          <tr className="border-b border-[#2a2a2a]">
+                            <td className="py-3 px-2 text-[#707070]">Цена</td>
+                            {compareProducts.map((p) => (
+                              <td key={p.id} className="py-3 px-2 font-light text-white">{p.price.toLocaleString()} ₽</td>
                             ))}
                           </tr>
-                          <tr className="border-b hover:bg-slate-50">
-                            <td className="p-4 font-medium">Макс. скорость</td>
-                            {compareProducts.map((product) => (
-                              <td key={product.id} className="text-center p-4">
-                                {product.maxSpeed} км/ч
-                              </td>
+                          <tr className="border-b border-[#2a2a2a]">
+                            <td className="py-3 px-2 text-[#707070]">Макс. скорость</td>
+                            {compareProducts.map((p) => (
+                              <td key={p.id} className="py-3 px-2">{p.maxSpeed} км/ч</td>
                             ))}
                           </tr>
-                          <tr className="border-b hover:bg-slate-50">
-                            <td className="p-4 font-medium">Запас хода</td>
-                            {compareProducts.map((product) => (
-                              <td key={product.id} className="text-center p-4">
-                                {product.range} км
-                              </td>
+                          <tr className="border-b border-[#2a2a2a]">
+                            <td className="py-3 px-2 text-[#707070]">Запас хода</td>
+                            {compareProducts.map((p) => (
+                              <td key={p.id} className="py-3 px-2">{p.range} км</td>
                             ))}
                           </tr>
-                          <tr className="border-b hover:bg-slate-50">
-                            <td className="p-4 font-medium">Вес</td>
-                            {compareProducts.map((product) => (
-                              <td key={product.id} className="text-center p-4">
-                                {product.weight} кг
-                              </td>
+                          <tr className="border-b border-[#2a2a2a]">
+                            <td className="py-3 px-2 text-[#707070]">Вес</td>
+                            {compareProducts.map((p) => (
+                              <td key={p.id} className="py-3 px-2">{p.weight} кг</td>
                             ))}
                           </tr>
-                          <tr className="border-b hover:bg-slate-50">
-                            <td className="p-4 font-medium">Мощность</td>
-                            {compareProducts.map((product) => (
-                              <td key={product.id} className="text-center p-4">
-                                {product.power} Вт
-                              </td>
+                          <tr className="border-b border-[#2a2a2a]">
+                            <td className="py-3 px-2 text-[#707070]">Мощность</td>
+                            {compareProducts.map((p) => (
+                              <td key={p.id} className="py-3 px-2">{p.power} Вт</td>
+                            ))}
+                          </tr>
+                          <tr>
+                            <td className="py-3 px-2 text-[#707070]">Доставка</td>
+                            {compareProducts.map((p) => (
+                              <td key={p.id} className="py-3 px-2">{p.deliveryDays} дней</td>
                             ))}
                           </tr>
                         </tbody>
@@ -443,63 +411,71 @@ const Catalog = () => {
                 </Card>
               )}
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6 px-1 md:px-0">
+              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6">
                 {filteredProducts.map((product) => (
-                  <Card key={product.id} className="group hover:shadow-xl transition-all duration-300 animate-fade-in overflow-hidden">
+                  <Card key={product.id} className="group overflow-hidden bg-black/40 backdrop-blur-sm border-[#2a2a2a] hover:border-white/20 transition-all duration-300">
                     <CardContent className="p-0">
-                      <Link to={`/product/${product.id}`}>
-                        <div className="relative bg-gradient-to-br from-slate-100 to-slate-200 cursor-pointer aspect-square flex items-center justify-center">
-                          <img
-                            src={product.image}
-                            alt={product.name}
-                            className="w-full h-full object-contain p-4 group-hover:scale-110 transition-transform duration-300"
-                          />
-                          <div className="absolute top-4 right-4 flex flex-col gap-2" onClick={(e) => e.preventDefault()}>
-                            <div className="flex items-center gap-2">
-                              <Checkbox
-                                checked={compareList.includes(product.id)}
-                                onCheckedChange={() => toggleCompare(product.id)}
-                                className="bg-white"
-                              />
-                              <span className="text-xs bg-white px-2 py-1 rounded">Сравнить</span>
-                            </div>
+                      <div className="relative aspect-square overflow-hidden bg-[#1a1a1a]">
+                        <img
+                          src={product.image}
+                          alt={product.name}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                        {!product.inStock && (
+                          <Badge className="absolute top-3 left-3 bg-[#707070] text-white border-none">
+                            Под заказ
+                          </Badge>
+                        )}
+                        <div className="absolute top-3 right-3 flex flex-col gap-2">
+                          <Button
+                            size="icon"
+                            variant="ghost"
+                            onClick={() => toggleCompare(product.id)}
+                            className={`h-9 w-9 rounded-full backdrop-blur-sm ${
+                              compareList.includes(product.id)
+                                ? 'bg-white text-black hover:bg-white/90'
+                                : 'bg-black/40 text-white hover:bg-black/60'
+                            }`}
+                          >
+                            <Icon name="GitCompare" size={16} />
+                          </Button>
+                        </div>
+                      </div>
+                      
+                      <div className="p-4">
+                        <div className="flex items-start justify-between mb-2">
+                          <div>
+                            <h3 className="font-light text-white text-lg mb-1">{product.name}</h3>
+                            <p className="text-xs text-[#707070] tracking-wide">{product.brand}</p>
                           </div>
                         </div>
-                      </Link>
-                      <div className="p-6">
-                        <Badge variant="secondary" className="mb-2 text-xs">
-                          {product.category}
-                        </Badge>
-                        <Link to={`/product/${product.id}`}>
-                          <h3 className="font-bold text-lg mb-2 hover:text-primary transition-colors cursor-pointer">{product.name}</h3>
-                        </Link>
-                        <div className="grid grid-cols-2 gap-2 text-xs text-muted-foreground mb-4">
-                          <div className="flex items-center gap-1">
-                            <Icon name="Gauge" size={14} />
+                        
+                        <div className="grid grid-cols-2 gap-2 mb-4 text-xs">
+                          <div className="flex items-center gap-1 text-[#b0b0b0]">
+                            <Icon name="Zap" size={14} className="text-[#707070]" />
                             <span>{product.maxSpeed} км/ч</span>
                           </div>
-                          <div className="flex items-center gap-1">
-                            <Icon name="Battery" size={14} />
+                          <div className="flex items-center gap-1 text-[#b0b0b0]">
+                            <Icon name="Battery" size={14} className="text-[#707070]" />
                             <span>{product.range} км</span>
                           </div>
-                          <div className="flex items-center gap-1">
-                            <Icon name="Weight" size={14} />
+                          <div className="flex items-center gap-1 text-[#b0b0b0]">
+                            <Icon name="Weight" size={14} className="text-[#707070]" />
                             <span>{product.weight} кг</span>
                           </div>
-                          <div className="flex items-center gap-1">
-                            <Icon name="Zap" size={14} />
-                            <span>{product.power} Вт</span>
+                          <div className="flex items-center gap-1 text-[#b0b0b0]">
+                            <Icon name="Truck" size={14} className="text-[#707070]" />
+                            <span>{product.deliveryDays} дней</span>
                           </div>
                         </div>
-                        <div className="flex items-center justify-between">
+                        
+                        <div className="flex items-center justify-between pt-4 border-t border-[#2a2a2a]">
                           <div>
-                            <div className="text-2xl font-bold text-primary">
-                              {product.price.toLocaleString('ru-RU')} ₽
-                            </div>
+                            <div className="text-2xl font-light text-white">{product.price.toLocaleString()} ₽</div>
                           </div>
                           <Link to={`/product/${product.id}`}>
-                            <Button size="sm" className="bg-secondary hover:bg-secondary/90 text-white rounded-full">
-                              Купить
+                            <Button size="sm" className="bg-white text-black hover:bg-[#e5e5e5] rounded-none px-6 font-light tracking-wide">
+                              Подробнее
                             </Button>
                           </Link>
                         </div>
@@ -508,141 +484,105 @@ const Catalog = () => {
                   </Card>
                 ))}
               </div>
+
+              {filteredProducts.length === 0 && (
+                <div className="text-center py-16">
+                  <Icon name="SearchX" size={64} className="mx-auto mb-4 text-[#707070]" />
+                  <h3 className="text-xl font-light text-white mb-2">Товары не найдены</h3>
+                  <p className="text-[#b0b0b0] mb-6">Попробуйте изменить параметры фильтра</p>
+                  <Button onClick={resetFilters} className="bg-white text-black hover:bg-[#e5e5e5] rounded-none px-8 font-light tracking-wide">
+                    Сбросить фильтры
+                  </Button>
+                </div>
+              )}
             </div>
           </div>
         </div>
       </section>
 
-      <footer className="bg-slate-900 text-white py-12 mt-20">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <div className="flex items-center gap-2 mb-4">
-                <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                  <Icon name="Zap" className="text-white" size={24} />
-                </div>
-                <span className="text-xl font-bold">ELECTRO MOTORS</span>
-              </div>
-              <p className="text-slate-400 text-sm">
-                Эксклюзивный импорт электротранспорта нового поколения
-              </p>
-            </div>
-            <div>
-              <h4 className="font-bold mb-4">Компания</h4>
-              <ul className="space-y-2 text-sm text-slate-400">
-                <li><a href="#" className="hover:text-white transition-colors">О нас</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Доставка</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Гарантия</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-bold mb-4">Категории</h4>
-              <ul className="space-y-2 text-sm text-slate-400">
-                {categories.map((cat) => (
-                  <li key={cat.name}>
-                    <a href="#" className="hover:text-white transition-colors">{cat.name}</a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-bold mb-4">Контакты</h4>
-              <div className="space-y-2 text-sm text-slate-400">
-                <p>+7 (495) 123-45-67</p>
-                <p>info@electromotors.ru</p>
-                <p>Москва, ул. Примерная, 1</p>
-              </div>
-            </div>
-          </div>
-          <div className="border-t border-slate-800 mt-8 pt-8 text-center text-sm text-slate-400">
-            © 2024 ELECTRO MOTORS. Все права защищены.
-          </div>
-        </div>
-      </footer>
-
       {showFilters && (
-        <div className="md:hidden fixed inset-0 bg-black/50 z-50" onClick={() => setShowFilters(false)}>
-          <div className="absolute bottom-0 left-0 right-0 bg-white rounded-t-2xl p-6 max-h-[80vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
-            <div className="flex justify-between items-center mb-4">
-              <h3 className="text-lg font-bold flex items-center gap-2">
-                <Icon name="SlidersHorizontal" size={20} />
-                Фильтры
-              </h3>
-              <Button variant="ghost" size="sm" onClick={() => setShowFilters(false)}>
+        <div className="lg:hidden fixed inset-0 bg-black/95 backdrop-blur-sm z-[110]" onClick={() => setShowFilters(false)}>
+          <div className="absolute bottom-0 left-0 right-0 bg-[#0a0a0a] border-t border-[#2a2a2a] max-h-[85vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+            <div className="sticky top-0 bg-[#0a0a0a] border-b border-[#2a2a2a] p-4 flex items-center justify-between z-10">
+              <h3 className="text-lg font-light text-white tracking-wide">Фильтры</h3>
+              <Button variant="ghost" size="sm" onClick={() => setShowFilters(false)} className="text-[#b0b0b0] hover:text-white hover:bg-white/5">
                 <Icon name="X" size={20} />
               </Button>
             </div>
-
-            <div className="mb-6">
-              <h4 className="font-semibold mb-3 text-sm">Категория</h4>
-              <div className="space-y-2">
-                {categories.map((cat) => (
-                  <button
-                    key={cat.name}
-                    onClick={() => setSelectedCategory(selectedCategory === cat.name ? null : cat.name)}
-                    className={`w-full flex items-center gap-3 p-3 rounded-lg transition-all ${
-                      selectedCategory === cat.name
-                        ? 'bg-primary text-white'
-                        : 'bg-slate-100 hover:bg-slate-200'
+            
+            <div className="p-4 space-y-6">
+              <div>
+                <h4 className="text-sm font-light mb-3 text-white tracking-wide">Категории</h4>
+                <div className="space-y-1">
+                  <Button
+                    variant="ghost"
+                    className={`w-full justify-start rounded-none border-l-2 ${
+                      selectedCategory === null 
+                        ? 'border-white bg-white/10 text-white' 
+                        : 'border-transparent text-[#b0b0b0]'
                     }`}
+                    onClick={() => setSelectedCategory(null)}
                   >
-                    <Icon name="Bike" size={18} />
-                    <span className="text-sm">{cat.name}</span>
-                  </button>
-                ))}
+                    Все категории
+                  </Button>
+                  {categories.map((cat) => (
+                    <Button
+                      key={cat.name}
+                      variant="ghost"
+                      className={`w-full justify-start rounded-none border-l-2 ${
+                        selectedCategory === cat.name 
+                          ? 'border-white bg-white/10 text-white' 
+                          : 'border-transparent text-[#b0b0b0]'
+                      }`}
+                      onClick={() => setSelectedCategory(cat.name)}
+                    >
+                      {cat.name}
+                    </Button>
+                  ))}
+                </div>
               </div>
-            </div>
 
-            <div className="mb-6">
-              <h4 className="font-semibold mb-3 text-sm">Бренд</h4>
-              <div className="space-y-2">
-                {brands.map((brand) => (
-                  <label key={brand} className="flex items-center gap-2 cursor-pointer">
-                    <input
-                      type="checkbox"
-                      checked={selectedBrands.includes(brand)}
-                      onChange={(e) => {
-                        if (e.target.checked) {
-                          setSelectedBrands([...selectedBrands, brand]);
-                        } else {
-                          setSelectedBrands(selectedBrands.filter((b) => b !== brand));
-                        }
-                      }}
-                      className="rounded"
-                    />
-                    <span className="text-sm">{brand}</span>
+              <div className="pt-4 border-t border-[#2a2a2a]">
+                <h4 className="text-sm font-light mb-3 text-white tracking-wide">Бренд</h4>
+                <div className="space-y-2">
+                  {brands.map((brand) => (
+                    <div key={brand} className="flex items-center space-x-2">
+                      <Checkbox
+                        id={`mobile-${brand}`}
+                        checked={selectedBrands.includes(brand)}
+                        onCheckedChange={() => toggleBrand(brand)}
+                        className="border-[#3a3a3a] data-[state=checked]:bg-white data-[state=checked]:text-black"
+                      />
+                      <label htmlFor={`mobile-${brand}`} className="text-sm cursor-pointer text-[#b0b0b0]">
+                        {brand}
+                      </label>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="pt-4 border-t border-[#2a2a2a]">
+                <div className="flex items-center space-x-2">
+                  <Checkbox
+                    id="mobile-inStock"
+                    checked={onlyInStock}
+                    onCheckedChange={(checked) => setOnlyInStock(checked as boolean)}
+                    className="border-[#3a3a3a] data-[state=checked]:bg-white data-[state=checked]:text-black"
+                  />
+                  <label htmlFor="mobile-inStock" className="text-sm cursor-pointer text-[#b0b0b0]">
+                    Только в наличии
                   </label>
-                ))}
+                </div>
               </div>
-            </div>
 
-            <div className="mb-6">
-              <label className="flex items-center gap-2 cursor-pointer">
-                <input
-                  type="checkbox"
-                  checked={onlyInStock}
-                  onChange={(e) => setOnlyInStock(e.target.checked)}
-                  className="rounded"
-                />
-                <span className="text-sm font-semibold">Есть в наличии</span>
-              </label>
-            </div>
-
-            <div className="flex gap-2">
-              <Button
-                variant="outline"
-                className="flex-1"
-                onClick={resetFilters}
-              >
-                <Icon name="RotateCcw" size={16} className="mr-2" />
-                Сбросить
-              </Button>
-              <Button
-                className="flex-1 bg-primary"
-                onClick={() => setShowFilters(false)}
-              >
-                Применить
-              </Button>
+              <div className="pt-4 border-t border-[#2a2a2a] flex gap-3">
+                <Button className="flex-1 bg-transparent border border-white text-white hover:bg-white hover:text-black rounded-none font-light" onClick={resetFilters}>
+                  Сбросить
+                </Button>
+                <Button className="flex-1 bg-white text-black hover:bg-[#e5e5e5] rounded-none font-light" onClick={() => setShowFilters(false)}>
+                  Применить
+                </Button>
+              </div>
             </div>
           </div>
         </div>

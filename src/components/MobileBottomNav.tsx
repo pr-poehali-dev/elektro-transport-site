@@ -68,7 +68,7 @@ const MobileBottomNav = ({ onFilterClick }: MobileBottomNavProps) => {
     <>
       {/* Mobile Search Modal */}
       {showSearch && (
-        <div className="md:hidden fixed inset-0 bg-black/95 backdrop-blur-sm z-[120]" onClick={() => {
+        <div className="md:hidden fixed inset-0 bg-black/95 backdrop-blur-sm z-50" onClick={() => {
           setShowSearch(false);
           setSearchQuery("");
           if (location.pathname === '/catalog') {
@@ -113,7 +113,7 @@ const MobileBottomNav = ({ onFilterClick }: MobileBottomNavProps) => {
 
       {/* Mobile Menu Modal */}
       {showMenu && (
-        <div className="md:hidden fixed inset-0 bg-black/95 backdrop-blur-sm z-[120]" onClick={() => setShowMenu(false)}>
+        <div className="md:hidden fixed inset-0 bg-black/95 backdrop-blur-sm z-50" onClick={() => setShowMenu(false)}>
           <div className="absolute bottom-0 left-0 right-0 bg-[#0a0a0a] border-t border-[#2a2a2a] p-8" onClick={(e) => e.stopPropagation()}>
             <div className="flex justify-between items-center mb-8">
               <h3 className="text-sm font-light tracking-[0.25em] uppercase text-[#a0a0a0]">Меню</h3>

@@ -48,7 +48,7 @@ const Index = () => {
   return (
     <div className="bg-[#0a0a0a] relative" style={{ minHeight: '120vh' }}>
       {/* Анимация слов */}
-      <div ref={wordsRef} className="fixed inset-0 z-50 bg-[#0a0a0a] hidden items-center justify-center">
+      <div ref={wordsRef} className="fixed inset-0 z-50 bg-[#0a0a0a] items-center justify-center" style={{ display: 'none' }}>
         <div className="text-center space-y-8">
           <div className="text-[clamp(4rem,12vw,10rem)] font-light text-white tracking-tight uppercase opacity-0 animate-[fadeSlide_0.6s_ease-out_0s_forwards] word-charge-glow">
             СОВРЕМЕННО

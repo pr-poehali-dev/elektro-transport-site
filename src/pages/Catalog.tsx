@@ -413,7 +413,7 @@ const Catalog = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6">
                 {filteredProducts.map((product) => (
-                  <Card key={product.id} className="group overflow-hidden bg-black/40 backdrop-blur-sm border-[#2a2a2a] hover:border-white/20 transition-all duration-300">
+                  <Card key={product.id} className="group overflow-hidden bg-black/60 backdrop-blur-sm border-[#3a3a3a] hover:border-white/30 transition-all duration-300">
                     <CardContent className="p-0">
                       <div className="relative aspect-square overflow-hidden bg-[#1a1a1a]">
                         <img
@@ -422,7 +422,7 @@ const Catalog = () => {
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         />
                         {!product.inStock && (
-                          <Badge className="absolute top-3 left-3 bg-[#707070] text-white border-none">
+                          <Badge className="absolute top-3 left-3 bg-white/10 text-white border border-white/20">
                             Под заказ
                           </Badge>
                         )}
@@ -431,10 +431,10 @@ const Catalog = () => {
                             size="icon"
                             variant="ghost"
                             onClick={() => toggleCompare(product.id)}
-                            className={`h-9 w-9 rounded-full backdrop-blur-sm ${
+                            className={`h-9 w-9 rounded-none backdrop-blur-sm transition-all duration-300 ${
                               compareList.includes(product.id)
-                                ? 'bg-white text-black hover:bg-white/90'
-                                : 'bg-black/40 text-white hover:bg-black/60'
+                                ? 'bg-white text-black hover:bg-white/90 border border-white'
+                                : 'bg-black/40 text-white hover:bg-white hover:text-black border border-white/20'
                             }`}
                           >
                             <Icon name="GitCompare" size={16} />
@@ -442,39 +442,39 @@ const Catalog = () => {
                         </div>
                       </div>
                       
-                      <div className="p-4">
-                        <div className="flex items-start justify-between mb-2">
+                      <div className="p-5">
+                        <div className="flex items-start justify-between mb-3">
                           <div>
-                            <h3 className="font-light text-white text-lg mb-1">{product.name}</h3>
-                            <p className="text-xs text-[#707070] tracking-wide">{product.brand}</p>
+                            <h3 className="font-light text-white text-lg mb-1 tracking-tight">{product.name}</h3>
+                            <p className="text-xs text-[#707070] tracking-wider uppercase">{product.brand}</p>
                           </div>
                         </div>
                         
-                        <div className="grid grid-cols-2 gap-2 mb-4 text-xs">
-                          <div className="flex items-center gap-1 text-[#b0b0b0]">
-                            <Icon name="Zap" size={14} className="text-[#707070]" />
-                            <span>{product.maxSpeed} км/ч</span>
+                        <div className="grid grid-cols-2 gap-3 mb-5">
+                          <div className="bg-white/5 border border-[#2a2a2a] p-2">
+                            <div className="text-[9px] text-[#707070] tracking-wider uppercase mb-1">Скорость</div>
+                            <div className="text-sm font-light text-white">{product.maxSpeed} км/ч</div>
                           </div>
-                          <div className="flex items-center gap-1 text-[#b0b0b0]">
-                            <Icon name="Battery" size={14} className="text-[#707070]" />
-                            <span>{product.range} км</span>
+                          <div className="bg-white/5 border border-[#2a2a2a] p-2">
+                            <div className="text-[9px] text-[#707070] tracking-wider uppercase mb-1">Запас хода</div>
+                            <div className="text-sm font-light text-white">{product.range} км</div>
                           </div>
-                          <div className="flex items-center gap-1 text-[#b0b0b0]">
-                            <Icon name="Weight" size={14} className="text-[#707070]" />
-                            <span>{product.weight} кг</span>
+                          <div className="bg-white/5 border border-[#2a2a2a] p-2">
+                            <div className="text-[9px] text-[#707070] tracking-wider uppercase mb-1">Мощность</div>
+                            <div className="text-sm font-light text-white">{product.power} Вт</div>
                           </div>
-                          <div className="flex items-center gap-1 text-[#b0b0b0]">
-                            <Icon name="Truck" size={14} className="text-[#707070]" />
-                            <span>{product.deliveryDays} дней</span>
+                          <div className="bg-white/5 border border-[#2a2a2a] p-2">
+                            <div className="text-[9px] text-[#707070] tracking-wider uppercase mb-1">Доставка</div>
+                            <div className="text-sm font-light text-white">{product.deliveryDays} дн</div>
                           </div>
                         </div>
                         
-                        <div className="flex items-center justify-between pt-4 border-t border-[#2a2a2a]">
+                        <div className="flex items-center justify-between pt-4 border-t border-[#3a3a3a]">
                           <div>
-                            <div className="text-2xl font-light text-white">{product.price.toLocaleString()} ₽</div>
+                            <div className="text-2xl font-light text-white tracking-tight">{product.price.toLocaleString()} ₽</div>
                           </div>
                           <Link to={`/product/${product.id}`}>
-                            <Button size="sm" className="bg-white text-black hover:bg-[#e5e5e5] rounded-none px-6 font-light tracking-wide">
+                            <Button size="sm" className="bg-white text-black hover:bg-[#e5e5e5] rounded-none px-6 py-2 font-light tracking-wider uppercase text-xs transition-all duration-300">
                               Подробнее
                             </Button>
                           </Link>

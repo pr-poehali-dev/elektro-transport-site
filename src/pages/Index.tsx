@@ -62,8 +62,8 @@ const Index = () => {
           </div>
         </div>
 
-        <div className="w-full px-10 py-24 relative z-10">
-          <div className="w-full">
+        <div className="container mx-auto px-6 py-24 relative z-10">
+          <div className="max-w-6xl mx-auto">
             <div className="mb-32 animate-fade-in">
               <div className="mb-6">
                 <div className="inline-block px-4 py-2 border border-[#3a3a3a] mb-8">

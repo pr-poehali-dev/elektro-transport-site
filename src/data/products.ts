@@ -61,7 +61,7 @@ export const products: Product[] = [
     id: 2,
     name: "AVM Delta",
     category: "Электровелосипеды",
-    price: 4490,
+    price: 2290,
     image: "https://cdn.poehali.dev/files/efc17ce3-6562-4239-8829-e8d44e0b018e.jpg",
     images: [
       "https://cdn.poehali.dev/files/efc17ce3-6562-4239-8829-e8d44e0b018e.jpg",

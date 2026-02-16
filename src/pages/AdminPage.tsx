@@ -213,11 +213,18 @@ export default function AdminPage() {
 
                 <div>
                   <label className="block text-sm font-medium mb-1">Бренд *</label>
-                  <Input
+                  <select
                     value={formData.brand}
                     onChange={(e) => setFormData({ ...formData, brand: e.target.value })}
+                    className="w-full border rounded-md px-3 py-2"
                     required
-                  />
+                  >
+                    <option value="">Выберите бренд</option>
+                    <option>AVM</option>
+                    <option>BNP</option>
+                    <option>SmartBalance</option>
+                    <option>MyWay</option>
+                  </select>
                 </div>
 
                 <div>
@@ -228,9 +235,11 @@ export default function AdminPage() {
                     className="w-full border rounded-md px-3 py-2"
                     required
                   >
+                    <option value="">Выберите категорию</option>
                     <option>Электровелосипеды</option>
                     <option>Электросамокаты</option>
                     <option>Электроскутеры</option>
+                    <option>Электротрициклы</option>
                   </select>
                 </div>
 

@@ -29,115 +29,17 @@ interface Product {
 const products: Product[] = [
   {
     id: 1,
-    name: "E-Bike Pro 3000",
+    name: "AVM Scrambler 1500W",
     category: "Электровелосипеды",
-    price: 89900,
-    image: "https://cdn.poehali.dev/projects/795ac98f-803c-4050-937a-9e9c042d136c/files/468bb9c8-33c9-4cac-b03e-f99275a9ba64.jpg",
-    maxSpeed: 45,
-    range: 80,
-    weight: 22,
-    power: 750,
-    brand: "Xiaomi",
-    deliveryDays: 7,
-    inStock: true
-  },
-  {
-    id: 2,
-    name: "Urban Cruiser X",
-    category: "Электровелосипеды",
-    price: 65900,
-    image: "https://cdn.poehali.dev/projects/795ac98f-803c-4050-937a-9e9c042d136c/files/468bb9c8-33c9-4cac-b03e-f99275a9ba64.jpg",
-    maxSpeed: 35,
-    range: 60,
-    weight: 19,
-    power: 500,
-    brand: "Ninebot",
-    deliveryDays: 14,
-    inStock: true
-  },
-  {
-    id: 3,
-    name: "Smart Scooter Z1",
-    category: "Электроскутеры",
-    price: 149900,
-    image: "https://cdn.poehali.dev/projects/795ac98f-803c-4050-937a-9e9c042d136c/files/726f93d2-7124-40c0-a336-d7135051fdf2.jpg",
-    maxSpeed: 60,
+    price: 189900,
+    image: "https://cdn.poehali.dev/files/5c07fd61-e71c-46f1-8dc8-54f1a04e558a.png",
+    maxSpeed: 25,
     range: 100,
-    weight: 85,
-    power: 3000,
-    brand: "Yadea",
-    deliveryDays: 30,
-    inStock: false
-  },
-  {
-    id: 4,
-    name: "City Scooter Pro",
-    category: "Электроскутеры",
-    price: 119900,
-    image: "https://cdn.poehali.dev/projects/795ac98f-803c-4050-937a-9e9c042d136c/files/726f93d2-7124-40c0-a336-d7135051fdf2.jpg",
-    maxSpeed: 50,
-    range: 80,
-    weight: 72,
-    power: 2000,
-    brand: "Sunra",
-    deliveryDays: 21,
-    inStock: true
-  },
-  {
-    id: 5,
-    name: "Cargo Trike Max",
-    category: "Электротрициклы",
-    price: 179900,
-    image: "https://cdn.poehali.dev/projects/795ac98f-803c-4050-937a-9e9c042d136c/files/8928e07e-6b0a-4bdc-a4af-dcf6583abb8b.jpg",
-    maxSpeed: 40,
-    range: 90,
-    weight: 95,
+    weight: 200,
     power: 1500,
-    brand: "Eltreco",
+    brand: "AVM",
     deliveryDays: 14,
     inStock: true
-  },
-  {
-    id: 6,
-    name: "Family Trike Comfort",
-    category: "Электротрициклы",
-    price: 139900,
-    image: "https://cdn.poehali.dev/projects/795ac98f-803c-4050-937a-9e9c042d136c/files/8928e07e-6b0a-4bdc-a4af-dcf6583abb8b.jpg",
-    maxSpeed: 30,
-    range: 70,
-    weight: 88,
-    power: 1000,
-    brand: "Xiaomi",
-    deliveryDays: 7,
-    inStock: true
-  },
-  {
-    id: 7,
-    name: "Urban Kick S",
-    category: "Электросамокаты",
-    price: 45900,
-    image: "https://cdn.poehali.dev/projects/795ac98f-803c-4050-937a-9e9c042d136c/files/726f93d2-7124-40c0-a336-d7135051fdf2.jpg",
-    maxSpeed: 30,
-    range: 40,
-    weight: 14,
-    power: 350,
-    brand: "Ninebot",
-    deliveryDays: 3,
-    inStock: true
-  },
-  {
-    id: 8,
-    name: "Pro Kick Max",
-    category: "Электросамокаты",
-    price: 69900,
-    image: "https://cdn.poehali.dev/projects/795ac98f-803c-4050-937a-9e9c042d136c/files/726f93d2-7124-40c0-a336-d7135051fdf2.jpg",
-    maxSpeed: 40,
-    range: 60,
-    weight: 18,
-    power: 500,
-    brand: "Yadea",
-    deliveryDays: 7,
-    inStock: false
   }
 ];
 
@@ -183,7 +85,7 @@ const Catalog = () => {
     };
   }, []);
 
-  const brands = ["Xiaomi", "Ninebot", "Yadea", "Sunra", "Eltreco"];
+  const brands = ["AVM", "BNP", "SmartBalance", "MyWay"];
 
   const filteredProducts = products
     .filter((p) => {

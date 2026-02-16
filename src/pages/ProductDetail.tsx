@@ -27,34 +27,43 @@ interface Product {
   youtubeUrl?: string;
 }
 
-// Временные данные - позже будут загружаться динамически
 const products: Product[] = [
   {
     id: 1,
-    name: "E-Bike Pro 3000",
+    name: "AVM Scrambler 1500W",
     category: "Электровелосипеды",
-    price: 89900,
+    price: 189900,
     images: [
-      "https://cdn.poehali.dev/projects/795ac98f-803c-4050-937a-9e9c042d136c/files/468bb9c8-33c9-4cac-b03e-f99275a9ba64.jpg",
-      "https://cdn.poehali.dev/projects/795ac98f-803c-4050-937a-9e9c042d136c/files/468bb9c8-33c9-4cac-b03e-f99275a9ba64.jpg",
+      "https://cdn.poehali.dev/files/5c07fd61-e71c-46f1-8dc8-54f1a04e558a.png",
+      "https://cdn.poehali.dev/files/5c07fd61-e71c-46f1-8dc8-54f1a04e558a.png",
     ],
-    maxSpeed: 45,
-    range: 80,
-    weight: 22,
-    power: 750,
-    brand: "Xiaomi",
-    deliveryDays: 7,
+    maxSpeed: 25,
+    range: 100,
+    weight: 200,
+    power: 1500,
+    brand: "AVM",
+    deliveryDays: 14,
     inStock: true,
-    description: "Профессиональный электровелосипед E-Bike Pro 3000 — идеальное решение для городских поездок и загородных прогулок. Мощный двигатель 750 Вт обеспечивает отличную динамику и возможность преодоления крутых подъемов. Запас хода до 80 км позволяет совершать длительные поездки без подзарядки.",
+    description: "Электровелосипед AVM Scrambler 1500W — универсальный городской/дорожный электровелосипед с мощным двигателем 1500 Вт. Литиевый аккумулятор 48В / 60Ач обеспечивает запас хода до 100 км. Три режима езды: ассистент, педали и электротяга. Грузоподъёмность до 200 кг. Дисковые тормоза спереди и сзади. Права не нужны — максимальная скорость 25 км/ч.",
     specs: [
-      { label: "Тип двигателя", value: "Бесколлекторный" },
-      { label: "Ёмкость батареи", value: "48V 15Ah" },
-      { label: "Время зарядки", value: "4-6 часов" },
-      { label: "Максимальная нагрузка", value: "120 кг" },
-      { label: "Размер колёс", value: "26 дюймов" },
-      { label: "Тормозная система", value: "Дисковые тормоза" },
+      { label: "Бренд", value: "AVM" },
+      { label: "Назначение", value: "Универсальный" },
+      { label: "Класс", value: "Городской/дорожный" },
+      { label: "Режимы езды", value: "Ассистент, Педали, Электротяга" },
+      { label: "Тип аккумулятора", value: "Литиевый" },
+      { label: "Напряжение", value: "48 В" },
+      { label: "Ёмкость аккумулятора", value: "60 Ач" },
+      { label: "Передний тормоз", value: "Дисковый" },
+      { label: "Задний тормоз", value: "Дисковый" },
+      { label: "Мощность двигателя", value: "1500 Вт" },
+      { label: "Диаметр колёс", value: "20 дюймов" },
+      { label: "Грузоподъёмность", value: "200 кг" },
+      { label: "Страна производства", value: "Китай" },
+      { label: "Производитель", value: "Yantai Feiwo International Trade Co., LTD" },
+      { label: "Гарантия", value: "12 месяцев" },
+      { label: "Импортёр", value: "ООО «ТехноАгро», г. Гомель" },
     ],
-    youtubeUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+    youtubeUrl: undefined
   }
 ];
 

@@ -10,38 +10,7 @@ import { Input } from "@/components/ui/input";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import Header from "@/components/Header";
-
-interface Product {
-  id: number;
-  name: string;
-  category: string;
-  price: number;
-  image: string;
-  maxSpeed: number;
-  range: number;
-  weight: number;
-  power: number;
-  brand: string;
-  deliveryDays: number;
-  inStock: boolean;
-}
-
-const products: Product[] = [
-  {
-    id: 1,
-    name: "AVM Scrambler 1500W",
-    category: "Электровелосипеды",
-    price: 189900,
-    image: "https://cdn.poehali.dev/files/5c07fd61-e71c-46f1-8dc8-54f1a04e558a.png",
-    maxSpeed: 25,
-    range: 100,
-    weight: 200,
-    power: 1500,
-    brand: "AVM",
-    deliveryDays: 14,
-    inStock: true
-  }
-];
+import { products, type Product } from "@/data/products";
 
 const categories = [
   { name: "Электровелосипеды", icon: "Bike" },

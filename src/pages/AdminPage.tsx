@@ -45,6 +45,7 @@ export default function AdminPage() {
     specs: []
   });
   const [newSpec, setNewSpec] = useState({ label: '', value: '' });
+  const [uploading, setUploading] = useState(false);
 
   useEffect(() => {
     loadProducts();
@@ -54,6 +55,53 @@ export default function AdminPage() {
     const response = await fetch('https://functions.poehali.dev/1f044027-fd62-4bec-9641-d80cece6f0a7');
     const data = await response.json();
     setProducts(data);
+  };
+
+  const uploadImage = async (file: File): Promise<string> => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = async () => {
+        const base64 = (reader.result as string).split(',')[1];
+        
+        try {
+          const response = await fetch('https://functions.poehali.dev/60990861-1456-480f-bece-1960827b241a', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              image: base64,
+              filename: file.name
+            })
+          });
+          
+          const data = await response.json();
+          resolve(data.url);
+        } catch (error) {
+          reject(error);
+        }
+      };
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+  };
+
+  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>, isMain: boolean) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    setUploading(true);
+    try {
+      const url = await uploadImage(file);
+      
+      if (isMain) {
+        setFormData({ ...formData, image: url });
+      } else {
+        setFormData({ ...formData, images: [...formData.images, url] });
+      }
+    } catch (error) {
+      alert('Ошибка загрузки изображения');
+    } finally {
+      setUploading(false);
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -269,12 +317,32 @@ export default function AdminPage() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-1">Главное фото (URL) *</label>
-                <Input
-                  value={formData.image}
-                  onChange={(e) => setFormData({ ...formData, image: e.target.value })}
-                  required
-                />
+                <label className="block text-sm font-medium mb-1">Главное фото *</label>
+                <div className="flex gap-2 mb-2">
+                  <Input
+                    value={formData.image}
+                    onChange={(e) => setFormData({ ...formData, image: e.target.value })}
+                    placeholder="URL или загрузите файл"
+                    required
+                  />
+                  <Button
+                    type="button"
+                    disabled={uploading}
+                    onClick={() => document.getElementById('main-image-upload')?.click()}
+                  >
+                    {uploading ? 'Загрузка...' : 'Загрузить'}
+                  </Button>
+                  <input
+                    id="main-image-upload"
+                    type="file"
+                    accept="image/*,.webp"
+                    className="hidden"
+                    onChange={(e) => handleImageUpload(e, true)}
+                  />
+                </div>
+                {formData.image && (
+                  <img src={formData.image} alt="Preview" className="w-32 h-32 object-cover rounded" />
+                )}
               </div>
 
               <div>
@@ -298,8 +366,22 @@ export default function AdminPage() {
                       input.value = '';
                     }}
                   >
-                    Добавить
+                    URL
                   </Button>
+                  <Button
+                    type="button"
+                    disabled={uploading}
+                    onClick={() => document.getElementById('additional-image-upload')?.click()}
+                  >
+                    {uploading ? 'Загрузка...' : 'Загрузить'}
+                  </Button>
+                  <input
+                    id="additional-image-upload"
+                    type="file"
+                    accept="image/*,.webp"
+                    className="hidden"
+                    onChange={(e) => handleImageUpload(e, false)}
+                  />
                 </div>
                 <div className="flex gap-2 flex-wrap">
                   {formData.images.map((img, i) => (

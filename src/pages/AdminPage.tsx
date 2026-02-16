@@ -194,8 +194,8 @@ export default function AdminPage() {
       </div>
 
       {isFormOpen && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50 overflow-y-auto">
-          <div className="bg-white rounded-lg p-6 max-w-4xl w-full my-8">
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
+          <div className="bg-white rounded-lg p-6 max-w-4xl w-full max-h-[90vh] overflow-y-auto">
             <h2 className="text-2xl font-bold mb-4">
               {editingProduct ? 'Редактировать товар' : 'Новый товар'}
             </h2>

@@ -81,7 +81,12 @@ const ProductCard = ({ product, isCompared, onToggleCompare }: ProductCardProps)
           </div>
 
           <div className="pt-5 border-t border-[#4a4a4a]">
-            <div className="text-3xl font-light text-white tracking-tight mb-3">{product.price.toLocaleString()} ₽</div>
+            <div className="flex items-baseline gap-3 mb-3">
+              <span className="text-3xl font-light text-white tracking-tight">{product.price.toLocaleString()} ₽</span>
+              {product.oldPrice && (
+                <span className="text-lg text-[#707070] line-through">{product.oldPrice.toLocaleString()} ₽</span>
+              )}
+            </div>
             <div className="flex justify-end">
               <Link to={`/product/${product.id}`}>
                 <Button size="sm" className="bg-white text-black hover:bg-[#e5e5e5] rounded-none px-6 py-3 font-light tracking-wider uppercase text-sm transition-all duration-300">

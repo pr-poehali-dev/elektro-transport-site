@@ -152,8 +152,11 @@ const ProductDetail = () => {
                   
                   <div className="border-t border-[#3a3a3a] pt-4 mb-4">
                     <div className="text-sm text-[#a0a0a0] mb-2 tracking-wide">Цена под ключ</div>
-                    <div className="text-4xl font-normal mb-2 text-white">
-                      {product.price.toLocaleString('ru-RU')} ₽
+                    <div className="flex items-baseline gap-3 mb-2">
+                      <span className="text-4xl font-normal text-white">{product.price.toLocaleString('ru-RU')} ₽</span>
+                      {product.oldPrice && (
+                        <span className="text-xl text-[#707070] line-through">{product.oldPrice.toLocaleString('ru-RU')} ₽</span>
+                      )}
                     </div>
                     <div className="text-sm text-[#c0c0c0]">
                       В кредит от {Math.round(product.price / 60).toLocaleString('ru-RU')} ₽/мес

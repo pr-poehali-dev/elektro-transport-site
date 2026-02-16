@@ -1,0 +1,1 @@
+UPDATE products SET images = ARRAY[image] WHERE images = '{}' OR images IS NULL;

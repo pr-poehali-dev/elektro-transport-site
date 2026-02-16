@@ -73,6 +73,10 @@ def handler(event, context):
     elif method == 'POST':
         body = json.loads(event.get('body', '{}'))
         
+        images = body.get('images', [])
+        if not images and body.get('image'):
+            images = [body['image']]
+        
         cur.execute("""
             INSERT INTO products (name, category, price, old_price, image, images, 
                                 max_speed, range, weight, power, brand, delivery_days, 
@@ -85,7 +89,7 @@ def handler(event, context):
             body['price'],
             body.get('oldPrice'),
             body['image'],
-            body['images'],
+            images,
             body['maxSpeed'],
             body['range'],
             body['weight'],
@@ -113,6 +117,10 @@ def handler(event, context):
         body = json.loads(event.get('body', '{}'))
         product_id = body.get('id')
         
+        images = body.get('images', [])
+        if not images and body.get('image'):
+            images = [body['image']]
+        
         cur.execute("""
             UPDATE products 
             SET name = %s, category = %s, price = %s, old_price = %s, 
@@ -127,7 +135,7 @@ def handler(event, context):
             body['price'],
             body.get('oldPrice'),
             body['image'],
-            body['images'],
+            images,
             body['maxSpeed'],
             body['range'],
             body['weight'],

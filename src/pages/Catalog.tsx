@@ -5,7 +5,7 @@ import { GlowCard, GlowCardContent } from "@/components/ui/glow-card";
 import Icon from "@/components/ui/icon";
 import { Input } from "@/components/ui/input";
 import Header from "@/components/Header";
-import { products } from "@/data/products";
+import { Product } from "@/data/products";
 import CatalogFiltersContent from "@/components/catalog/CatalogFiltersContent";
 import ProductCard from "@/components/catalog/ProductCard";
 
@@ -30,6 +30,13 @@ const Catalog = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [showFilters, setShowFilters] = useState(false);
   const [sortBy, setSortBy] = useState<"default" | "price-asc" | "price-desc">("default");
+  const [products, setProducts] = useState<Product[]>([]);
+
+  useEffect(() => {
+    fetch('https://functions.poehali.dev/1f044027-fd62-4bec-9641-d80cece6f0a7')
+      .then(res => res.json())
+      .then(data => setProducts(data));
+  }, []);
 
   useEffect(() => {
     const searchFromUrl = searchParams.get("search");

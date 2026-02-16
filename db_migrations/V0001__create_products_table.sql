@@ -1,0 +1,21 @@
+CREATE TABLE IF NOT EXISTS products (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  category VARCHAR(100) NOT NULL,
+  price DECIMAL(10, 2) NOT NULL,
+  old_price DECIMAL(10, 2),
+  image TEXT NOT NULL,
+  images TEXT[] NOT NULL,
+  max_speed INTEGER NOT NULL,
+  range INTEGER NOT NULL,
+  weight INTEGER NOT NULL,
+  power INTEGER NOT NULL,
+  brand VARCHAR(100) NOT NULL,
+  delivery_days INTEGER NOT NULL,
+  in_stock BOOLEAN NOT NULL DEFAULT true,
+  description TEXT NOT NULL,
+  specs JSONB NOT NULL,
+  youtube_url TEXT,
+  created_at TIMESTAMP NOT NULL DEFAULT NOW(),
+  updated_at TIMESTAMP NOT NULL DEFAULT NOW()
+);

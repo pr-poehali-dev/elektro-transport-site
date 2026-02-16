@@ -1,0 +1,31 @@
+{
+  "tests": [
+    {
+      "name": "Migrate products",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "products": [
+          {
+            "name": "Test",
+            "category": "Электровелосипеды",
+            "price": 1000,
+            "image": "https://example.com/img.jpg",
+            "images": ["https://example.com/img.jpg"],
+            "maxSpeed": 25,
+            "range": 50,
+            "weight": 30,
+            "power": 500,
+            "brand": "Test",
+            "deliveryDays": 7,
+            "inStock": true,
+            "description": "Test",
+            "specs": []
+          }
+        ]
+      },
+      "expectedStatus": 200,
+      "bodyMatcher": "partial"
+    }
+  ]
+}

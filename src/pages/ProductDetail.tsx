@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -8,18 +8,27 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import Header from "@/components/Header";
-import { products } from "@/data/products";
+import { Product } from "@/data/products";
 import ProductSpecs from "@/components/catalog/ProductSpecs";
 
 const ProductDetail = () => {
   const { id } = useParams();
-  const product = products.find(p => p.id === Number(id));
+  const [product, setProduct] = useState<Product | null>(null);
   const [selectedImage, setSelectedImage] = useState(0);
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
     comment: ""
   });
+
+  useEffect(() => {
+    fetch('https://functions.poehali.dev/1f044027-fd62-4bec-9641-d80cece6f0a7')
+      .then(res => res.json())
+      .then((data: Product[]) => {
+        const found = data.find(p => p.id === Number(id));
+        setProduct(found || null);
+      });
+  }, [id]);
 
   if (!product) {
     return (

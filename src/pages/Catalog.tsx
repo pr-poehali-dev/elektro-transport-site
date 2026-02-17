@@ -181,11 +181,11 @@ const Catalog = () => {
 
               {showCompare && compareProducts.length > 0 && (
                 <GlowCard
-                  glowIntensity="medium"
+                  glowIntensity="none"
                   hoverEffect={false}
-                  className="mb-8 bg-gradient-to-br from-[#2c3038] to-[#1a1d23] backdrop-blur-sm rounded-lg"
+                  className="mb-8 bg-gradient-to-br from-[#2c3038] to-[#1a1d23] border border-white/10 md:border-0 rounded-lg"
                 >
-                  <GlowCardContent className="p-6">
+                  <GlowCardContent className="p-4 md:p-6">
                     <div className="flex items-center justify-between mb-6">
                       <h3 className="text-xl font-light text-white">Сравнение моделей</h3>
                       <Button

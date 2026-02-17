@@ -13,13 +13,13 @@ interface ProductCardProps {
 
 const ProductCard = ({ product, isCompared, onToggleCompare }: ProductCardProps) => {
   return (
-    <GlowCard glowIntensity="medium" disableGlow="md" className="group overflow-hidden bg-gradient-to-br from-[#2c3038] to-[#1a1d23] backdrop-blur-sm rounded-lg">
+    <GlowCard glowIntensity="none" className="group overflow-hidden bg-gradient-to-br from-[#2c3038] to-[#1a1d23] rounded-lg border border-white/10 md:border-0">
       <GlowCardContent className="p-0">
         <div className="relative aspect-square overflow-hidden bg-[#1a1a1a] rounded-lg">
           <img
             src={product.image}
             alt={product.name}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 rounded-lg"
+            className="w-full h-full object-cover md:group-hover:scale-105 md:transition-transform md:duration-500 rounded-lg"
           />
           <div className="absolute top-2 left-2 md:top-3 md:left-3 flex flex-col gap-1 md:gap-2">
             {product.inStock ? (
@@ -62,19 +62,19 @@ const ProductCard = ({ product, isCompared, onToggleCompare }: ProductCardProps)
           </div>
 
           <div className="grid grid-cols-2 gap-2 md:gap-3 mb-4 md:mb-6">
-            <div className="bg-gradient-to-br from-[#2a2e35] to-[#1f2229] border border-white/10 p-2 md:p-3 rounded-none shadow-[0_0_10px_rgba(96,165,250,0.1)]">
+            <div className="bg-[#1f2229] md:bg-gradient-to-br md:from-[#2a2e35] md:to-[#1f2229] border border-white/10 p-2 md:p-3 rounded-none md:shadow-[0_0_10px_rgba(96,165,250,0.1)]">
               <div className="text-[9px] md:text-xs text-[#a0a0a0] tracking-[0.1em] md:tracking-[0.2em] uppercase mb-0.5 md:mb-1">СКОРОСТЬ</div>
               <div className="text-xs md:text-lg font-normal text-white tracking-tight">{product.maxSpeed} км/ч</div>
             </div>
-            <div className="bg-gradient-to-br from-[#2a2e35] to-[#1f2229] border border-white/10 p-2 md:p-3 rounded-none shadow-[0_0_10px_rgba(96,165,250,0.1)]">
+            <div className="bg-[#1f2229] md:bg-gradient-to-br md:from-[#2a2e35] md:to-[#1f2229] border border-white/10 p-2 md:p-3 rounded-none md:shadow-[0_0_10px_rgba(96,165,250,0.1)]">
               <div className="text-[9px] md:text-xs text-[#a0a0a0] tracking-[0.1em] md:tracking-[0.2em] uppercase mb-0.5 md:mb-1">ЗАПАС</div>
               <div className="text-xs md:text-lg font-normal text-white tracking-tight">{product.range} км</div>
             </div>
-            <div className="bg-gradient-to-br from-[#2a2e35] to-[#1f2229] border border-white/10 p-2 md:p-3 rounded-none shadow-[0_0_10px_rgba(96,165,250,0.1)]">
+            <div className="bg-[#1f2229] md:bg-gradient-to-br md:from-[#2a2e35] md:to-[#1f2229] border border-white/10 p-2 md:p-3 rounded-none md:shadow-[0_0_10px_rgba(96,165,250,0.1)]">
               <div className="text-[9px] md:text-xs text-[#a0a0a0] tracking-[0.1em] md:tracking-[0.2em] uppercase mb-0.5 md:mb-1">МОЩНОСТЬ</div>
               <div className="text-xs md:text-lg font-normal text-white tracking-tight">{product.power} Вт</div>
             </div>
-            <div className="bg-gradient-to-br from-[#2a2e35] to-[#1f2229] border border-white/10 p-2 md:p-3 rounded-none shadow-[0_0_10px_rgba(96,165,250,0.1)]">
+            <div className="bg-[#1f2229] md:bg-gradient-to-br md:from-[#2a2e35] md:to-[#1f2229] border border-white/10 p-2 md:p-3 rounded-none md:shadow-[0_0_10px_rgba(96,165,250,0.1)]">
               <div className="text-[9px] md:text-xs text-[#a0a0a0] tracking-[0.1em] md:tracking-[0.2em] uppercase mb-0.5 md:mb-1">ДОСТАВКА</div>
               <div className="text-xs md:text-lg font-normal text-white tracking-tight">{product.deliveryDays} дн</div>
             </div>
@@ -89,7 +89,7 @@ const ProductCard = ({ product, isCompared, onToggleCompare }: ProductCardProps)
             </div>
             <div className="flex justify-end">
               <Link to={`/product/${product.id}`}>
-                <Button size="sm" className="bg-white text-black hover:bg-[#e5e5e5] rounded-none px-4 py-2 md:px-6 md:py-3 font-light tracking-wider uppercase text-xs md:text-sm transition-all duration-300">
+                <Button size="sm" className="bg-white text-black hover:bg-[#e5e5e5] rounded-none px-4 py-2 md:px-6 md:py-3 font-light tracking-wider uppercase text-xs md:text-sm md:transition-all md:duration-300">
                   Подробнее
                 </Button>
               </Link>

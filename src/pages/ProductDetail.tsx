@@ -76,7 +76,7 @@ const ProductDetail = () => {
             <div className="space-y-3 md:space-y-6 w-full">
               {/* Images & Description/Specs in 2 columns */}
               <div className="flex flex-col md:grid md:grid-cols-2 gap-3 md:gap-6">
-                <GlowCard glowIntensity="high" className="overflow-hidden bg-gradient-to-br from-[#2c3038] to-[#1a1d23] backdrop-blur-sm rounded-xl w-full">
+                <GlowCard glowIntensity="none" className="overflow-hidden bg-gradient-to-br from-[#2c3038] to-[#1a1d23] border border-white/10 md:border-0 rounded-xl w-full">
                   <GlowCardContent className="p-2 md:p-6">
                     <div className="aspect-square w-full bg-[#1a1a1a] rounded-lg flex items-center justify-center overflow-hidden">
                       <img
@@ -90,7 +90,7 @@ const ProductDetail = () => {
                         <button
                           key={idx}
                           onClick={() => setSelectedImage(idx)}
-                          className={`border-2 rounded-lg overflow-hidden transition-all ${
+                          className={`border-2 rounded-lg overflow-hidden ${
                             selectedImage === idx ? "border-white" : "border-[#2a2a2a]"
                           }`}
                         >
@@ -103,46 +103,46 @@ const ProductDetail = () => {
 
                 {/* Description & Specs stacked */}
                 <div className="flex flex-col space-y-3 md:space-y-4 w-full">
-                  <GlowCard glowIntensity="low" hoverEffect={false} className="bg-gradient-to-br from-[#2c3038] to-[#1a1d23] backdrop-blur-sm rounded-lg w-full">
+                  <GlowCard glowIntensity="none" hoverEffect={false} className="bg-gradient-to-br from-[#2c3038] to-[#1a1d23] border border-white/10 md:border-0 rounded-lg w-full">
                     <GlowCardContent className="p-3 md:p-6">
                       <h2 className="text-base md:text-xl font-normal mb-2 md:mb-4 text-white tracking-wide">Описание</h2>
                       <p className="text-xs md:text-base text-[#d0d0d0] leading-relaxed">{product.description}</p>
                     </GlowCardContent>
                   </GlowCard>
 
-                  <GlowCard glowIntensity="low" hoverEffect={false} className="bg-gradient-to-br from-[#2c3038] to-[#1a1d23] backdrop-blur-sm rounded-lg w-full">
+                  <GlowCard glowIntensity="none" hoverEffect={false} className="bg-gradient-to-br from-[#2c3038] to-[#1a1d23] border border-white/10 md:border-0 rounded-lg w-full">
                     <GlowCardContent className="p-3 md:p-6">
                       <h2 className="text-base md:text-xl font-normal mb-2 md:mb-4 text-white tracking-wide">Характеристики</h2>
                       <ProductSpecs specs={product.specs} initialVisible={6} />
                     </GlowCardContent>
                   </GlowCard>
-
-                  {/* Video Review - Desktop only (below specs) */}
-                  {product.youtubeUrl && (
-                    <GlowCard glowIntensity="low" hoverEffect={false} className="hidden md:block bg-gradient-to-br from-[#2c3038] to-[#1a1d23] backdrop-blur-sm rounded-lg">
-                      <GlowCardContent className="p-4 md:p-6">
-                        <h2 className="text-xl font-normal mb-4 text-white tracking-wide">Видео-обзор</h2>
-                        <div className="aspect-video bg-[#1a1a1a] rounded-lg overflow-hidden">
-                          <iframe
-                            width="100%"
-                            height="100%"
-                            src={product.youtubeUrl.replace('watch?v=', 'embed/')}
-                            title="YouTube video player"
-                            frameBorder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen
-                          ></iframe>
-                        </div>
-                      </GlowCardContent>
-                    </GlowCard>
-                  )}
                 </div>
               </div>
+
+              {/* Video Review - Full width on mobile, below grid on desktop */}
+              {product.youtubeUrl && (
+                <GlowCard glowIntensity="none" hoverEffect={false} className="bg-gradient-to-br from-[#2c3038] to-[#1a1d23] border border-white/10 md:border-0 rounded-lg w-full">
+                  <GlowCardContent className="p-3 md:p-6">
+                    <h2 className="text-base md:text-xl font-normal mb-3 md:mb-4 text-white tracking-wide">Видео-обзор</h2>
+                    <div className="aspect-video bg-[#1a1a1a] rounded-lg overflow-hidden">
+                      <iframe
+                        width="100%"
+                        height="100%"
+                        src={product.youtubeUrl.replace('watch?v=', 'embed/')}
+                        title="YouTube video player"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      ></iframe>
+                    </div>
+                  </GlowCardContent>
+                </GlowCard>
+              )}
             </div>
 
             {/* Right Sidebar - Info & Order */}
             <div className="lg:sticky lg:top-24 space-y-3 md:space-y-4 h-fit w-full lg:w-auto">
-              <GlowCard glowIntensity="high" hoverEffect={false} className="bg-gradient-to-br from-[#2c3038] to-[#1a1d23] backdrop-blur-sm rounded-lg w-full">
+              <GlowCard glowIntensity="none" hoverEffect={false} className="bg-gradient-to-br from-[#2c3038] to-[#1a1d23] border border-white/10 md:border-0 rounded-lg w-full">
                 <GlowCardContent className="p-3 md:p-6">
                   <Badge className="mb-2 md:mb-3 text-xs md:text-sm bg-white/10 text-white border-none">{product.category}</Badge>
                   <h1 className="text-lg md:text-3xl font-normal mb-2 md:mb-4 text-white tracking-tight break-words">{product.name}</h1>
@@ -193,7 +193,7 @@ const ProductDetail = () => {
                   </div>
 
                   <Button
-                    className="w-full bg-blue-500 hover:bg-blue-600 text-white rounded-none py-3 md:py-5 font-normal text-sm md:text-base tracking-wide mb-3 md:mb-4"
+                    className="w-full bg-blue-500 hover:bg-blue-600 text-white rounded-none py-3 md:py-5 font-normal text-sm md:text-base tracking-wide mb-3 md:mb-4 md:transition-colors"
                   >
                     <Icon name="Send" size={14} className="mr-2 md:w-4 md:h-4" />
                     Написать в Telegram
@@ -217,7 +217,7 @@ const ProductDetail = () => {
               </GlowCard>
 
               {/* Order Form */}
-              <GlowCard id="order-form" glowIntensity="high" hoverEffect={false} className="bg-gradient-to-br from-[#3a3f47] to-[#2a2e35] backdrop-blur-sm rounded-lg border-2 border-blue-400/40 w-full">
+              <GlowCard id="order-form" glowIntensity="none" hoverEffect={false} className="bg-gradient-to-br from-[#3a3f47] to-[#2a2e35] rounded-lg border-2 border-blue-400/40 w-full">
                 <GlowCardContent className="p-3 md:p-8">
                   <h3 className="text-base md:text-2xl font-semibold mb-3 md:mb-6 text-white tracking-wide">Заказать товар</h3>
                   <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4">

@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation, useSearchParams } from "react-router-dom";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Icon from "@/components/ui/icon";
 
@@ -62,17 +61,16 @@ const Header = () => {
       <div className="container mx-auto px-4 md:px-6 py-3 md:py-5">
         <div className="flex items-center justify-between gap-2 md:gap-4">
           <Link to="/" className="flex items-center gap-2 md:gap-3 flex-shrink-0">
-            <div className="w-8 h-8 md:w-12 md:h-12 bg-gradient-to-br from-[#c4c4c4] to-[#8a8a8a] rounded-full flex items-center justify-center">
-              <span className="text-black font-bold text-[10px] md:text-sm">EM</span>
-            </div>
+            <img src="/favicon.svg" alt="Electro Motors" className="w-8 h-8 md:w-12 md:h-12 rounded-full" />
             <span className="text-[10px] md:text-base font-normal tracking-[0.15em] md:tracking-[0.2em] text-[#e5e5e5] hidden sm:inline">ELECTRO MOTORS</span>
           </Link>
 
           <nav className="hidden lg:flex items-center gap-8">
             <Link to="/catalog" className="text-[#b0b0b0] hover:text-white transition-colors text-sm font-light">Каталог</Link>
-            <a href="#" className="text-[#b0b0b0] hover:text-white transition-colors text-sm font-light">О нас</a>
-            <a href="#" className="text-[#b0b0b0] hover:text-white transition-colors text-sm font-light">Доставка</a>
-            <a href="#" className="text-[#b0b0b0] hover:text-white transition-colors text-sm font-light">Гарантия</a>
+            <Link to="/about" className="text-[#b0b0b0] hover:text-white transition-colors text-sm font-light">О нас</Link>
+            <Link to="/delivery" className="text-[#b0b0b0] hover:text-white transition-colors text-sm font-light">Доставка</Link>
+            <Link to="/warranty" className="text-[#b0b0b0] hover:text-white transition-colors text-sm font-light">Гарантия</Link>
+            <Link to="/contacts" className="text-[#b0b0b0] hover:text-white transition-colors text-sm font-light">Контакты</Link>
           </nav>
 
           <form onSubmit={handleSearch} className="hidden md:flex items-center flex-1 max-w-md mx-4">
@@ -91,10 +89,13 @@ const Header = () => {
           </form>
           
           <div className="flex items-center gap-2 md:gap-3">
-            <Button size="sm" className="bg-transparent border border-white text-white hover:bg-white hover:text-black rounded-none px-3 md:px-8 py-1.5 md:py-2 text-[10px] md:text-xs tracking-[0.1em] md:tracking-[0.15em] font-light transition-all duration-300">
-              <span className="hidden sm:inline">+7 (495) 123-45-67</span>
-              <span className="sm:hidden">Звонок</span>
-            </Button>
+            <a
+              href="tel:+375291299245"
+              className="inline-flex items-center bg-transparent border border-white text-white hover:bg-white hover:text-black rounded-none px-3 md:px-8 py-1.5 md:py-2 text-[10px] md:text-xs tracking-[0.1em] md:tracking-[0.15em] font-light transition-all duration-300"
+            >
+              <span className="hidden sm:inline">+375 (29) 129-92-45</span>
+              <span className="sm:hidden">Позвонить</span>
+            </a>
           </div>
         </div>
       </div>

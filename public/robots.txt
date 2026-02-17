@@ -1,5 +1,15 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+
+Sitemap: https://electro-motors.by/sitemap.xml
+
 User-agent: Googlebot
 Allow: /
+
+User-agent: Yandex
+Allow: /
+Disallow: /admin
 
 User-agent: Bingbot
 Allow: /
@@ -8,7 +18,4 @@ User-agent: Twitterbot
 Allow: /
 
 User-agent: facebookexternalhit
-Allow: /
-
-User-agent: *
 Allow: /

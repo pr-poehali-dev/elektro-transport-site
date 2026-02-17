@@ -25,6 +25,8 @@ interface Product {
 }
 
 export default function AdminPage() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [loginData, setLoginData] = useState({ username: '', password: '' });
   const [products, setProducts] = useState<Product[]>([]);
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [editingProduct, setEditingProduct] = useState<Product | null>(null);
@@ -199,14 +201,63 @@ export default function AdminPage() {
     }
   };
 
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (loginData.username === 'electroby' && loginData.password === 'electroby123') {
+      setIsAuthenticated(true);
+    } else {
+      alert('Неверный логин или пароль');
+    }
+  };
+
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center">
+        <div className="bg-gradient-to-br from-[#2c3038] to-[#1a1d23] p-8 rounded-lg shadow-lg border border-white/10 w-full max-w-md">
+          <h1 className="text-3xl font-bold text-white mb-6 text-center">Вход в админку</h1>
+          <form onSubmit={handleLogin} className="space-y-4">
+            <div>
+              <label className="block text-sm font-medium mb-2 text-white">Логин</label>
+              <Input
+                value={loginData.username}
+                onChange={(e) => setLoginData({ ...loginData, username: e.target.value })}
+                required
+                className="bg-white/10 border-[#4a4a4a] text-white placeholder:text-[#a0a0a0]"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium mb-2 text-white">Пароль</label>
+              <Input
+                type="password"
+                value={loginData.password}
+                onChange={(e) => setLoginData({ ...loginData, password: e.target.value })}
+                required
+                className="bg-white/10 border-[#4a4a4a] text-white placeholder:text-[#a0a0a0]"
+              />
+            </div>
+            <Button type="submit" className="w-full bg-white text-black hover:bg-[#e5e5e5]">
+              Войти
+            </Button>
+          </form>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-3xl font-bold">Управление товарами</h1>
-        <Button onClick={() => setIsFormOpen(true)}>
-          <Icon name="Plus" className="mr-2" size={20} />
-          Добавить товар
-        </Button>
+        <div className="flex gap-2">
+          <Button onClick={() => setIsAuthenticated(false)} variant="outline">
+            <Icon name="LogOut" className="mr-2" size={20} />
+            Выйти
+          </Button>
+          <Button onClick={() => setIsFormOpen(true)}>
+            <Icon name="Plus" className="mr-2" size={20} />
+            Добавить товар
+          </Button>
+        </div>
       </div>
 
       {isFormOpen && (

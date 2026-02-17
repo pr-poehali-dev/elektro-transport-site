@@ -107,8 +107,24 @@ export default function AdminPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
+    const getSpecValue = (label: string, defaultValue: number): number => {
+      const spec = formData.specs.find(s => s.label === label);
+      return spec ? parseFloat(spec.value) || defaultValue : defaultValue;
+    };
+
+    const body = {
+      ...formData,
+      maxSpeed: getSpecValue('Макс. скорость, км/ч', formData.maxSpeed),
+      range: getSpecValue('Запас хода, км', formData.range),
+      weight: getSpecValue('Грузоподъемность, кг', formData.weight),
+      power: formData.power
+    };
+
+    if (editingProduct) {
+      body.id = editingProduct.id;
+    }
+
     const method = editingProduct ? 'PUT' : 'POST';
-    const body = editingProduct ? { ...formData, id: editingProduct.id } : formData;
 
     await fetch('https://functions.poehali.dev/1f044027-fd62-4bec-9641-d80cece6f0a7', {
       method,

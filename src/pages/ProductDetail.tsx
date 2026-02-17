@@ -70,14 +70,14 @@ const ProductDetail = () => {
           </svg>
         </div>
 
-        <div className="container mx-auto px-4 md:px-6 relative z-10">
-          <div className="grid lg:grid-cols-[1fr_400px] gap-4 md:gap-8">
+        <div className="container mx-auto px-2 md:px-6 relative z-10 max-w-[1400px]">
+          <div className="flex flex-col lg:grid lg:grid-cols-[1fr_400px] gap-3 md:gap-6">
             {/* Left Column - Images + Description */}
-            <div className="space-y-4 md:space-y-6">
+            <div className="space-y-3 md:space-y-6 w-full">
               {/* Images & Description/Specs in 2 columns */}
-              <div className="grid md:grid-cols-2 gap-4 md:gap-6">
-                <GlowCard glowIntensity="high" className="overflow-hidden bg-gradient-to-br from-[#2c3038] to-[#1a1d23] backdrop-blur-sm rounded-xl">
-                  <GlowCardContent className="p-3 md:p-6">
+              <div className="flex flex-col md:grid md:grid-cols-2 gap-3 md:gap-6">
+                <GlowCard glowIntensity="high" className="overflow-hidden bg-gradient-to-br from-[#2c3038] to-[#1a1d23] backdrop-blur-sm rounded-xl w-full">
+                  <GlowCardContent className="p-2 md:p-6">
                     <div className="aspect-square w-full bg-[#1a1a1a] rounded-lg flex items-center justify-center overflow-hidden">
                       <img
                         src={product.images[selectedImage]}
@@ -94,7 +94,7 @@ const ProductDetail = () => {
                             selectedImage === idx ? "border-white" : "border-[#2a2a2a]"
                           }`}
                         >
-                          <img src={img} alt={`${product.name} ${idx + 1}`} className="w-full h-12 md:h-16 object-contain bg-[#1a1a1a] p-0.5 md:p-1 rounded-lg" />
+                          <img src={img} alt={`${product.name} ${idx + 1}`} className="w-full h-10 md:h-16 object-contain bg-[#1a1a1a] p-0.5 md:p-1 rounded-lg" />
                         </button>
                       ))}
                     </div>
@@ -102,17 +102,17 @@ const ProductDetail = () => {
                 </GlowCard>
 
                 {/* Description & Specs stacked */}
-                <div className="flex flex-col space-y-3 md:space-y-4">
-                  <GlowCard glowIntensity="low" hoverEffect={false} className="bg-gradient-to-br from-[#2c3038] to-[#1a1d23] backdrop-blur-sm rounded-lg">
+                <div className="flex flex-col space-y-3 md:space-y-4 w-full">
+                  <GlowCard glowIntensity="low" hoverEffect={false} className="bg-gradient-to-br from-[#2c3038] to-[#1a1d23] backdrop-blur-sm rounded-lg w-full">
                     <GlowCardContent className="p-3 md:p-6">
-                      <h2 className="text-lg md:text-xl font-normal mb-3 md:mb-4 text-white tracking-wide">Описание</h2>
-                      <p className="text-sm md:text-base text-[#d0d0d0] leading-relaxed">{product.description}</p>
+                      <h2 className="text-base md:text-xl font-normal mb-2 md:mb-4 text-white tracking-wide">Описание</h2>
+                      <p className="text-xs md:text-base text-[#d0d0d0] leading-relaxed">{product.description}</p>
                     </GlowCardContent>
                   </GlowCard>
 
-                  <GlowCard glowIntensity="low" hoverEffect={false} className="bg-gradient-to-br from-[#2c3038] to-[#1a1d23] backdrop-blur-sm rounded-lg">
+                  <GlowCard glowIntensity="low" hoverEffect={false} className="bg-gradient-to-br from-[#2c3038] to-[#1a1d23] backdrop-blur-sm rounded-lg w-full">
                     <GlowCardContent className="p-3 md:p-6">
-                      <h2 className="text-lg md:text-xl font-normal mb-3 md:mb-4 text-white tracking-wide">Характеристики</h2>
+                      <h2 className="text-base md:text-xl font-normal mb-2 md:mb-4 text-white tracking-wide">Характеристики</h2>
                       <ProductSpecs specs={product.specs} initialVisible={6} />
                     </GlowCardContent>
                   </GlowCard>
@@ -141,11 +141,11 @@ const ProductDetail = () => {
             </div>
 
             {/* Right Sidebar - Info & Order */}
-            <div className="lg:sticky lg:top-24 space-y-3 md:space-y-4 h-fit">
-              <GlowCard glowIntensity="high" hoverEffect={false} className="bg-gradient-to-br from-[#2c3038] to-[#1a1d23] backdrop-blur-sm rounded-lg">
+            <div className="lg:sticky lg:top-24 space-y-3 md:space-y-4 h-fit w-full lg:w-auto">
+              <GlowCard glowIntensity="high" hoverEffect={false} className="bg-gradient-to-br from-[#2c3038] to-[#1a1d23] backdrop-blur-sm rounded-lg w-full">
                 <GlowCardContent className="p-3 md:p-6">
                   <Badge className="mb-2 md:mb-3 text-xs md:text-sm bg-white/10 text-white border-none">{product.category}</Badge>
-                  <h1 className="text-xl md:text-3xl font-normal mb-3 md:mb-4 text-white tracking-tight">{product.name}</h1>
+                  <h1 className="text-lg md:text-3xl font-normal mb-2 md:mb-4 text-white tracking-tight break-words">{product.name}</h1>
                   <div className="flex flex-wrap items-center gap-2 text-xs md:text-sm mb-3 md:mb-4 text-[#c0c0c0]">
                     <span>Бренд: <strong className="text-white">{product.brand}</strong></span>
                     <span>•</span>
@@ -217,9 +217,9 @@ const ProductDetail = () => {
               </GlowCard>
 
               {/* Order Form */}
-              <GlowCard id="order-form" glowIntensity="high" hoverEffect={false} className="bg-gradient-to-br from-[#3a3f47] to-[#2a2e35] backdrop-blur-sm rounded-lg border-2 border-blue-400/40">
+              <GlowCard id="order-form" glowIntensity="high" hoverEffect={false} className="bg-gradient-to-br from-[#3a3f47] to-[#2a2e35] backdrop-blur-sm rounded-lg border-2 border-blue-400/40 w-full">
                 <GlowCardContent className="p-3 md:p-8">
-                  <h3 className="text-lg md:text-2xl font-semibold mb-4 md:mb-6 text-white tracking-wide">Заказать товар</h3>
+                  <h3 className="text-base md:text-2xl font-semibold mb-3 md:mb-6 text-white tracking-wide">Заказать товар</h3>
                   <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4">
                     <div>
                       <Input

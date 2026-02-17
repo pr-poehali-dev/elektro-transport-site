@@ -263,46 +263,6 @@ export default function AdminPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium mb-1">Макс. скорость (км/ч) *</label>
-                  <Input
-                    type="number"
-                    value={formData.maxSpeed}
-                    onChange={(e) => setFormData({ ...formData, maxSpeed: Number(e.target.value) })}
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium mb-1">Запас хода (км) *</label>
-                  <Input
-                    type="number"
-                    value={formData.range}
-                    onChange={(e) => setFormData({ ...formData, range: Number(e.target.value) })}
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium mb-1">Вес (кг) *</label>
-                  <Input
-                    type="number"
-                    value={formData.weight}
-                    onChange={(e) => setFormData({ ...formData, weight: Number(e.target.value) })}
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium mb-1">Мощность (Вт) *</label>
-                  <Input
-                    type="number"
-                    value={formData.power}
-                    onChange={(e) => setFormData({ ...formData, power: Number(e.target.value) })}
-                    required
-                  />
-                </div>
-
-                <div>
                   <label className="block text-sm font-medium mb-1">Срок доставки (дней) *</label>
                   <Input
                     type="number"
@@ -428,7 +388,98 @@ export default function AdminPage() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-2">Характеристики</label>
+                <label className="block text-sm font-medium mb-2">Базовые характеристики</label>
+                <div className="grid grid-cols-2 gap-4 mb-4 p-4 bg-gray-50 rounded-lg">
+                  <div>
+                    <label className="block text-xs text-gray-600 mb-1">Назначение</label>
+                    <Input
+                      placeholder="Например: Городской, Внедорожный"
+                      value={formData.specs.find(s => s.label === 'Назначение')?.value || ''}
+                      onChange={(e) => {
+                        const newSpecs = formData.specs.filter(s => s.label !== 'Назначение');
+                        if (e.target.value) newSpecs.push({ label: 'Назначение', value: e.target.value });
+                        setFormData({ ...formData, specs: newSpecs });
+                      }}
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs text-gray-600 mb-1">Макс. скорость, км/ч</label>
+                    <Input
+                      type="number"
+                      placeholder="25"
+                      value={formData.specs.find(s => s.label === 'Макс. скорость, км/ч')?.value || ''}
+                      onChange={(e) => {
+                        const newSpecs = formData.specs.filter(s => s.label !== 'Макс. скорость, км/ч');
+                        if (e.target.value) newSpecs.push({ label: 'Макс. скорость, км/ч', value: e.target.value });
+                        setFormData({ ...formData, specs: newSpecs });
+                      }}
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs text-gray-600 mb-1">Запас хода, км</label>
+                    <Input
+                      type="number"
+                      placeholder="50"
+                      value={formData.specs.find(s => s.label === 'Запас хода, км')?.value || ''}
+                      onChange={(e) => {
+                        const newSpecs = formData.specs.filter(s => s.label !== 'Запас хода, км');
+                        if (e.target.value) newSpecs.push({ label: 'Запас хода, км', value: e.target.value });
+                        setFormData({ ...formData, specs: newSpecs });
+                      }}
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs text-gray-600 mb-1">Цвет</label>
+                    <Input
+                      placeholder="Например: Черный, Серый"
+                      value={formData.specs.find(s => s.label === 'Цвет')?.value || ''}
+                      onChange={(e) => {
+                        const newSpecs = formData.specs.filter(s => s.label !== 'Цвет');
+                        if (e.target.value) newSpecs.push({ label: 'Цвет', value: e.target.value });
+                        setFormData({ ...formData, specs: newSpecs });
+                      }}
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs text-gray-600 mb-1">Грузоподъемность, кг</label>
+                    <Input
+                      type="number"
+                      placeholder="120"
+                      value={formData.specs.find(s => s.label === 'Грузоподъемность, кг')?.value || ''}
+                      onChange={(e) => {
+                        const newSpecs = formData.specs.filter(s => s.label !== 'Грузоподъемность, кг');
+                        if (e.target.value) newSpecs.push({ label: 'Грузоподъемность, кг', value: e.target.value });
+                        setFormData({ ...formData, specs: newSpecs });
+                      }}
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs text-gray-600 mb-1">Класс электровелосипеда</label>
+                    <Input
+                      placeholder="Например: L1e-B"
+                      value={formData.specs.find(s => s.label === 'Класс электровелосипеда')?.value || ''}
+                      onChange={(e) => {
+                        const newSpecs = formData.specs.filter(s => s.label !== 'Класс электровелосипеда');
+                        if (e.target.value) newSpecs.push({ label: 'Класс электровелосипеда', value: e.target.value });
+                        setFormData({ ...formData, specs: newSpecs });
+                      }}
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs text-gray-600 mb-1">Режимы езды</label>
+                    <Input
+                      placeholder="Например: Эко, Нормал, Спорт"
+                      value={formData.specs.find(s => s.label === 'Режимы езды')?.value || ''}
+                      onChange={(e) => {
+                        const newSpecs = formData.specs.filter(s => s.label !== 'Режимы езды');
+                        if (e.target.value) newSpecs.push({ label: 'Режимы езды', value: e.target.value });
+                        setFormData({ ...formData, specs: newSpecs });
+                      }}
+                    />
+                  </div>
+                </div>
+
+                <label className="block text-sm font-medium mb-2">Дополнительные характеристики</label>
                 <div className="flex gap-2 mb-2">
                   <Input
                     placeholder="Название"
@@ -445,14 +496,14 @@ export default function AdminPage() {
                   </Button>
                 </div>
                 <div className="space-y-1">
-                  {formData.specs.map((spec, i) => (
+                  {formData.specs.filter(s => !['Назначение', 'Макс. скорость, км/ч', 'Запас хода, км', 'Цвет', 'Грузоподъемность, кг', 'Класс электровелосипеда', 'Режимы езды'].includes(s.label)).map((spec, i) => (
                     <div key={i} className="flex justify-between items-center bg-gray-50 p-2 rounded">
                       <span className="text-sm">
                         <strong>{spec.label}:</strong> {spec.value}
                       </span>
                       <button
                         type="button"
-                        onClick={() => removeSpec(i)}
+                        onClick={() => removeSpec(formData.specs.indexOf(spec))}
                         className="text-red-500"
                       >
                         <Icon name="Trash2" size={16} />

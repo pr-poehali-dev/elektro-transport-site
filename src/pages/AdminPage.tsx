@@ -445,6 +445,15 @@ export default function AdminPage() {
                     />
                   </div>
                   <div>
+                    <label className="block text-xs text-gray-600 mb-1">Мощность, Вт</label>
+                    <Input
+                      type="number"
+                      placeholder="500"
+                      value={formData.power || ''}
+                      onChange={(e) => setFormData({ ...formData, power: Number(e.target.value) })}
+                    />
+                  </div>
+                  <div>
                     <label className="block text-xs text-gray-600 mb-1">Цвет</label>
                     <Input
                       placeholder="Например: Черный, Серый"

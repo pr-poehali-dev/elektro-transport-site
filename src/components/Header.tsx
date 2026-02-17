@@ -61,7 +61,7 @@ const Header = () => {
       <div className="container mx-auto px-4 md:px-6 py-3 md:py-5">
         <div className="flex items-center justify-between gap-2 md:gap-4">
           <Link to="/" className="flex items-center gap-2 md:gap-3 flex-shrink-0">
-            <img src="/favicon.svg" alt="Electro Motors" className="w-8 h-8 md:w-12 md:h-12 rounded-full" />
+            <img src="https://cdn.poehali.dev/projects/795ac98f-803c-4050-937a-9e9c042d136c/files/5d583b7f-57c1-4641-8520-987e84a3e33e.jpg" alt="Electro Motors" className="w-8 h-8 md:w-12 md:h-12 rounded-lg" />
             <span className="text-[10px] md:text-base font-normal tracking-[0.15em] md:tracking-[0.2em] text-[#e5e5e5] hidden sm:inline">ELECTRO MOTORS</span>
           </Link>
 

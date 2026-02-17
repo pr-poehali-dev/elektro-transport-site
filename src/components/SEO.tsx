@@ -37,7 +37,7 @@ const SEO = ({
   city = "Беларусь",
   canonical,
   type = "website",
-  image = "/favicon.svg",
+  image = "https://cdn.poehali.dev/projects/795ac98f-803c-4050-937a-9e9c042d136c/files/5d583b7f-57c1-4641-8520-987e84a3e33e.jpg",
   product,
   breadcrumbs,
   noindex = false,

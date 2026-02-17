@@ -118,26 +118,6 @@ const ProductDetail = () => {
                   </GlowCard>
                 </div>
               </div>
-
-              {/* Video Review - Full width on mobile, below grid on desktop */}
-              {product.youtubeUrl && (
-                <GlowCard glowIntensity="none" hoverEffect={false} className="bg-gradient-to-br from-[#2c3038] to-[#1a1d23] border border-white/10 md:border-0 rounded-lg w-full">
-                  <GlowCardContent className="p-3 md:p-6">
-                    <h2 className="text-base md:text-xl font-normal mb-3 md:mb-4 text-white tracking-wide">Видео-обзор</h2>
-                    <div className="aspect-video bg-[#1a1a1a] rounded-lg overflow-hidden">
-                      <iframe
-                        width="100%"
-                        height="100%"
-                        src={product.youtubeUrl.replace('watch?v=', 'embed/')}
-                        title="YouTube video player"
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                      ></iframe>
-                    </div>
-                  </GlowCardContent>
-                </GlowCard>
-              )}
             </div>
 
             {/* Right Sidebar - Info & Order */}

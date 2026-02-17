@@ -153,11 +153,18 @@ const MobileBottomNav = ({ onFilterClick }: MobileBottomNavProps) => {
 
       {/* Mobile Bottom Navigation */}
       <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-black/95 backdrop-blur-sm border-t border-[#2a2a2a] z-40 pb-safe">
-        <div className={`grid ${onFilterClick ? 'grid-cols-5' : 'grid-cols-4'} h-16`}>
+        <div className={`grid ${onFilterClick ? 'grid-cols-6' : 'grid-cols-5'} h-16`}>
           <Link to="/" className="flex flex-col items-center justify-center gap-1 text-[#707070] hover:text-white transition-colors">
             <Icon name="Home" size={20} />
             <span className="text-[9px] tracking-wider uppercase font-light">Главная</span>
           </Link>
+          <button 
+            onClick={handleCatalogClick}
+            className="flex flex-col items-center justify-center gap-1 text-[#707070] hover:text-white transition-colors"
+          >
+            <Icon name="Grid3x3" size={20} />
+            <span className="text-[9px] tracking-wider uppercase font-light">Каталог</span>
+          </button>
           <button 
             onClick={() => setShowSearch(true)}
             className="flex flex-col items-center justify-center gap-1 text-[#707070] hover:text-white transition-colors"

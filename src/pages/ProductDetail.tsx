@@ -281,14 +281,7 @@ const ProductDetail = () => {
           )}
         </div>
 
-        {/* Footer */}
-        <footer className="bg-black/40 border-t border-[#2a2a2a] text-white py-6 md:py-8 mt-16 mb-16 md:mb-0">
-          <div className="container mx-auto px-4">
-            <div className="text-center text-xs text-[#707070] tracking-wide">
-              © 2024 ELECTRO MOTORS. Все права защищены.
-            </div>
-          </div>
-        </footer>
+
       </div>
     </div>
   );

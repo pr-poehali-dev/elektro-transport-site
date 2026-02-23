@@ -118,14 +118,12 @@ const ProductCard = ({ product, isCompared, onToggleCompare }: ProductCardProps)
                   onClick={() => setShowModal(true)}
                   className="flex items-center justify-center gap-1.5 py-2.5 md:py-3 text-[11px] md:text-xs tracking-[0.12em] uppercase font-normal text-blue-400 hover:bg-blue-400/10 transition-colors border-r border-white/8"
                 >
-                  <Icon name="Zap" size={12} />
                   Купить
                 </button>
                 <Link
                   to={`/product/${product.id}`}
                   className="flex items-center justify-center gap-1.5 py-2.5 md:py-3 text-[11px] md:text-xs tracking-[0.12em] uppercase font-normal text-[#a0a0a0] hover:text-white hover:bg-white/5 transition-colors"
                 >
-                  <Icon name="ArrowRight" size={12} />
                   Подробнее
                 </Link>
               </div>

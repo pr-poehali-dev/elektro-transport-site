@@ -81,20 +81,18 @@ const ProductCard = ({ product, isCompared, onToggleCompare }: ProductCardProps)
             </div>
           </div>
 
-          <div className="pt-3 md:pt-5 border-t border-[#4a4a4a]">
-            <div className="flex items-baseline gap-2 md:gap-3 mb-2 md:mb-3">
-              <span className="text-xl md:text-3xl font-light text-white tracking-tight">{product.price.toLocaleString()} р.</span>
+          <div className="pt-3 md:pt-5 border-t border-[#4a4a4a] flex items-center justify-between gap-2">
+            <div className="flex items-baseline gap-1.5 md:gap-3 min-w-0">
+              <span className="text-lg md:text-3xl font-light text-white tracking-tight whitespace-nowrap">{product.price.toLocaleString()} р.</span>
               {product.oldPrice && (
-                <span className="text-sm md:text-lg text-[#707070] line-through">{product.oldPrice.toLocaleString()} р.</span>
+                <span className="text-xs md:text-lg text-[#707070] line-through whitespace-nowrap">{product.oldPrice.toLocaleString()} р.</span>
               )}
             </div>
-            <div className="flex justify-end">
-              <Link to={`/product/${product.id}`}>
-                <Button size="sm" className="bg-white text-black hover:bg-[#e5e5e5] rounded-none px-4 py-2 md:px-6 md:py-3 font-light tracking-wider uppercase text-xs md:text-sm md:transition-all md:duration-300">
-                  Подробнее
-                </Button>
-              </Link>
-            </div>
+            <Link to={`/product/${product.id}`} className="shrink-0">
+              <Button size="sm" className="bg-white text-black hover:bg-[#e5e5e5] rounded-none px-3 py-2 md:px-6 md:py-3 font-light tracking-wider uppercase text-xs md:text-sm md:transition-all md:duration-300">
+                Подробнее
+              </Button>
+            </Link>
           </div>
         </div>
       </GlowCardContent>

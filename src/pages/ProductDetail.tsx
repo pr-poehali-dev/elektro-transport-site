@@ -173,6 +173,17 @@ const ProductDetail = () => {
                   </div>
 
                   <Button
+                    onClick={() => {
+                      const el = document.getElementById('order-form');
+                      if (el) el.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    className="w-full bg-white hover:bg-[#e5e5e5] text-black rounded-none py-3 md:py-5 font-normal text-sm md:text-base tracking-wide mb-2 md:mb-3 md:transition-colors"
+                  >
+                    <Icon name="ShoppingCart" size={14} className="mr-2 md:w-4 md:h-4" />
+                    Оформить заказ
+                  </Button>
+
+                  <Button
                     className="w-full bg-blue-500 hover:bg-blue-600 text-white rounded-none py-3 md:py-5 font-normal text-sm md:text-base tracking-wide mb-3 md:mb-4 md:transition-colors"
                   >
                     <Icon name="Send" size={14} className="mr-2 md:w-4 md:h-4" />

@@ -1,11 +1,20 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 
 const PageTransition = () => {
   const location = useLocation();
   const [visible, setVisible] = useState(false);
 
+  const prevPath = useRef(location.pathname);
+
   useEffect(() => {
+    const from = prevPath.current;
+    const to = location.pathname;
+    prevPath.current = to;
+
+    // Не показываем при переходе с главной в каталог (скролл)
+    if (from === "/" && to === "/catalog") return;
+
     setVisible(true);
     const timer = setTimeout(() => setVisible(false), 500);
     return () => clearTimeout(timer);

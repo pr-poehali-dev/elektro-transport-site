@@ -36,7 +36,7 @@ const AppContent = () => {
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<NotFound />} />
       </Routes>
-      <Footer />
+      {location.pathname !== '/' && <Footer />}
       <MobileBottomNav onFilterClick={location.pathname === '/catalog' ? () => {
         const event = new CustomEvent('openFilters');
         window.dispatchEvent(event);

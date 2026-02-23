@@ -31,11 +31,14 @@ const Catalog = () => {
   const [showFilters, setShowFilters] = useState(false);
   const [sortBy, setSortBy] = useState<"default" | "price-asc" | "price-desc">("default");
   const [products, setProducts] = useState<Product[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    setIsLoading(true);
     fetch('https://functions.poehali.dev/1f044027-fd62-4bec-9641-d80cece6f0a7')
       .then(res => res.json())
-      .then(data => setProducts(data));
+      .then(data => { setProducts(data); setIsLoading(false); })
+      .catch(() => setIsLoading(false));
   }, []);
 
   useEffect(() => {
@@ -244,29 +247,46 @@ const Catalog = () => {
                 </GlowCard>
               )}
 
-              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6">
-                {filteredProducts.map((product) => (
-                  <ProductCard
-                    key={product.id}
-                    product={product}
-                    isCompared={compareList.includes(product.id)}
-                    onToggleCompare={toggleCompare}
-                  />
-                ))}
-              </div>
-
-              {filteredProducts.length === 0 && (
-                <div className="text-center py-16">
-                  <Icon name="SearchX" size={64} className="mx-auto mb-4 text-[#707070]" />
-                  <h3 className="text-xl font-light text-white mb-2">Товары не найдены</h3>
-                  <p className="text-[#b0b0b0] mb-6">Попробуйте изменить параметры фильтра</p>
-                  <Button
-                    onClick={resetFilters}
-                    className="bg-white text-black hover:bg-[#e5e5e5] rounded-none px-8 font-light tracking-wide"
-                  >
-                    Сбросить фильтры
-                  </Button>
+              {isLoading ? (
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6">
+                  {Array.from({ length: 6 }).map((_, i) => (
+                    <div key={i} className="bg-[#141414] border border-[#1e1e1e] animate-pulse">
+                      <div className="aspect-square bg-[#1e1e1e]" />
+                      <div className="p-4 space-y-3">
+                        <div className="h-3 bg-[#1e1e1e] rounded w-3/4" />
+                        <div className="h-3 bg-[#1e1e1e] rounded w-1/2" />
+                        <div className="h-8 bg-[#1e1e1e] rounded w-full mt-4" />
+                      </div>
+                    </div>
+                  ))}
                 </div>
+              ) : (
+                <>
+                  <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6">
+                    {filteredProducts.map((product) => (
+                      <ProductCard
+                        key={product.id}
+                        product={product}
+                        isCompared={compareList.includes(product.id)}
+                        onToggleCompare={toggleCompare}
+                      />
+                    ))}
+                  </div>
+
+                  {filteredProducts.length === 0 && (
+                    <div className="text-center py-16">
+                      <Icon name="SearchX" size={64} className="mx-auto mb-4 text-[#707070]" />
+                      <h3 className="text-xl font-light text-white mb-2">Товары не найдены</h3>
+                      <p className="text-[#b0b0b0] mb-6">Попробуйте изменить параметры фильтра</p>
+                      <Button
+                        onClick={resetFilters}
+                        className="bg-white text-black hover:bg-[#e5e5e5] rounded-none px-8 font-light tracking-wide"
+                      >
+                        Сбросить фильтры
+                      </Button>
+                    </div>
+                  )}
+                </>
               )}
             </div>
           </div>

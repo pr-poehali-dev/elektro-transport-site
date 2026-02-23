@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import MobileBottomNav from "@/components/MobileBottomNav";
 import Footer from "@/components/Footer";
+import PageTransition from "@/components/PageTransition";
 import Index from "./pages/Index";
 import Catalog from "./pages/Catalog";
 import ProductDetail from "./pages/ProductDetail";
@@ -24,6 +25,7 @@ const AppContent = () => {
   
   return (
     <>
+      <PageTransition />
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/catalog" element={<Catalog />} />

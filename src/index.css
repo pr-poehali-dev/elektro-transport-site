@@ -123,6 +123,18 @@
   }
 }
 
+@keyframes pageOut {
+  0% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 @layer components {
   .container {
     max-width: 100%;

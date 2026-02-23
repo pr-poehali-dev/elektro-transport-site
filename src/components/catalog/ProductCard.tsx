@@ -99,25 +99,34 @@ const ProductCard = ({ product, isCompared, onToggleCompare }: ProductCardProps)
               </div>
             </div>
 
-            <div className="pt-3 md:pt-5 border-t border-[#4a4a4a]">
-              <div className="flex items-baseline gap-2 md:gap-3 mb-2 md:mb-3">
-                <span className="text-xl md:text-3xl font-light text-white tracking-tight">{product.price.toLocaleString()} р.</span>
+            <div className="mt-3 md:mt-5 rounded-lg bg-[#1a1d23] border border-white/8 overflow-hidden">
+              <div className="flex items-center justify-between px-3 md:px-4 pt-3 md:pt-4 pb-2 md:pb-3">
+                <div>
+                  <span className="text-xl md:text-2xl font-light text-white tracking-tight">{product.price.toLocaleString()} р.</span>
+                  {product.oldPrice && (
+                    <span className="text-xs md:text-sm text-[#505050] line-through ml-2">{product.oldPrice.toLocaleString()} р.</span>
+                  )}
+                </div>
                 {product.oldPrice && (
-                  <span className="text-sm md:text-lg text-[#707070] line-through">{product.oldPrice.toLocaleString()} р.</span>
+                  <span className="text-[10px] text-green-400 bg-green-400/10 border border-green-400/20 px-2 py-0.5 rounded tracking-wide">
+                    -{Math.round((1 - product.price / product.oldPrice) * 100)}%
+                  </span>
                 )}
               </div>
-              <div className="flex gap-2 justify-end">
-                <Button
-                  size="sm"
+              <div className="grid grid-cols-2 border-t border-white/8">
+                <button
                   onClick={() => setShowModal(true)}
-                  className="bg-transparent border border-white/30 text-white hover:bg-white hover:text-black rounded-none px-3 py-2 md:px-4 md:py-3 font-light tracking-wider uppercase text-xs md:text-sm md:transition-all md:duration-300"
+                  className="flex items-center justify-center gap-1.5 py-2.5 md:py-3 text-[11px] md:text-xs tracking-[0.12em] uppercase font-normal text-blue-400 hover:bg-blue-400/10 transition-colors border-r border-white/8"
                 >
+                  <Icon name="Zap" size={12} />
                   Купить
-                </Button>
-                <Link to={`/product/${product.id}`}>
-                  <Button size="sm" className="bg-white text-black hover:bg-[#e5e5e5] rounded-none px-4 py-2 md:px-6 md:py-3 font-light tracking-wider uppercase text-xs md:text-sm md:transition-all md:duration-300">
-                    Подробнее
-                  </Button>
+                </button>
+                <Link
+                  to={`/product/${product.id}`}
+                  className="flex items-center justify-center gap-1.5 py-2.5 md:py-3 text-[11px] md:text-xs tracking-[0.12em] uppercase font-normal text-[#a0a0a0] hover:text-white hover:bg-white/5 transition-colors"
+                >
+                  <Icon name="ArrowRight" size={12} />
+                  Подробнее
                 </Link>
               </div>
             </div>

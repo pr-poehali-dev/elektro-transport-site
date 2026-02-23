@@ -1,0 +1,154 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { useToast } from "@/hooks/use-toast";
+import Icon from "@/components/ui/icon";
+
+const Footer = () => {
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [loading, setLoading] = useState(false);
+  const { toast } = useToast();
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!name.trim() || !phone.trim()) return;
+    setLoading(true);
+    await new Promise((r) => setTimeout(r, 800));
+    setLoading(false);
+    setName("");
+    setPhone("");
+    toast({ title: "Заявка отправлена", description: "Мы свяжемся с вами в ближайшее время." });
+  };
+
+  return (
+    <footer className="bg-[#0a0a0a] border-t border-[#1e1e1e] mt-16 pb-20 md:pb-0">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 py-12 md:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
+
+          {/* Колонка 1 — Контакты */}
+          <div>
+            <h4 className="text-[10px] tracking-[0.25em] uppercase text-[#505050] mb-5">Контакты</h4>
+            <div className="space-y-4">
+              <a
+                href="tel:+74951234567"
+                className="flex items-center gap-3 text-white hover:text-[#c0c0c0] transition-colors group"
+              >
+                <Icon name="Phone" size={16} className="text-[#505050] group-hover:text-white transition-colors" />
+                <span className="text-sm font-light tracking-wide">+7 (495) 123-45-67</span>
+              </a>
+              <a
+                href="mailto:info@example.com"
+                className="flex items-center gap-3 text-white hover:text-[#c0c0c0] transition-colors group"
+              >
+                <Icon name="Mail" size={16} className="text-[#505050] group-hover:text-white transition-colors" />
+                <span className="text-sm font-light tracking-wide">info@example.com</span>
+              </a>
+              <div className="flex items-start gap-3">
+                <Icon name="MapPin" size={16} className="text-[#505050] mt-0.5 shrink-0" />
+                <span className="text-sm font-light text-[#a0a0a0] leading-relaxed">Москва, ул. Примерная, 12</span>
+              </div>
+            </div>
+
+            <div className="flex gap-4 mt-6">
+              <a href="#" className="w-8 h-8 border border-[#2a2a2a] flex items-center justify-center text-[#707070] hover:border-white hover:text-white transition-colors">
+                <Icon name="Send" size={14} />
+              </a>
+              <a href="#" className="w-8 h-8 border border-[#2a2a2a] flex items-center justify-center text-[#707070] hover:border-white hover:text-white transition-colors">
+                <Icon name="MessageCircle" size={14} />
+              </a>
+            </div>
+          </div>
+
+          {/* Колонка 2 — Навигация */}
+          <div>
+            <h4 className="text-[10px] tracking-[0.25em] uppercase text-[#505050] mb-5">Навигация</h4>
+            <nav className="space-y-3">
+              {[
+                { to: "/", label: "Главная" },
+                { to: "/catalog", label: "Каталог" },
+                { to: "/about", label: "О нас" },
+                { to: "/delivery", label: "Доставка" },
+                { to: "/warranty", label: "Гарантия" },
+                { to: "/contacts", label: "Контакты" },
+              ].map(({ to, label }) => (
+                <Link
+                  key={to}
+                  to={to}
+                  className="block text-sm font-light text-[#707070] hover:text-white transition-colors tracking-wide"
+                >
+                  {label}
+                </Link>
+              ))}
+            </nav>
+          </div>
+
+          {/* Колонка 3 — Оставить заявку */}
+          <div>
+            <h4 className="text-[10px] tracking-[0.25em] uppercase text-[#505050] mb-5">Оставить заявку</h4>
+            <form onSubmit={handleSubmit} className="space-y-3">
+              <Input
+                placeholder="Ваше имя"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className="bg-transparent border-[#2a2a2a] text-white placeholder:text-[#505050] rounded-none focus-visible:ring-0 focus-visible:border-white text-sm font-light"
+              />
+              <Input
+                placeholder="Телефон"
+                type="tel"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                className="bg-transparent border-[#2a2a2a] text-white placeholder:text-[#505050] rounded-none focus-visible:ring-0 focus-visible:border-white text-sm font-light"
+              />
+              <Button
+                type="submit"
+                disabled={loading || !name.trim() || !phone.trim()}
+                className="w-full rounded-none bg-white text-black hover:bg-[#e0e0e0] text-xs tracking-[0.15em] uppercase font-normal h-10"
+              >
+                {loading ? "Отправляем..." : "Отправить"}
+              </Button>
+            </form>
+            <p className="text-[10px] text-[#404040] mt-3 leading-relaxed">
+              Нажимая «Отправить», вы соглашаетесь с{" "}
+              <Link to="/privacy" className="text-[#606060] hover:text-[#a0a0a0] underline underline-offset-2 transition-colors">
+                политикой конфиденциальности
+              </Link>
+            </p>
+          </div>
+        </div>
+
+        {/* Bottom bar */}
+        <div className="mt-12 pt-6 border-t border-[#1e1e1e] flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-8">
+            <span className="text-[10px] text-[#404040] tracking-wide">
+              © {new Date().getFullYear()} Все права защищены
+            </span>
+            <Link to="/privacy" className="text-[10px] text-[#404040] hover:text-[#707070] transition-colors tracking-wide">
+              Политика конфиденциальности
+            </Link>
+          </div>
+
+          {/* Разработано в Albe */}
+          <a
+            href="https://albe.ru"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2.5 group"
+          >
+            <span className="text-[10px] text-[#404040] group-hover:text-[#606060] transition-colors tracking-[0.1em] uppercase">
+              Разработано в
+            </span>
+            <img
+              src="https://cdn.poehali.dev/files/ac78a282-0d5a-4959-8939-f93cbd32fc9f.png"
+              alt="Albe"
+              className="h-5 w-auto opacity-60 group-hover:opacity-90 transition-opacity"
+            />
+          </a>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;

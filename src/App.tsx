@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import MobileBottomNav from "@/components/MobileBottomNav";
+import Footer from "@/components/Footer";
 import Index from "./pages/Index";
 import Catalog from "./pages/Catalog";
 import ProductDetail from "./pages/ProductDetail";
@@ -35,6 +36,7 @@ const AppContent = () => {
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <Footer />
       <MobileBottomNav onFilterClick={location.pathname === '/catalog' ? () => {
         const event = new CustomEvent('openFilters');
         window.dispatchEvent(event);

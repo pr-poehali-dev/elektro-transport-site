@@ -29,7 +29,7 @@ const Catalog = () => {
   const [onlyInStock, setOnlyInStock] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [showFilters, setShowFilters] = useState(false);
-  const [sortBy, setSortBy] = useState<"default" | "price-asc" | "price-desc">("default");
+  const [sortBy, setSortBy] = useState<"default" | "price-asc" | "price-desc" | "discount-desc">("default");
   const [products, setProducts] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -82,6 +82,11 @@ const Catalog = () => {
     .sort((a, b) => {
       if (sortBy === "price-asc") return a.price - b.price;
       if (sortBy === "price-desc") return b.price - a.price;
+      if (sortBy === "discount-desc") {
+        const discountA = a.oldPrice ? (a.oldPrice - a.price) / a.oldPrice : 0;
+        const discountB = b.oldPrice ? (b.oldPrice - b.price) / b.oldPrice : 0;
+        return discountB - discountA;
+      }
       return 0;
     });
 
@@ -262,6 +267,7 @@ const Catalog = () => {
                       { value: "default", label: "По умолчанию" },
                       { value: "price-asc", label: "Дешевле" },
                       { value: "price-desc", label: "Дороже" },
+                      { value: "discount-desc", label: "По скидке" },
                     ] as const).map(({ value, label }) => (
                       <button
                         key={value}

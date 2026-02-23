@@ -261,8 +261,22 @@ const Catalog = () => {
               {/* Sort bar */}
               <div className="flex items-center justify-end mb-4">
                 <div className="flex items-center gap-2">
-                  <span className="text-xs text-[#707070] tracking-wide uppercase">Сортировка:</span>
-                  <div className="flex gap-1">
+                  <span className="text-xs text-[#707070] tracking-wide uppercase hidden md:inline">Сортировка:</span>
+
+                  {/* Mobile: select dropdown */}
+                  <select
+                    value={sortBy}
+                    onChange={(e) => setSortBy(e.target.value as typeof sortBy)}
+                    className="md:hidden bg-[#1a1d23] border border-[#3a3a3a] text-white text-xs px-3 py-1.5 tracking-wide appearance-none focus:outline-none focus:border-white"
+                  >
+                    <option value="default">По умолчанию</option>
+                    <option value="price-asc">Дешевле</option>
+                    <option value="price-desc">Дороже</option>
+                    <option value="discount-desc">По скидке</option>
+                  </select>
+
+                  {/* Desktop: buttons */}
+                  <div className="hidden md:flex gap-1">
                     {([
                       { value: "default", label: "По умолчанию" },
                       { value: "price-asc", label: "Дешевле" },

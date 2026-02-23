@@ -69,7 +69,7 @@ const ProductCard = ({ product, isCompared, onToggleCompare }: ProductCardProps)
               <div className="text-xs md:text-lg font-normal text-white tracking-tight">{product.maxSpeed} км/ч</div>
             </div>
             <div className="bg-[#1f2229] md:bg-gradient-to-br md:from-[#2a2e35] md:to-[#1f2229] border border-white/10 p-2 md:p-3 rounded-none md:shadow-[0_0_10px_rgba(96,165,250,0.1)]">
-              <div className="text-[9px] md:text-xs text-[#a0a0a0] tracking-[0.1em] md:tracking-[0.2em] uppercase mb-0.5 md:mb-1">ЗАПАС</div>
+              <div className="text-[9px] md:text-xs text-[#a0a0a0] tracking-[0.1em] md:tracking-[0.2em] uppercase mb-0.5 md:mb-1">ЗАПАС ХОДА</div>
               <div className="text-xs md:text-lg font-normal text-white tracking-tight">{product.range} км</div>
             </div>
             <div className="bg-[#1f2229] md:bg-gradient-to-br md:from-[#2a2e35] md:to-[#1f2229] border border-white/10 p-2 md:p-3 rounded-none md:shadow-[0_0_10px_rgba(96,165,250,0.1)]">

@@ -1,13 +1,33 @@
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import Header from "@/components/Header";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useToast } from "@/hooks/use-toast";
+import Icon from "@/components/ui/icon";
 
 const Index = () => {
   const navigate = useNavigate();
   const hasNavigated = useRef(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const premiumTextRef = useRef<HTMLDivElement>(null);
+  const [showModal, setShowModal] = useState(false);
+  const [consultName, setConsultName] = useState("");
+  const [consultPhone, setConsultPhone] = useState("");
+  const [consultLoading, setConsultLoading] = useState(false);
+  const { toast } = useToast();
+
+  const handleConsultSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!consultName.trim() || !consultPhone.trim()) return;
+    setConsultLoading(true);
+    await new Promise((r) => setTimeout(r, 800));
+    setConsultLoading(false);
+    setConsultName("");
+    setConsultPhone("");
+    setShowModal(false);
+    toast({ title: "Заявка отправлена", description: "Мы свяжемся с вами в ближайшее время." });
+  };
 
   useEffect(() => {
     let startY = 0;
@@ -83,6 +103,7 @@ const Index = () => {
   }, [navigate]);
 
   return (
+    <>
     <div className="bg-[#0a0a0a] relative h-screen w-screen overflow-hidden fixed inset-0">
       {/* Анимация Premium Electric Mobility */}
       <div ref={premiumTextRef} className="fixed inset-0 z-50 bg-[#0a0a0a] hidden items-center justify-center px-4 transition-opacity duration-500" style={{ fontFamily: 'Montserrat, sans-serif' }}>
@@ -244,6 +265,7 @@ const Index = () => {
                   </Link>
                   <Button
                     size="lg"
+                    onClick={() => setShowModal(true)}
                     className="bg-transparent text-white border border-white hover:bg-white hover:text-black font-normal text-base px-16 py-7 rounded-none tracking-[0.2em] transition-all duration-300"
                   >
                     КОНСУЛЬТАЦИЯ
@@ -328,6 +350,54 @@ const Index = () => {
       </section>
       </div>
     </div>
+
+    {/* Consultation Modal */}
+    {showModal && (
+      <div
+        className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[200] flex items-center justify-center p-4"
+        onClick={() => setShowModal(false)}
+      >
+        <div
+          className="bg-[#0f0f0f] border border-[#2a2a2a] w-full max-w-md p-8 relative"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <button
+            onClick={() => setShowModal(false)}
+            className="absolute top-4 right-4 text-[#707070] hover:text-white transition-colors"
+          >
+            <Icon name="X" size={20} />
+          </button>
+          <h2 className="text-xl font-light text-white tracking-[0.1em] mb-2">Получить консультацию</h2>
+          <p className="text-sm text-[#707070] mb-6 font-light">Оставьте контакты — мы ответим в течение 15 минут</p>
+          <form onSubmit={handleConsultSubmit} className="space-y-3">
+            <Input
+              placeholder="Ваше имя"
+              value={consultName}
+              onChange={(e) => setConsultName(e.target.value)}
+              className="bg-transparent border-[#2a2a2a] text-white placeholder:text-[#505050] rounded-none focus-visible:ring-0 focus-visible:border-white font-light"
+            />
+            <Input
+              placeholder="Телефон"
+              type="tel"
+              value={consultPhone}
+              onChange={(e) => setConsultPhone(e.target.value)}
+              className="bg-transparent border-[#2a2a2a] text-white placeholder:text-[#505050] rounded-none focus-visible:ring-0 focus-visible:border-white font-light"
+            />
+            <Button
+              type="submit"
+              disabled={consultLoading || !consultName.trim() || !consultPhone.trim()}
+              className="w-full rounded-none bg-white text-black hover:bg-[#e0e0e0] text-xs tracking-[0.2em] uppercase font-normal h-11 mt-2"
+            >
+              {consultLoading ? "Отправляем..." : "ОТПРАВИТЬ ЗАЯВКУ"}
+            </Button>
+          </form>
+          <p className="text-[10px] text-[#404040] mt-3">
+            Нажимая «Отправить заявку», вы соглашаетесь с политикой конфиденциальности
+          </p>
+        </div>
+      </div>
+    )}
+    </>
   );
 };
 

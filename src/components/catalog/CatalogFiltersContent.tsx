@@ -155,33 +155,6 @@ const CatalogFiltersContent = ({
         </div>
       </div>
 
-      <div className="mb-6">
-        <h4 className="text-base font-semibold mb-4 text-white tracking-wide">Сортировка по цене</h4>
-        <RadioGroup
-          value={sortBy}
-          onValueChange={(value) => setSortBy(value as "default" | "price-asc" | "price-desc")}
-        >
-          <div className="flex items-center space-x-3 mb-3">
-            <RadioGroupItem value="default" id={`${prefix}sort-default`} className="border-[#4a4a4a] text-white" />
-            <Label htmlFor={`${prefix}sort-default`} className="text-base cursor-pointer text-white hover:text-blue-400 transition-colors">
-              По умолчанию
-            </Label>
-          </div>
-          <div className="flex items-center space-x-3 mb-3">
-            <RadioGroupItem value="price-asc" id={`${prefix}sort-asc`} className="border-[#4a4a4a] text-white" />
-            <Label htmlFor={`${prefix}sort-asc`} className="text-base cursor-pointer text-white hover:text-blue-400 transition-colors">
-              От дешёвых к дорогим
-            </Label>
-          </div>
-          <div className="flex items-center space-x-3">
-            <RadioGroupItem value="price-desc" id={`${prefix}sort-desc`} className="border-[#4a4a4a] text-white" />
-            <Label htmlFor={`${prefix}sort-desc`} className="text-base cursor-pointer text-white hover:text-blue-400 transition-colors">
-              От дорогих к дешёвым
-            </Label>
-          </div>
-        </RadioGroup>
-      </div>
-
       <Button
         className="w-full bg-transparent border border-white text-white hover:bg-white hover:text-black rounded-none tracking-wide font-light transition-all duration-300"
         onClick={resetFilters}

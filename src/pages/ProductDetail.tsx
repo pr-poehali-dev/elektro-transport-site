@@ -142,13 +142,13 @@ const ProductDetail = () => {
                   <div className="border-t border-[#3a3a3a] pt-3 md:pt-4 mb-3 md:mb-4">
                     <div className="text-xs md:text-sm text-[#a0a0a0] mb-1 md:mb-2 tracking-wide">Цена под ключ</div>
                     <div className="flex flex-wrap items-baseline gap-2 md:gap-3 mb-1 md:mb-2">
-                      <span className="text-2xl md:text-4xl font-normal text-white">{product.price.toLocaleString('ru-RU')} ₽</span>
+                      <span className="text-2xl md:text-4xl font-normal text-white">{product.price.toLocaleString('ru-RU')} р.</span>
                       {product.oldPrice && (
-                        <span className="text-base md:text-xl text-[#707070] line-through">{product.oldPrice.toLocaleString('ru-RU')} ₽</span>
+                        <span className="text-base md:text-xl text-[#707070] line-through">{product.oldPrice.toLocaleString('ru-RU')} р.</span>
                       )}
                     </div>
                     <div className="text-xs md:text-sm text-[#c0c0c0]">
-                      В кредит от {Math.round(product.price / 60).toLocaleString('ru-RU')} ₽/мес
+                      В кредит от {Math.round(product.price / 60).toLocaleString('ru-RU')} р./мес
                     </div>
                   </div>
 
@@ -159,7 +159,7 @@ const ProductDetail = () => {
                       <div className="font-normal text-sm md:text-lg text-white">{product.maxSpeed} км/ч</div>
                     </div>
                     <div className="bg-white/5 border border-[#3a3a3a] rounded-none p-2">
-                      <div className="text-[9px] md:text-xs text-[#a0a0a0] tracking-wide mb-0.5">ЗАПАС</div>
+                      <div className="text-[9px] md:text-xs text-[#a0a0a0] tracking-wide mb-0.5">ЗАПАС ХОДА</div>
                       <div className="font-normal text-sm md:text-lg text-white">{product.range} км</div>
                     </div>
                     <div className="bg-white/5 border border-[#3a3a3a] rounded-none p-2">

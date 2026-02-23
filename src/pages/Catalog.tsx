@@ -247,6 +247,32 @@ const Catalog = () => {
                 </GlowCard>
               )}
 
+              {/* Sort bar */}
+              <div className="flex items-center justify-end mb-4">
+                <div className="flex items-center gap-2">
+                  <span className="text-xs text-[#707070] tracking-wide uppercase">Сортировка:</span>
+                  <div className="flex gap-1">
+                    {([
+                      { value: "default", label: "По умолчанию" },
+                      { value: "price-asc", label: "Дешевле" },
+                      { value: "price-desc", label: "Дороже" },
+                    ] as const).map(({ value, label }) => (
+                      <button
+                        key={value}
+                        onClick={() => setSortBy(value)}
+                        className={`px-3 py-1.5 text-xs tracking-wide border transition-colors ${
+                          sortBy === value
+                            ? "bg-white text-black border-white"
+                            : "bg-transparent text-[#a0a0a0] border-[#3a3a3a] hover:border-white hover:text-white"
+                        }`}
+                      >
+                        {label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
               {isLoading ? (
                 <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6">
                   {Array.from({ length: 6 }).map((_, i) => (

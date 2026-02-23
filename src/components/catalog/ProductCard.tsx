@@ -15,7 +15,7 @@ const ProductCard = ({ product, isCompared, onToggleCompare }: ProductCardProps)
   return (
     <GlowCard glowIntensity="none" className="group overflow-hidden bg-gradient-to-br from-[#2c3038] to-[#1a1d23] rounded-lg border border-white/10 md:border-0">
       <GlowCardContent className="p-0">
-        <div className="relative aspect-square overflow-hidden bg-[#1a1a1a] rounded-lg">
+        <Link to={`/product/${product.id}`} className="block relative aspect-square overflow-hidden bg-[#1a1a1a] rounded-lg">
           <img
             src={product.image}
             alt={product.name}
@@ -51,12 +51,14 @@ const ProductCard = ({ product, isCompared, onToggleCompare }: ProductCardProps)
               <Icon name="GitCompare" size={14} className="md:w-4 md:h-4" />
             </Button>
           </div>
-        </div>
+        </Link>
 
         <div className="p-3 md:p-6">
           <div className="flex items-start justify-between mb-3 md:mb-4">
             <div className="min-w-0 flex-1">
-              <h3 className="font-light text-white text-base md:text-xl mb-1 md:mb-2 tracking-tight line-clamp-2">{product.name}</h3>
+              <Link to={`/product/${product.id}`} className="hover:text-[#c0c0c0] transition-colors">
+                <h3 className="font-light text-white text-base md:text-xl mb-1 md:mb-2 tracking-tight line-clamp-2">{product.name}</h3>
+              </Link>
               <p className="text-xs md:text-sm text-[#a0a0a0] tracking-wider uppercase">{product.brand}</p>
             </div>
           </div>
@@ -82,9 +84,9 @@ const ProductCard = ({ product, isCompared, onToggleCompare }: ProductCardProps)
 
           <div className="pt-3 md:pt-5 border-t border-[#4a4a4a]">
             <div className="flex items-baseline gap-2 md:gap-3 mb-2 md:mb-3">
-              <span className="text-xl md:text-3xl font-light text-white tracking-tight">{product.price.toLocaleString()} ₽</span>
+              <span className="text-xl md:text-3xl font-light text-white tracking-tight">{product.price.toLocaleString()} р.</span>
               {product.oldPrice && (
-                <span className="text-sm md:text-lg text-[#707070] line-through">{product.oldPrice.toLocaleString()} ₽</span>
+                <span className="text-sm md:text-lg text-[#707070] line-through">{product.oldPrice.toLocaleString()} р.</span>
               )}
             </div>
             <div className="flex justify-end">

@@ -110,6 +110,7 @@
     @apply bg-background text-foreground;
     font-family: "Roboto", sans-serif;
     overflow-y: auto;
+    background-color: #0a0a0a;
   }
 
   h1,

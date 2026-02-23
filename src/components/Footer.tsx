@@ -131,7 +131,7 @@ const Footer = () => {
 
           {/* Разработано в Albe */}
           <a
-            href="https://albe.ru"
+            href="https://albe.su"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2.5 group"

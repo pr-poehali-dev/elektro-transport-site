@@ -37,21 +37,20 @@ const ProductCard = ({ product, isCompared, onToggleCompare }: ProductCardProps)
               </Badge>
             )}
           </div>
-          <div className="absolute top-2 right-2 md:top-3 md:right-3 flex flex-col gap-1 md:gap-2">
-            <Button
-              size="icon"
-              variant="ghost"
-              onClick={() => onToggleCompare(product.id)}
-              className={`h-7 w-7 md:h-9 md:w-9 rounded-none backdrop-blur-sm transition-all duration-300 ${
-                isCompared
-                  ? "bg-white text-black hover:bg-white/90 border border-white"
-                  : "bg-black/40 text-white hover:bg-white hover:text-black border border-white/20"
-              }`}
-            >
-              <Icon name="GitCompare" size={14} className="md:w-4 md:h-4" />
-            </Button>
-          </div>
         </Link>
+
+        {/* Compare button under photo */}
+        <button
+          onClick={() => onToggleCompare(product.id)}
+          className={`w-full flex items-center justify-center gap-1.5 py-1.5 text-[10px] tracking-wider uppercase transition-all duration-300 border-b border-white/10 ${
+            isCompared
+              ? "bg-white/10 text-white"
+              : "bg-transparent text-[#707070] hover:text-white hover:bg-white/5"
+          }`}
+        >
+          <Icon name="GitCompare" size={12} />
+          {isCompared ? "В сравнении" : "Сравнить"}
+        </button>
 
         <div className="p-3 md:p-6">
           <div className="flex items-start justify-between mb-3 md:mb-4">

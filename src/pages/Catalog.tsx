@@ -234,10 +234,16 @@ const Catalog = () => {
                               <td key={p.id} className="py-3 px-2">{p.power} Вт</td>
                             ))}
                           </tr>
-                          <tr>
+                          <tr className="border-b border-[#2a2a2a]">
                             <td className="py-3 px-2 text-[#707070]">Доставка</td>
                             {compareProducts.map((p) => (
                               <td key={p.id} className="py-3 px-2">{p.deliveryDays} дней</td>
+                            ))}
+                          </tr>
+                          <tr>
+                            <td className="py-3 px-2 text-[#707070]">Цена</td>
+                            {compareProducts.map((p) => (
+                              <td key={p.id} className="py-3 px-2 font-normal text-white">{p.price.toLocaleString()} р.</td>
                             ))}
                           </tr>
                         </tbody>

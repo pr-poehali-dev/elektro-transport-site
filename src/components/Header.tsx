@@ -7,6 +7,7 @@ const Header = () => {
   const [searchParams] = useSearchParams();
   const [searchQuery, setSearchQuery] = useState("");
   const [showMobileSearch, setShowMobileSearch] = useState(false);
+  const [phoneRevealed, setPhoneRevealed] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -89,13 +90,31 @@ const Header = () => {
           </form>
           
           <div className="flex items-center gap-2 md:gap-3">
+            {/* Mobile: просто ссылка */}
             <a
               href="tel:+375291299245"
-              className="inline-flex items-center bg-transparent border border-white text-white hover:bg-white hover:text-black rounded-none px-3 md:px-8 py-1.5 md:py-2 text-[10px] md:text-xs tracking-[0.1em] md:tracking-[0.15em] font-light transition-all duration-300"
+              className="sm:hidden inline-flex items-center bg-transparent border border-white text-white hover:bg-white hover:text-black rounded-none px-3 py-1.5 text-[10px] tracking-[0.1em] font-light transition-all duration-300"
             >
-              <span className="hidden sm:inline">+375 (29) 129-92-45</span>
-              <span className="sm:hidden">Позвонить</span>
+              Позвонить
             </a>
+
+            {/* Desktop: с блюром последних цифр */}
+            {phoneRevealed ? (
+              <a
+                href="tel:+375291299245"
+                className="hidden sm:inline-flex items-center bg-transparent border border-white text-white hover:bg-white hover:text-black rounded-none px-8 py-2 text-xs tracking-[0.15em] font-light transition-all duration-300"
+              >
+                +375 (29) 129-92-45
+              </a>
+            ) : (
+              <button
+                onClick={() => setPhoneRevealed(true)}
+                className="hidden sm:inline-flex items-center gap-0 bg-transparent border border-white text-white hover:bg-white hover:text-black rounded-none px-8 py-2 text-xs tracking-[0.15em] font-light transition-all duration-300 group"
+              >
+                <span>+375 (29) 129-</span>
+                <span className="blur-sm group-hover:blur-[3px] transition-all select-none">92-45</span>
+              </button>
+            )}
           </div>
         </div>
       </div>

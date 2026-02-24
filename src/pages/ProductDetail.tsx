@@ -93,7 +93,17 @@ const ProductDetail = () => {
                   <GlowCard glowIntensity="none" hoverEffect={false} className="bg-gradient-to-br from-[#2c3038] to-[#1a1d23] border border-white/10 md:border-0 rounded-lg w-full">
                     <GlowCardContent className="p-3 md:p-6">
                       <h2 className="text-base md:text-xl font-normal mb-2 md:mb-4 text-white tracking-wide">Описание</h2>
-                      <p className="text-xs md:text-base text-[#d0d0d0] leading-relaxed">{product.description}</p>
+                      <div className="space-y-3">
+                        {product.description.split('. ').reduce<string[]>((acc, sentence, i, arr) => {
+                          const chunkSize = 2;
+                          if (i % chunkSize === 0) {
+                            acc.push(arr.slice(i, i + chunkSize).join('. ') + (i + chunkSize < arr.length ? '.' : ''));
+                          }
+                          return acc;
+                        }, []).map((para, i) => (
+                          <p key={i} className="text-xs md:text-base text-[#d0d0d0] leading-relaxed">{para}</p>
+                        ))}
+                      </div>
                     </GlowCardContent>
                   </GlowCard>
 

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { GlowCard, GlowCardContent } from "@/components/ui/glow-card";
 import Icon from "@/components/ui/icon";
@@ -215,7 +215,9 @@ const Catalog = () => {
                             <th className="text-left py-3 px-2 text-[#707070] font-normal">Параметр</th>
                             {compareProducts.map((p) => (
                               <th key={p.id} className="text-left py-3 px-2 font-normal text-white">
-                                {p.name}
+                                <Link to={`/product/${p.id}`} className="hover:text-[#a0c4ff] transition-colors underline underline-offset-2 decoration-[#3a3a3a] hover:decoration-[#a0c4ff]">
+                                  {p.name}
+                                </Link>
                               </th>
                             ))}
                           </tr>

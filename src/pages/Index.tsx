@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import { useEffect, useRef, useState } from "react";
 import Icon from "@/components/ui/icon";
 import ConsultModal from "@/components/ConsultModal";
+import SEO from "@/components/SEO";
 
 const Index = () => {
   const navigate = useNavigate();
@@ -87,6 +88,13 @@ const Index = () => {
 
   return (
     <>
+    <SEO
+      title="Electro Motors — Электровелосипеды и электросамокаты в Беларуси"
+      description="Electro Motors — интернет-магазин электровелосипедов, электросамокатов и электроскутеров в Беларуси. Более 200 моделей, официальная гарантия 1 год, доставка по всей РБ."
+      keywords="электровелосипед купить Беларусь, электросамокат Минск, электроскутер, электротранспорт РБ, электровелосипед Гомель"
+      canonical="/"
+      type="website"
+    />
     <div className="bg-[#0a0a0a] relative h-screen w-screen overflow-hidden fixed inset-0">
       {/* Анимация Premium Electric Mobility */}
       <div ref={premiumTextRef} className="fixed inset-0 z-50 bg-[#0a0a0a] hidden items-center justify-center px-4 transition-opacity duration-500" style={{ fontFamily: 'Montserrat, sans-serif' }}>

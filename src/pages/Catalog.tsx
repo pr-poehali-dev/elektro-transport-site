@@ -8,6 +8,7 @@ import Header from "@/components/Header";
 import { Product } from "@/data/products";
 import CatalogFiltersContent from "@/components/catalog/CatalogFiltersContent";
 import ProductCard from "@/components/catalog/ProductCard";
+import SEO from "@/components/SEO";
 
 const categories = [
   { name: "Электровелосипеды", icon: "Bike" },
@@ -133,6 +134,13 @@ const Catalog = () => {
 
   return (
     <div className="min-h-screen bg-[#0a0a0a]">
+      <SEO
+        title="Каталог электровелосипедов и электросамокатов — Electro Motors"
+        description="Купите электровелосипед, электросамокат или электроскутер в Беларуси. Более 200 моделей от AVM, BNP, SmartBalance. Официальная гарантия, доставка по всей РБ."
+        keywords="купить электровелосипед Беларусь, электросамокат каталог, электроскутер цена, AVM электровелосипед, электротранспорт Минск Гомель"
+        canonical="/catalog"
+        breadcrumbs={[{ name: "Каталог", url: "/catalog" }]}
+      />
       <Header />
 
       <section className="relative py-12 md:py-24 mb-16 md:mb-0">

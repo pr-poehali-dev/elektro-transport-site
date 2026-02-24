@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import Icon from '@/components/ui/icon';
+import SEO from '@/components/SEO';
 
 interface Product {
   id?: number;
@@ -245,6 +246,8 @@ export default function AdminPage() {
   }
 
   return (
+    <>
+    <SEO title="Админ-панель" description="Управление товарами" noindex={true} />
     <div className="container mx-auto px-4 py-8">
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-3xl font-bold">Управление товарами</h1>
@@ -623,5 +626,6 @@ export default function AdminPage() {
         ))}
       </div>
     </div>
+    </>
   );
 }

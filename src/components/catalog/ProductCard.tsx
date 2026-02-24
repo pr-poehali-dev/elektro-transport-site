@@ -5,6 +5,7 @@ import Icon from "@/components/ui/icon";
 import { Badge } from "@/components/ui/badge";
 import { Product } from "@/data/products";
 import ConsultModal from "@/components/ConsultModal";
+import { calcMonthlyPayment } from "@/utils/credit";
 
 interface ProductCardProps {
   product: Product;
@@ -81,18 +82,23 @@ const ProductCard = ({ product, isCompared, onToggleCompare }: ProductCardProps)
             </div>
 
             <div className="mt-3 md:mt-5 rounded-lg bg-[#1a1d23] border border-white/8 overflow-hidden">
-              <div className="flex items-center justify-between px-3 md:px-4 pt-3 md:pt-4 pb-2 md:pb-3">
-                <div>
-                  <span className="text-xl md:text-2xl font-light text-white tracking-tight">{product.price.toLocaleString()} р.</span>
+              <div className="px-3 md:px-4 pt-3 md:pt-4 pb-2 md:pb-3">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <span className="text-xl md:text-2xl font-light text-white tracking-tight">{product.price.toLocaleString()} р.</span>
+                    {product.oldPrice && (
+                      <span className="text-xs md:text-sm text-[#505050] line-through ml-2">{product.oldPrice.toLocaleString()} р.</span>
+                    )}
+                  </div>
                   {product.oldPrice && (
-                    <span className="text-xs md:text-sm text-[#505050] line-through ml-2">{product.oldPrice.toLocaleString()} р.</span>
+                    <span className="text-[10px] text-green-400 bg-green-400/10 border border-green-400/20 px-2 py-0.5 rounded tracking-wide">
+                      -{Math.round((1 - product.price / product.oldPrice) * 100)}%
+                    </span>
                   )}
                 </div>
-                {product.oldPrice && (
-                  <span className="text-[10px] text-green-400 bg-green-400/10 border border-green-400/20 px-2 py-0.5 rounded tracking-wide">
-                    -{Math.round((1 - product.price / product.oldPrice) * 100)}%
-                  </span>
-                )}
+                <div className="text-[10px] md:text-xs text-[#606060] mt-1">
+                  В кредит от <span className="text-[#a0a0a0]">{calcMonthlyPayment(product.price).toLocaleString()} р./мес</span> × 60 мес
+                </div>
               </div>
               <div className="grid grid-cols-2 border-t border-white/8">
                 <button

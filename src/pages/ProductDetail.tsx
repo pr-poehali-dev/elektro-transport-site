@@ -10,6 +10,7 @@ import { Product } from "@/data/products";
 import ProductSpecs from "@/components/catalog/ProductSpecs";
 import ConsultModal from "@/components/ConsultModal";
 import SEO from "@/components/SEO";
+import { calcMonthlyPayment, CREDIT_MONTHS, CREDIT_RATE_PERCENT } from "@/utils/credit";
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -176,7 +177,11 @@ const ProductDetail = () => {
                       )}
                     </div>
                     <div className="text-xs md:text-sm text-[#c0c0c0]">
-                      В кредит от {Math.round(product.price / 60).toLocaleString('ru-RU')} р./мес
+                      В кредит от{" "}
+                      <span className="text-white font-normal">
+                        {calcMonthlyPayment(product.price).toLocaleString('ru-RU')} р./мес
+                      </span>
+                      {" "}× {CREDIT_MONTHS} мес · {CREDIT_RATE_PERCENT}% годовых
                     </div>
                   </div>
 

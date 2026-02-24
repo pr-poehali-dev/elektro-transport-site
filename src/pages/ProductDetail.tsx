@@ -11,6 +11,7 @@ import ProductSpecs from "@/components/catalog/ProductSpecs";
 import ConsultModal from "@/components/ConsultModal";
 import SEO from "@/components/SEO";
 import { calcMonthlyPayment, CREDIT_MONTHS, CREDIT_RATE_PERCENT } from "@/utils/credit";
+import CreditCalculator from "@/components/CreditCalculator";
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -236,6 +237,8 @@ const ProductDetail = () => {
                   </div>
                 </GlowCardContent>
               </GlowCard>
+
+              <CreditCalculator price={product.price} />
 
             </div>
           </div>

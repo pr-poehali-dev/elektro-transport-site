@@ -9,6 +9,7 @@ import Header from "@/components/Header";
 import { Product } from "@/data/products";
 import ProductSpecs from "@/components/catalog/ProductSpecs";
 import ConsultModal from "@/components/ConsultModal";
+import SEO from "@/components/SEO";
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -43,6 +44,27 @@ const ProductDetail = () => {
 
   return (
     <>
+    <SEO
+      title={product.name}
+      description={product.description}
+      type="product"
+      image={product.image}
+      canonical={`/product/${product.id}`}
+      keywords={`${product.name}, ${product.brand}, купить ${product.category} Беларусь`}
+      product={{
+        name: product.name,
+        price: product.price,
+        currency: "BYN",
+        availability: product.inStock ? "InStock" : "OutOfStock",
+        description: product.description,
+        sku: String(product.id),
+        brand: product.brand,
+      }}
+      breadcrumbs={[
+        { name: "Каталог", url: "/catalog" },
+        { name: product.name, url: `/product/${product.id}` },
+      ]}
+    />
     <div className="min-h-screen bg-[#0a0a0a] overflow-x-hidden">
       <Header />
 

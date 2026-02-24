@@ -34,22 +34,22 @@ const Footer = () => {
             <h4 className="text-[10px] tracking-[0.25em] uppercase text-[#505050] mb-5">Контакты</h4>
             <div className="space-y-4">
               <a
-                href="tel:+74951234567"
+                href="tel:+375445000234"
                 className="flex items-center gap-3 text-white hover:text-[#c0c0c0] transition-colors group"
               >
                 <Icon name="Phone" size={16} className="text-[#505050] group-hover:text-white transition-colors" />
-                <span className="text-sm font-light tracking-wide">+7 (495) 123-45-67</span>
+                <span className="text-sm font-light tracking-wide">+375 44 500-02-34</span>
               </a>
               <a
-                href="mailto:info@example.com"
+                href="mailto:ecofarinfo@gmail.com"
                 className="flex items-center gap-3 text-white hover:text-[#c0c0c0] transition-colors group"
               >
                 <Icon name="Mail" size={16} className="text-[#505050] group-hover:text-white transition-colors" />
-                <span className="text-sm font-light tracking-wide">info@example.com</span>
+                <span className="text-sm font-light tracking-wide">ecofarinfo@gmail.com</span>
               </a>
               <div className="flex items-start gap-3">
                 <Icon name="MapPin" size={16} className="text-[#505050] mt-0.5 shrink-0" />
-                <span className="text-sm font-light text-[#a0a0a0] leading-relaxed">Москва, ул. Примерная, 12</span>
+                <span className="text-sm font-light text-[#a0a0a0] leading-relaxed">г. Гомель, ул. Могилевская, 1а</span>
               </div>
             </div>
 

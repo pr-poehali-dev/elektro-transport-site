@@ -58,6 +58,15 @@ const ProductDetail = () => {
         </div>
 
         <div className="container mx-auto px-2 md:px-6 relative z-10 max-w-[1400px]">
+          {/* Breadcrumbs */}
+          <nav className="flex items-center gap-1.5 text-xs text-[#505050] mb-4 md:mb-6">
+            <Link to="/" className="hover:text-[#a0a0a0] transition-colors">Главная</Link>
+            <Icon name="ChevronRight" size={12} className="text-[#3a3a3a]" />
+            <Link to="/catalog" className="hover:text-[#a0a0a0] transition-colors">Каталог</Link>
+            <Icon name="ChevronRight" size={12} className="text-[#3a3a3a]" />
+            <span className="text-[#808080] truncate max-w-[200px] md:max-w-none">{product.name}</span>
+          </nav>
+
           <div className="flex flex-col lg:grid lg:grid-cols-[1fr_400px] gap-3 md:gap-6">
             {/* Left Column - Images + Description */}
             <div className="space-y-3 md:space-y-6 w-full">

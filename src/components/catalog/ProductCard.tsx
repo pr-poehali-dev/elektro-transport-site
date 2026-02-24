@@ -1,12 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { GlowCard, GlowCardContent } from "@/components/ui/glow-card";
 import Icon from "@/components/ui/icon";
 import { Badge } from "@/components/ui/badge";
 import { Product } from "@/data/products";
+import ConsultModal from "@/components/ConsultModal";
 
 interface ProductCardProps {
   product: Product;
@@ -16,18 +14,6 @@ interface ProductCardProps {
 
 const ProductCard = ({ product, isCompared, onToggleCompare }: ProductCardProps) => {
   const [showModal, setShowModal] = useState(false);
-  const [formData, setFormData] = useState({ name: "", phone: "", comment: "" });
-  const [loading, setLoading] = useState(false);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    await new Promise((r) => setTimeout(r, 800));
-    setLoading(false);
-    setFormData({ name: "", phone: "", comment: "" });
-    setShowModal(false);
-    alert("Спасибо за заказ! Мы свяжемся с вами в ближайшее время.");
-  };
 
   return (
     <>
@@ -47,11 +33,6 @@ const ProductCard = ({ product, isCompared, onToggleCompare }: ProductCardProps)
               ) : (
                 <Badge className="bg-orange-500/90 text-white border-0 font-semibold px-2 py-0.5 md:px-3 md:py-1 text-[10px] md:text-xs">
                   Под заказ
-                </Badge>
-              )}
-              {product.deliveryDays <= 7 && (
-                <Badge className="bg-blue-500/90 text-white border-0 font-semibold px-2 py-0.5 md:px-3 md:py-1 text-[10px] md:text-xs">
-                  Быстрая доставка
                 </Badge>
               )}
             </div>
@@ -132,58 +113,13 @@ const ProductCard = ({ product, isCompared, onToggleCompare }: ProductCardProps)
         </GlowCardContent>
       </GlowCard>
 
-      {/* Quick order modal */}
-      {showModal && (
-        <div
-          className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[200] flex items-center justify-center p-4"
-          onClick={() => setShowModal(false)}
-        >
-          <div
-            className="bg-gradient-to-br from-[#3a3f47] to-[#2a2e35] border-2 border-blue-400/40 w-full max-w-md p-6 md:p-8 relative"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              onClick={() => setShowModal(false)}
-              className="absolute top-4 right-4 text-[#707070] hover:text-white transition-colors"
-            >
-              <Icon name="X" size={20} />
-            </button>
-            <h3 className="text-lg md:text-2xl font-semibold mb-1 text-white tracking-wide">Купить в 1 клик</h3>
-            <p className="text-sm text-[#a0a0a0] mb-5">{product.name}</p>
-            <form onSubmit={handleSubmit} className="space-y-3">
-              <Input
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                required
-                placeholder="Ваше имя"
-                className="bg-white/10 border-[#4a4a4a] text-white placeholder:text-[#a0a0a0] rounded-lg h-11 focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-blue-400"
-              />
-              <Input
-                type="tel"
-                value={formData.phone}
-                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                required
-                placeholder="+7 (___) ___-__-__"
-                className="bg-white/10 border-[#4a4a4a] text-white placeholder:text-[#a0a0a0] rounded-lg h-11 focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-blue-400"
-              />
-              <Textarea
-                value={formData.comment}
-                onChange={(e) => setFormData({ ...formData, comment: e.target.value })}
-                placeholder="Комментарий к заказу"
-                rows={3}
-                className="bg-white/10 border-[#4a4a4a] text-white placeholder:text-[#a0a0a0] rounded-lg resize-none focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-blue-400"
-              />
-              <Button
-                type="submit"
-                disabled={loading}
-                className="w-full bg-white text-black hover:bg-[#e5e5e5] rounded-lg py-5 text-base font-semibold tracking-wide transition-all"
-              >
-                {loading ? "Отправляем..." : "Оформить заказ"}
-              </Button>
-            </form>
-          </div>
-        </div>
-      )}
+      <ConsultModal
+        open={showModal}
+        onClose={() => setShowModal(false)}
+        title="Оформить заказ"
+        subtitle="Оставьте контакты — мы свяжемся в течение 15 минут"
+        productName={product.name}
+      />
     </>
   );
 };

@@ -5,21 +5,16 @@ import { Card, CardContent } from "@/components/ui/card";
 import { GlowCard, GlowCardContent } from "@/components/ui/glow-card";
 import Icon from "@/components/ui/icon";
 import { Badge } from "@/components/ui/badge";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import Header from "@/components/Header";
 import { Product } from "@/data/products";
 import ProductSpecs from "@/components/catalog/ProductSpecs";
+import ConsultModal from "@/components/ConsultModal";
 
 const ProductDetail = () => {
   const { id } = useParams();
   const [product, setProduct] = useState<Product | null>(null);
   const [selectedImage, setSelectedImage] = useState(0);
-  const [formData, setFormData] = useState({
-    name: "",
-    phone: "",
-    comment: ""
-  });
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     fetch('https://functions.poehali.dev/1f044027-fd62-4bec-9641-d80cece6f0a7')
@@ -46,16 +41,8 @@ const ProductDetail = () => {
     );
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Order form submitted:", formData);
-    alert("Спасибо за заказ! Мы свяжемся с вами в ближайшее время.");
-    setFormData({ name: "", phone: "", comment: "" });
-  };
-
-
-
   return (
+    <>
     <div className="min-h-screen bg-[#0a0a0a] overflow-x-hidden">
       <Header />
 
@@ -173,10 +160,7 @@ const ProductDetail = () => {
                   </div>
 
                   <Button
-                    onClick={() => {
-                      const el = document.getElementById('order-form');
-                      if (el) el.scrollIntoView({ behavior: 'smooth' });
-                    }}
+                    onClick={() => setShowModal(true)}
                     className="w-full bg-white hover:bg-[#e5e5e5] text-black rounded-none py-3 md:py-5 font-normal text-sm md:text-base tracking-wide mb-2 md:mb-3 md:transition-colors"
                   >
                     <Icon name="ShoppingCart" size={14} className="mr-2 md:w-4 md:h-4" />
@@ -207,54 +191,6 @@ const ProductDetail = () => {
                 </GlowCardContent>
               </GlowCard>
 
-              {/* Order Form */}
-              <GlowCard id="order-form" glowIntensity="none" hoverEffect={false} className="bg-gradient-to-br from-[#3a3f47] to-[#2a2e35] rounded-lg border-2 border-blue-400/40 w-full">
-                <GlowCardContent className="p-3 md:p-8">
-                  <h3 className="text-base md:text-2xl font-semibold mb-3 md:mb-6 text-white tracking-wide">Заказать товар</h3>
-                  <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4">
-                    <div>
-                      <Input
-                        id="name"
-                        value={formData.name}
-                        onChange={(e) => setFormData({...formData, name: e.target.value})}
-                        required
-                        placeholder="Ваше имя"
-                        className="bg-white/10 border-[#4a4a4a] text-white placeholder:text-[#a0a0a0] rounded-lg h-10 md:h-12 text-sm md:text-base focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-blue-400"
-                      />
-                    </div>
-                    <div>
-                      <Input
-                        id="phone"
-                        type="tel"
-                        value={formData.phone}
-                        onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                        required
-                        placeholder="+7 (___) ___-__-__"
-                        className="bg-white/10 border-[#4a4a4a] text-white placeholder:text-[#a0a0a0] rounded-lg h-10 md:h-12 text-sm md:text-base focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-blue-400"
-                      />
-                    </div>
-                    <div>
-                      <Textarea
-                        id="comment"
-                        value={formData.comment}
-                        onChange={(e) => setFormData({...formData, comment: e.target.value})}
-                        placeholder="Комментарий к заказу"
-                        rows={3}
-                        className="bg-white/10 border-[#4a4a4a] text-white placeholder:text-[#a0a0a0] rounded-lg text-sm md:text-base resize-none focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-blue-400"
-                      />
-                    </div>
-                    <Button
-                      type="submit"
-                      className="w-full bg-white text-black hover:bg-[#e5e5e5] rounded-lg py-3 md:py-5 text-base md:text-lg font-semibold tracking-wide shadow-lg hover:shadow-xl transition-all"
-                    >
-                      {product.inStock ? "Оформить заказ" : "Предзаказ"}
-                    </Button>
-                    <p className="text-[10px] md:text-xs text-[#a0a0a0] text-center leading-relaxed">
-                      Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
-                    </p>
-                  </form>
-                </GlowCardContent>
-              </GlowCard>
             </div>
           </div>
 
@@ -284,6 +220,15 @@ const ProductDetail = () => {
 
       </div>
     </div>
+
+    <ConsultModal
+      open={showModal}
+      onClose={() => setShowModal(false)}
+      title="Оформить заказ"
+      subtitle="Оставьте контакты — мы свяжемся в течение 15 минут"
+      productName={product.name}
+    />
+    </>
   );
 };
 

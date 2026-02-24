@@ -6,6 +6,35 @@ import { useToast } from "@/hooks/use-toast";
 import Icon from "@/components/ui/icon";
 import GlowDivider from "@/components/GlowDivider";
 
+const BY_PHONE_MASK = "+375 (__) ___-__-__";
+
+const formatByPhone = (value: string): string => {
+  const digits = value.replace(/\D/g, "");
+  let d = digits;
+  if (d.startsWith("375")) d = d.slice(3);
+  else if (d.startsWith("80")) d = d.slice(2);
+  else if (d.startsWith("8")) d = d.slice(1);
+  let result = "+375 ";
+  if (d.length === 0) return result;
+  result += `(${d.slice(0, 2)}`;
+  if (d.length < 2) return result;
+  result += ") " + d.slice(2, 5);
+  if (d.length < 5) return result;
+  result += "-" + d.slice(5, 7);
+  if (d.length < 7) return result;
+  result += "-" + d.slice(7, 9);
+  return result;
+};
+
+const isByPhoneValid = (value: string): boolean => {
+  const digits = value.replace(/\D/g, "");
+  let d = digits;
+  if (d.startsWith("375")) d = d.slice(3);
+  else if (d.startsWith("80")) d = d.slice(2);
+  else if (d.startsWith("8")) d = d.slice(1);
+  return d.length === 9;
+};
+
 const Footer = () => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
@@ -14,7 +43,7 @@ const Footer = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!name.trim() || !phone.trim()) return;
+    if (!name.trim() || !isByPhoneValid(phone)) return;
     setLoading(true);
     await new Promise((r) => setTimeout(r, 800));
     setLoading(false);
@@ -96,16 +125,21 @@ const Footer = () => {
                 onChange={(e) => setName(e.target.value)}
                 className="bg-transparent border-[#2a2a2a] text-white placeholder:text-[#505050] rounded-none focus-visible:ring-0 focus-visible:border-white text-sm font-light"
               />
-              <Input
-                placeholder="Телефон"
-                type="tel"
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-                className="bg-transparent border-[#2a2a2a] text-white placeholder:text-[#505050] rounded-none focus-visible:ring-0 focus-visible:border-white text-sm font-light"
-              />
+              <div>
+                <Input
+                  placeholder={BY_PHONE_MASK}
+                  type="tel"
+                  value={phone}
+                  onChange={(e) => setPhone(formatByPhone(e.target.value))}
+                  className="bg-transparent border-[#2a2a2a] text-white placeholder:text-[#505050] rounded-none focus-visible:ring-0 focus-visible:border-white text-sm font-light"
+                />
+                {phone.length > 5 && !isByPhoneValid(phone) && (
+                  <p className="text-[10px] text-red-400 mt-1">Введите корректный номер (+375 XX XXX-XX-XX)</p>
+                )}
+              </div>
               <Button
                 type="submit"
-                disabled={loading || !name.trim() || !phone.trim()}
+                disabled={loading || !name.trim() || !isByPhoneValid(phone)}
                 className="w-full rounded-none bg-white text-black hover:bg-[#e0e0e0] text-xs tracking-[0.15em] uppercase font-normal h-10"
               >
                 {loading ? "Отправляем..." : "Отправить"}

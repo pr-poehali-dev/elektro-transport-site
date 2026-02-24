@@ -120,8 +120,32 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* Реквизиты */}
+        <div className="mt-12 pt-8 border-t border-[#1e1e1e]">
+          <h4 className="text-[10px] tracking-[0.25em] uppercase text-[#505050] mb-4">Реквизиты</h4>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-1.5 text-[11px] text-[#505050] font-light leading-relaxed">
+            <span>ООО «Экофар» &nbsp;·&nbsp; УНП: 491378254 от 14.06.2022</span>
+            <span>Юр. адрес: г. Гомель, ул. Могилевская, 1а</span>
+            <span>Директор: Болдовский В. А., действует на основании устава</span>
+            <span>Р/С BYN: BY 73 PJCB 3012 4078121000000 933 &nbsp;·&nbsp; BIC PJCBBY2X</span>
+            <span>Банк: «Приорбанк» ОАО, ЦБУ 400, г. Гомель, ул. Красноармейская, 3А</span>
+            <span>Спец. счёт RUB: BY 46 PJCB 3012 4078121000000 643</span>
+            <span>
+              <a href="tel:+375445000234" className="hover:text-[#a0a0a0] transition-colors">+375 44 500-02-34</a>
+              &nbsp;·&nbsp;
+              <a href="mailto:ecofarinfo@gmail.com" className="hover:text-[#a0a0a0] transition-colors">ecofarinfo@gmail.com</a>
+            </span>
+            <span>
+              Документы для договоров:{" "}
+              <a href="https://goo.su/QtV5Cv" target="_blank" rel="noopener noreferrer" className="hover:text-[#a0a0a0] transition-colors underline underline-offset-2">
+                goo.su/QtV5Cv
+              </a>
+            </span>
+          </div>
+        </div>
+
         {/* Bottom bar */}
-        <div className="mt-12 pt-6 border-t border-[#1e1e1e] flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div className="mt-8 pt-6 border-t border-[#1e1e1e] flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-8">
             <span className="text-[10px] text-[#404040] tracking-wide">
               © {new Date().getFullYear()} Все права защищены
